@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#FAFAF8" />
+        <meta name="description" content="Discover 100+ top fashion and lifestyle brands at Askaran Binjraj, Dhekiajuli's premier shopping mall on NH 52. Visit us today for quality and value!" />
+        <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <title>Askaran Binjraj – Shopping Mall In Dhekiajuli</title>
+        <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
+    </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root"></div>
+        <template id="storefront-template">
+            <!-- SPLASH SCREEN -->
+            <div class="splash" id="splash" data-testid="splash-screen">
+                <div class="sp-dot" style="top:8%;left:12%;width:3px;height:3px;opacity:.18;animation:dot-pulse 2.4s ease 0s infinite"></div>
+                <div class="sp-dot" style="top:15%;left:78%;width:2px;height:2px;opacity:.24;animation:dot-pulse 2.8s ease .3s infinite"></div>
+                <div class="sp-dot" style="top:22%;left:34%;width:2px;height:2px;opacity:.3;animation:dot-pulse 3.2s ease .6s infinite"></div>
+                <div class="sp-dot" style="top:31%;left:91%;width:3px;height:3px;opacity:.36;animation:dot-pulse 3.6s ease .9s infinite"></div>
+                <div class="sp-dot" style="top:45%;left:6%;width:2px;height:2px;opacity:.18;animation:dot-pulse 4s ease 1.2s infinite"></div>
+                <div class="sp-dot" style="top:52%;left:88%;width:2px;height:2px;opacity:.24;animation:dot-pulse 2.4s ease 1.5s infinite"></div>
+                <div class="sp-dot" style="top:63%;left:22%;width:3px;height:3px;opacity:.3;animation:dot-pulse 2.8s ease 1.8s infinite"></div>
+                <div class="sp-dot" style="top:71%;left:67%;width:2px;height:2px;opacity:.36;animation:dot-pulse 3.2s ease 2.1s infinite"></div>
+                <div class="sp-dot" style="top:78%;left:44%;width:2px;height:2px;opacity:.18;animation:dot-pulse 3.6s ease 2.4s infinite"></div>
+                <div class="sp-dot" style="top:85%;left:82%;width:3px;height:3px;opacity:.24;animation:dot-pulse 4s ease 2.7s infinite"></div>
+                <div class="sp-dot" style="top:18%;left:55%;width:2px;height:2px;opacity:.3;animation:dot-pulse 2.4s ease 3s infinite"></div>
+                <div class="sp-dot" style="top:90%;left:15%;width:2px;height:2px;opacity:.36;animation:dot-pulse 2.8s ease 3.3s infinite"></div>
+                <div class="sp-ring"><svg width="500" height="500" viewBox="0 0 500 500" fill="none"><circle cx="250" cy="250" r="248" stroke="#E8E3DA" stroke-width="1"></circle><path d="M 250 2 A 248 248 0 0 1 497 223" stroke="#C8251E" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.55"></path></svg></div>
+                <div class="sp-line-h" style="top:28px;transform-origin:left center;animation-delay:.1s"></div>
+                <div class="sp-line-h" style="bottom:28px;transform-origin:right center;animation-delay:.2s"></div>
+                <div class="sp-line-v" style="left:28px;transform-origin:center top;animation-delay:.3s"></div>
+                <div class="sp-line-v" style="right:28px;transform-origin:center bottom;animation-delay:.35s"></div>
+                <div class="sp-corner" style="top:24px;left:24px"><svg viewBox="0 0 14 14" fill="none" style="width:100%;height:100%"><path d="M0 0 H8 M0 0 V8" stroke="#C8251E" stroke-width="1.5"></path></svg></div>
+                <div class="sp-corner" style="top:24px;right:24px"><svg viewBox="0 0 14 14" fill="none" style="width:100%;height:100%;transform:rotate(90deg)"><path d="M0 0 H8 M0 0 V8" stroke="#C8251E" stroke-width="1.5"></path></svg></div>
+                <div class="sp-corner" style="bottom:24px;right:24px"><svg viewBox="0 0 14 14" fill="none" style="width:100%;height:100%;transform:rotate(180deg)"><path d="M0 0 H8 M0 0 V8" stroke="#C8251E" stroke-width="1.5"></path></svg></div>
+                <div class="sp-corner" style="bottom:24px;left:24px"><svg viewBox="0 0 14 14" fill="none" style="width:100%;height:100%;transform:rotate(270deg)"><path d="M0 0 H8 M0 0 V8" stroke="#C8251E" stroke-width="1.5"></path></svg></div>
+                <p class="sp-meta" style="left:50px">Est. 1980</p>
+                <p class="sp-meta" style="right:50px">6th Generation</p>
+                <div class="sp-sweep"><div></div></div>
+                <div class="sp-center">
+                    <div class="sp-logo"><img alt="Askaran Binjraj" src="%PUBLIC_URL%/assets/logo-stacked.png"><div class="sp-shimmer"></div></div>
+                    <div class="sp-divider"></div>
+                    <p class="sp-tagline">Quality. Variety. Trust.</p>
+                    <div class="sp-dots"><div></div><div style="animation-delay:.18s"></div><div style="animation-delay:.36s"></div></div>
+                    <p class="sp-since">Since 1980 &nbsp;·&nbsp; Six Generations of Trust</p>
+                    <div class="sp-letters">
+                        <span style="animation-delay:1.9s">A</span><span style="animation-delay:1.96s">S</span><span style="animation-delay:2.02s">K</span><span style="animation-delay:2.08s">A</span><span style="animation-delay:2.14s">R</span><span style="animation-delay:2.2s">A</span><span style="animation-delay:2.26s">N</span><span style="animation-delay:2.32s;min-width:0.5em">&nbsp;</span><span style="animation-delay:2.38s">B</span><span style="animation-delay:2.44s">I</span><span style="animation-delay:2.5s">N</span><span style="animation-delay:2.56s">J</span><span style="animation-delay:2.62s">R</span><span style="animation-delay:2.68s">A</span><span style="animation-delay:2.74s">J</span>
+                    </div>
+                </div>
+                <div class="sp-cats">
+                    <span style="animation-delay:1.8s">Fashion</span><span style="animation-delay:1.87s">Ethnic Wear</span><span style="animation-delay:1.94s">Travel Gear</span><span style="animation-delay:2.01s">Cosmetics</span><span style="animation-delay:2.08s">Jewellery</span><span style="animation-delay:2.15s">Accessories</span>
+                </div>
+                <div class="sp-progress"><div><div></div></div></div>
+            </div>
+
+            <!-- ANNOUNCEMENT BAR -->
+            <div class="sf-announce" data-testid="announce-bar">Same-day &amp; 1-day delivery available &nbsp;·&nbsp; New ethnic collection just dropped &nbsp;·&nbsp; <a href="https://shop.askaranbinjraj.com/" target="_blank" rel="noopener noreferrer" data-testid="announce-shop-link">Shop Online ↗</a></div>
+
+            <!-- HEADER -->
+            <header class="sf-header" id="site-header">
+                <div class="sf-header-in">
+                    <a href="/" class="sf-logo" data-testid="nav-logo"><img alt="Askaran Binjraj" src="%PUBLIC_URL%/assets/logo-horizontal.png"></a>
+                    <nav class="sf-nav">
+                        <a href="#fashion" data-testid="nav-fashion">Fashion</a>
+                        <a href="#ethnic" data-testid="nav-ethnic">Ethnic Wear</a>
+                        <a href="#travel" data-testid="nav-travel">Travel Gear</a>
+                        <a href="#cosmetics" data-testid="nav-cosmetics">Cosmetics</a>
+                        <a href="#jewelry" data-testid="nav-jewelry">Jewellery</a>
+                        <a href="#accessories" data-testid="nav-accessories">Accessories</a>
+                        <a href="#stores" data-testid="nav-stores">Visit Us</a>
+                        <a href="#about" data-testid="nav-about">About</a>
+                        <a href="#blog" data-testid="nav-blog">In Store</a>
+                        <a href="/careers" data-testid="nav-careers">Careers</a>
+                    </nav>
+                    <div class="sf-header-actions">
+                        <a href="https://shop.askaranbinjraj.com" target="_blank" rel="noopener noreferrer" class="sf-shop-btn" data-testid="nav-shop-online">Shop Online<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15M19.5 4.5H4.5M19.5 4.5v15"></path></svg></a>
+                        <button class="sf-burger" id="burger" data-testid="mobile-menu-button" aria-label="Menu"><span></span><span></span><span></span></button>
+                    </div>
+                </div>
+                <nav class="sf-mobile-nav" id="mobile-nav" data-testid="mobile-nav">
+                    <a href="#fashion">Fashion</a>
+                    <a href="#ethnic">Ethnic Wear</a>
+                    <a href="#travel">Travel Gear</a>
+                    <a href="#cosmetics">Cosmetics</a>
+                    <a href="#jewelry">Jewellery</a>
+                    <a href="#accessories">Accessories</a>
+                    <a href="#stores">Visit Us</a>
+                    <a href="#about">About</a>
+                    <a href="#blog">In Store</a>
+                    <a href="/careers">Careers</a>
+                    <a href="https://shop.askaranbinjraj.com" target="_blank" rel="noopener noreferrer">Shop Online ↗</a>
+                </nav>
+            </header>
+
+            <!-- HERO -->
+            <section id="hero" class="sf-hero" data-testid="hero">
+                <div class="sf-slide active"><img alt="New Season Fashion" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/4237.jpg"></div>
+                <div class="sf-slide"><img alt="Heritage Saree Collection" src="%PUBLIC_URL%/assets/saree-model.jpg"></div>
+                <div class="sf-slide"><img alt="Fine Jewellery" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/luxury-jewellery-shop-window_250469-15719.avif"></div>
+                <div class="sf-slide"><img alt="Mens Ready-to-Wear" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/2148401436.jpg"></div>
+                <div class="sf-slide"><img alt="Travel Gear" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/BEST-GEAR-FOR-TRAVEL-8125-2x1-1.webp"></div>
+                <div class="sf-slide"><img alt="Beauty &amp; Wellness" src="%PUBLIC_URL%/assets/hero-beauty.jpg"></div>
+                <div class="sf-hero-shade"></div>
+                <div class="sf-hero-fade"></div>
+                <div class="sf-hero-content">
+                    <div class="sf-hero-inner sf-hero-text-fade" id="hero-text">
+                        <div class="sf-eyebrow"><p id="hero-eyebrow-text">New Season</p></div>
+                        <h1 id="hero-title">Dressed to<br><em>command attention.</em></h1>
+                        <p class="sf-hero-sub" id="hero-sub">Explore high fashion, handcrafted ethnic weaves, and contemporary daily wear at Askaran Binjraj.</p>
+                        <div class="sf-cta-row">
+                            <a href="https://shop.askaranbinjraj.com/" target="_blank" rel="noopener noreferrer" class="sf-btn-red" data-testid="hero-cta-explore">Shop Online<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15M19.5 4.5H4.5M19.5 4.5v15"></path></svg></a>
+                            <a href="#fashion" class="sf-btn-ghost-w" data-testid="hero-cta-discover">Explore Departments</a>
+                        </div>
+                        <div class="sf-quicklinks">
+                            <button type="button" data-scroll-to="fashion" data-testid="quicklink-fashion">Fashion</button>
+                            <button type="button" data-scroll-to="ethnic" data-testid="quicklink-ethnic">Ethnic Wear</button>
+                            <button type="button" data-scroll-to="travel" data-testid="quicklink-travel">Travel Gear</button>
+                            <button type="button" data-scroll-to="cosmetics" data-testid="quicklink-cosmetics">Cosmetics</button>
+                            <button type="button" data-scroll-to="jewelry" data-testid="quicklink-jewelry">Jewellery</button>
+                            <button type="button" data-scroll-to="accessories" data-testid="quicklink-accessories">Accessories</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="sf-arrow prev" id="hero-prev" data-testid="hero-prev" aria-label="Previous slide"><svg width="15" height="15" fill="none" stroke="#FAFAF8" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path></svg></button>
+                <button class="sf-arrow next" id="hero-next" data-testid="hero-next" aria-label="Next slide"><svg width="15" height="15" fill="none" stroke="#FAFAF8" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path></svg></button>
+                <div class="sf-dots" id="hero-dots"></div>
+                <div class="sf-counter"><span id="hero-counter">01<small>/ 06</small></span></div>
+            </section>
+
+            <!-- TICKER -->
+            <div class="sf-ticker" data-testid="ticker"><div class="sf-ticker-track" id="ticker-track">
+                <span>Latest Fashion <span>◆</span></span><span>Authentic Banarasi Sarees <span>◆</span></span><span>Travel Gear — 4th Floor <span>◆</span></span><span>Prestige Cosmetics <span>◆</span></span><span>Fine Jewellery <span>◆</span></span><span>100+ Brands In-Store <span>◆</span></span><span>Same-Day Delivery <span>◆</span></span>
+                <span>Latest Fashion <span>◆</span></span><span>Authentic Banarasi Sarees <span>◆</span></span><span>Travel Gear — 4th Floor <span>◆</span></span><span>Prestige Cosmetics <span>◆</span></span><span>Fine Jewellery <span>◆</span></span><span>100+ Brands In-Store <span>◆</span></span><span>Same-Day Delivery <span>◆</span></span>
+                <span>Latest Fashion <span>◆</span></span><span>Authentic Banarasi Sarees <span>◆</span></span><span>Travel Gear — 4th Floor <span>◆</span></span><span>Prestige Cosmetics <span>◆</span></span><span>Fine Jewellery <span>◆</span></span><span>100+ Brands In-Store <span>◆</span></span><span>Same-Day Delivery <span>◆</span></span>
+                <span>Latest Fashion <span>◆</span></span><span>Authentic Banarasi Sarees <span>◆</span></span><span>Travel Gear — 4th Floor <span>◆</span></span><span>Prestige Cosmetics <span>◆</span></span><span>Fine Jewellery <span>◆</span></span><span>100+ Brands In-Store <span>◆</span></span><span>Same-Day Delivery <span>◆</span></span>
+                <span>Latest Fashion <span>◆</span></span><span>Authentic Banarasi Sarees <span>◆</span></span><span>Travel Gear — 4th Floor <span>◆</span></span><span>Prestige Cosmetics <span>◆</span></span><span>Fine Jewellery <span>◆</span></span><span>100+ Brands In-Store <span>◆</span></span><span>Same-Day Delivery <span>◆</span></span>
+                <span>Latest Fashion <span>◆</span></span><span>Authentic Banarasi Sarees <span>◆</span></span><span>Travel Gear — 4th Floor <span>◆</span></span><span>Prestige Cosmetics <span>◆</span></span><span>Fine Jewellery <span>◆</span></span><span>100+ Brands In-Store <span>◆</span></span><span>Same-Day Delivery <span>◆</span></span>
+            </div></div>
+
+            <!-- FASHION -->
+            <section id="fashion" class="sf-section bg-white" data-testid="section-fashion">
+                <div class="sf-wrap">
+                    <div class="reveal">
+                        <div class="sf-head">
+                            <div class="sf-head-text">
+                                <div class="sf-eyebrow-s"><p>Women · Men · Kids</p></div>
+                                <h2 class="sf-h2">Latest fashion,<br><em>under one roof.</em></h2>
+                                <p class="sf-sub">Explore high fashion, handcrafted ethnic weaves, and contemporary daily wear exclusively curated at Askaran Binjraj.</p>
+                            </div>
+                            <a href="https://shop.askaranbinjraj.com/" target="_blank" rel="noopener noreferrer" class="sf-btn-red" data-testid="fashion-shop-btn">Shop Fashion<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15M19.5 4.5H4.5M19.5 4.5v15"></path></svg></a>
+                        </div>
+                    </div>
+                    <div class="sf-bento">
+                        <div class="tall reveal"><a href="/collections/womens" class="sf-card-img" data-testid="fashion-card-womens"><img alt="Womens Fashion" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/4237-768x427.jpg"><div class="sf-card-shade"></div><div class="sf-card-label"><p>Womens</p><p>1st &amp; 2nd Floor · Latest styles</p></div></a></div>
+                        <div class="reveal" style="--d:60ms"><a href="/collections/mens" class="sf-card-img" data-testid="fashion-card-mens"><img alt="Mens Clothing" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/2148401436-768x768.jpg"><div class="sf-card-shade"></div><div class="sf-card-label"><p>Mens</p><p>Tailored suits &amp; ethnic wear</p></div></a></div>
+                        <div class="reveal" style="--d:120ms"><a href="/collections/boys" class="sf-card-img" data-testid="fashion-card-boys"><img alt="Boys Formal Wear" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/Website_Banner-768x432.webp"><div class="sf-card-shade"></div><div class="sf-card-label"><p>Boys &amp; Girls</p><p>Party, festive &amp; school wear</p></div></a></div>
+                        <div class="tall reveal" style="--d:180ms"><a href="/collections/footwear" class="sf-card-img" data-testid="fashion-card-footwear"><img alt="Footwear Collection" src="%PUBLIC_URL%/assets/footwear-display.jpg"><div class="sf-card-shade"></div><div class="sf-card-label"><p>Footwear</p><p>For the whole family</p></div></a></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ETHNIC -->
+            <section id="ethnic" class="sf-section bg-alt" data-testid="section-ethnic">
+                <div class="sf-wrap">
+                    <div class="reveal">
+                        <div class="sf-head">
+                            <div class="sf-head-text">
+                                <div class="sf-eyebrow-s green"><p>Ethnic &amp; Heritage</p></div>
+                                <h2 class="sf-h2"><em>Roots,</em><br>reimagined.</h2>
+                                <p class="sf-sub">Authentic Banarasi sarees, Muga and Assam silk, Mekhala Chador and bridal weaves — sourced directly from Varanasi weavers across six generations.</p>
+                            </div>
+                            <a href="https://shop.askaranbinjraj.com/" target="_blank" rel="noopener noreferrer" class="sf-btn-red" data-testid="ethnic-shop-btn">Shop Ethnic Wear<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15M19.5 4.5H4.5M19.5 4.5v15"></path></svg></a>
+                        </div>
+                    </div>
+                    <div class="sf-grid-3">
+                        <div class="reveal sf-polaroid"><a href="/collections/sarees" data-testid="ethnic-card-banarasi"><div class="sf-card-img"><img alt="Authentic Banarasi Sarees" src="%PUBLIC_URL%/assets/saree-red.jpg"><span class="sf-badge">Bestseller</span></div><div class="sf-card-body"><h3>Authentic Banarsi Sarees</h3><p>3rd Floor · Royal Handlooms</p><span class="sf-link-arrow">Explore →</span></div></a></div>
+                        <div class="reveal sf-polaroid" style="--d:80ms"><a href="/collections/sarees" data-testid="ethnic-card-assamsilk"><div class="sf-card-img"><img alt="Traditional Assam Silk" src="%PUBLIC_URL%/assets/saree-model.jpg"></div><div class="sf-card-body"><h3>Traditional Assam Silk</h3><p>3rd Floor · Heritage Assam</p><span class="sf-link-arrow">Explore →</span></div></a></div>
+                        <div class="reveal sf-polaroid" style="--d:160ms"><a href="/collections/lehengas" data-testid="ethnic-card-lehengas"><div class="sf-card-img"><img alt="Designer Bridal Lehengas" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/Morni_Banner_600x600.webp"></div><div class="sf-card-body"><h3>Designer Bridal Lehengas</h3><p>15+ curated bridal departments</p><span class="sf-link-arrow">Explore →</span></div></a></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TRAVEL -->
+            <section id="travel" class="sf-section bg-white" data-testid="section-travel">
+                <div class="sf-wrap">
+                    <div class="reveal">
+                        <div class="sf-head">
+                            <div class="sf-head-text">
+                                <div class="sf-eyebrow-s"><p>4th Floor · Travel Gear</p></div>
+                                <h2 class="sf-h2">Pack smart,<br><em>travel far.</em></h2>
+                                <p class="sf-sub">Elevate your journey with luxury luggage and travel accessories — suitcases, duffle bags, rucksacks, and laptop bags on the 4th Floor of Askaran Binjraj Shopping Mall.</p>
+                            </div>
+                            <a href="https://shop.askaranbinjraj.com/" target="_blank" rel="noopener noreferrer" class="sf-btn-red" data-testid="travel-shop-btn">Shop Travel Gear<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15M19.5 4.5H4.5M19.5 4.5v15"></path></svg></a>
+                        </div>
+                    </div>
+                    <div class="sf-feature-grid">
+                        <div class="reveal"><a href="/collections/travel-gear" class="sf-feature-main" data-testid="travel-feature"><img alt="Travel Gear at Askaran Binjraj" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/BEST-GEAR-FOR-TRAVEL-8125-2x1-1-768x384.webp"><div class="sf-feature-label"><span class="sf-badge">4th Floor</span><h3>Travel Gear in Dhekiajuli</h3><p>Suitcases, duffle bags, rucksacks &amp; laptop bags.</p><span class="sf-link-arrow">Explore Travel Gear →</span></div></a></div>
+                        <div class="sf-mini-tiles">
+                            <div class="reveal" style="--d:60ms"><a href="/collections/travel-gear" class="sf-mini-tile" data-testid="travel-tile-luggage"><div class="tile-img"><img alt="Luggage &amp; Cases" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=700&amp;h=350&amp;fit=crop&amp;auto=format"></div><div class="tile-body"><p>Luggage &amp; Cases</p><p>Suitcases &amp; trolley bags</p></div></a></div>
+                            <div class="reveal" style="--d:120ms"><a href="/collections/travel-gear" class="sf-mini-tile" data-testid="travel-tile-rucksacks"><div class="tile-img"><img alt="Rucksacks" src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=700&amp;h=350&amp;fit=crop&amp;auto=format"></div><div class="tile-body"><p>Rucksacks</p><p>Trek &amp; travel packs</p></div></a></div>
+                            <div class="reveal" style="--d:180ms"><a href="/collections/toys-school" class="sf-mini-tile" data-testid="travel-tile-schoolbags"><div class="tile-img"><img alt="School &amp; Kids Bags" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/144_69ff00f2-6424-4f0b-ab91-024f4b0591c1-768x1024.webp"></div><div class="tile-body"><p>School &amp; Kids Bags</p><p>Backpacks &amp; art kits</p></div></a></div>
+                            <div class="reveal" style="--d:240ms"><a href="/collections/jewellery-lifestyle" class="sf-mini-tile" data-testid="travel-tile-leather"><div class="tile-img"><img alt="Executive Leather Travel Gear" src="https://plus.unsplash.com/premium_photo-1777926622702-8038840043ea?w=600&amp;auto=format&amp;fit=crop&amp;q=60"></div><div class="tile-body"><p>Leather Travel Gear</p><p>Duffels &amp; laptop sleeves</p></div></a></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COSMETICS -->
+            <section id="cosmetics" class="sf-section bg-alt" data-testid="section-cosmetics">
+                <div class="sf-wrap">
+                    <div class="reveal">
+                        <div class="sf-head">
+                            <div class="sf-head-text">
+                                <div class="sf-eyebrow-s"><p>Beauty &amp; Cosmetics</p></div>
+                                <h2 class="sf-h2">Glow,<br><em>your way.</em></h2>
+                                <p class="sf-sub">Lakmé, Mamaearth, Pond's, Sugar, Elle 18 and more trusted brands — skincare, makeup and daily beauty essentials in store at Askaran Binjraj Shopping Mall, Dhekiajuli.</p>
+                            </div>
+                            <a href="https://shop.askaranbinjraj.com/" target="_blank" rel="noopener noreferrer" class="sf-btn-red" data-testid="cosmetics-shop-btn">Shop Beauty<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15M19.5 4.5H4.5M19.5 4.5v15"></path></svg></a>
+                        </div>
+                    </div>
+                    <div class="sf-grid-3">
+                        <div class="reveal sf-polaroid"><a href="https://shop.askaranbinjraj.com/" target="_blank" rel="noopener noreferrer" data-testid="cosmetics-card-skincare"><div class="sf-card-img" style="aspect-ratio:7/5"><img alt="Skincare" src="%PUBLIC_URL%/assets/cosmetics-skincare.jpg"></div><div class="sf-card-body"><h3>Skincare</h3><p>Mamaearth, Pond's &amp; daily care</p><span class="sf-link-arrow">Shop Now →</span></div></a></div>
+                        <div class="reveal sf-polaroid" style="--d:80ms"><a href="https://shop.askaranbinjraj.com/" target="_blank" rel="noopener noreferrer" data-testid="cosmetics-card-makeup"><div class="sf-card-img" style="aspect-ratio:7/5"><img alt="Makeup &amp; Colour" src="%PUBLIC_URL%/assets/cosmetics-makeup.jpg"></div><div class="sf-card-body"><h3>Makeup &amp; Colour</h3><p>Lakmé, Sugar, Elle 18</p><span class="sf-link-arrow">Shop Now →</span></div></a></div>
+                        <div class="reveal sf-polaroid" style="--d:160ms"><a href="https://shop.askaranbinjraj.com/" target="_blank" rel="noopener noreferrer" data-testid="cosmetics-card-fragrance"><div class="sf-card-img" style="aspect-ratio:7/5"><img alt="Fragrance &amp; More" src="%PUBLIC_URL%/assets/cosmetics-fragrance.jpg"></div><div class="sf-card-body"><h3>Fragrance &amp; More</h3><p>Perfumes &amp; wellness</p><span class="sf-link-arrow">Shop Now →</span></div></a></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- JEWELLERY -->
+            <section id="jewelry" class="sf-section bg-white" data-testid="section-jewelry">
+                <div class="sf-wrap">
+                    <div class="reveal">
+                        <div class="sf-head">
+                            <div class="sf-head-text">
+                                <div class="sf-eyebrow-s"><p>Jewellery &amp; Lifestyle</p></div>
+                                <h2 class="sf-h2">Adorn<br><em>every moment.</em></h2>
+                                <p class="sf-sub">Explore stunning jewellery collections styled for weddings, festive pujas, engagements, and special celebrations alongside top brand lifestyle accessories.</p>
+                            </div>
+                            <a href="/collections/jewellery-lifestyle" class="sf-btn-red" data-testid="jewelry-shop-btn">Explore Jewellery<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15M19.5 4.5H4.5M19.5 4.5v15"></path></svg></a>
+                        </div>
+                    </div>
+                    <div class="sf-feature-grid">
+                        <div class="reveal"><a href="/collections/jewellery-lifestyle" class="sf-feature-main" data-testid="jewelry-feature"><img alt="Wedding &amp; Festive Gold Sets" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/luxury-jewellery-shop-window_250469-15719.avif"><div class="sf-feature-label"><h3>Wedding &amp; Festive Gold Sets</h3><p>3rd Floor · Gold Studio</p><span class="sf-link-arrow">Explore Jewellery →</span></div></a></div>
+                        <div class="sf-mini-tiles">
+                            <div class="reveal" style="--d:60ms"><a href="/collections/jewellery-lifestyle" class="sf-mini-tile" data-testid="jewelry-tile-diamond"><div class="tile-img"><img alt="Engagement &amp; Party Diamond Sets" src="https://images.unsplash.com/photo-1745541472976-54b48c4813cb?w=600&amp;auto=format&amp;fit=crop&amp;q=60"></div><div class="tile-body"><p>Diamond Sets</p><p>3rd Floor · Solitaire Vault</p></div></a></div>
+                            <div class="reveal" style="--d:120ms"><a href="/collections/jewellery-lifestyle" class="sf-mini-tile" data-testid="jewelry-tile-kundan"><div class="tile-img"><img alt="Royal Kundan Bridal Ensembles" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&amp;h=280&amp;fit=crop&amp;auto=format"></div><div class="tile-body"><p>Kundan Bridal</p><p>3rd Floor · Heritage Suite</p></div></a></div>
+                            <div class="reveal" style="--d:180ms"><a href="/collections/jewellery-lifestyle" class="sf-mini-tile" data-testid="jewelry-tile-watches"><div class="tile-img"><img alt="Luxury Wristwatches" src="https://images.unsplash.com/photo-1659257328461-374ed5ba399a?w=600&amp;auto=format&amp;fit=crop&amp;q=60"></div><div class="tile-body"><p>Wristwatches</p><p>Ground Floor · Timepiece Gallery</p></div></a></div>
+                            <div class="reveal" style="--d:240ms"><a href="/collections/jewellery-lifestyle" class="sf-mini-tile" data-testid="jewelry-tile-silver"><div class="tile-img"><img alt="Festive &amp; Puja Silver Wear" src="https://images.pexels.com/photos/33274405/pexels-photo-33274405.jpeg"></div><div class="tile-body"><p>Silver Wear</p><p>3rd Floor · Silver Gallery</p></div></a></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ACCESSORIES -->
+            <section id="accessories" class="sf-section bg-alt" data-testid="section-accessories">
+                <div class="sf-wrap">
+                    <div class="reveal">
+                        <div class="sf-head">
+                            <div class="sf-head-text">
+                                <div class="sf-eyebrow-s"><p>Bags, Shoes &amp; More</p></div>
+                                <h2 class="sf-h2">The finishing<br><em>touch.</em></h2>
+                                <p class="sf-sub">Footwear, jewellery, cosmetics, bags &amp; home products — finishing touches for every look, all under one roof at Askaran Binjraj.</p>
+                            </div>
+                            <a href="https://shop.askaranbinjraj.com/" target="_blank" rel="noopener noreferrer" class="sf-btn-red" data-testid="accessories-shop-btn">Shop Accessories<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15M19.5 4.5H4.5M19.5 4.5v15"></path></svg></a>
+                        </div>
+                    </div>
+                    <div class="sf-grid-4">
+                        <div class="reveal"><a href="/collections/jewellery-lifestyle" class="sf-acc-tile" data-testid="acc-handbags"><div class="tile-img"><img alt="Designer Purses &amp; Handbags" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&amp;auto=format&amp;fit=crop&amp;q=80"></div><div class="tile-body"><p>Handbags</p><p>4th Floor · Bag Boutique</p></div></a></div>
+                        <div class="reveal" style="--d:35ms"><a href="/collections/footwear" class="sf-acc-tile" data-testid="acc-footwear"><div class="tile-img"><img alt="Footwear" src="%PUBLIC_URL%/assets/footwear-display.jpg"></div><div class="tile-body"><p>Footwear</p><p>Men · Women · Kids</p></div></a></div>
+                        <div class="reveal" style="--d:70ms"><a href="/collections/jewellery-lifestyle" class="sf-acc-tile" data-testid="acc-sunglasses"><div class="tile-img"><img alt="Designer Sunglasses" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&amp;h=500&amp;fit=crop&amp;auto=format"></div><div class="tile-body"><p>Sunglasses</p><p>Ground Floor · Eyewear Studio</p></div></a></div>
+                        <div class="reveal" style="--d:105ms"><a href="/collections/jewellery-lifestyle" class="sf-acc-tile" data-testid="acc-belts"><div class="tile-img"><img alt="Leather Belts &amp; Wallets" src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=600&amp;auto=format&amp;fit=crop&amp;q=80"></div><div class="tile-body"><p>Belts &amp; Wallets</p><p>Ground Floor · Leather Lounge</p></div></a></div>
+                        <div class="reveal" style="--d:140ms"><a href="/collections/jewellery-lifestyle" class="sf-acc-tile" data-testid="acc-smartwatches"><div class="tile-img"><img alt="Smartwatches &amp; Fitness Bands" src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=600&amp;auto=format&amp;fit=crop&amp;q=80"></div><div class="tile-body"><p>Smartwatches</p><p>Ground Floor · Smart Tech</p></div></a></div>
+                        <div class="reveal" style="--d:175ms"><a href="/collections/jewellery-lifestyle" class="sf-acc-tile" data-testid="acc-fragrances"><div class="tile-img"><img alt="Event Fragrances &amp; Perfumes" src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=600&amp;auto=format&amp;fit=crop&amp;q=80"></div><div class="tile-body"><p>Fragrances</p><p>Ground Floor · Fragrance Bar</p></div></a></div>
+                        <div class="reveal" style="--d:210ms"><a href="/collections/jewellery-lifestyle" class="sf-acc-tile" data-testid="acc-groom"><div class="tile-img"><img alt="Groom Accessories &amp; Cufflinks" src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&amp;auto=format&amp;fit=crop&amp;q=80"></div><div class="tile-body"><p>Groom Accessories</p><p>1st Floor · Men's Couture</p></div></a></div>
+                        <div class="reveal" style="--d:245ms"><a href="/collections/jewellery-lifestyle" class="sf-acc-tile" data-testid="acc-hosiery"><div class="tile-img"><img alt="Premium Socks &amp; Hosiery" src="https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=600&amp;auto=format&amp;fit=crop&amp;q=80"></div><div class="tile-body"><p>Socks &amp; Hosiery</p><p>Ground Floor · Hosiery Bar</p></div></a></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HERITAGE (dark) -->
+            <section class="sf-section sf-dark" data-testid="section-heritage">
+                <div class="sf-wrap">
+                    <div class="sf-two-col">
+                        <div class="reveal">
+                            <div class="sf-eyebrow-s light"><p>Our Heritage</p></div>
+                            <h2 class="sf-h2 light">Six generations<br><em>of trust.</em></h2>
+                            <p class="sf-sub light" style="margin-top:24px;margin-bottom:16px">Since 1980, the Askaran Binjraj name has stood for one thing: unwavering commitment to quality. What began as a humble textile merchant has grown into one of the region's most beloved multi-category retail destinations.</p>
+                            <p class="sf-sub light" style="margin-bottom:36px">Six generations later, that same spirit drives every curated selection — from runway fashion to handwoven heritage textiles, clinical skincare to fine jewellery.</p>
+                            <div class="sf-cta-row" style="animation:none">
+                                <a href="https://shop.askaranbinjraj.com/" target="_blank" rel="noopener noreferrer" class="sf-btn-red" data-testid="heritage-shop-btn">Shop the Collection<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15M19.5 4.5H4.5M19.5 4.5v15"></path></svg></a>
+                                <a href="#stores" class="sf-btn-ghost-w" data-testid="heritage-visit-btn">Visit the Mall</a>
+                            </div>
+                        </div>
+                        <div class="reveal" style="--d:130ms">
+                            <div class="sf-stats">
+                                <div class="sf-stat" data-testid="stat-years"><p>45+</p><p>Years of Heritage</p></div>
+                                <div class="sf-stat" data-testid="stat-brands"><p>100+</p><p>Premium Brands</p></div>
+                                <div class="sf-stat" data-testid="stat-generations"><p>6</p><p>Generations of Trust</p></div>
+                                <div class="sf-stat" data-testid="stat-floors"><p>3</p><p>Floors of Shopping</p></div>
+                            </div>
+                            <div class="sf-logo-panel">
+                                <div class="logo-chip"><img alt="Askaran Binjraj" src="%PUBLIC_URL%/assets/logo-stacked.png"></div>
+                                <p>Quality. Variety. Trust.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RED BAND -->
+            <section class="sf-band" data-testid="section-online">
+                <div class="sf-band-in">
+                    <div class="reveal">
+                        <p class="band-eyebrow">Also Available Online</p>
+                        <h2 class="sf-h2">Everything in-store,<br><em>delivered to you.</em></h2>
+                        <p class="band-sub">Browse thousands of products with same-day &amp; 1-day delivery, open-box checks, secure payments and real-time tracking on every order.</p>
+                        <div class="sf-cta-row" style="justify-content:center;animation:none">
+                            <a href="https://shop.askaranbinjraj.com/" target="_blank" rel="noopener noreferrer" class="sf-btn-white" data-testid="band-visit-store">Visit Online Store →</a>
+                            <a href="https://wa.me/918811966701?text=Hi%20Askaran%20Binjraj%2C%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="sf-btn-ghost-w" data-testid="band-whatsapp-order">Order on WhatsApp</a>
+                        </div>
+                        <div class="sf-band-features">
+                            <div class="sf-band-feature"><span>🚚</span><p>Same-Day &amp; 1-Day Delivery</p><p>On eligible orders</p></div>
+                            <div class="sf-band-feature"><span>📦</span><p>Open-Box Delivery</p><p>Check before you accept</p></div>
+                            <div class="sf-band-feature"><span>🔒</span><p>Secure Payments</p><p>Safe, trusted platform</p></div>
+                            <div class="sf-band-feature"><span>📍</span><p>Real-Time Tracking</p><p>Follow every order</p></div>
+                            <div class="sf-band-feature"><span>🔁</span><p>Easy Returns</p><p>Responsive support</p></div>
+                            <div class="sf-band-feature"><span>💬</span><p>WhatsApp Ordering</p><p>+91 88119 66701</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ABOUT -->
+            <section id="about" class="sf-section bg-alt" data-testid="section-about">
+                <div class="sf-wrap">
+                    <div class="sf-two-col">
+                        <div class="reveal">
+                            <div class="sf-eyebrow-s"><p>Our Story</p></div>
+                            <h2 class="sf-h2">Where heritage meets<br><em>hospitality.</em></h2>
+                            <p class="sf-sub" style="margin-top:24px;margin-bottom:16px;max-width:none">Walk into Askaran Binjraj and you feel it immediately — something unhurried. The staff know your name. The fitting rooms have real mirrors. The incense is the same one the family first lit in 1980. That's not nostalgia. That's operational policy.</p>
+                            <p class="sf-sub" style="margin-bottom:36px;max-width:none">Six generations later, we still believe the best retail experience is a human one. From premium Banarasi sarees and wedding lehengas to footwear, jewellery, cosmetics, bags and home products — every floor is curated for Dhekiajuli.</p>
+                            <a href="#stores" class="sf-btn-red" data-testid="about-visit-btn">Visit the Mall<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15M19.5 4.5H4.5M19.5 4.5v15"></path></svg></a>
+                        </div>
+                        <div class="reveal" style="--d:120ms">
+                            <div class="sf-img-grid">
+                                <div class="g-img"><img alt="Askaran Binjraj mall at dusk" src="%PUBLIC_URL%/assets/mall-dusk.jpg"></div>
+                                <div class="g-img"><img alt="Askaran Binjraj at night" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/unnamed-e1762148789166.webp"></div>
+                                <div class="g-img"><img alt="Inside the mall" src="%PUBLIC_URL%/assets/mall-interior.jpg"></div>
+                                <div class="g-img"><img alt="Handwoven Banarasi craft" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/Banarasi.jpg"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CAREERS -->
+            <section id="careers" class="sf-section sf-dark" data-testid="section-careers">
+                <div class="sf-wrap">
+                    <div class="reveal">
+                        <div style="margin-bottom:56px;max-width:720px">
+                            <div class="sf-eyebrow-s light"><p>Join the Family</p></div>
+                            <h2 class="sf-h2 light">Grow With Assam's<br><em>Premier Retail Destination</em></h2>
+                            <p class="sf-sub light" style="margin-top:24px">Chandan Retail Private Limited is expanding both our physical footprint in Dhekiajuli and our new digital storefront. We are looking for dedicated professionals to join our growing team.</p>
+                        </div>
+                    </div>
+                    <div class="sf-grid-2" style="margin-bottom:40px">
+                        <div class="reveal sf-job" data-testid="career-card-0"><div class="job-img"><img alt="E-Commerce and Digital team at work" src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=500&amp;h=300&amp;fit=crop&amp;auto=format"></div><div class="job-body"><div class="job-meta"><span class="job-tag">Hiring</span><span class="job-dept">Digital Storefront</span></div><h3>E-Commerce &amp; Digital</h3><p class="job-loc">E-Commerce Managers · SEO</p><a href="/careers" class="sf-link-arrow" data-testid="career-apply-0">View Role →</a></div></div>
+                        <div class="reveal sf-job" style="--d:80ms" data-testid="career-card-1"><div class="job-img"><img alt="Retail sales floor team" src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=500&amp;h=300&amp;fit=crop&amp;auto=format"></div><div class="job-body"><div class="job-meta"><span class="job-tag">Hiring</span><span class="job-dept">In-Store</span></div><h3>Floor Sales</h3><p class="job-loc">Retail Sales Executives</p><a href="/careers" class="sf-link-arrow" data-testid="career-apply-1">View Role →</a></div></div>
+                        <div class="reveal sf-job" style="--d:160ms" data-testid="career-card-2"><div class="job-img"><img alt="Billing and operations desk" src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=500&amp;h=300&amp;fit=crop&amp;auto=format"></div><div class="job-body"><div class="job-meta"><span class="job-tag">Hiring</span><span class="job-dept">In-Store</span></div><h3>Billing &amp; Operations</h3><p class="job-loc">Cashiers</p><a href="/careers" class="sf-link-arrow" data-testid="career-apply-2">View Role →</a></div></div>
+                        <div class="reveal sf-job" style="--d:240ms" data-testid="career-card-3"><div class="job-img"><img alt="Logistics and dispatch" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&amp;h=300&amp;fit=crop&amp;auto=format"></div><div class="job-body"><div class="job-meta"><span class="job-tag">Hiring</span><span class="job-dept">Delivery</span></div><h3>Logistics</h3><p class="job-loc">Dispatch Coordinators</p><a href="/careers" class="sf-link-arrow" data-testid="career-apply-3">View Role →</a></div></div>
+                    </div>
+                    <div class="reveal">
+                        <div class="sf-cta-row" style="animation:none">
+                            <a href="mailto:hr@crpl.co.in" class="sf-btn-red" data-testid="careers-email-cta">Send your resume to hr@crpl.co.in<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15M19.5 4.5H4.5M19.5 4.5v15"></path></svg></a>
+                            <a href="/careers" class="sf-btn-ghost-w" data-testid="careers-apply-online">Apply Online</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STORES -->
+            <section id="stores" class="sf-section bg-paper" data-testid="section-stores">
+                <div class="sf-wrap">
+                    <div class="reveal">
+                        <div style="margin-bottom:48px">
+                            <div class="sf-eyebrow-s"><p>Visit Us</p></div>
+                            <h2 class="sf-h2">Visit us<br><em>in person.</em></h2>
+                            <p class="sf-sub">Three floors of curated retail. Expert staff, in-store services, and the full collection.</p>
+                        </div>
+                    </div>
+                    <div class="reveal sf-store-feature" data-testid="store-flagship">
+                        <div class="store-img"><img alt="Askaran Binjraj Shopping Mall, Dhekiajuli" src="%PUBLIC_URL%/assets/mall-dusk.jpg"><span class="sf-badge" style="top:12px;left:12px">Flagship Mall</span></div>
+                        <div class="store-body">
+                            <h3>Askaran Binjraj Shopping Mall</h3>
+                            <p class="store-line">📍 NH 52, Main Road, Dhekiajuli, Assam 784110</p>
+                            <p class="store-line">🕐 Mon–Sat 10:00–20:30 · Sun 10:00–20:00</p>
+                            <p class="store-line">📞 03712 244 247 · +91 88119 66701</p>
+                            <p class="store-hl">↑ 3 floors · Home to The Super Store &amp; The Wedding Studio</p>
+                            <div class="store-btns"><a href="https://maps.app.goo.gl/oYK6b4wPu7BUnzGb8" target="_blank" rel="noopener noreferrer" class="b-outline" data-testid="flagship-directions">Directions</a><a href="https://shop.askaranbinjraj.com/" target="_blank" rel="noopener noreferrer" class="b-red" data-testid="flagship-shop">Shop Online</a></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NEWSLETTER -->
+            <section class="sf-news" data-testid="section-newsletter">
+                <div class="sf-news-in">
+                    <div class="reveal">
+                        <div class="sf-eyebrow-s light"><p>Stay in the Loop</p></div>
+                        <h2 class="sf-h2">New arrivals. Festive offers.<br><em>Style inspiration.</em></h2>
+                        <p class="news-sub">Join thousands of shoppers across Sonitpur. First to know about new collections, in-store events, and online-only deals.</p>
+                        <form id="newsletter-form" data-testid="newsletter-form">
+                            <input placeholder="your@email.com" type="email" data-testid="newsletter-email">
+                            <button type="submit" data-testid="newsletter-submit">Subscribe</button>
+                        </form>
+                        <p class="news-note">No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- IN STORE / BLOG -->
+            <section id="blog" class="sf-section bg-white" data-testid="section-blog">
+                <div class="sf-wrap">
+                    <div class="reveal">
+                        <div style="margin-bottom:48px">
+                            <div class="sf-eyebrow-s"><p>In Store Now</p></div>
+                            <h2 class="sf-h2">Departments worth<br><em>exploring.</em></h2>
+                        </div>
+                    </div>
+                    <div class="sf-grid-2">
+                        <div class="reveal"><a href="/collections/sarees" class="sf-post" data-testid="post-0"><div class="post-img"><img alt="Authentic Banarsi Sarees" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/Banarasi.jpg"></div><div class="post-meta"><span class="post-tag">Ethnic</span><span class="post-date">3rd Floor · Royal Handlooms</span></div><h3>Authentic Banarsi Sarees</h3><p>Sourced directly from Varanasi weavers across six generations — gold zari work, traditional brocades, and premium silk.</p></a></div>
+                        <div class="reveal" style="--d:70ms"><a href="/collections/lehengas" class="sf-post" data-testid="post-1"><div class="post-img"><img alt="Designer Bridal Lehengas" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/Morni_Banner_600x600.webp"></div><div class="post-meta"><span class="post-tag">Bridal</span><span class="post-date">The Wedding Studio</span></div><h3>Designer Bridal Lehengas</h3><p>Raw silk zardozi, hand-embroidered velvet bridal sets, and mirror-work sangeet flared lehengas.</p></a></div>
+                        <div class="reveal" style="--d:140ms"><a href="/collections/travel-gear" class="sf-post" data-testid="post-2"><div class="post-img"><img alt="Travel Gear" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/BEST-GEAR-FOR-TRAVEL-8125-2x1-1-768x384.webp"></div><div class="post-meta"><span class="post-tag">Travel</span><span class="post-date">4th Floor</span></div><h3>Travel Gear in Dhekiajuli</h3><p>Luxury luggage and travel accessories — suitcases, duffle bags, rucksacks, and laptop bags.</p></a></div>
+                        <div class="reveal" style="--d:210ms"><a href="/collections/toys-school" class="sf-post" data-testid="post-3"><div class="post-img"><img alt="Toys and School Essentials" src="https://askaranbinjraj.com/wp-content/uploads/2025/11/144_69ff00f2-6424-4f0b-ab91-024f4b0591c1-768x1024.webp"></div><div class="post-meta"><span class="post-tag">Kids</span><span class="post-date">Toys &amp; School</span></div><h3>Unplug, Play &amp; Gear Up!</h3><p>Super cool backpacks, creative art kits, and epic board games for the school year ahead.</p></a></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="sf-footer" data-testid="footer">
+                <div class="sf-wrap">
+                    <div class="sf-footer-grid">
+                        <div>
+                            <a href="/" class="f-logo"><img alt="Askaran Binjraj" src="%PUBLIC_URL%/assets/logo-horizontal.png" data-testid="footer-logo"></a>
+                            <p class="f-desc">Fashion · Ethnic Wear · Travel Gear · Cosmetics · Jewellery · Accessories — all in one place.</p>
+                            <p class="f-motto">Quality. Variety. Trust.</p>
+                            <a href="https://shop.askaranbinjraj.com/" target="_blank" rel="noopener noreferrer" class="f-shop" data-testid="footer-shop-online">Shop Online ↗</a>
+                        </div>
+                        <div>
+                            <h4>Departments</h4>
+                            <ul>
+                                <li><a href="#fashion">Fashion</a></li>
+                                <li><a href="#ethnic">Ethnic Wear</a></li>
+                                <li><a href="#travel">Travel Gear</a></li>
+                                <li><a href="#cosmetics">Cosmetics</a></li>
+                                <li><a href="#jewelry">Jewellery</a></li>
+                                <li><a href="#accessories">Accessories</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Collections</h4>
+                            <ul>
+                                <li><a href="/collections/sarees">Sarees</a></li>
+                                <li><a href="/collections/lehengas">Bridal Lehengas</a></li>
+                                <li><a href="/collections/womens">Womens</a></li>
+                                <li><a href="/collections/mens">Mens</a></li>
+                                <li><a href="/collections/footwear">Footwear</a></li>
+                                <li><a href="/collections">All Collections</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Company</h4>
+                            <ul>
+                                <li><a href="#about">About Us</a></li>
+                                <li><a href="/careers">Careers</a></li>
+                                <li><a href="#blog">In Store Now</a></li>
+                                <li><a href="/contact">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <ul>
+                                <li><a href="https://maps.app.goo.gl/oYK6b4wPu7BUnzGb8" target="_blank" rel="noopener noreferrer">NH 52, Main Road, Dhekiajuli, Assam 784110</a></li>
+                                <li><a href="tel:+91-8811966701">+91 88119 66701</a></li>
+                                <li><a href="tel:03712244247">03712 244 247</a></li>
+                                <li><a href="mailto:info.askaranbinjraj@gmail.com">info.askaranbinjraj@gmail.com</a></li>
+                                <li><a href="https://wa.me/918811966701" target="_blank" rel="noopener noreferrer">WhatsApp Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sf-footer-bottom">
+                        <p>© 2026 Askaran Binjraj. All rights reserved.</p>
+                        <p class="f-est">EST. 1980</p>
+                        <div class="f-legal"><a href="/contact">Contact</a><a href="/careers">Careers</a><a href="https://shop.askaranbinjraj.com/" target="_blank" rel="noopener noreferrer">Online Store</a></div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- WHATSAPP FLOAT -->
+            <a class="wa-float" href="https://wa.me/918811966701?text=Hi%20Askaran%20Binjraj%2C%20I%20have%20a%20question%20about%20your%20collections." target="_blank" rel="noopener noreferrer" aria-label="Chat with Askaran Binjraj on WhatsApp" data-testid="whatsapp-float">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+            </a>
+        </template>
+        <script>
+            (function () {
+                var p = window.location.pathname;
+                if (p === "/" || p === "/index.html") {
+                    window.__STOREFRONT__ = true;
+                    var t = document.getElementById("storefront-template");
+                    document.body.innerHTML = "";
+                    document.body.appendChild(t.content.cloneNode(true));
+                    document.body.classList.add("storefront");
+                    var l = document.createElement("link");
+                    l.rel = "stylesheet";
+                    l.href = "%PUBLIC_URL%/storefront.css";
+                    document.head.appendChild(l);
+                    var s = document.createElement("script");
+                    s.src = "%PUBLIC_URL%/storefront.js";
+                    document.body.appendChild(s);
+                }
+            })();
+        </script>
+    </body>
+</html>
