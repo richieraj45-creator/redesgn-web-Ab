@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "sonner";
 import { MapPin, Phone, Mail, Clock, ArrowUpRight, Send } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { CONTACT, CONTACT_LOCATION_IMG } from "../data/siteData";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
@@ -26,7 +27,7 @@ const INFO_CARDS = [
     icon: Clock,
     eyebrow: "Shopping Hours",
     title: "Opening Times",
-    lines: [CONTACT.hoursWeek, CONTACT.hoursSun, "Open 7 days a week for in-store shopping."],
+    lines: [CONTACT.hoursDaily, "Open 7 days a week for in-store shopping."],
     testId: "contact-card-hours",
   },
 ];
@@ -56,6 +57,7 @@ export default function Contact() {
       <section className="border-b border-brand-border">
         <div className="mx-auto max-w-7xl px-4 pt-16 pb-14 sm:px-6 md:pt-24 lg:px-12">
           <Reveal>
+            <Breadcrumbs items={[{ label: "Contact" }]} className="mb-8" />
             <p className="eyebrow" data-testid="contact-eyebrow">Askaran Binjraj · Get In Touch</p>
             <h1 className="mt-5 font-serif text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
               We'd Love to <span className="italic text-brand-red">Hear From You</span>

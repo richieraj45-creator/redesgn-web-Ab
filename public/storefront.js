@@ -11,16 +11,28 @@
       document.body.classList.remove("lock");
       window.setTimeout(function () {
         if (splash.parentNode) splash.parentNode.removeChild(splash);
-      }, 950);
-    }, 4400);
+      }, 600);
+    }, 1250);
   } else {
     document.body.classList.remove("lock");
   }
 
   /* ---------- Header shadow ---------- */
   var header = document.getElementById("site-header");
+  var headerLogo = header && header.querySelector(".sf-logo img");
+  var logoLink = header && header.querySelector(".sf-logo");
   window.addEventListener("scroll", function () {
-    if (header) header.classList.toggle("scrolled", window.scrollY > 12);
+    if (header) {
+      var compact = window.scrollY > 12;
+      header.classList.toggle("scrolled", compact);
+      if (headerLogo && logoLink) {
+        var logoSrc = compact ? logoLink.dataset.logoCompact : logoLink.dataset.logoWide;
+        if (logoSrc && headerLogo.getAttribute("src") !== logoSrc) headerLogo.setAttribute("src", logoSrc);
+      }
+      var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = scrollable > 0 ? Math.min(1, window.scrollY / scrollable) : 0;
+      header.style.setProperty("--scroll-progress", String(progress));
+    }
   }, { passive: true });
 
   /* ---------- Mobile nav ---------- */
@@ -28,10 +40,26 @@
   var mobileNav = document.getElementById("mobile-nav");
   if (burger && mobileNav) {
     burger.addEventListener("click", function () {
-      mobileNav.classList.toggle("open");
+      var open = mobileNav.classList.toggle("open");
+      burger.setAttribute("aria-expanded", String(open));
     });
     mobileNav.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () { mobileNav.classList.remove("open"); });
+      a.addEventListener("click", function () { mobileNav.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); });
+    });
+  }
+
+  /* ---------- Desktop mega menu ---------- */
+  var shopMenu = document.getElementById("sf-shop-menu");
+  var shopTrigger = shopMenu && shopMenu.querySelector(".sf-menu-trigger");
+  if (shopMenu && shopTrigger) {
+    document.addEventListener("click", function (event) {
+      if (!shopMenu.contains(event.target)) shopTrigger.setAttribute("aria-expanded", "false");
+    });
+    shopTrigger.addEventListener("click", function () {
+      shopTrigger.setAttribute("aria-expanded", shopTrigger.getAttribute("aria-expanded") !== "true");
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") { shopTrigger.setAttribute("aria-expanded", "false"); shopTrigger.focus(); }
     });
   }
 
@@ -39,7 +67,7 @@
   var SLIDES = [
     {
       eyebrow: "New Season",
-      title: "Dressed to<br><em>command attention.</em>",
+      title: "Dressed to <em>command attention.</em>",
       sub: "Explore high fashion, handcrafted ethnic weaves, and contemporary daily wear at Askaran Binjraj."
     },
     {
@@ -97,6 +125,10 @@
         titleEl.innerHTML = SLIDES[current].title;
         subEl.textContent = SLIDES[current].sub;
         textWrap.classList.remove("switching");
+        textWrap.classList.remove("arriving");
+        void textWrap.offsetWidth;
+        textWrap.classList.add("arriving");
+        window.setTimeout(function () { textWrap.classList.remove("arriving"); }, 600);
       }, 350);
     }
   }
@@ -123,7 +155,7 @@
     if (next) next.addEventListener("click", function () { render(current + 1); startAuto(); });
     render(0);
     if (splash) {
-      window.setTimeout(startAuto, 4400);
+      window.setTimeout(startAuto, 1250);
     } else {
       startAuto();
     }

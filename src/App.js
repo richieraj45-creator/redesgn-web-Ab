@@ -30,6 +30,9 @@ const HomeRedirect = () => {
 function App() {
   useEffect(() => {
     let lenis = null;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const supportsDesktopSmoothScroll = window.matchMedia("(min-width: 768px)").matches;
+    if (prefersReducedMotion || !supportsDesktopSmoothScroll) return undefined;
     try {
       lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 0.95 });
       const raf = (time) => {

@@ -1,5 +1,6 @@
 import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 import { CategoryCard } from "../components/CategoryCard";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { CATEGORIES } from "../data/siteData";
 
 export default function Collections() {
@@ -8,6 +9,7 @@ export default function Collections() {
       <section className="border-b border-brand-border">
         <div className="mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 md:pt-24 md:pb-16 lg:px-12">
           <Reveal>
+            <Breadcrumbs items={[{ label: "Collections" }]} className="mb-8" />
             <p className="eyebrow" data-testid="collections-eyebrow">Collections</p>
             <h1 className="mt-5 max-w-3xl font-serif text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
               Every floor of the mall, <span className="italic text-brand-red">curated</span>

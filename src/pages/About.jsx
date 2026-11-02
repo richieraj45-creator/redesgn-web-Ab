@@ -1,112 +1,202 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, HeartHandshake, Layers3, MapPin, Sparkles, Utensils } from "lucide-react";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
-import { MALL_EXTERIOR, MALL_INTERIOR } from "../data/siteData";
+import { MALL_EXTERIOR } from "../data/siteData";
 
 const STATS = [
-  { value: "1980", label: "Serving Since" },
-  { value: "6th", label: "Generation Family Legacy" },
-  { value: "100+", label: "Leading Brands" },
-  { value: "7", label: "Days Open a Week" },
+  { value: "1880", label: "Family story begins in Dhekiajuli" },
+  { value: "6", label: "Generations of family retail" },
+  { value: "100+", label: "Brands and labels to explore" },
+  { value: "1", label: "Destination for the family" },
 ];
 
-const SECTIONS = [
-  {
-    eyebrow: "Best Shopping Mall in Sonitpur & Assam",
-    body: [
-      "Askaran Binjraj has established itself as one of the best shopping malls in Sonitpur district and Assam. Located in Dhekiajuli, our mall serves customers from nearby towns and villages who seek quality products and a comfortable shopping environment.",
-      "From stylish clothing for men, women, and kids to accessories and home essentials, we focus on offering variety that suits every age group and budget. Our commitment to quality products and customer satisfaction has made us a top shopping mall in Dhekiajuli, trusted by hundreds of local shoppers.",
-    ],
-  },
-  {
-    eyebrow: "Why We Are the Best Shopping Mall in Assam",
-    body: [
-      "Askaran Binjraj stands out as the Best Shopping Mall in Assam because of its wide range of shopping options, modern infrastructure, and customer-friendly environment. From top fashion brands to daily essentials, everything is available under one roof, making shopping easy and convenient for everyone.",
-      "Our mall offers a clean, spacious, and comfortable atmosphere where families and individuals can enjoy a hassle-free experience. With a perfect mix of quality stores, great service, and a prime location, we continue to be the preferred choice for shoppers looking for the Best Shopping Mall in Assam.",
-    ],
-  },
-  {
-    eyebrow: "Shopping Experience at the Best Shopping Mall in Assam",
-    body: [
-      "Shopping at Askaran Binjraj, known as the Best Shopping Mall in Assam, offers a comfortable and enjoyable experience for every visitor. The mall is designed with spacious walkways, a clean environment, and well-organized stores that make browsing and shopping easy.",
-      "Whether you are visiting with family or friends, you can explore a wide variety of fashion, lifestyle, and daily needs all in one place. With excellent facilities, helpful staff, and a relaxing atmosphere, we ensure that every visit to the Best Shopping Mall in Assam is convenient, satisfying, and memorable.",
-    ],
-  },
+const STORE_IMAGES = [
+  { src: "/assets/about/askaran-mall-exterior.webp", alt: "Askaran Binjraj Shopping Mall exterior in Dhekiajuli", caption: "Askaran Binjraj · Dhekiajuli" },
+  { src: "/assets/about/mall-fashion-corridor.webp", alt: "A shopping corridor inside Askaran Binjraj", caption: "Inside the shopping mall" },
+  { src: "/assets/about/apparel-floor.webp", alt: "Apparel displays inside Askaran Binjraj", caption: "Fashion and apparel" },
+  { src: "/assets/about/central-retail-floor.webp", alt: "The central retail floor at Askaran Binjraj", caption: "A place to explore together" },
+  { src: "/assets/about/folded-apparel-display.webp", alt: "Folded apparel displayed in the store", caption: "Everyday and occasion wear" },
+  { src: "/assets/about/jewellery-display.webp", alt: "Jewellery and accessories displayed in store", caption: "Finishing touches, all together" },
+];
+
+const CHATAR_PATAR_IMAGES = [
+  { src: "/assets/about/chatar-patar-interior.webp", alt: "Chatar Patar by AB Foods dining area and service counter", caption: "A vegetarian food break, inside the mall" },
+  { src: "/assets/about/chatar-patar-front.webp", alt: "Chatar Patar by AB Foods storefront", caption: "Chatar Patar by AB Foods" },
+  { src: "/assets/about/chatar-patar-seating.webp", alt: "Seating area at Chatar Patar by AB Foods", caption: "A relaxed place to pause" },
+];
+
+const DEPARTMENTS = [
+  { icon: Layers3, title: "Fashion for every day", body: "Explore clothing and footwear for women, men, and children, alongside pieces for celebrations and special occasions." },
+  { icon: Sparkles, title: "Heritage and occasion", body: "Discover Banarasi sarees, Assam silk, handloom styles, and wedding wear in a setting shaped by generations of family retail." },
+  { icon: HeartHandshake, title: "More under one roof", body: "Complete the visit with accessories, jewellery, travel gear, home furnishings, kitchen and household essentials, toys, and school needs." },
 ];
 
 export default function About() {
   return (
-    <main data-testid="about-page">
-      <section className="border-b border-brand-border">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 pt-16 pb-14 sm:px-6 md:pt-24 lg:grid-cols-12 lg:px-12">
-          <div className="lg:col-span-7">
-            <Reveal>
-              <p className="eyebrow" data-testid="about-eyebrow">About the Mall</p>
-              <h1 className="mt-5 font-serif text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-                Askaran Binjraj — Top Shopping Mall in <span className="italic text-brand-red">Dhekiajuli, Assam</span>
-              </h1>
-              <p className="mt-7 max-w-2xl text-base leading-relaxed text-brand-mid">
-                Known for quality, variety, and affordability, our mall brings together fashion, lifestyle, and household essentials under one roof. If you are looking for a trusted shopping mall in Dhekiajuli, Askaran Binjraj is your go-to destination for everyday shopping as well as special occasions.
-              </p>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-5">
-            <Reveal delay={0.2}>
-              <div className="img-frame h-[300px] overflow-hidden lg:h-[380px]">
-                <img src={MALL_INTERIOR} alt="Inside Askaran Binjraj shopping mall" className="h-full w-full object-cover" data-testid="about-image" />
-              </div>
-            </Reveal>
-          </div>
+    <main data-testid="about-page" className="bg-brand-paper">
+      <section className="relative isolate overflow-hidden bg-brand-ink text-brand-paper">
+        <img
+          src={MALL_EXTERIOR}
+          alt="Askaran Binjraj shopping destination in Dhekiajuli"
+          className="absolute inset-0 -z-20 h-full w-full object-cover opacity-45"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-ink via-brand-ink/80 to-brand-ink/35" />
+        <div className="mx-auto flex min-h-[470px] max-w-7xl items-center px-5 py-20 sm:px-8 md:min-h-[560px] lg:px-12">
+          <Reveal className="max-w-4xl">
+            <Breadcrumbs items={[{ label: "About Us" }]} tone="light" className="mb-9" />
+            <p className="eyebrow-light">Our story · Dhekiajuli, Assam</p>
+            <h1 className="mt-5 font-serif text-4xl font-medium leading-[1.04] tracking-tight sm:text-5xl lg:text-7xl">
+              A family story since 1880.<br />
+              <span className="italic text-brand-gold">A place for every generation.</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
+              Askaran Binjraj began as a family venture in Dhekiajuli. Six generations on, the spirit of personal service lives on in a family shopping destination bringing fashion, heritage, and everyday needs together.
+            </p>
+            <Link to="/collections" className="mt-8 inline-flex items-center gap-2 bg-brand-red px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-brand-redDark" data-testid="about-hero-cta">
+              Explore the collections <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </Reveal>
         </div>
       </section>
 
-      <section className="border-b border-brand-border bg-brand-alt">
+      <section className="border-b border-brand-border bg-brand-alt" aria-label="Askaran Binjraj at a glance">
         <Stagger className="mx-auto grid max-w-7xl grid-cols-2 gap-px border-x border-brand-border bg-brand-border lg:grid-cols-4" data-testid="about-stats">
-          {STATS.map((s, i) => (
-            <StaggerItem key={i} className="bg-brand-alt">
-              <div className="px-6 py-10 text-center">
-                <p className="font-serif text-4xl font-medium text-brand-red lg:text-5xl">{s.value}</p>
-                <p className="mt-2 text-[10px] uppercase tracking-[0.24em] text-brand-muted">{s.label}</p>
+          {STATS.map((stat) => (
+            <StaggerItem key={stat.label} className="bg-brand-alt">
+              <div className="px-5 py-8 text-center sm:px-7 sm:py-10">
+                <p className="font-serif text-4xl font-medium text-brand-red lg:text-5xl">{stat.value}</p>
+                <p className="mx-auto mt-2 max-w-[15rem] text-[10px] uppercase leading-relaxed tracking-[0.19em] text-brand-muted">{stat.label}</p>
               </div>
             </StaggerItem>
           ))}
         </Stagger>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-12">
-        {SECTIONS.map((s, i) => (
-          <Reveal key={i} className={`grid gap-8 border-brand-border py-12 lg:grid-cols-12 ${i > 0 ? "border-t" : ""}`}>
-            <div className="lg:col-span-5">
-              <p className="eyebrow">{String(i + 1).padStart(2, "0")}</p>
-              <h2 className="mt-4 font-serif text-2xl font-medium leading-snug tracking-tight sm:text-3xl">{s.eyebrow}</h2>
-            </div>
-            <div className="lg:col-span-7">
-              {s.body.map((p, j) => (
-                <p key={j} className="mb-5 text-base leading-relaxed text-brand-mid">{p}</p>
-              ))}
-            </div>
-          </Reveal>
-        ))}
-        <Reveal className="border-t border-brand-border pt-12">
-          <div className="img-frame h-[280px] overflow-hidden md:h-[380px]">
-            <img src={MALL_EXTERIOR} alt="Askaran Binjraj shopping mall exterior in Dhekiajuli" loading="lazy" className="h-full w-full object-cover" />
-          </div>
+      <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12 lg:px-12">
+        <Reveal className="lg:col-span-5">
+          <p className="eyebrow">The journey</p>
+          <h2 className="mt-4 font-serif text-3xl font-medium leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+            From a family venture to a <span className="italic text-brand-red">shared destination.</span>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1} className="space-y-5 lg:col-span-7">
+          <p className="text-base leading-relaxed text-brand-mid">
+            The official Askaran Binjraj story traces its beginning to 1880 in Dhekiajuli. What has carried forward through six generations is a simple promise: bring people a thoughtful choice of quality, variety, and value, with service that feels personal.
+          </p>
+          <p className="text-base leading-relaxed text-brand-mid">
+            Today, the store brings together apparel for the family, traditional and occasion wear, footwear, jewellery and accessories, travel gear, home furnishings, kitchen and household needs, and toys and school essentials. The live site describes a range of more than 100 brands.
+          </p>
+          <p className="flex items-start gap-3 border-l-2 border-brand-red pl-5 font-serif text-lg italic leading-relaxed text-brand-ink sm:text-xl">
+            More to love. All under one roof.
+          </p>
         </Reveal>
       </section>
 
-      <section className="border-t border-brand-border bg-brand-ink text-brand-paper">
-        <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-4 py-16 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-12">
-          <Reveal>
-            <p className="eyebrow-light">Women's · Men's · Kids · Home</p>
-            <h2 className="mt-3 max-w-xl font-serif text-3xl font-medium tracking-tight text-white">
-              A complete family shopping destination
-            </h2>
+      <section className="border-y border-brand-border bg-white">
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-20 lg:px-12">
+          <Reveal className="mb-10 max-w-2xl">
+            <p className="eyebrow">A destination for every visit</p>
+            <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">Many ways to find your thing.</h2>
+            <p className="mt-4 text-base leading-relaxed text-brand-mid">A broad mix of departments makes it easy to bring a shopping list, find an occasion look, or browse together as a family.</p>
           </Reveal>
-          <Reveal delay={0.15}>
-            <Link to="/collections" data-testid="about-cta-collections" className="group inline-flex items-center gap-2 bg-brand-red px-7 py-3.5 text-xs uppercase tracking-[0.2em] font-medium text-white transition-colors duration-300 hover:bg-brand-redDark">
-              Browse Collections
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          <Stagger className="grid gap-px border border-brand-border bg-brand-border md:grid-cols-3">
+            {DEPARTMENTS.map(({ icon: Icon, title, body }, index) => (
+              <StaggerItem key={title} className="bg-brand-paper">
+                <article className="h-full p-6 sm:p-8" data-testid={`about-department-${index}`}>
+                  <Icon className="h-6 w-6 text-brand-red" aria-hidden="true" />
+                  <h3 className="mt-6 font-serif text-2xl font-medium text-brand-ink">{title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-brand-mid">{body}</p>
+                </article>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-24 lg:px-12" data-testid="about-store-gallery">
+        <Reveal className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="eyebrow">Inside Askaran Binjraj</p>
+            <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">A look around the store.</h2>
+          </div>
+          <p className="max-w-md text-sm leading-relaxed text-brand-mid">Real views from the store: the entrance, displays, and spaces where customers browse.</p>
+        </Reveal>
+        <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {STORE_IMAGES.map((image, index) => (
+            <StaggerItem key={image.src} className="mx-auto w-full max-w-[300px] sm:max-w-none">
+              <figure className="group overflow-hidden border border-brand-border bg-white" data-testid={`about-gallery-image-${index}`}>
+                <div className="aspect-[4/3] overflow-hidden bg-brand-alt">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    width="300"
+                    height="225"
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover contrast-[1.04] saturate-[1.06] transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  />
+                </div>
+                <figcaption className="px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-ink">{image.caption}</figcaption>
+              </figure>
+            </StaggerItem>
+          ))}
+        </Stagger>
+      </section>
+
+      <section className="border-y border-brand-border bg-brand-ink text-brand-paper" data-testid="about-chatar-patar">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:py-20 lg:grid-cols-12 lg:items-center lg:px-12">
+          <Reveal className="lg:col-span-5">
+            <p className="eyebrow-light">A tasty pause in your visit</p>
+            <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">Chatar Patar <span className="italic text-brand-gold">by AB Foods.</span></h2>
+            <p className="mt-5 text-sm leading-relaxed text-white/75 sm:text-base">
+              Make room for a food break while you shop. Chatar Patar is a 100% vegetarian quick-service restaurant at Askaran Binjraj, added in 2017 for mall visitors looking for a relaxed place to pause.
+            </p>
+            <p className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-gold">
+              <Utensils className="h-4 w-4" aria-hidden="true" /> Vegetarian dining · Dhekiajuli
+            </p>
+          </Reveal>
+          <Stagger className="grid grid-cols-2 gap-3 sm:gap-4 lg:col-span-7">
+            {CHATAR_PATAR_IMAGES.map((image, index) => (
+              <StaggerItem key={image.src} className={index === 0 ? "col-span-2" : ""}>
+                <figure className="group overflow-hidden border border-white/15 bg-white/5" data-testid={`about-chatar-image-${index}`}>
+                  <div className={index === 0 ? "aspect-[16/8] overflow-hidden" : "aspect-[4/3] overflow-hidden"}>
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      width={index === 0 ? "1536" : "243"}
+                      height={index === 0 ? "1024" : "180"}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <figcaption className="px-3 py-2.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-white/80 sm:px-4 sm:text-[10px]">{image.caption}</figcaption>
+                </figure>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
+      <section className="border-t border-brand-border bg-brand-alt">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-16 sm:px-8 md:py-20 lg:grid-cols-12 lg:items-center lg:px-12">
+          <Reveal className="lg:col-span-7">
+            <p className="eyebrow">Come see us</p>
+            <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">Find us in Dhekiajuli.</h2>
+            <p className="mt-4 flex items-start gap-3 text-sm leading-relaxed text-brand-mid">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-red" aria-hidden="true" />
+              Askaran Binjraj Shopping Mall, Main Road, Dhekiajuli, Assam – 784110
+            </p>
+          </Reveal>
+          <Reveal delay={0.1} className="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-brand-red px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-brand-redDark">
+              Plan your visit <ArrowRight className="h-4 w-4" />
             </Link>
+            <a href="https://maps.app.goo.gl/oYK6b4wPu7BUnzGb8" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-brand-ink px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-brand-ink transition-colors hover:bg-brand-ink hover:text-white">
+              Directions <ArrowUpRight className="h-4 w-4" />
+            </a>
           </Reveal>
         </div>
       </section>

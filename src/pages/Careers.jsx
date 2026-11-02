@@ -1,199 +1,203 @@
-import { useRef, useState } from "react";
-import axios from "axios";
-import { toast } from "sonner";
-import { ArrowUpRight, Monitor, Store, Receipt, Warehouse, Mail, MapPin, Upload, FileCheck } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, Monitor, Store, Warehouse, Mail, Send } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
-import { CAREER_DEPARTMENTS, CONTACT } from "../data/siteData";
+import { CONTACT } from "../data/siteData";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 
-const ICONS = { monitor: Monitor, store: Store, receipt: Receipt, warehouse: Warehouse };
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
-
-const field = "w-full border border-brand-borderMid bg-brand-paper px-4 py-3 text-sm text-brand-ink outline-none transition-colors duration-300 placeholder:text-brand-muted focus:border-brand-red";
-
-const ApplicationForm = () => {
-  const [form, setForm] = useState({ name: "", phone: "", email: "", department: CAREER_DEPARTMENTS[0].name, note: "" });
-  const [resume, setResume] = useState(null);
-  const [sending, setSending] = useState(false);
-  const fileRef = useRef(null);
-
-  const pickFile = (e) => {
-    const f = e.target.files?.[0];
-    if (!f) return;
-    if (!/\.(pdf|doc|docx)$/i.test(f.name)) {
-      toast.error("Please attach a PDF, DOC or DOCX file.");
-      return;
-    }
-    if (f.size > 5 * 1024 * 1024) {
-      toast.error("Resume must be under 5 MB.");
-      return;
-    }
-    setResume(f);
-  };
-
-  const submit = async (e) => {
-    e.preventDefault();
-    if (!resume) {
-      toast.error("Please attach your resume.");
-      return;
-    }
-    setSending(true);
-    try {
-      const data = new FormData();
-      data.append("name", form.name);
-      data.append("phone", form.phone);
-      data.append("email", form.email);
-      data.append("department", form.department);
-      data.append("note", form.note);
-      data.append("resume", resume);
-      await axios.post(`${API}/applications`, data);
-      toast.success("Application received — our HR team will reach out to you.");
-      setForm({ name: "", phone: "", email: "", department: CAREER_DEPARTMENTS[0].name, note: "" });
-      setResume(null);
-      if (fileRef.current) fileRef.current.value = "";
-    } catch (err) {
-      toast.error(err?.response?.data?.detail || "Could not submit your application. Please email HR directly.");
-    } finally {
-      setSending(false);
-    }
-  };
-
-  return (
-    <form onSubmit={submit} className="border border-brand-border bg-brand-alt p-6 md:p-10" data-testid="career-application-form">
-      <p className="eyebrow">Apply Now</p>
-      <h3 className="mt-3 font-serif text-2xl font-medium tracking-tight sm:text-3xl">Send us your resume directly</h3>
-      <p className="mt-3 max-w-xl text-sm leading-relaxed text-brand-mid">
-        Fill in your details, choose a department, and attach your resume (PDF, DOC or DOCX, up to 5 MB). It goes straight to our HR desk at {CONTACT.careersEmail}.
-      </p>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        <input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Full name" className={field} data-testid="career-form-name" />
-        <input required value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="Phone number" className={field} data-testid="career-form-phone" />
-        <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="Email (optional)" className={field} data-testid="career-form-email" />
-        <select value={form.department} onChange={(e) => setForm({ ...form, department: e.target.value })} className={field} data-testid="career-form-department">
-          {CAREER_DEPARTMENTS.map((d) => (
-            <option key={d.name} value={d.name}>{d.name}</option>
-          ))}
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <textarea rows={3} value={form.note} onChange={(e) => setForm({ ...form, note: e.target.value })} placeholder="A short note about yourself (optional)" className={`${field} mt-4 resize-none`} data-testid="career-form-note" />
-      <div className="mt-4">
-        <input ref={fileRef} type="file" accept=".pdf,.doc,.docx" onChange={pickFile} className="hidden" data-testid="career-form-resume" />
-        <button
-          type="button"
-          onClick={() => fileRef.current?.click()}
-          data-testid="career-form-resume-button"
-          className={`flex w-full items-center justify-center gap-3 border border-dashed px-4 py-6 text-xs uppercase tracking-[0.2em] font-medium transition-colors duration-300 ${resume ? "border-brand-red bg-brand-paper text-brand-red" : "border-brand-borderMid text-brand-mid hover:border-brand-red hover:text-brand-red"}`}
-        >
-          {resume ? <FileCheck className="h-4 w-4" /> : <Upload className="h-4 w-4" />}
-          {resume ? `${resume.name} attached` : "Attach Resume (PDF / DOC / DOCX)"}
-        </button>
-      </div>
-      <button
-        type="submit"
-        disabled={sending}
-        data-testid="career-form-submit"
-        className="mt-6 inline-flex items-center gap-2 bg-brand-red px-8 py-3.5 text-xs uppercase tracking-[0.2em] font-medium text-white transition-colors duration-300 hover:bg-brand-redDark disabled:opacity-60"
-      >
-        {sending ? "Submitting…" : "Submit Application"}
-        <ArrowUpRight className="h-4 w-4" />
-      </button>
-    </form>
-  );
-};
+const DEPARTMENTS = [
+  {
+    icon: Monitor,
+    name: "Digital & E-Commerce",
+    intro: "Build the next chapter of our digital storefront and customer experience.",
+    roles: ["UI/UX Designer", "Growth Marketing Specialist", "Web Developer", "SEO Specialist"],
+  },
+  {
+    icon: Store,
+    name: "Store Operations & Retail",
+    intro: "Create a welcoming, thoughtful experience for every person who visits us.",
+    roles: ["Store Manager", "Client Stylist", "Floor Sales Associate", "Cashier"],
+  },
+  {
+    icon: Warehouse,
+    name: "Supply Chain & Logistics",
+    intro: "Keep product moving accurately and reliably from receiving to the shop floor.",
+    roles: ["Dispatch Coordinator", "Inventory Manager", "Warehouse Manager"],
+  },
+];
 
 export default function Careers() {
+  const [form, setForm] = useState({ name: "", email: "", phone: "", role: "", message: "", cv: null });
+  const [cvError, setCvError] = useState("");
+
+  const updateField = (event) => setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
+
+  const selectCv = (event) => {
+    const file = event.target.files?.[0] || null;
+    if (file && file.size > 10 * 1024 * 1024) {
+      setForm((current) => ({ ...current, cv: null }));
+      setCvError("Please choose a CV smaller than 10 MB.");
+      event.target.value = "";
+      return;
+    }
+    if (file && !/\.(pdf|doc|docx)$/i.test(file.name)) {
+      setForm((current) => ({ ...current, cv: null }));
+      setCvError("Please choose a PDF, DOC, or DOCX file.");
+      event.target.value = "";
+      return;
+    }
+    setCvError("");
+    setForm((current) => ({ ...current, cv: file }));
+  };
+
+  const submitApplication = async (event) => {
+    event.preventDefault();
+    if (!form.cv) {
+      setCvError("Please attach your CV to continue.");
+      return;
+    }
+    const body = [
+      `To: ${CONTACT.careersEmail}`,
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      `Phone: ${form.phone}`,
+      `Role: ${form.role}`,
+      `CV file: ${form.cv.name}`,
+      "",
+      "Introduction:",
+      form.message || "(Not provided)",
+    ].join("\n");
+    const subject = form.role ? `Career Application: ${form.role}` : "Career Application";
+
+    if (navigator.canShare?.({ files: [form.cv] }) && navigator.share) {
+      try {
+        await navigator.share({ title: subject, text: body, files: [form.cv] });
+        return;
+      } catch (error) {
+        if (error.name === "AbortError") return;
+      }
+    }
+
+    window.location.href = `mailto:${CONTACT.careersEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
+  const fieldClass = "mt-2 w-full min-h-12 border border-brand-borderMid bg-brand-paper px-4 py-3 text-base text-brand-ink outline-none transition-colors placeholder:text-brand-muted focus:border-brand-red";
+
   return (
-    <main data-testid="careers-page">
-      <section className="border-b border-brand-border">
-        <div className="mx-auto max-w-7xl px-4 pt-16 pb-14 sm:px-6 md:pt-24 lg:px-12">
-          <Reveal>
-            <p className="eyebrow" data-testid="careers-eyebrow">Careers — Join the Askaran Binjraj Family</p>
-            <h1 className="mt-5 max-w-3xl font-serif text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-              Grow With Assam's <span className="italic text-brand-red">Premier Retail Destination</span>
+    <main className="min-h-screen bg-brand-paper" data-testid="careers-page">
+      <section className="relative isolate overflow-hidden bg-brand-ink text-brand-paper">
+        <img
+          src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=2000"
+          alt="Customers exploring a retail store"
+          className="absolute inset-0 -z-20 h-full w-full object-cover opacity-35"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-ink via-brand-ink/85 to-brand-ink/45" />
+        <div className="mx-auto flex min-h-[440px] max-w-7xl items-center px-5 py-20 sm:px-8 md:min-h-[520px] lg:px-12">
+          <Reveal className="max-w-3xl">
+            <Breadcrumbs items={[{ label: "Careers" }]} tone="light" className="mb-8" />
+            <p className="eyebrow-light">Careers · Six generations of heritage</p>
+            <h1 className="mt-5 font-serif text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl lg:text-7xl">
+              Make what comes next <span className="italic text-brand-gold">matter.</span>
             </h1>
-            <p className="mt-7 max-w-2xl text-base leading-relaxed text-brand-mid">
-              Chandan Retail Private Limited is expanding both our physical footprint in Dhekiajuli and our new digital storefront. We are looking for dedicated professionals to join our growing team.
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
+              Join the people shaping Askaran Binjraj today. Bring your perspective to a family retail business built on care, craft, and six generations of trust.
             </p>
+            <a href="#career-departments" className="mt-8 inline-flex items-center gap-2 bg-brand-red px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-brand-redDark">
+              Explore opportunities <ArrowUpRight className="h-4 w-4" />
+            </a>
           </Reveal>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-12">
-        <Reveal className="mb-10">
-          <p className="eyebrow">Current Openings</p>
-          <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">Open Departments & Roles</h2>
+      <section id="career-departments" className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-24 lg:px-12">
+        <Reveal className="mb-10 max-w-2xl">
+          <p className="eyebrow">Find your place</p>
+          <h2 className="mt-3 font-serif text-3xl font-medium tracking-tight text-brand-ink sm:text-4xl">Three paths to grow with us.</h2>
+          <p className="mt-4 text-sm leading-relaxed text-brand-mid sm:text-base">Choose a team to see current role areas. Select a role to start an application email to HR.</p>
         </Reveal>
-        <Stagger className="grid gap-px border border-brand-border bg-brand-border md:grid-cols-2">
-          {CAREER_DEPARTMENTS.map((d, i) => {
-            const Icon = ICONS[d.icon];
-            return (
-              <StaggerItem key={i} className="bg-brand-paper">
-                <div className="group h-full p-7 transition-colors duration-300 hover:bg-brand-alt md:p-9" data-testid={`career-department-${i}`}>
-                  <div className="flex items-center justify-between">
-                    <Icon className="h-6 w-6 text-brand-red" />
-                    <span className="text-[10px] uppercase tracking-[0.26em] text-brand-muted">{String(i + 1).padStart(2, "0")}</span>
-                  </div>
-                  <h3 className="mt-6 font-serif text-2xl font-medium text-brand-ink">{d.name}</h3>
-                  <ul className="mt-4 space-y-2">
-                    {d.roles.map((r) => (
-                      <li key={r} className="flex items-center gap-3 text-sm text-brand-mid">
-                        <span className="h-1.5 w-1.5 rotate-45 bg-brand-red" />
-                        {r}
+
+        <Stagger className="grid gap-5 md:grid-cols-3">
+          {DEPARTMENTS.map(({ icon: Icon, name, intro, roles }, index) => (
+            <StaggerItem key={name}>
+              <article className="flex h-full flex-col border border-brand-border bg-white p-6 transition-shadow duration-300 hover:shadow-xl sm:p-8" data-testid={`career-department-${index}`}>
+                <div className="flex items-center justify-between">
+                  <Icon className="h-6 w-6 text-brand-red" aria-hidden="true" />
+                  <span className="text-[10px] font-semibold tracking-[0.22em] text-brand-muted">{String(index + 1).padStart(2, "0")}</span>
+                </div>
+                <h3 className="mt-6 font-serif text-2xl font-medium text-brand-ink">{name}</h3>
+                <p className="mt-3 min-h-12 text-sm leading-relaxed text-brand-mid">{intro}</p>
+                <div className="mt-6 border-t border-brand-border pt-4">
+                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-muted">Role areas</p>
+                  <ul className="space-y-1">
+                    {roles.map((role) => (
+                      <li key={role}>
+                        <a href="#career-application" onClick={() => setForm((current) => ({ ...current, role }))} className="group flex min-h-11 items-center justify-between gap-2 py-2 text-sm text-brand-ink transition-colors hover:text-brand-red" data-testid={`career-role-${role.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
+                          <span>{role}</span><ArrowUpRight className="h-3.5 w-3.5 shrink-0 opacity-50 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" />
+                        </a>
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href={`mailto:${CONTACT.careersEmail}?subject=Application — ${encodeURIComponent(d.name)}`}
-                    data-testid={`career-apply-button-${i}`}
-                    className="group/link mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-medium text-brand-red"
-                  >
-                    Apply for this department
-                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-                  </a>
                 </div>
-              </StaggerItem>
-            );
-          })}
+              </article>
+            </StaggerItem>
+          ))}
         </Stagger>
-
-        <Reveal className="mt-14">
-          <ApplicationForm />
-        </Reveal>
       </section>
 
-      <section className="border-t border-brand-border bg-brand-ink text-brand-paper" data-testid="careers-cta">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-12">
-          <Reveal className="max-w-3xl">
-            <p className="eyebrow-light">Ready to build your career with us?</p>
-            <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight text-white sm:text-4xl">
-              Send your updated resume to HR
-            </h2>
-            <p className="mt-5 text-base leading-relaxed text-white/60">
-              Ready to build your career with us? Send your updated resume to HR at{" "}
-              <a href={`mailto:${CONTACT.careersEmail}`} className="text-brand-red underline underline-offset-4 hover:text-white" data-testid="careers-email-link">
-                {CONTACT.careersEmail}
-              </a>{" "}
-              or drop it off at our main front desk in Dhekiajuli.
-            </p>
-            <div className="mt-9 flex flex-wrap gap-4">
-              <a
-                href={`mailto:${CONTACT.careersEmail}`}
-                data-testid="careers-cta-email"
-                className="group inline-flex items-center gap-2 bg-brand-red px-7 py-3.5 text-xs uppercase tracking-[0.2em] font-medium text-white transition-colors duration-300 hover:bg-brand-redDark"
-              >
-                <Mail className="h-4 w-4" /> Email Your Resume
-              </a>
-              <a
-                href={CONTACT.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="careers-cta-visit"
-                className="inline-flex items-center gap-2 border border-white/40 px-7 py-3.5 text-xs uppercase tracking-[0.2em] font-medium text-white transition-colors duration-300 hover:border-white hover:bg-white hover:text-brand-ink"
-              >
-                <MapPin className="h-4 w-4" /> Visit the Front Desk
-              </a>
+      <section id="career-application" className="border-t border-brand-border bg-brand-alt" data-testid="careers-apply">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-8 md:py-20 lg:grid-cols-12 lg:gap-16 lg:px-12">
+          <div className="lg:col-span-4">
+            <p className="eyebrow">Your next step</p>
+            <h2 className="mt-3 font-serif text-3xl font-medium text-brand-ink sm:text-4xl">Ready to grow with us?</h2>
+            <p className="mt-4 text-sm leading-relaxed text-brand-mid">Share a few details and we’ll prepare your application email to our HR team.</p>
+            <p className="mt-5 flex items-center gap-2 text-sm font-medium text-brand-ink"><Mail className="h-4 w-4 text-brand-red" /> {CONTACT.careersEmail}</p>
+          </div>
+          <form onSubmit={submitApplication} className="grid gap-5 border border-brand-border bg-white p-5 sm:p-8 md:grid-cols-2 lg:col-span-8" data-testid="careers-application-form">
+            <label className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-ink">
+              Full name <span className="text-brand-red">*</span>
+              <input className={fieldClass} name="name" autoComplete="name" value={form.name} onChange={updateField} required />
+            </label>
+            <label className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-ink">
+              Email address <span className="text-brand-red">*</span>
+              <input className={fieldClass} type="email" name="email" autoComplete="email" value={form.email} onChange={updateField} required />
+            </label>
+            <label className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-ink">
+              Phone number <span className="text-brand-red">*</span>
+              <input className={fieldClass} type="tel" name="phone" autoComplete="tel" value={form.phone} onChange={updateField} required />
+            </label>
+            <label className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-ink">
+              Interested role <span className="text-brand-red">*</span>
+              <select className={fieldClass} name="role" value={form.role} onChange={updateField} required>
+                <option value="">Choose a role</option>
+                {DEPARTMENTS.flatMap(({ roles }) => roles).map((role) => <option key={role} value={role}>{role}</option>)}
+                <option value="Other opportunity">Other opportunity</option>
+              </select>
+            </label>
+            <label className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-ink md:col-span-2">
+              A short introduction
+              <textarea className={`${fieldClass} min-h-28 resize-y`} name="message" rows="4" maxLength={1000} value={form.message} onChange={updateField} placeholder="Tell us a little about your experience and what you’d bring to the team." />
+            </label>
+            <label className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-ink md:col-span-2">
+              Attach your CV <span className="text-brand-red">*</span>
+              <input
+                className={`${fieldClass} cursor-pointer file:mr-3 file:border-0 file:bg-brand-ink file:px-3 file:py-2 file:text-xs file:font-semibold file:uppercase file:tracking-[0.1em] file:text-white`}
+                type="file"
+                name="cv"
+                accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                onChange={selectCv}
+                aria-describedby="cv-help"
+                required
+              />
+              <span id="cv-help" className="mt-2 block text-xs font-normal normal-case tracking-normal text-brand-muted">PDF, DOC, or DOCX · up to 10 MB{form.cv ? ` · Selected: ${form.cv.name}` : ""}</span>
+              {cvError && <span role="alert" className="mt-1 block text-xs font-medium normal-case tracking-normal text-brand-red">{cvError}</span>}
+            </label>
+            <div className="md:col-span-2">
+              <button type="submit" className="inline-flex min-h-12 w-full items-center justify-center gap-2 bg-brand-red px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-brand-redDark sm:w-auto" data-testid="careers-email-cta">
+                <Send className="h-4 w-4" /> Prepare application email <ArrowUpRight className="h-4 w-4" />
+              </button>
+              <p className="mt-3 text-xs leading-relaxed text-brand-muted">On devices that support file sharing, your CV will be included in the share sheet. Otherwise, an email draft opens with your details; attach the selected CV in your email app before sending.</p>
             </div>
-          </Reveal>
+          </form>
         </div>
       </section>
     </main>

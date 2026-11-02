@@ -26,7 +26,7 @@ export const Footer = () => (
           <p className="text-xs uppercase tracking-[0.28em] text-white/40">Explore</p>
           <ul className="mt-5 space-y-3 text-sm text-white/70">
             <li><Link className="link-underline hover:text-white" to="/collections" data-testid="footer-link-collections">Collections</Link></li>
-            <li><Link className="link-underline hover:text-white" to="/about" data-testid="footer-link-about">About Mall</Link></li>
+            <li><Link className="link-underline hover:text-white" to="/about" data-testid="footer-link-about">About Us</Link></li>
             <li><Link className="link-underline hover:text-white" to="/careers" data-testid="footer-link-careers">Careers</Link></li>
             <li><Link className="link-underline hover:text-white" to="/contact" data-testid="footer-link-contact">Contact</Link></li>
             <li>
@@ -53,7 +53,7 @@ export const Footer = () => (
             </li>
             <li className="flex gap-3">
               <Clock className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-red" />
-              <span>{CONTACT.hoursWeek}<br />{CONTACT.hoursSun}</span>
+              <span>{CONTACT.hoursDaily}</span>
             </li>
           </ul>
         </div>

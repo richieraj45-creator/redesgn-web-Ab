@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { CATEGORIES, CONTACT } from "../data/siteData";
 
 export default function CategoryDetail() {
@@ -16,9 +17,7 @@ export default function CategoryDetail() {
     return (
       <main className="mx-auto max-w-7xl px-4 py-32 text-center" data-testid="category-not-found">
         <h1 className="font-serif text-4xl">Collection not found</h1>
-        <Link to="/collections" className="mt-6 inline-block text-xs uppercase tracking-[0.22em] text-brand-red">
-          Back to Collections
-        </Link>
+            <Breadcrumbs items={[{ label: "Collections", to: "/collections" }, { label: "Collection not found" }]} className="mt-6" />
       </main>
     );
   }
@@ -32,9 +31,7 @@ export default function CategoryDetail() {
         <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/85 via-brand-ink/30 to-brand-ink/10" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-10 sm:px-6 lg:px-12">
           <Reveal>
-            <Link to="/collections" data-testid="category-back-link" className="mb-5 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-white/70 transition-colors hover:text-white">
-              <ArrowLeft className="h-3.5 w-3.5" /> All Collections
-            </Link>
+            <Breadcrumbs items={[{ label: "Collections", to: "/collections", testId: "category-back-link" }, { label: category.name }]} tone="light" className="mb-7" />
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/60" data-testid="category-studio">{category.studio}</p>
             <h1 className="mt-2 max-w-3xl font-serif text-4xl font-medium leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl" data-testid="category-title">
               {category.title}

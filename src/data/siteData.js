@@ -11,13 +11,12 @@ export const CONTACT = {
   addressLine2: "Dhekiajuli, Assam – 784110",
   addressShort: "52 National Highway Dhekiajuli, Assam",
   addressFull: "Askaran Binjraj Shopping Mall, Main Road, Dhekiajuli, Assam – 784110",
-  hoursWeek: "Mon – Sat: 10:00 AM – 8:30 PM",
-  hoursSun: "Sunday: 10:00 AM – 8:00 PM",
+  hoursDaily: "Every day: 10:00 AM – 10:00 PM",
   mapsUrl: "https://maps.app.goo.gl/oYK6b4wPu7BUnzGb8",
   mapsUrlStore: "https://maps.app.goo.gl/RiaVfCSgBwTxFq1YA",
   mapsEmbed: "https://www.google.com/maps?q=Askaran%20Binjraj%20Shopping%20Mall%2C%20Main%20Road%2C%20Dhekiajuli%2C%20Assam%20784110&output=embed",
   shopUrl: "https://shop.askaranbinjraj.com",
-  company: "Chandan Retail Private Limited",
+  company: "Askaran Binjraj",
 };
 
 const LOCATION_STAT = { value: "Visit Us In-Store", label: "Askaran Binjraj Shopping Mall, Main Road, Dhekiajuli, Assam – 784110" };
@@ -39,12 +38,12 @@ export const CATEGORIES = [
     studio: "3rd Floor • Royal Handlooms",
     title: "Authentic Banarsi Sarees in Dhekiajuli",
     intro: [
-      "Welcome to Askaran Binjraj — a family-run saree store in Dhekiajuli, Sonitpur (Assam), proudly serving customers since 1980. Now in its 6th generation, our family has spent over four decades building direct relationships with weavers to bring authentic, high-quality sarees to Assam. Located on NH15, we offer a curated collection of Pure Silk, South Silk, Cotton, Handloom, Traditional Assam Silk, and authentic Banarsi sarees — each sourced directly from weavers to ensure genuine craftsmanship and fair pricing, with no middlemen involved.",
-      "Our Banarsi saree collection comes directly from traditional weavers in Varanasi — a sourcing relationship our family has maintained across six generations since 1980. This direct-from-weaver approach means every Banarsi saree in our store carries authentic zari work, traditional brocade patterns, and premium silk quality, without the markup or inconsistency that comes with middlemen or wholesale suppliers.",
+      "Welcome to Askaran Binjraj — a family-run saree store in Dhekiajuli, Sonitpur (Assam), proudly serving customers since 1880. Now in its 6th generation, our family has built lasting relationships with weavers to bring authentic, high-quality sarees to Assam. Located on NH15, we offer a curated collection of Pure Silk, South Silk, Cotton, Handloom, Traditional Assam Silk, and authentic Banarsi sarees — each sourced directly from weavers to ensure genuine craftsmanship and fair pricing, with no middlemen involved.",
+      "Our Banarsi saree collection comes directly from traditional weavers in Varanasi — a sourcing relationship our family has maintained across six generations since 1880. This direct-from-weaver approach means every Banarsi saree in our store carries authentic zari work, traditional brocade patterns, and premium silk quality, without the markup or inconsistency that comes with middlemen or wholesale suppliers.",
       "We personally select each piece, drawing on decades of family experience in identifying genuine silk quality, weave density, and craftsmanship — knowledge passed down through generations of running this business. Whether you're looking for a classic gold-zari bridal saree or a modern festive design, our team helps you choose the right piece for your occasion.",
     ],
     stats: [
-      { value: "Serving Since 1980", label: "6th Generation Family Legacy" },
+      { value: "Serving Since 1880", label: "6th Generation Family Legacy" },
       { value: "Direct From Varanasi", label: "No Middlemen Markup" },
       LOCATION_STAT,
     ],
@@ -344,7 +343,7 @@ export const CATEGORIES = [
     name: "Home Improvements",
     tag: "Home",
     image: `${IMG}/2025/11/kitchen-spoon-blue-arrangement_53876-350926.avif`,
-    heroImage: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1400&q=80",
+    heroImage: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1600&q=85",
     studio: "Kitchen & Household • Home Improvements",
     title: "Home Improvements in Dhekiajuli • Askaran Binjraj",
     tagline: "Upgrade your living space with everyday essentials and kitchen innovations. Discover premium crockery, stainless steel cookware, fine glassware, cleaning tools, smart bathroom accessories, and modern kitchen appliances at Dhekiajuli Shopping Mall.",
@@ -352,17 +351,17 @@ export const CATEGORIES = [
       "From top fashion brands to daily essentials, everything is available under one roof, making shopping easy and convenient for everyone.",
     ],
     stats: [
-      { value: "Food-Grade & Durable", label: "Premium stainless steel, heat-resistant glass & BPA-free products" },
-      { value: "Complete Home Utility", label: "From kitchen prep to deep-cleaning tools & bath organization" },
+      { value: "Home Improvements · 4th Floor", label: "Kitchen appliances, crockery, cookware, and tableware" },
+      { value: "Everyday Home Needs", label: "Home utility, cleaning tools, bath accessories, and storage" },
       LOCATION_STAT,
     ],
     subs: [
-      { name: "Crockery", floor: "Dining • Crockery", image: "https://plus.unsplash.com/premium_photo-1714702846361-286897ba112a?w=600&auto=format&fit=crop&q=60", note: "Elegant ceramic dinner sets, opalware serving bowls, floral print tea sets, side plates, and festive dining collections." },
-      { name: "Steelware", floor: "Cookware • Steelware", image: "https://images.pexels.com/photos/37769141/pexels-photo-37769141.jpeg", note: "Heavy-bottom stainless steel kadhais, pressure cookers, thali sets, insulated tiffins, storage containers, and kitchen utensils." },
-      { name: "Glassware", floor: "Tableware • Glassware", image: "https://images.unsplash.com/photo-1573754941176-6a1acd198359?w=600&auto=format&fit=crop&q=60", note: "Crystal tumbler sets, glass water jugs, heat-resistant borosilicate bowls, airtight storage jars, and decorative beverage glasses." },
-      { name: "Cleaning Accessories", floor: "Home Care • Cleaning", image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80", note: "Spin mops, microfibre wipers, heavy-duty brooms, scrubbers, laundry baskets, and smart home organization cleaning caddies." },
-      { name: "Bathroom Accessories", floor: "Bath Utility • Accessories", image: "https://images.unsplash.com/photo-1754574741164-a41418029cfb?w=600&auto=format&fit=crop&q=60", note: "Matching bath sets, liquid soap dispensers, toothbrush holders, corner shower racks, buckets, and anti-slip bath mats." },
-      { name: "Kitchen Appliances", floor: "Smart Appliances • Kitchen", image: "https://images.unsplash.com/photo-1570222094114-d054a817e56b?auto=format&fit=crop&w=800&q=80", note: "High-speed mixer grinders, electric kettles, induction cooktops, pop-up toasters, hand blenders, and sandwich makers." },
+      { name: "Crockery", floor: "4th Floor • Crockery", image: "https://plus.unsplash.com/premium_photo-1714702846361-286897ba112a?w=1400&auto=format&fit=crop&q=85", note: "Ceramic dinner sets, serving bowls, tea sets, side plates, and dining collections." },
+      { name: "Steelware", floor: "4th Floor • Cookware", image: "https://images.pexels.com/photos/37769141/pexels-photo-37769141.jpeg?auto=compress&cs=tinysrgb&w=1400", note: "Stainless steel kadhais, pressure cookers, thali sets, insulated tiffins, storage containers, and kitchen utensils." },
+      { name: "Glassware", floor: "4th Floor • Glassware", image: "https://images.unsplash.com/photo-1573754941176-6a1acd198359?w=1400&auto=format&fit=crop&q=85", note: "Glass tumbler sets, water jugs, heat-resistant bowls, storage jars, and beverage glasses." },
+      { name: "Cleaning Accessories", floor: "4th Floor • Home Care", image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=85", note: "Mops, microfibre wipers, brooms, scrubbers, laundry baskets, and home organization essentials." },
+      { name: "Bathroom Accessories", floor: "4th Floor • Bath Utility", image: "https://images.unsplash.com/photo-1754574741164-a41418029cfb?w=1400&auto=format&fit=crop&q=85", note: "Bath sets, soap dispensers, toothbrush holders, shower racks, buckets, and anti-slip bath mats." },
+      { name: "Kitchen Appliances", floor: "4th Floor • Kitchen Appliances", image: "https://images.unsplash.com/photo-1570222094114-d054a817e56b?auto=format&fit=crop&w=1400&q=85", note: "Mixer grinders, electric kettles, induction cooktops, toasters, hand blenders, and sandwich makers." },
     ],
   },
   {
@@ -459,7 +458,7 @@ export const DELIVERY_FEATURES = [
   {
     icon: "radar",
     title: "Real-Time Order Tracking",
-    body: "Receive instant, DLT-verified official SMS updates and secure tracking links from Chandan Retail Private Limited the moment your order is dispatched.",
+    body: "Receive official SMS updates and secure tracking links from the Askaran Binjraj team when your order is dispatched.",
   },
 ];
 
