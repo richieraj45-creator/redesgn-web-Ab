@@ -5,14 +5,33 @@
   /* ---------- Splash screen ---------- */
   document.body.classList.add("lock");
   var splash = document.getElementById("splash");
-  if (splash) {
+  var introStartedAt = Date.now();
+  var introDismissScheduled = false;
+  var finishIntro = function () {
+    if (!splash || !splash.parentNode) return;
+    splash.classList.add("done");
+    document.body.classList.remove("lock");
     window.setTimeout(function () {
-      splash.classList.add("done");
-      document.body.classList.remove("lock");
-      window.setTimeout(function () {
-        if (splash.parentNode) splash.parentNode.removeChild(splash);
-      }, 600);
-    }, 1250);
+      if (splash.parentNode) splash.parentNode.removeChild(splash);
+      startAuto();
+    }, 600);
+  };
+  var scheduleIntroDismiss = function () {
+    if (introDismissScheduled) return;
+    introDismissScheduled = true;
+    var remaining = Math.max(0, 3500 - (Date.now() - introStartedAt));
+    window.setTimeout(finishIntro, remaining);
+  };
+  if (splash) {
+    var firstHeroImage = document.querySelector("#hero .sf-slide.active img");
+    if (!firstHeroImage || firstHeroImage.complete) {
+      scheduleIntroDismiss();
+    } else {
+      firstHeroImage.addEventListener("load", scheduleIntroDismiss, { once: true });
+      firstHeroImage.addEventListener("error", scheduleIntroDismiss, { once: true });
+    }
+    window.setTimeout(scheduleIntroDismiss, 3500);
+    window.__STOREFRONT_INTRO_MANAGED__ = true;
   } else {
     document.body.classList.remove("lock");
   }
@@ -174,9 +193,7 @@
       hero.addEventListener("pointercancel", function () { touchStart = null; }, { passive: true });
     }
     render(0);
-    if (splash) {
-      window.setTimeout(startAuto, 1250);
-    } else {
+    if (!splash) {
       startAuto();
     }
   }

@@ -34,7 +34,7 @@ function App() {
     const supportsDesktopSmoothScroll = window.matchMedia("(min-width: 768px)").matches;
     if (prefersReducedMotion || !supportsDesktopSmoothScroll) return undefined;
     try {
-      lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 0.95 });
+      lenis = new Lenis({ lerp: 0.065, wheelMultiplier: 0.88 });
       const raf = (time) => {
         lenis.raf(time);
         lenis._id = requestAnimationFrame(raf);
