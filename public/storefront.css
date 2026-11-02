@@ -135,9 +135,9 @@ body.storefront button { font-family: var(--sans); cursor: pointer; background: 
 .sf-hero { position: relative; overflow: hidden; height: 100vh; height: 100svh; min-height: min(560px, 100svh); background: var(--ink); touch-action: pan-y; }
 .sf-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1000ms; z-index: 0; }
 .sf-slide.active { opacity: 1; z-index: 2; }
-.sf-slide img { width: 100%; height: 100%; object-fit: cover; opacity: 0.58; transform: scale(1); transition: transform 6s ease-out; }
+.sf-slide img { width: 100%; height: 100%; object-fit: cover; opacity: 0.88; filter: saturate(1.06) contrast(1.03); transform: scale(1); transition: transform 8s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s ease; }
 .sf-slide.active img { transform: scale(1.04); }
-.sf-hero-shade { position: absolute; inset: 0; z-index: 10; pointer-events: none; background: linear-gradient(108deg, rgba(10,8,6,.62) 22%, rgba(10,8,6,.32) 62%, rgba(10,8,6,.42) 100%); }
+.sf-hero-shade { position: absolute; inset: 0; z-index: 10; pointer-events: none; background: linear-gradient(108deg, rgba(10,8,6,.48) 12%, rgba(10,8,6,.20) 58%, rgba(10,8,6,.16) 100%), linear-gradient(0deg, rgba(10,8,6,.26) 0%, transparent 42%); }
 .sf-hero-fade { display: none; }
 .sf-hero-content { position: absolute; inset: 0; z-index: 20; display: flex; flex-direction: column; justify-content: center; padding: 0 32px; max-width: 1280px; margin: 0 auto; left: 0; right: 0; }
 @media (min-width: 768px) { .sf-hero-content { padding: 0 64px; } }
