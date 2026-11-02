@@ -120,20 +120,21 @@ body.storefront button { font-family: var(--sans); cursor: pointer; background: 
 .sf-burger { display: flex; flex-direction: column; gap: 5px; padding: 8px; }
 .sf-burger span { display: block; width: 22px; height: 2px; background: #fff; transition: transform 0.3s, opacity 0.3s; }
 @media (min-width: 1024px) { .sf-nav { display: flex; } .sf-burger { display: none; } }
-@media (max-width: 400px) { .sf-logo img { height: 42px; } .sf-header .sf-shop-btn { padding: 10px 8px; } }
+@media (min-width: 761px) and (max-width: 1023px) { .sf-header-in { padding: 0 24px; gap: 12px; } }
 @media (max-width: 760px) { .sf-header-in { height: 76px; padding: 0 14px; gap: 8px; } .sf-header { margin-bottom: -76px; } .sf-logo { height: 54px; } .sf-logo img { height: 46px; } .sf-header .sf-shop-btn { padding: 11px 12px; font-size: .58rem; letter-spacing: .1em; } .sf-header.scrolled { margin-bottom: -60px; } .sf-header.scrolled .sf-header-in { height: 60px; } .sf-header.scrolled .sf-logo { width: 96px; height: 72px; } .sf-header.scrolled .sf-logo img { width: 92px; height: 68px; } .sf-header.scrolled .sf-shop-btn { padding: 8px 10px; font-size: .54rem; } }
-.sf-mobile-nav { position: absolute; top: 100%; left: 0; width: min(88vw,380px); height: calc(100dvh - 66px); overflow-y: auto; border-right: 1px solid var(--border); background: #fff; padding: 16px 24px 28px; box-shadow: 16px 14px 30px rgba(0,0,0,.12); transform: translateX(-105%); visibility: hidden; transition: transform .35s var(--ease-out), visibility .35s; }
+@media (max-width: 400px) { .sf-header-in { padding: 0 10px; gap: 6px; } .sf-logo img { height: 38px; } .sf-header .sf-shop-btn { min-height: 40px; gap: 5px; padding: 8px 7px; font-size: .5rem; letter-spacing: .06em; } }
+.sf-mobile-nav { position: absolute; top: 100%; left: 0; width: min(88vw,380px); height: calc(100vh - 76px); height: calc(100dvh - 76px); overflow-y: auto; border-right: 1px solid var(--border); background: #fff; padding: 16px 24px 28px; box-shadow: 16px 14px 30px rgba(0,0,0,.12); transform: translateX(-105%); visibility: hidden; transition: transform .35s var(--ease-out), visibility .35s; }
 .sf-mobile-nav.open { transform: translateX(0); visibility: visible; }
-.sf-mobile-nav a, .sf-mobile-nav summary { display: block; padding: 12px 0; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--navlink); border-bottom: 1px solid var(--border); cursor: pointer; }
-.sf-mobile-nav details a { padding: 9px 8px; font-size: .75rem; font-weight: 400; text-transform: none; letter-spacing: .02em; }
-.sf-mobile-nav details summary { list-style: none; }
+.sf-mobile-nav a, .sf-mobile-nav summary { display: flex; min-height: 44px; align-items: center; padding: 10px 0; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--navlink); border-bottom: 1px solid var(--border); cursor: pointer; }
+.sf-mobile-nav details a { padding: 10px 8px; font-size: .75rem; font-weight: 400; text-transform: none; letter-spacing: .02em; }
+.sf-mobile-nav details summary { justify-content: space-between; list-style: none; }
 .sf-mobile-nav details summary::-webkit-details-marker { display:none; }
-.sf-mobile-nav details summary::after { content: "+"; float: right; color: var(--red); }
+.sf-mobile-nav details summary::after { content: "+"; margin-left: auto; color: var(--red); }
 .sf-mobile-nav details[open] summary::after { content: "−"; }
 .sf-mobile-nav a:last-child { border-bottom: none; color: var(--red); }
 
 /* ============ HERO ============ */
-.sf-hero { position: relative; overflow: hidden; height: 100vh; min-height: 560px; background: var(--ink); }
+.sf-hero { position: relative; overflow: hidden; height: 100vh; height: 100svh; min-height: min(560px, 100svh); background: var(--ink); touch-action: pan-y; }
 .sf-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1000ms; z-index: 0; }
 .sf-slide.active { opacity: 1; z-index: 2; }
 .sf-slide img { width: 100%; height: 100%; object-fit: cover; opacity: 0.58; transform: scale(1); transition: transform 6s ease-out; }
@@ -164,8 +165,9 @@ body.storefront button { font-family: var(--sans); cursor: pointer; background: 
 .sf-arrow.prev { left: 3.5%; }
 .sf-arrow.next { right: 3.5%; }
 .sf-dots { position: absolute; z-index: 30; bottom: 4%; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; }
-.sf-dots button { width: 6px; height: 2px; background: rgba(250, 250, 248, 0.3); transition: width 0.4s, background 0.3s; }
-.sf-dots button.active { width: 26px; background: var(--red); }
+.sf-dots button { position: relative; display: flex; width: 24px; height: 44px; align-items: center; justify-content: center; padding: 0; background: transparent; }
+.sf-dots button::before { content: ""; display: block; width: 6px; height: 2px; background: rgba(250, 250, 248, 0.42); transition: width 0.3s, background 0.3s; }
+.sf-dots button.active::before { width: 24px; background: var(--red); }
 .sf-counter { display: none; }
 @media (min-width: 768px) { .sf-counter { display: block; } }
 .sf-counter span { font-family: var(--serif); font-size: 2.2rem; font-weight: 400; color: rgba(250, 250, 248, 0.5); line-height: 1; }
@@ -175,6 +177,8 @@ body.storefront button { font-family: var(--sans); cursor: pointer; background: 
 .sf-hero-text-fade.arriving { animation: hero-slide-in .58s var(--ease-out) both; }
 @keyframes hero-slide-in { from { opacity: 0; transform: translateX(34px); } to { opacity: 1; transform: translateX(0); } }
 @media (max-width: 760px) { .sf-hero-content { padding: 0 24px; } .sf-hero-inner { max-width: 100%; } .sf-hero h1 { font-size: clamp(3rem,12vw,5rem); } .sf-hero .sf-hero-sub { max-width: 95%; font-size: 1rem; } .sf-dots { bottom: 3%; } }
+@media (max-width: 760px) { .sf-arrow { display: none; } }
+@media (min-width: 761px) and (hover: none) { .sf-arrow { opacity: .88; } .sf-arrow.prev { left: 16px; } .sf-arrow.next { right: 16px; } }
 @media (prefers-reduced-motion: reduce) { .sf-hero-text-fade.arriving, .sf-mega-menu, .sf-mobile-nav, .sf-mega-promo img { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
 

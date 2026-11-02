@@ -115,6 +115,7 @@
     if (dotsWrap) {
       Array.prototype.forEach.call(dotsWrap.children, function (d, idx) {
         d.classList.toggle("active", idx === current);
+        d.setAttribute("aria-current", idx === current ? "true" : "false");
       });
     }
     if (counterEl) counterEl.innerHTML = pad(current) + "<small>/ " + pad(slides.length - 1) + "</small>";
@@ -135,6 +136,7 @@
 
   function startAuto() {
     window.clearInterval(timer);
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     timer = window.setInterval(function () { render(current + 1); }, 6000);
   }
 
@@ -153,6 +155,24 @@
     var next = document.getElementById("hero-next");
     if (prev) prev.addEventListener("click", function () { render(current - 1); startAuto(); });
     if (next) next.addEventListener("click", function () { render(current + 1); startAuto(); });
+    var hero = document.getElementById("hero");
+    if (hero) {
+      var touchStart = null;
+      hero.addEventListener("pointerdown", function (event) {
+        if (event.pointerType === "touch") touchStart = { x: event.clientX, y: event.clientY };
+      }, { passive: true });
+      hero.addEventListener("pointerup", function (event) {
+        if (!touchStart || event.pointerType !== "touch") return;
+        var dx = event.clientX - touchStart.x;
+        var dy = event.clientY - touchStart.y;
+        touchStart = null;
+        if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy) * 1.25) {
+          render(current + (dx < 0 ? 1 : -1));
+          startAuto();
+        }
+      }, { passive: true });
+      hero.addEventListener("pointercancel", function () { touchStart = null; }, { passive: true });
+    }
     render(0);
     if (splash) {
       window.setTimeout(startAuto, 1250);

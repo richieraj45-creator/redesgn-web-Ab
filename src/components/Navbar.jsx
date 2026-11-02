@@ -22,7 +22,7 @@ const PROMOS = [
 ];
 
 const MenuLinks = ({ items, onNavigate }) => items.map(([label, to]) => (
-  <Link key={label} to={to} onClick={onNavigate} className="block py-1.5 text-sm text-brand-mid transition-colors hover:text-brand-red">
+  <Link key={label} to={to} onClick={onNavigate} className="flex min-h-11 items-center py-1.5 text-sm text-brand-mid transition-colors hover:text-brand-red">
     {label}
   </Link>
 ));
@@ -66,16 +66,16 @@ export const Navbar = () => {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <a href={CONTACT.shopUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 bg-brand-red px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-white transition-colors hover:bg-brand-redDark sm:px-4 sm:text-xs">
+          <a href={CONTACT.shopUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center gap-1.5 bg-brand-red px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-white transition-colors hover:bg-brand-redDark sm:px-4 sm:text-xs">
             Shop Online <ArrowUpRight className="h-3 w-3" />
           </a>
-          <button type="button" className="flex h-10 w-10 items-center justify-center border border-brand-border text-brand-ink lg:hidden" onClick={() => setMobileOpen((open) => !open)} aria-label={mobileOpen ? "Close menu" : "Open menu"} aria-expanded={mobileOpen} data-testid="mobile-menu-toggle">
+          <button type="button" className="flex h-11 w-11 items-center justify-center border border-brand-border text-brand-ink lg:hidden" onClick={() => setMobileOpen((open) => !open)} aria-label={mobileOpen ? "Close menu" : "Open menu"} aria-expanded={mobileOpen} data-testid="mobile-menu-toggle">
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
-      <div className={`absolute left-0 top-full z-50 h-[calc(100dvh-4rem)] w-full overflow-y-auto border-t border-brand-border bg-white px-6 py-5 shadow-xl transition-transform duration-300 lg:hidden ${mobileOpen ? "visible translate-x-0" : "invisible pointer-events-none -translate-x-full"}`} aria-hidden={!mobileOpen}>
+      <div className={`mobile-nav-drawer absolute left-0 top-full z-50 w-full overflow-y-auto border-t border-brand-border bg-white px-6 py-5 shadow-xl transition-transform duration-300 lg:hidden ${mobileOpen ? "visible translate-x-0" : "invisible pointer-events-none -translate-x-full"}`} aria-hidden={!mobileOpen}>
         <details className="border-b border-brand-border py-3"><summary className="cursor-pointer font-serif text-lg">Shop by Category</summary><div className="grid grid-cols-2 gap-x-4 py-3"><MenuLinks items={CATEGORIES} onNavigate={closeMobile} /></div></details>
         <details className="border-b border-brand-border py-3"><summary className="cursor-pointer font-serif text-lg">Curated Edits</summary><div className="py-3"><MenuLinks items={EDITS} onNavigate={closeMobile} /></div></details>
         <div className="flex flex-col gap-5 py-5 font-serif text-xl">

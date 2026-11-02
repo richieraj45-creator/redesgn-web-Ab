@@ -106,6 +106,10 @@
     .img-frame {
         @apply border border-brand-border bg-brand-alt;
     }
+    .mobile-nav-drawer {
+        height: calc(100vh - 4rem);
+        height: calc(100dvh - 4rem);
+    }
 }
 
 .lenis.lenis-smooth {

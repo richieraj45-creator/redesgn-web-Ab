@@ -552,7 +552,18 @@
                     document.head.appendChild(l);
                     var s = document.createElement("script");
                     s.src = "%PUBLIC_URL%/storefront.js";
+                    var releaseSplash = function () {
+                        var splash = document.getElementById("splash");
+                        if (!splash) return;
+                        splash.classList.add("done");
+                        document.body.classList.remove("lock");
+                        window.setTimeout(function () {
+                            if (splash.parentNode) splash.parentNode.removeChild(splash);
+                        }, 600);
+                    };
+                    s.onerror = releaseSplash;
                     document.body.appendChild(s);
+                    window.setTimeout(releaseSplash, 3500);
                 }
             })();
         </script>
