@@ -66,7 +66,7 @@ export const CATEGORIES = [
     tag: "Fashion",
     image: `${IMG}/2025/11/Website-Banner_2-768x384.webp`,
     heroImage: "https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg",
-    studio: "The Grace & Elegance Edit",
+    studio: "3rd Floor • The Grace & Elegance Edit",
     title: "Best Women Store in Assam for Latest Fashion",
     tagline: "Explore high fashion, handcrafted ethnic weaves, and contemporary daily wear exclusively curated at Askaran Binjraj.",
     intro: [
@@ -100,7 +100,7 @@ export const CATEGORIES = [
     image: `${IMG}/2025/11/2148401436-768x768.jpg`,
     heroImage: "https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?auto=format&fit=crop&w=1400&q=80",
     studio: "The Gentleman's Wardrobe",
-    title: "Mens Clothing Store in Dhekiajuli",
+    title: "Ground Floor • Mens Clothing Store in Dhekiajuli",
     tagline: "Explore curated apparel, tailored suits, and authentic ethnic wear at Askaran Binjraj, Dhekiajuli.",
     intro: [
       "Askaran Binjraj is a trusted destination for premium mens clothing in Dhekiajuli, offering a wide selection of fashion for every occasion. Our men's collection includes elegant mens ethnic wear for weddings and festivals, along with stylish mens jeans, comfortable mens shirts, and trendy mens t-shirts for everyday wear. To complete your look, we also offer durable and fashionable mens shoes in Dhekiajuli designed for both ethnic and western outfits. Located in Sonitpur, Assam, Askaran Binjraj is known for quality, variety, and a comfortable shopping experience, making it one of the preferred shopping malls in Dhekiajuli for men's fashion.",
@@ -125,7 +125,7 @@ export const CATEGORIES = [
     tag: "Kids",
     image: `${IMG}/2025/11/4237-768x427.jpg`,
     heroImage: "https://images.unsplash.com/photo-1621452773781-0f992fd1f5cb?auto=format&fit=crop&w=1400&q=80",
-    studio: "Kids Wear Studio • Ages 0 to 16 Years",
+    studio: "2nd Floor • Kids Wear Studio • Ages 0 to 16 Years",
     title: "Girls Wear Collection • Askaran Binjraj",
     tagline: "Explore gorgeous party frocks, festive lehenga cholis, modern tops, comfortable bottomwear, and matching accessories for birthdays, weddings, pujas, and daily outings — at Dhekiajuli Shopping Mall.",
     intro: [
@@ -150,7 +150,7 @@ export const CATEGORIES = [
     tag: "Kids",
     image: `${IMG}/2025/11/HandmadeClothingMain2-768x448.jpg`,
     heroImage: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=1400&q=80",
-    studio: "Kids Wear Studio • Ages 0 to 16 Years",
+    studio: "2nd Floor • Kids Wear Studio • Ages 0 to 16 Years",
     title: "Boys Clothing & Fashion in Dhekiajuli • Askaran Binjraj",
     tagline: "Discover sharp formal suits, festive kurta sets, Modi jackets, smart polo shirts, rugged denims, and everyday casual wear for birthday parties, weddings, school events, and family outings — at Dhekiajuli Shopping Mall.",
     intro: [
@@ -175,7 +175,7 @@ export const CATEGORIES = [
     tag: "Kids",
     image: `${IMG}/2025/11/Website_Banner-768x432.webp`,
     heroImage: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=1400&q=80",
-    studio: "Pure Care & Newborn Comfort",
+    studio: "1st Floor • Pure Care & Newborn Comfort",
     title: "Infant Care & Newborn Essentials in Dhekiajuli",
     tagline: "Explore dermatologist-tested skincare, organic cotton apparel sets, feeding essentials, and baby accessories from trusted global care leaders — available at Askaran Binjraj Shopping Mall in Dhekiajuli.",
     intro: [
@@ -204,7 +204,7 @@ export const CATEGORIES = [
     tag: "Bridal",
     image: `${IMG}/2025/11/Morni_Banner_600x600.webp`,
     heroImage: "https://images.pexels.com/photos/35635694/pexels-photo-35635694.jpeg",
-    studio: "Bridal Couture & Royal Heritage",
+    studio: "3rd Floor • Bridal Couture & Royal Heritage",
     title: "Designer Bridal Lehengas Dhekiajuli • Askaran Binjraj",
     tagline: "Step into Assam's premier bridal destination. Discover over 15+ curated departments featuring raw silk zardozi, hand-embroidered velvet bridal sets, mirror-work sangeet flared lehengas, and pastel organza couture.",
     intro: [
@@ -239,7 +239,7 @@ export const CATEGORIES = [
     tag: "Heritage",
     image: `${IMG}/2025/11/banner4-768x331.jpg`,
     heroImage: "https://images.pexels.com/photos/10336592/pexels-photo-10336592.jpeg",
-    studio: "Ethnic & Cultural Studio • Heritage Wear",
+    studio: "3rd Floor • Ethnic & Cultural Studio • Heritage Wear",
     title: "Traditional Wear in Dhekiajuli • Askaran Binjraj",
     tagline: "Celebrate heritage and culture with our authentic ethnic wear. From Assamese Mekhela Chador and Bodo Dokhna to rich Banarasi silks, designer Anarkalis, Abayas, and men's Dhoti Kurtas — all in store at Dhekiajuli Shopping Mall.",
     intro: [
@@ -265,7 +265,7 @@ export const CATEGORIES = [
     tag: "Lifestyle",
     image: `${IMG}/2025/11/choosing-right-shoes-today-close-up-young-woman-trying-different-shoes-while-sitting-shoe-store_425904-25686.avif`,
     heroImage: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1400&q=80",
-    studio: "Complete Family Footwear Studio",
+    studio: "4th Floor • Complete Family Footwear Studio",
     title: "Footwear Collection • Askaran Binjraj",
     tagline: "Discover everyday comfort and luxury craftsmanship. Browse our dedicated sections for Men, Women, Boys, Girls, Infants, and Premium Party Wear — all under one roof at Dhekiajuli Shopping Mall.",
     intro: [
@@ -292,7 +292,7 @@ export const CATEGORIES = [
     tag: "Home",
     image: `${IMG}/2025/11/1702628725370-768x512.jpeg`,
     heroImage: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=80",
-    studio: "Home Comforts • Furnishing & Decor Studio",
+    studio: "1st Floor • Home Comforts • Furnishing & Decor Studio",
     title: "Home Furnishing in Dhekiajuli • Askaran Binjraj",
     tagline: "Transform your living spaces into cozy, stylish sanctuaries. Explore our premium collection of cotton bedsheets, blackout curtains, winter blankets, plush bath towels, and decorative accents at Home Furnishing in Dhekiajuli's Shopping Mall.",
     intro: [
@@ -344,7 +344,7 @@ export const CATEGORIES = [
     tag: "Home",
     image: `${IMG}/2025/11/kitchen-spoon-blue-arrangement_53876-350926.avif`,
     heroImage: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1600&q=85",
-    studio: "Kitchen & Household • Home Improvements",
+    studio: "4th Floor • Kitchen & Household • Home Improvements",
     title: "Home Improvements in Dhekiajuli • Askaran Binjraj",
     tagline: "Upgrade your living space with everyday essentials and kitchen innovations. Discover premium crockery, stainless steel cookware, fine glassware, cleaning tools, smart bathroom accessories, and modern kitchen appliances at Dhekiajuli Shopping Mall.",
     intro: [
@@ -370,7 +370,7 @@ export const CATEGORIES = [
     tag: "Kids",
     image: `${IMG}/2025/11/144_69ff00f2-6424-4f0b-ab91-024f4b0591c1-768x1024.webp`,
     heroImage: "https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=1400&q=80",
-    studio: "Game Night & Fun Arena",
+    studio: "4th Floor • Game Night & Fun Arena",
     title: "Unplug, Play & Gear Up!",
     tagline: "Roll the dice, plan your moves, and get ready for school with super cool backpacks, creative art kits, and epic board games at Askaran Binjraj Shopping Mall, Dhekiajuli.",
     intro: [
@@ -399,7 +399,7 @@ export const CATEGORIES = [
     tag: "Lifestyle",
     image: `${IMG}/2025/11/luxury-jewellery-shop-window_250469-15719.avif`,
     heroImage: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1400&q=80",
-    studio: "Occasion Wear Jewellery & Global Lifestyle Brands",
+    studio: "3rd Floor • Occasion Wear Jewellery & Global Lifestyle Brands",
     title: "Jewellery & Lifestyle in Dhekiajuli • Askaran Binjraj",
     tagline: "Explore stunning jewellery collections styled for weddings, festive pujas, engagements, and special celebrations alongside top brand lifestyle accessories — at Dhekiajuli Shopping Mall.",
     intro: [
@@ -477,6 +477,11 @@ export const CAREER_DEPARTMENTS = [
     icon: "receipt",
     name: "Billing & Operations",
     roles: ["Cashiers", "Billing Associates", "Store Management"],
+  },
+  {
+    icon: "technology",
+    name: "IT",
+    roles: ["Software Engineering & Development", "Infrastructure, Cloud & Support", "Cybersecurity & Compliance"],
   },
   {
     icon: "warehouse",
