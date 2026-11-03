@@ -7,7 +7,7 @@ const CATEGORIES = [
   ["Women", "/collections/womens"], ["Men", "/collections/mens"], ["Kids", "/collections/girls"],
   ["Ethnic Wear", "/collections/traditional-wear"], ["Banarasi Sarees", "/collections/sarees"],
   ["Assam Silk", "/collections/sarees"], ["Travel Gear", "/collections/travel-gear"],
-  ["Home Improvements · 4th Floor", "/collections/home-improvements"],
+  ["Home Improvements", "/collections/home-improvements"],
   ["Cosmetics", "/#cosmetics"], ["Fine Jewellery", "/collections/jewellery-lifestyle"],
 ];
 
