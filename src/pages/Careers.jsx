@@ -84,7 +84,7 @@ export default function Careers() {
 
   return (
     <main className="min-h-screen bg-brand-paper" data-testid="careers-page">
-      <section className="relative isolate overflow-hidden bg-brand-ink text-brand-paper">
+      <section className="group relative isolate overflow-hidden bg-brand-ink text-brand-paper">
         <img
           src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=2000"
           alt="Customers exploring a retail store"
@@ -100,7 +100,7 @@ export default function Careers() {
               Make what comes next <span className="italic text-brand-gold">matter.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
-              Join the people shaping Askaran Binjraj today. Bring your perspective to a family retail business built on care, craft, and six generations of trust.
+              Bring your perspective to a family retail business shaped by care, craft and generations of experience.
             </p>
             <a href="#career-departments" className="mt-8 inline-flex items-center gap-2 bg-brand-red px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-brand-redDark">
               Explore opportunities <ArrowUpRight className="h-4 w-4" />
@@ -112,14 +112,14 @@ export default function Careers() {
       <section id="career-departments" className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-24 lg:px-12">
         <Reveal className="mb-10 max-w-2xl">
           <p className="eyebrow">Find your place</p>
-          <h2 className="mt-3 font-serif text-3xl font-medium tracking-tight text-brand-ink sm:text-4xl">Three paths to grow with us.</h2>
-          <p className="mt-4 text-sm leading-relaxed text-brand-mid sm:text-base">Choose a team to see current role areas. Select a role to start an application email to HR.</p>
+          <h2 className="mt-3 font-serif text-3xl font-medium tracking-tight text-brand-ink sm:text-4xl">Bring your strengths. Find your next step.</h2>
+          <p className="mt-4 text-sm leading-relaxed text-brand-mid sm:text-base">Explore the teams and choose a role to begin your application.</p>
         </Reveal>
 
         <Stagger className="grid gap-5 md:grid-cols-3">
           {DEPARTMENTS.map(({ icon: Icon, name, intro, roles }, index) => (
             <StaggerItem key={name}>
-              <article className="flex h-full flex-col border border-brand-border bg-white p-6 transition-shadow duration-300 hover:shadow-xl sm:p-8" data-testid={`career-department-${index}`}>
+              <article className="flex h-full flex-col border border-white/70 bg-white/60 p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-8" data-testid={`career-department-${index}`}>
                 <div className="flex items-center justify-between">
                   <Icon className="h-6 w-6 text-brand-red" aria-hidden="true" />
                   <span className="text-[10px] font-semibold tracking-[0.22em] text-brand-muted">{String(index + 1).padStart(2, "0")}</span>
@@ -149,10 +149,10 @@ export default function Careers() {
           <div className="lg:col-span-4">
             <p className="eyebrow">Your next step</p>
             <h2 className="mt-3 font-serif text-3xl font-medium text-brand-ink sm:text-4xl">Ready to grow with us?</h2>
-            <p className="mt-4 text-sm leading-relaxed text-brand-mid">Share a few details and we’ll prepare your application email to our HR team.</p>
+              <p className="mt-4 text-sm leading-relaxed text-brand-mid">Tell us a little about yourself and we’ll prepare an email for your application.</p>
             <p className="mt-5 flex items-center gap-2 text-sm font-medium text-brand-ink"><Mail className="h-4 w-4 text-brand-red" /> {CONTACT.careersEmail}</p>
           </div>
-          <form onSubmit={submitApplication} className="grid gap-5 border border-brand-border bg-white p-5 sm:p-8 md:grid-cols-2 lg:col-span-8" data-testid="careers-application-form">
+          <form onSubmit={submitApplication} className="glass-panel grid gap-5 border p-5 sm:p-8 md:grid-cols-2 lg:col-span-8" data-testid="careers-application-form">
             <label className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-ink">
               Full name <span className="text-brand-red">*</span>
               <input className={fieldClass} name="name" autoComplete="name" value={form.name} onChange={updateField} required />
@@ -193,7 +193,7 @@ export default function Careers() {
             </label>
             <div className="md:col-span-2">
               <button type="submit" className="inline-flex min-h-12 w-full items-center justify-center gap-2 bg-brand-red px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-brand-redDark sm:w-auto" data-testid="careers-email-cta">
-                <Send className="h-4 w-4" /> Prepare application email <ArrowUpRight className="h-4 w-4" />
+                <Send className="h-4 w-4" /> Continue to email <ArrowUpRight className="h-4 w-4" />
               </button>
               <p className="mt-3 text-xs leading-relaxed text-brand-muted">On devices that support file sharing, your CV will be included in the share sheet. Otherwise, an email draft opens with your details; attach the selected CV in your email app before sending.</p>
             </div>

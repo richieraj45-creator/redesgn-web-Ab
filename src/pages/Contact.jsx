@@ -20,7 +20,7 @@ const INFO_CARDS = [
     icon: Phone,
     eyebrow: "Direct Support",
     title: "Call & Email",
-    lines: [`Phone: ${CONTACT.phoneLandline}`, `Mobile: ${CONTACT.phoneMobile}`, `Email: ${CONTACT.email}`],
+    lines: [`Phone: ${CONTACT.phoneMobile}`, `Email: ${CONTACT.email}`],
     testId: "contact-card-support",
   },
   {
@@ -58,12 +58,12 @@ export default function Contact() {
         <div className="mx-auto max-w-7xl px-4 pt-16 pb-14 sm:px-6 md:pt-24 lg:px-12">
           <Reveal>
             <Breadcrumbs items={[{ label: "Contact" }]} className="mb-8" />
-            <p className="eyebrow" data-testid="contact-eyebrow">Askaran Binjraj · Get In Touch</p>
+            <p className="eyebrow" data-testid="contact-eyebrow">We’re here to help</p>
             <h1 className="mt-5 font-serif text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-              We'd Love to <span className="italic text-brand-red">Hear From You</span>
+              We’d love to <span className="italic text-brand-red">hear from you.</span>
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-brand-mid">
-              Have a question about our collections, store locations, or order status? Contact our team or visit us at our flagship shopping center in Dhekiajuli.
+              Need a hand with a collection, an order or a visit? Our team is ready to help.
             </p>
           </Reveal>
         </div>
@@ -74,7 +74,7 @@ export default function Contact() {
           {INFO_CARDS.map((c) => {
             const Icon = c.icon;
             return (
-              <StaggerItem key={c.title} className="bg-brand-paper">
+              <StaggerItem key={c.title} className="border border-white/70 bg-white/55 backdrop-blur-lg">
                 <div className="h-full p-7 md:p-8" data-testid={c.testId}>
                   <Icon className="h-6 w-6 text-brand-red" />
                   <p className="mt-5 text-[10px] uppercase tracking-[0.28em] text-brand-muted">{c.eyebrow}</p>
@@ -94,10 +94,10 @@ export default function Contact() {
           <Reveal className="lg:col-span-6">
             <p className="eyebrow">Assistance</p>
             <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">
-              Need Immediate Customer Service?
+              A question? Let’s talk.
             </h2>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-brand-mid">
-              Our store representatives are available during shopping hours to assist with stock inquiries, customized bridal orders, or department directions.
+              Reach out during shopping hours for help with availability, occasionwear or finding your way around.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a href={CONTACT.phoneMobileHref} data-testid="contact-call-button" className="inline-flex items-center gap-2 bg-brand-ink px-6 py-3.5 text-xs uppercase tracking-[0.2em] font-medium text-white transition-colors duration-300 hover:bg-brand-red">
@@ -108,7 +108,7 @@ export default function Contact() {
               </a>
             </div>
 
-            <form onSubmit={submit} className="mt-12 border border-brand-border bg-brand-alt p-6 md:p-8" data-testid="contact-form">
+            <form onSubmit={submit} className="glass-panel mt-12 border p-6 md:p-8" data-testid="contact-form">
               <p className="eyebrow">Write to Us</p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Your name" className={field} data-testid="contact-form-name" />
@@ -130,7 +130,7 @@ export default function Contact() {
 
           <Reveal delay={0.15} className="lg:col-span-6">
             <p className="eyebrow">Our Location</p>
-            <div className="img-frame mt-4 h-[320px] overflow-hidden md:h-[400px]">
+            <div className="group img-frame mt-4 h-[320px] overflow-hidden md:h-[400px]">
               <img src={CONTACT_LOCATION_IMG} alt="Exterior view of Askaran Binjraj in Dhekiajuli" loading="lazy" className="h-full w-full object-cover" data-testid="contact-location-image" />
             </div>
             <div className="mt-6 overflow-hidden border border-brand-border" data-testid="contact-map">
@@ -143,9 +143,9 @@ export default function Contact() {
                 allowFullScreen
               />
             </div>
-            <div className="mt-6 border border-brand-border bg-brand-paper p-6 md:p-7">
+            <div className="glass-panel mt-6 border p-6 md:p-7">
               <h3 className="font-serif text-2xl font-medium text-brand-ink">Find Us:</h3>
-              <p className="mt-2 text-sm text-brand-mid">Want to visit our Offline Stores?</p>
+              <p className="mt-2 text-sm text-brand-mid">Planning to stop by? We’d be glad to welcome you.</p>
               <p className="mt-3 flex items-start gap-3 text-sm text-brand-ink">
                 <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-red" />
                 <span><span className="font-medium">Address:</span> {CONTACT.addressShort}</span>
@@ -157,7 +157,7 @@ export default function Contact() {
                 data-testid="contact-directions-link"
                 className="group mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] font-medium text-brand-red"
               >
-                Get Directions on Google Maps
+              Open directions
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </div>

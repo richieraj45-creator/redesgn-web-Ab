@@ -38,19 +38,10 @@
 
   /* ---------- Header shadow ---------- */
   var header = document.getElementById("site-header");
-  var headerLogo = header && header.querySelector(".sf-logo img");
-  var logoLink = header && header.querySelector(".sf-logo");
   window.addEventListener("scroll", function () {
     if (header) {
       var compact = window.scrollY > 12;
       header.classList.toggle("scrolled", compact);
-      if (headerLogo && logoLink) {
-        var logoSrc = compact ? logoLink.dataset.logoCompact : logoLink.dataset.logoWide;
-        if (logoSrc && headerLogo.getAttribute("src") !== logoSrc) headerLogo.setAttribute("src", logoSrc);
-      }
-      var scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      var progress = scrollable > 0 ? Math.min(1, window.scrollY / scrollable) : 0;
-      header.style.setProperty("--scroll-progress", String(progress));
     }
   }, { passive: true });
 
@@ -85,34 +76,66 @@
   /* ---------- Hero slider ---------- */
   var SLIDES = [
     {
-      eyebrow: "New Season",
-      title: "Dressed to <em>command attention.</em>",
-      sub: "Explore high fashion, handcrafted ethnic weaves, and contemporary daily wear at Askaran Binjraj."
+      eyebrow: "The New Season",
+      title: "A fresh wardrobe<br><em>for every side of you.</em>",
+      sub: "Discover contemporary looks, heritage details, and easy pieces for every day."
     },
     {
-      eyebrow: "Heritage Collection",
-      title: "Six generations of<br><em>artisan craft.</em>",
-      sub: "Authentic Banarasi sarees sourced directly from Varanasi weavers across six generations."
+      eyebrow: "Heritage Weaves",
+      title: "Woven with care,<br><em>made to be remembered.</em>",
+      sub: "From Banarasi silk to regional handlooms, find a drape for every celebration."
     },
     {
       eyebrow: "Fine Jewellery",
-      title: "Adorned in<br><em>pure elegance.</em>",
-      sub: "Stunning jewellery styled for weddings, festive pujas, engagements and celebrations."
+      title: "A little brilliance,<br><em>for every occasion.</em>",
+      sub: "Explore statement jewellery and thoughtful finishing touches for meaningful moments."
     },
     {
-      eyebrow: "Ready-to-Wear",
-      title: "Move through the world<br><em>unforgettably.</em>",
-      sub: "Curated apparel, tailored suits, and authentic ethnic wear for men at Askaran Binjraj, Dhekiajuli."
+      eyebrow: "Modern Classics",
+      title: "Distinctly<br><em>your own.</em>",
+      sub: "Find smart essentials, relaxed staples, and traditional styles for every plan."
     },
     {
       eyebrow: "Travel & Style",
-      title: "Travel light,<br><em>arrive brilliantly.</em>",
-      sub: "Luxury luggage and travel accessories on the 4th Floor — suitcases, duffle bags, rucksacks, laptop bags."
+      title: "Pack well.<br><em>Go where life takes you.</em>",
+      sub: "Suitcases, backpacks, and travel companions ready for journeys near and far."
     },
     {
       eyebrow: "Beauty & Wellness",
-      title: "Your best self,<br><em>every single day.</em>",
-      sub: "Prestige cosmetics, skincare and daily beauty essentials from trusted brands in store."
+      title: "A brighter start<br><em>to your daily ritual.</em>",
+      sub: "Discover skincare, makeup, and beauty essentials to make your routine feel special."
+    },
+    {
+      eyebrow: "For Little Ones",
+      title: "Little looks<br><em>for big moments.</em>",
+      sub: "Explore comfortable everyday favourites and joyful styles for growing wardrobes."
+    },
+    {
+      eyebrow: "The Wedding Studio",
+      title: "Made for the moments<br><em>you'll remember.</em>",
+      sub: "Discover occasionwear with rich colour, fine detail, and a sense of celebration."
+    },
+    {
+      eyebrow: "Footwear",
+      title: "Step into<br><em>your own style.</em>",
+      sub: "Find easy everyday pairs and occasion-ready favourites for the whole family.",
+      side: "right"
+    },
+    {
+      eyebrow: "Home, Thoughtfully",
+      title: "Make room<br><em>for the good things.</em>",
+      sub: "Soft layers, considered textures, and small details that make a house feel like yours."
+    },
+    {
+      eyebrow: "Everyday Home",
+      title: "A little more ease<br><em>for every day.</em>",
+      sub: "Explore kitchenware, appliances, and helpful essentials for home routines.",
+      side: "right"
+    },
+    {
+      eyebrow: "Play & Learn",
+      title: "Curiosity starts<br><em>with a little play.</em>",
+      sub: "Discover games, creative kits, and school-day essentials for growing minds."
     }
   ];
 
@@ -141,6 +164,7 @@
     if (textWrap) {
       textWrap.classList.add("switching");
       window.setTimeout(function () {
+        textWrap.classList.toggle("side-right", SLIDES[current].side === "right");
         eyebrowEl.textContent = SLIDES[current].eyebrow;
         titleEl.innerHTML = SLIDES[current].title;
         subEl.textContent = SLIDES[current].sub;

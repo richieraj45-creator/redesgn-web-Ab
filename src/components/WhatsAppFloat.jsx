@@ -6,7 +6,7 @@ export const WhatsAppFloat = () => (
     href={CONTACT.whatsappUrl}
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="Chat with Askaran Binjraj on WhatsApp"
+    aria-label="Chat with us on WhatsApp"
     data-testid="whatsapp-float"
     initial={{ opacity: 0, scale: 0.6, y: 20 }}
     animate={{ opacity: 1, scale: 1, y: 0 }}

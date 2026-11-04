@@ -11,6 +11,7 @@ import CategoryDetail from "@/pages/CategoryDetail";
 import About from "@/pages/About";
 import Careers from "@/pages/Careers";
 import Contact from "@/pages/Contact";
+import CultureEvents from "@/pages/CultureEvents";
 
 const ScrollManager = () => {
   const { pathname } = useLocation();
@@ -62,6 +63,7 @@ function App() {
           <Route path="/collections/:slug" element={<CategoryDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/cultures-events" element={<CultureEvents />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />

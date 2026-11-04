@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const EASE = [0.22, 1, 0.36, 1];
 
-export const Reveal = ({ children, delay = 0, y = 24, className = "", ...rest }) => {
+export const Reveal = ({ children, delay = 0, y = 16, className = "", ...rest }) => {
   const reduceMotion = useReducedMotion();
   return (
     <motion.div
@@ -10,7 +10,7 @@ export const Reveal = ({ children, delay = 0, y = 24, className = "", ...rest })
       initial={reduceMotion ? false : { opacity: 0, y }}
       whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: reduceMotion ? 0 : 0.95, delay: reduceMotion ? 0 : delay, ease: EASE }}
+      transition={{ duration: reduceMotion ? 0 : 0.78, delay: reduceMotion ? 0 : delay, ease: EASE }}
       {...rest}
     >
       {children}
@@ -42,7 +42,7 @@ export const Stagger = ({ children, className = "", ...rest }) => {
       initial={reduceMotion ? false : "hidden"}
       whileInView={reduceMotion ? undefined : "show"}
       viewport={{ once: true, margin: "-60px" }}
-      variants={{ hidden: {}, show: { transition: { staggerChildren: 0.13, delayChildren: 0.1 } } }}
+      variants={{ hidden: {}, show: { transition: { staggerChildren: 0.09, delayChildren: 0.08 } } }}
       {...rest}
     >
       {children}
@@ -56,8 +56,8 @@ export const StaggerItem = ({ children, className = "" }) => {
     <motion.div
       className={className}
       variants={reduceMotion ? undefined : {
-        hidden: { opacity: 0, y: 26 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.85, ease: EASE } },
+        hidden: { opacity: 0, y: 16 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.72, ease: EASE } },
       }}
     >
       {children}

@@ -12,10 +12,10 @@ export default function Collections() {
             <Breadcrumbs items={[{ label: "Collections" }]} className="mb-8" />
             <p className="eyebrow" data-testid="collections-eyebrow">Collections</p>
             <h1 className="mt-5 max-w-3xl font-serif text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-              Every floor of the mall, <span className="italic text-brand-red">curated</span>
+              Find your next <span className="italic text-brand-red">favourite.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-brand-mid">
-              Explore our diverse range of fashion essentials — from statement tees to stylish jeans, footwear, and more, all in one place.
+              Browse thoughtful edits for the whole family, from occasionwear and everyday style to home, travel and more.
             </p>
           </Reveal>
         </div>

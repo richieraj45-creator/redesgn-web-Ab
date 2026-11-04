@@ -12,18 +12,13 @@ const STATS = [
 ];
 
 const STORE_IMAGES = [
-  { src: "/assets/about/askaran-mall-exterior.webp", alt: "Askaran Binjraj Shopping Mall exterior in Dhekiajuli", caption: "Askaran Binjraj · Dhekiajuli" },
-  { src: "/assets/about/mall-fashion-corridor.webp", alt: "A shopping corridor inside Askaran Binjraj", caption: "Inside the shopping mall" },
-  { src: "/assets/about/apparel-floor.webp", alt: "Apparel displays inside Askaran Binjraj", caption: "Fashion and apparel" },
-  { src: "/assets/about/central-retail-floor.webp", alt: "The central retail floor at Askaran Binjraj", caption: "A place to explore together" },
-  { src: "/assets/about/folded-apparel-display.webp", alt: "Folded apparel displayed in the store", caption: "Everyday and occasion wear" },
-  { src: "/assets/about/jewellery-display.webp", alt: "Jewellery and accessories displayed in store", caption: "Finishing touches, all together" },
+  { src: "/assets/about/askaran-mall-exterior.webp", alt: "Shopping centre exterior in Dhekiajuli", caption: "A familiar landmark in Dhekiajuli", width: 1536, height: 1024 },
+  { src: "/assets/about/mall-interior-hd.webp", alt: "View across the shopping mall interior", caption: "Inside the mall", width: 960, height: 720 },
+  { src: "/assets/about/mall-apparel-interior-hd.webp", alt: "Apparel displays inside the mall", caption: "Fashion and apparel", width: 1536, height: 1024 },
 ];
 
 const CHATAR_PATAR_IMAGES = [
-  { src: "/assets/about/chatar-patar-interior.webp", alt: "Chatar Patar by AB Foods dining area and service counter", caption: "A vegetarian food break, inside the mall" },
-  { src: "/assets/about/chatar-patar-front.webp", alt: "Chatar Patar by AB Foods storefront", caption: "Chatar Patar by AB Foods" },
-  { src: "/assets/about/chatar-patar-seating.webp", alt: "Seating area at Chatar Patar by AB Foods", caption: "A relaxed place to pause" },
+  { src: "/assets/about/chatar-patar-interior.webp", alt: "Vegetarian restaurant dining area and service counter", caption: "A vegetarian food break, inside the mall", width: 1536, height: 1024 },
 ];
 
 const DEPARTMENTS = [
@@ -35,7 +30,7 @@ const DEPARTMENTS = [
 export default function About() {
   return (
     <main data-testid="about-page" className="bg-brand-paper">
-      <section className="relative isolate overflow-hidden bg-brand-ink text-brand-paper">
+      <section className="group relative isolate overflow-hidden bg-brand-ink text-brand-paper">
         <img
           src={MALL_EXTERIOR}
           alt="Askaran Binjraj shopping destination in Dhekiajuli"
@@ -52,7 +47,7 @@ export default function About() {
               <span className="italic text-brand-gold">A place for every generation.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
-              Askaran Binjraj began as a family venture in Dhekiajuli. Six generations on, the spirit of personal service lives on in a family shopping destination bringing fashion, heritage, and everyday needs together.
+              A family venture in Dhekiajuli has grown across six generations. The spirit of personal service lives on in a shopping destination bringing fashion, heritage and everyday needs together.
             </p>
             <Link to="/collections" className="mt-8 inline-flex items-center gap-2 bg-brand-red px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-brand-redDark" data-testid="about-hero-cta">
               Explore the collections <ArrowUpRight className="h-4 w-4" />
@@ -64,7 +59,7 @@ export default function About() {
       <section className="border-b border-brand-border bg-brand-alt" aria-label="Askaran Binjraj at a glance">
         <Stagger className="mx-auto grid max-w-7xl grid-cols-2 gap-px border-x border-brand-border bg-brand-border lg:grid-cols-4" data-testid="about-stats">
           {STATS.map((stat) => (
-            <StaggerItem key={stat.label} className="bg-brand-alt">
+            <StaggerItem key={stat.label} className="border border-white/70 bg-white/55 backdrop-blur-lg">
               <div className="px-5 py-8 text-center sm:px-7 sm:py-10">
                 <p className="font-serif text-4xl font-medium text-brand-red lg:text-5xl">{stat.value}</p>
                 <p className="mx-auto mt-2 max-w-[15rem] text-[10px] uppercase leading-relaxed tracking-[0.19em] text-brand-muted">{stat.label}</p>
@@ -83,10 +78,10 @@ export default function About() {
         </Reveal>
         <Reveal delay={0.1} className="space-y-5 lg:col-span-7">
           <p className="text-base leading-relaxed text-brand-mid">
-            The official Askaran Binjraj story traces its beginning to 1880 in Dhekiajuli. What has carried forward through six generations is a simple promise: bring people a thoughtful choice of quality, variety, and value, with service that feels personal.
+            The story begins in 1880 in Dhekiajuli. What has carried forward through six generations is a simple promise: thoughtful choice, quality and service that feels personal.
           </p>
           <p className="text-base leading-relaxed text-brand-mid">
-            Today, the store brings together apparel for the family, traditional and occasion wear, footwear, jewellery and accessories, travel gear, home furnishings, kitchen and household needs, and toys and school essentials. The live site describes a range of more than 100 brands.
+            Today, explore fashion for the family, traditional and occasion wear, footwear, jewellery, travel, home, kitchen and school essentials—all together in one welcoming place.
           </p>
           <p className="flex items-start gap-3 border-l-2 border-brand-red pl-5 font-serif text-lg italic leading-relaxed text-brand-ink sm:text-xl">
             More to love. All under one roof.
@@ -99,11 +94,11 @@ export default function About() {
           <Reveal className="mb-10 max-w-2xl">
             <p className="eyebrow">A destination for every visit</p>
             <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">Many ways to find your thing.</h2>
-            <p className="mt-4 text-base leading-relaxed text-brand-mid">A broad mix of departments makes it easy to bring a shopping list, find an occasion look, or browse together as a family.</p>
+            <p className="mt-4 text-base leading-relaxed text-brand-mid">Come with a list, look for something special or simply take your time exploring together.</p>
           </Reveal>
           <Stagger className="grid gap-px border border-brand-border bg-brand-border md:grid-cols-3">
             {DEPARTMENTS.map(({ icon: Icon, title, body }, index) => (
-              <StaggerItem key={title} className="bg-brand-paper">
+              <StaggerItem key={title} className="border border-white/70 bg-white/55 backdrop-blur-lg">
                 <article className="h-full p-6 sm:p-8" data-testid={`about-department-${index}`}>
                   <Icon className="h-6 w-6 text-brand-red" aria-hidden="true" />
                   <h3 className="mt-6 font-serif text-2xl font-medium text-brand-ink">{title}</h3>
@@ -118,21 +113,21 @@ export default function About() {
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-24 lg:px-12" data-testid="about-store-gallery">
         <Reveal className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="eyebrow">Inside Askaran Binjraj</p>
+            <p className="eyebrow">Inside the mall</p>
             <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">A look around the store.</h2>
           </div>
-          <p className="max-w-md text-sm leading-relaxed text-brand-mid">Real views from the store: the entrance, displays, and spaces where customers browse.</p>
+          <p className="max-w-md text-sm leading-relaxed text-brand-mid">A few familiar details from the entrance to the displays and shopping floors.</p>
         </Reveal>
         <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {STORE_IMAGES.map((image, index) => (
             <StaggerItem key={image.src} className="mx-auto w-full max-w-[300px] sm:max-w-none">
-              <figure className="group overflow-hidden border border-brand-border bg-white" data-testid={`about-gallery-image-${index}`}>
+              <figure className="group overflow-hidden border border-white/70 bg-white/65 backdrop-blur-lg" data-testid={`about-gallery-image-${index}`}>
                 <div className="aspect-[4/3] overflow-hidden bg-brand-alt">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    width="300"
-                    height="225"
+                    width={image.width}
+                    height={image.height}
                     loading="lazy"
                     decoding="async"
                     className="h-full w-full object-cover contrast-[1.04] saturate-[1.06] transition-transform duration-700 ease-out group-hover:scale-[1.04]"
@@ -151,7 +146,7 @@ export default function About() {
             <p className="eyebrow-light">A tasty pause in your visit</p>
             <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">Chatar Patar <span className="italic text-brand-gold">by AB Foods.</span></h2>
             <p className="mt-5 text-sm leading-relaxed text-white/75 sm:text-base">
-              Make room for a food break while you shop. Chatar Patar is a 100% vegetarian quick-service restaurant at Askaran Binjraj, added in 2017 for mall visitors looking for a relaxed place to pause.
+              Make room for a food break while you shop. Chatar Patar is a vegetarian quick-service restaurant in the mall, offering visitors a relaxed place to pause.
             </p>
             <p className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-gold">
               <Utensils className="h-4 w-4" aria-hidden="true" /> Vegetarian dining · Dhekiajuli
@@ -165,8 +160,8 @@ export default function About() {
                     <img
                       src={image.src}
                       alt={image.alt}
-                      width={index === 0 ? "1536" : "243"}
-                      height={index === 0 ? "1024" : "180"}
+                      width={image.width}
+                      height={image.height}
                       loading="lazy"
                       decoding="async"
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
