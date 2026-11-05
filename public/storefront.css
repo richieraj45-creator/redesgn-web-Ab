@@ -389,7 +389,7 @@ body.storefront button { font-family: var(--sans); cursor: pointer; background: 
 .sf-img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .sf-img-grid .g-img { overflow: hidden; aspect-ratio: 4 / 3; }
 .sf-img-grid .g-img:nth-child(3) { grid-column: span 2; aspect-ratio: 16 / 7; }
-.sf-img-grid img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: transform 0.7s; }
+.sf-img-grid img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.96; filter: contrast(1.05) saturate(1.08); transition: transform 0.7s; }
 .sf-img-grid .g-img:hover img { transform: scale(1.04); }
 
 /* careers */
@@ -719,6 +719,90 @@ body.storefront section[id] { scroll-margin-top: 70px; }
   .sf-bento .sf-card-img { height: auto; min-height: 0; aspect-ratio: 4 / 3; }
 }
 
+/* Mobile hero: keep the banner image unobstructed, then give its copy a calm editorial panel. */
+@media (max-width: 760px) {
+  #hero.sf-hero {
+    --mobile-hero-media-height: min(58svh, 500px);
+    height: auto;
+    min-height: 0;
+    padding-top: var(--mobile-hero-media-height);
+    overflow: hidden;
+    background: linear-gradient(180deg, #f7f1e8 0%, #fffdfa 100%);
+  }
+  #hero .sf-slide { inset: 0 0 auto; height: var(--mobile-hero-media-height); background: #eee5d8; }
+  #hero .sf-slide img { object-fit: cover; object-position: center; }
+  #hero .sf-hero-shade {
+    inset: 0 0 auto;
+    height: var(--mobile-hero-media-height);
+    background: linear-gradient(180deg, rgba(18,14,12,.12) 0%, transparent 38%, rgba(24,18,14,.16) 100%);
+  }
+  #hero .sf-hero-content {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 100%;
+    max-width: none;
+    padding: 27px 24px 86px;
+    background: linear-gradient(180deg, #f7f1e8 0%, #fffdfa 100%);
+  }
+  #hero .sf-hero-inner,
+  #hero .sf-hero-inner:not(.side-right),
+  #hero .sf-hero-inner.side-right {
+    width: min(100%, 520px);
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  #hero .sf-hero-inner::before { display: none; }
+  #hero .sf-hero-inner .sf-eyebrow,
+  #hero .sf-hero-inner .sf-cta-row,
+  #hero .sf-hero-inner:not(.side-right) .sf-eyebrow,
+  #hero .sf-hero-inner:not(.side-right) .sf-cta-row,
+  #hero .sf-hero-inner.side-right .sf-eyebrow,
+  #hero .sf-hero-inner.side-right .sf-cta-row { margin-left: auto; margin-right: auto; justify-content: center; }
+  #hero .sf-eyebrow { margin-bottom: 15px; border-color: rgba(143,37,30,.18); background: rgba(255,255,255,.58); box-shadow: 0 8px 24px rgba(75,45,25,.05); }
+  #hero .sf-hero h1,
+  #hero .sf-hero-inner:not(.side-right) h1,
+  #hero .sf-hero-inner.side-right h1 {
+    max-width: 17ch;
+    margin: 0 auto 13px;
+    font-size: clamp(1.85rem, 7.5vw, 2.55rem);
+    line-height: 1.08;
+    text-align: center;
+    text-shadow: none;
+  }
+  #hero .sf-hero .sf-hero-sub,
+  #hero .sf-hero-inner:not(.side-right) .sf-hero-sub,
+  #hero .sf-hero-inner.side-right .sf-hero-sub {
+    max-width: 38ch;
+    margin: 0 auto 21px;
+    font-size: clamp(.9rem, 3.7vw, 1rem);
+    line-height: 1.62;
+    text-align: center;
+    text-shadow: none;
+    color: rgba(33,24,19,.76);
+  }
+  #hero .sf-cta-row,
+  #hero .sf-hero-inner.side-right .sf-cta-row,
+  #hero .sf-hero-inner:not(.side-right) .sf-cta-row { flex-direction: row; flex-wrap: wrap; gap: 9px; }
+  #hero .sf-cta-row a,
+  #hero .sf-hero-inner.side-right .sf-cta-row a,
+  #hero .sf-hero-inner:not(.side-right) .sf-cta-row a {
+    width: auto;
+    min-width: min(44vw, 190px);
+    min-height: 46px;
+    margin: 0;
+    padding: 12px 14px;
+    font-size: .58rem;
+    letter-spacing: .12em;
+  }
+  #hero .sf-arrow { top: calc(var(--mobile-hero-media-height) / 2); bottom: auto; transform: translateY(-50%); }
+  #hero .sf-arrow:hover { transform: translateY(-50%) scale(1.05); }
+  #hero .sf-counter { display: block; position: absolute; top: calc(var(--mobile-hero-media-height) - 38px); right: 18px; z-index: 30; }
+  #hero .sf-counter span { color: rgba(255,255,255,.92); text-shadow: 0 1px 8px rgba(0,0,0,.3); font-size: 1.55rem; }
+  #hero .sf-counter span small { color: rgba(255,255,255,.76); }
+}
+
 @media (min-width: 768px) and (max-width: 1023px) {
   .sf-bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sf-bento .tall { grid-row: auto; }
@@ -749,4 +833,14 @@ body.storefront section[id] { scroll-margin-top: 70px; }
   .sf-arrow:hover { transform: scale(1.05); }
   .sf-arrow.prev { left: 8px; }
   .sf-arrow.next { right: 8px; }
+}
+
+/* Our Story keeps the original mall view and shows the two new interior photos at full portrait ratio. */
+.sf-img-grid .g-img:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 7; }
+.sf-img-grid .g-img:nth-child(2),
+.sf-img-grid .g-img:nth-child(3) { grid-column: auto; aspect-ratio: 3 / 4; }
+
+/* Keep the mobile navigation transparent over the banner, matching the desktop header. */
+@media (max-width: 760px) {
+  .sf-header:not(.scrolled) { background: transparent; border-bottom-color: transparent; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
 }

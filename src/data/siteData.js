@@ -6,19 +6,19 @@ export const CONTACT = {
   whatsappUrl: "https://wa.me/918811966701?text=Hello%2C%20I%20have%20a%20question%20about%20your%20collections.",
   email: "info.askaranbinjraj@gmail.com",
   careersEmail: "hr@crpl.co.in",
-  addressLine1: "Opp Post Office, Main Road",
-  addressLine2: "Dhekiajuli, Assam – 784110",
-  addressShort: "15 National Highway Dhekiajuli, Assam",
-  addressFull: "Askaran Binjraj Shopping Mall, Main Road, Dhekiajuli, Assam – 784110",
+  addressLine1: "NH-15, Ward No. 7",
+  addressLine2: "Dhekiajuli, Sonitpur, Assam - 784110",
+  addressShort: "NH-15, Ward No. 7, Dhekiajuli, Sonitpur, Assam - 784110",
+  addressFull: "NH-15, Ward No. 7, Dhekiajuli, Sonitpur, Assam - 784110",
   hoursDaily: "Every day: 10:00 AM – 10:00 PM",
   mapsUrl: "https://maps.app.goo.gl/oYK6b4wPu7BUnzGb8",
   mapsUrlStore: "https://maps.app.goo.gl/RiaVfCSgBwTxFq1YA",
-  mapsEmbed: "https://www.google.com/maps?q=Askaran%20Binjraj%20Shopping%20Mall%2C%20Main%20Road%2C%20Dhekiajuli%2C%20Assam%20784110&output=embed",
+  mapsEmbed: "https://www.google.com/maps?q=NH-15%2C%20Ward%20No.%207%2C%20Dhekiajuli%2C%20Sonitpur%2C%20Assam%20784110&output=embed",
   shopUrl: "https://shop.askaranbinjraj.com",
   company: "Askaran Binjraj",
 };
 
-const LOCATION_STAT = { value: "Visit the store", label: "Shopping Mall, Main Road, Dhekiajuli, Assam – 784110" };
+const LOCATION_STAT = { value: "Visit the store", label: "NH-15, Ward No. 7, Dhekiajuli, Sonitpur, Assam - 784110" };
 
 export const TICKER_LINE =
   "A thoughtful mix of style, comfort and inspiration for every generation and occasion.";
@@ -26,6 +26,23 @@ export const TICKER_LINE =
 export const MALL_EXTERIOR = "/assets/about/askaran-mall-exterior.webp";
 export const MALL_INTERIOR = `${IMG}/2026/01/mall-1.webp`;
 export const CONTACT_LOCATION_IMG = `${IMG}/2025/11/unnamed-e1762148789166.webp`;
+
+export const STORE_PHOTOS = [
+  { src: "/assets/about/store-gallery/store-161817.jpg", alt: "The upper shopping floor prepared for a festive display", caption: "A festive view across the mall", width: 1800, height: 2400 },
+  { src: "/assets/about/store-gallery/store-161826.jpg", alt: "A festive gathering space inside the shopping mall", caption: "Festive moments inside the mall", width: 1800, height: 2400 },
+  { src: "/assets/about/store-gallery/store-161844.jpg", alt: "Retail counters and service area inside the store", caption: "Store service and checkout", width: 1800, height: 2400 },
+  { src: "/assets/about/store-gallery/store-161857.jpg", alt: "A clear view of the store checkout counter", caption: "A welcoming checkout counter", width: 1080, height: 1440 },
+  { src: "/assets/about/store-gallery/store-161900.jpg", alt: "Clothing and displays inside the apparel department", caption: "Apparel for every day", width: 1080, height: 1440 },
+  { src: "/assets/about/store-gallery/store-161928.jpg", alt: "Clothing displays along a department aisle", caption: "A closer look at the fashion floor", width: 1080, height: 1440 },
+  { src: "/assets/about/store-gallery/store-161934.jpg", alt: "Displays in the children's department", caption: "A colourful corner for children", width: 1080, height: 1440 },
+  { src: "/assets/about/store-gallery/store-161951.jpg", alt: "Apparel racks and display space inside the store", caption: "Style across generations", width: 1080, height: 1440 },
+  { src: "/assets/about/store-gallery/store-162016.jpg", alt: "Fashion and accessories arranged in the store", caption: "Finishing touches and accessories", width: 1080, height: 1440 },
+  { src: "/assets/about/store-gallery/store-162024.jpg", alt: "Product displays in the family departments", caption: "Everyday essentials for the family", width: 1080, height: 1440 },
+  { src: "/assets/about/store-gallery/store-162110.jpg", alt: "A festive display inside the shopping mall", caption: "A festive display in the mall", width: 1800, height: 2400 },
+  { src: "/assets/about/store-gallery/store-162202.jpg", alt: "Clothing displays in the women's fashion department", caption: "A considered women's edit", width: 1800, height: 2400 },
+  { src: "/assets/about/store-gallery/store-162217.jpg", alt: "Menswear displays inside the shopping mall", caption: "Menswear on the shop floor", width: 1080, height: 1440 },
+  { src: "/assets/about/store-gallery/store-162225.jpg", alt: "A busy day across the shopping mall", caption: "A day at the mall", width: 1800, height: 2400 },
+];
 
 export const CATEGORIES = [
   {

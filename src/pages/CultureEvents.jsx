@@ -1,11 +1,13 @@
 import { Reveal } from "../components/Reveal";
 import { Breadcrumbs } from "../components/Breadcrumbs";
+import { MALL_EXTERIOR, STORE_PHOTOS } from "../data/siteData";
 
 const STORIES = [
-  { title: "A place to gather", caption: "A familiar landmark in the heart of Dhekiajuli.", image: "/assets/about/askaran-mall-exterior.webp", alt: "Shopping centre exterior in Dhekiajuli" },
-  { title: "A view across the mall", caption: "Explore the floors, displays and spaces inside.", image: "/assets/about/mall-interior-hd.webp", alt: "View across the shopping mall interior" },
-  { title: "Style across generations", caption: "Thoughtful finds for everyday moments and special occasions.", image: "/assets/about/mall-apparel-interior-hd.webp", alt: "Apparel displays inside the mall" },
-  { title: "A warm welcome", caption: "Step inside and explore the many corners of the mall.", image: "/assets/mall-dusk.jpg", alt: "The shopping centre illuminated in the evening" },
+  { title: "A place to gather", caption: "A familiar landmark in the heart of Dhekiajuli.", image: MALL_EXTERIOR, alt: "Shopping centre exterior in Dhekiajuli", width: 1536, height: 1024 },
+  { ...STORE_PHOTOS[0], title: "A view across the mall", caption: "Explore the floors, displays and spaces inside." },
+  { ...STORE_PHOTOS[9], title: "Everyday family essentials", caption: "A look at the products and displays inside the store." },
+  { ...STORE_PHOTOS[4], title: "Style across generations", caption: "Thoughtful finds for everyday moments and special occasions." },
+  ...STORE_PHOTOS.filter((_, index) => ![0, 4, 9].includes(index)),
 ];
 
 export default function CultureEvents() {
@@ -28,14 +30,14 @@ export default function CultureEvents() {
         <Reveal>
           <p className="eyebrow">Stories from our community</p>
           <h2 className="mt-4 font-serif text-3xl sm:text-4xl">A little of everything, all in one place</h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-brand-mid">Explore the mall, discover the details and see the spaces that make every visit feel welcoming. This gallery features existing store and venue photography.</p>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-brand-mid">Explore the mall, discover the details and see the spaces that make every visit feel welcoming.</p>
         </Reveal>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
           {STORIES.map((story, index) => (
             <Reveal key={story.title} delay={index * 0.04}>
               <article className="group overflow-hidden border border-white/70 bg-white/60 backdrop-blur-xl">
-                <div className="aspect-[4/3] overflow-hidden bg-brand-alt">
-                  <img src={story.image} alt={story.alt} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                <div className="overflow-hidden bg-brand-alt" style={{ aspectRatio: `${story.width} / ${story.height}` }}>
+                  <img src={story.image} alt={story.alt} loading="lazy" decoding="async" className="h-full w-full object-cover contrast-[1.05] saturate-[1.08] transition-transform duration-700 group-hover:scale-[1.04]" />
                 </div>
                 <div className="p-5">
                   <h3 className="font-serif text-xl text-brand-ink">{story.title}</h3>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, HeartHandshake, Layers3, MapPin, Sparkles, Utensils } from "lucide-react";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
-import { MALL_EXTERIOR } from "../data/siteData";
+import { MALL_EXTERIOR, STORE_PHOTOS } from "../data/siteData";
 
 const STATS = [
   { value: "1880", label: "Family story begins in Dhekiajuli" },
@@ -13,8 +13,7 @@ const STATS = [
 
 const STORE_IMAGES = [
   { src: "/assets/about/askaran-mall-exterior.webp", alt: "Shopping centre exterior in Dhekiajuli", caption: "A familiar landmark in Dhekiajuli", width: 1536, height: 1024 },
-  { src: "/assets/about/mall-interior-hd.webp", alt: "View across the shopping mall interior", caption: "Inside the mall", width: 960, height: 720 },
-  { src: "/assets/about/mall-apparel-interior-hd.webp", alt: "Apparel displays inside the mall", caption: "Fashion and apparel", width: 1536, height: 1024 },
+  ...STORE_PHOTOS,
 ];
 
 const CHATAR_PATAR_IMAGES = [
@@ -122,7 +121,7 @@ export default function About() {
           {STORE_IMAGES.map((image, index) => (
             <StaggerItem key={image.src} className="mx-auto w-full max-w-[300px] sm:max-w-none">
               <figure className="group overflow-hidden border border-white/70 bg-white/65 backdrop-blur-lg" data-testid={`about-gallery-image-${index}`}>
-                <div className="aspect-[4/3] overflow-hidden bg-brand-alt">
+                <div className="overflow-hidden bg-brand-alt" style={{ aspectRatio: `${image.width} / ${image.height}` }}>
                   <img
                     src={image.src}
                     alt={image.alt}
@@ -182,7 +181,7 @@ export default function About() {
             <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">Find us in Dhekiajuli.</h2>
             <p className="mt-4 flex items-start gap-3 text-sm leading-relaxed text-brand-mid">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-red" aria-hidden="true" />
-              Askaran Binjraj Shopping Mall, Main Road, Dhekiajuli, Assam – 784110
+              NH-15, Ward No. 7, Dhekiajuli, Sonitpur, Assam - 784110
             </p>
           </Reveal>
           <Reveal delay={0.1} className="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">
