@@ -44,7 +44,11 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         scroll-behavior: smooth;
+        text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
     }
+    img, video, canvas, svg { max-width: 100%; }
+    img { height: auto; }
     body {
         @apply bg-brand-paper text-brand-ink font-sans;
         overflow-x: hidden;
@@ -104,6 +108,7 @@
     .link-underline:hover::after {
         @apply w-full;
     }
+.link-underline { display: inline-flex; min-height: 44px; align-items: center; }
     .img-frame {
         @apply border border-brand-border bg-brand-alt;
     }
@@ -266,6 +271,24 @@ body:not(.storefront) main .group:focus-within img {
 
 .lenis.lenis-smooth {
     scroll-behavior: auto !important;
+}
+
+@media (max-width: 760px) {
+    .interior-navbar-in { min-width: 0; gap: 6px; padding-inline: 10px; }
+    .interior-navbar-logo { min-width: 0; flex: 0 1 auto; }
+    .interior-navbar-logo img { width: auto; max-width: 42vw; height: clamp(36px, 9vw, 44px); }
+    .interior-navbar-actions { flex-shrink: 0; gap: 4px; }
+    .interior-navbar-shop-button { gap: 4px; padding: 8px 7px; font-size: .48rem; letter-spacing: .04em; white-space: nowrap; }
+    body:not(.storefront) main h1 { max-width: 100%; font-size: clamp(1.8rem, 7vw, 2.6rem); overflow-wrap: anywhere; }
+    body:not(.storefront) main h2 { font-size: clamp(1.5rem, 5.6vw, 2.2rem); overflow-wrap: anywhere; }
+    body:not(.storefront) main h3 { font-size: clamp(1.2rem, 4.6vw, 1.6rem); overflow-wrap: anywhere; }
+    body:not(.storefront) main p.text-base,
+    body:not(.storefront) main p.text-sm { font-size: clamp(.875rem, 4.2vw, 1rem); }
+    body:not(.storefront) :is(a, button, summary, [role="button"]) { min-width: 44px; min-height: 44px; }
+    .interior-navbar-burger, .interior-navbar-shop-button { min-width: 44px; min-height: 44px; }
+    .interior-navbar-menu-trigger, .interior-navbar-mobile-nav summary { min-height: 44px; }
+    .interior-navbar-mobile-nav > .flex a { display: flex; min-height: 44px; align-items: center; }
+    .interior-navbar-mobile-nav > a:last-child { display: inline-flex; align-items: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {

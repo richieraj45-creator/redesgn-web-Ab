@@ -44,7 +44,7 @@ export const Navbar = () => {
     <header className={`interior-navbar ${scrolled ? "scrolled" : ""}`}>
       <div className={`interior-navbar-in ${scrolled ? "scrolled" : ""}`}>
         <Link to="/" aria-label="Home" className="interior-navbar-logo">
-          <img src="/assets/logo-stacked-transparent.png" alt="Askaran Binjraj stacked lotus mark, wordmark, and tagline" data-testid="nav-logo" />
+          <img src="/assets/logo-horizontal-transparent.png" alt="Askaran Binjraj" data-testid="nav-logo" />
         </Link>
 
         <nav className="interior-navbar-links" aria-label="Main navigation">

@@ -10,7 +10,7 @@ export function Breadcrumbs({ items = [], tone = "dark", className = "" }) {
     <nav aria-label="Breadcrumb" className={className}>
       <ol className={`flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] font-semibold uppercase tracking-[0.18em] ${tone === "light" ? "text-white/65" : "text-brand-muted"}`}>
         <li className="inline-flex items-center gap-2">
-          <Link to="/" aria-label="Home" className={`inline-flex items-center gap-1.5 transition-colors ${colors}`}>
+          <Link to="/" aria-label="Home" className={`inline-flex min-h-11 items-center gap-1.5 transition-colors ${colors}`}>
             <Home className="h-3 w-3" aria-hidden="true" /> Home
           </Link>
         </li>
@@ -20,7 +20,7 @@ export function Breadcrumbs({ items = [], tone = "dark", className = "" }) {
             <li key={`${item.label}-${index}`} className="inline-flex items-center gap-2">
               <ChevronRight className="h-3 w-3 opacity-50" aria-hidden="true" />
               {item.to && !isCurrent ? (
-                <Link to={item.to} data-testid={item.testId} className={`transition-colors ${colors}`}>{item.label}</Link>
+                <Link to={item.to} data-testid={item.testId} className={`inline-flex min-h-11 items-center transition-colors ${colors}`}>{item.label}</Link>
               ) : (
                 <span aria-current="page" className={tone === "light" ? "text-white" : "text-brand-ink"}>{item.label}</span>
               )}

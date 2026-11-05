@@ -41,7 +41,7 @@ export default function CategoryDetail() {
 
   return (
     <main data-testid={`category-page-${category.slug}`}>
-      <section className="group relative flex h-[52vh] min-h-[380px] items-end overflow-hidden">
+      <section className="group relative flex h-auto min-h-[360px] items-end overflow-hidden bg-brand-ink py-12 sm:min-h-[400px] lg:h-[52vh] lg:min-h-[380px]">
         <img src={category.heroImage || category.image} alt={category.name} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/85 via-brand-ink/30 to-brand-ink/10" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-10 sm:px-6 lg:px-12">
@@ -101,14 +101,14 @@ export default function CategoryDetail() {
               {category.subs.map((sub, i) => (
                 <StaggerItem key={i}>
                   <div className="group h-full border border-white/70 bg-white/60 shadow-lg backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl" data-testid={`sub-card-${category.slug}-${i}`}>
-                    <div className="h-64 overflow-hidden">
-                      <img src={sub.image} alt={sub.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" />
+                    <div className="aspect-[4/3] overflow-hidden bg-brand-alt">
+                      <img src={sub.image} alt={sub.name} loading="lazy" className="h-full w-full bg-brand-alt object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" />
                     </div>
                     <div className="p-6">
                       <p className="text-[10px] uppercase tracking-[0.26em] text-brand-muted">{sub.floor}</p>
                       <h3 className="mt-2 font-serif text-xl font-medium text-brand-ink">{sub.name}</h3>
                       {sub.note && <p className="mt-2 text-sm leading-relaxed text-brand-mid">{sub.note}</p>}
-                      <a href={shopCollectionFor(sub.name)} target="_blank" rel="noopener noreferrer" data-testid={`sub-cta-${category.slug}-${i}`} className="group/link mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-medium text-brand-red">
+                      <a href={shopCollectionFor(sub.name)} target="_blank" rel="noopener noreferrer" data-testid={`sub-cta-${category.slug}-${i}`} className="group/link mt-4 inline-flex min-h-11 items-center gap-2 text-xs uppercase tracking-[0.2em] font-medium text-brand-red">
                         Explore
                         <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                       </a>

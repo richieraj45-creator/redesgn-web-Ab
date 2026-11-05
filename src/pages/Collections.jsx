@@ -24,7 +24,7 @@ export default function Collections() {
         <Stagger className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {CATEGORIES.map((c) => (
             <StaggerItem key={c.slug}>
-              <CategoryCard category={c} className="h-[320px] w-full" />
+              <CategoryCard category={c} className="h-[250px] w-full sm:h-[280px] lg:h-[320px]" />
             </StaggerItem>
           ))}
         </Stagger>
