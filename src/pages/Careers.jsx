@@ -1,27 +1,45 @@
 import { useState } from "react";
-import { ArrowUpRight, Monitor, Store, Warehouse, Mail, Send } from "lucide-react";
+import { ArrowUpRight, Monitor, Store, Users, Calculator, Warehouse, ShoppingCart, Mail, Send } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 import { CONTACT } from "../data/siteData";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 
 const DEPARTMENTS = [
   {
-    icon: Monitor,
-    name: "Digital & E-Commerce",
-    intro: "Build the next chapter of our digital storefront and customer experience.",
-    roles: ["UI/UX Designer", "Growth Marketing Specialist", "Web Developer", "SEO Specialist"],
-  },
-  {
     icon: Store,
     name: "Store Operations & Retail",
     intro: "Create a welcoming, thoughtful experience for every person who visits us.",
-    roles: ["Store Manager", "Client Stylist", "Floor Sales Associate", "Cashier"],
+    roles: ["Store Manager", "Assistant Store Manager", "Floor Manager", "Team Lead- Sales", "Senior Sales Executive", "Sales Executive"],
+  },
+  {
+    icon: Monitor,
+    name: "Digital & E-Commerce",
+    intro: "Build the next chapter of our digital storefront and customer experience.",
+    roles: ["Manager - E Commerce", "Executive - E- Commerce", "Freelancer - Digital Marketing"],
+  },
+  {
+    icon: Users,
+    name: "Human Resources",
+    intro: "Help build a supportive workplace and a strong employee experience.",
+    roles: ["Manager - HR & Admin", "Senior Executive - HR & Admin", "Executive - HR & Admin", "HR Intern"],
+  },
+  {
+    icon: Calculator,
+    name: "Accounts & Finance",
+    intro: "Support accurate financial operations across the business.",
+    roles: ["Senior Manager - Accounts", "Manager - Accounts", "Executive - Accounts", "Assistant Accountant"],
   },
   {
     icon: Warehouse,
-    name: "Supply Chain & Logistics",
-    intro: "Keep product moving accurately and reliably from receiving to the shop floor.",
-    roles: ["Dispatch Coordinator", "Inventory Manager", "Warehouse Manager"],
+    name: "Warehouse & Inventory",
+    intro: "Keep stock organized and moving accurately across the store.",
+    roles: ["Inventory Head", "Inventory Coordinator", "Assistant Coordinator - Inventory", "Executive - Inventory"],
+  },
+  {
+    icon: ShoppingCart,
+    name: "Procurement",
+    intro: "Select and source apparel and footwear for our customers.",
+    roles: ["Procurement Manager - Apparel & Footwear", "Buying Merchandiser"],
   },
 ];
 
@@ -116,7 +134,7 @@ export default function Careers() {
           <p className="mt-4 text-sm leading-relaxed text-brand-mid sm:text-base">Explore the teams and choose a role to begin your application.</p>
         </Reveal>
 
-        <Stagger className="grid gap-5 md:grid-cols-3">
+        <Stagger className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {DEPARTMENTS.map(({ icon: Icon, name, intro, roles }, index) => (
             <StaggerItem key={name}>
               <article className="flex h-full flex-col border border-white/70 bg-white/60 p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-8" data-testid={`career-department-${index}`}>

@@ -140,7 +140,6 @@
   ];
 
   var slides = Array.prototype.slice.call(document.querySelectorAll(".sf-slide"));
-  var dotsWrap = document.getElementById("hero-dots");
   var counterEl = document.getElementById("hero-counter");
   var eyebrowEl = document.getElementById("hero-eyebrow-text");
   var titleEl = document.getElementById("hero-title");
@@ -155,12 +154,6 @@
   function render(i) {
     current = (i + slides.length) % slides.length;
     slides.forEach(function (s, idx) { s.classList.toggle("active", idx === current); });
-    if (dotsWrap) {
-      Array.prototype.forEach.call(dotsWrap.children, function (d, idx) {
-        d.classList.toggle("active", idx === current);
-        d.setAttribute("aria-current", idx === current ? "true" : "false");
-      });
-    }
     if (counterEl) counterEl.innerHTML = pad(current) + "<small>/ " + pad(slides.length - 1) + "</small>";
     if (textWrap) {
       textWrap.classList.add("switching");
@@ -187,16 +180,6 @@
   }
 
   if (slides.length) {
-    if (dotsWrap) {
-      slides.forEach(function (_, idx) {
-        var b = document.createElement("button");
-        b.type = "button";
-        b.setAttribute("data-testid", "hero-dot-" + idx);
-        b.setAttribute("aria-label", "Go to slide " + (idx + 1));
-        b.addEventListener("click", function () { render(idx); startAuto(); });
-        dotsWrap.appendChild(b);
-      });
-    }
     var prev = document.getElementById("hero-prev");
     var next = document.getElementById("hero-next");
     if (prev) prev.addEventListener("click", function () { render(current - 1); startAuto(); });

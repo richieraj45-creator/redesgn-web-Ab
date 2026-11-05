@@ -32,8 +32,8 @@ export const CATEGORIES = [
     slug: "sarees",
     name: "Sarees",
     tag: "Signature",
-    image: "/assets/hero-sarees.jpg",
-    heroImage: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1400&q=80",
+    image: "/assets/banarasi-saree-front.jpg",
+    heroImage: "/assets/banarasi-saree-front.jpg",
     studio: "3rd Floor • Royal Handlooms",
     title: "Sarees with a story to tell",
     intro: [
@@ -46,9 +46,9 @@ export const CATEGORIES = [
       LOCATION_STAT,
     ],
     subs: [
-      { name: "Banarasi Sarees", floor: "3rd Floor • Royal Handlooms", image: "/assets/hero-sarees.jpg", note: "Explore rich brocades, fine zari details and silk drapes rooted in the Banarasi weaving tradition." },
+      { name: "Banarasi Sarees", floor: "3rd Floor • Royal Handlooms", image: "/assets/banarasi-saree-front.jpg", note: "Explore rich brocades, fine zari details and silk drapes rooted in the Banarasi weaving tradition." },
       { name: "Pure Silk Sarees", floor: "3rd Floor • Pure Weaves", image: `${IMG}/2025/11/Pure-Silk.jpg`, note: "Personally selected pieces verified for genuine silk quality, high weave density, and lasting luster." },
-      { name: "Traditional Assam Silk", floor: "3rd Floor • Heritage Assam", image: `${IMG}/2025/11/Assam-Silk.jpg`, note: "Authentic Muga silk and regional handloom weaves showcasing Assam's rich cultural heritage." },
+      { name: "Traditional Assam Silk", floor: "3rd Floor • Heritage Assam", image: "/assets/assam-silk-mekhela.jpg", note: "Authentic Muga silk and regional handloom weaves showcasing Assam's rich cultural heritage." },
       { name: "South Silk Sarees", floor: "3rd Floor • Temple Borders", image: `${IMG}/2025/11/South-Silk.jpg`, note: "Traditional Kanjeevaram style temple borders, rich contrasting pallus, and durable pure silk weaves." },
       { name: "Wedding Sarees", floor: "3rd Floor • Bridal Suite", image: `${IMG}/2025/11/Wedding-Sarees.jpg`, note: "Ornate embroidery, expressive colours and brocade drapes for wedding celebrations." },
       { name: "Tant", floor: "3rd Floor • Handloom", image: `${IMG}/2025/11/Tant.jpg` },

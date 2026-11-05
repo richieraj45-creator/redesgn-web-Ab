@@ -177,10 +177,6 @@ body.storefront button { font-family: var(--sans); cursor: pointer; background: 
 .sf-arrow svg { stroke: #211813 !important; }
 .sf-arrow.prev { left: 3.5%; }
 .sf-arrow.next { right: 3.5%; }
-.sf-dots { position: absolute; z-index: 30; bottom: 4%; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; }
-.sf-dots button { position: relative; display: flex; width: 24px; height: 44px; align-items: center; justify-content: center; padding: 0; background: transparent; }
-.sf-dots button::before { content: ""; display: block; width: 6px; height: 2px; background: rgba(33,24,19,.4); transition: width 0.3s, background 0.3s; }
-.sf-dots button.active::before { width: 24px; background: var(--red); }
 .sf-counter { display: none; }
 
 .sf-counter span { font-family: var(--serif); font-size: 2.2rem; font-weight: 400; color: rgba(33,24,19,.6); line-height: 1; }
@@ -189,7 +185,7 @@ body.storefront button { font-family: var(--sans); cursor: pointer; background: 
 .sf-hero-text-fade.switching { opacity: 0; transform: translateY(5px); }
 .sf-hero-text-fade.arriving { animation: hero-copy-arrive .48s var(--ease-out) both; }
 @keyframes hero-copy-arrive { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
-@media (max-width: 760px) { .sf-hero { min-height: min(650px, 100svh); height: min(90svh, 820px); } .sf-hero-content { padding: 92px 22px 72px; justify-content: center; } .sf-hero-inner { max-width: min(100%, 470px); } .sf-hero-text-fade.side-right { width: min(100%, 340px); text-align: right; margin-left: auto; } .sf-hero-text-fade.side-right::before { inset: -24px -16px -30px -22px; background: radial-gradient(ellipse at 75% 50%, rgba(255,255,255,.88) 0%, rgba(255,255,255,.65) 48%, rgba(255,255,255,.22) 76%, transparent 100%); } .sf-hero-text-fade.side-right .sf-eyebrow, .sf-hero-text-fade.side-right .sf-cta-row { justify-content: flex-end; margin-left: auto; } .sf-hero-text-fade.side-right .sf-eyebrow { max-width: 100%; } .sf-hero-shade { background: linear-gradient(90deg, rgba(250,247,240,.9) 0%, rgba(250,247,240,.76) 58%, rgba(250,247,240,.28) 100%); } .sf-hero-shade.side-right { background: linear-gradient(270deg, rgba(250,247,240,.78) 0%, rgba(250,247,240,.54) 48%, rgba(250,247,240,.12) 100%); } .sf-hero h1 { max-width: 12ch; margin-bottom: 18px; font-size: clamp(2.45rem, 9.2vw, 3.45rem); line-height: 1.08; letter-spacing: -.035em; } .sf-hero-text-fade.side-right h1 { max-width: 10ch; margin-left: auto; font-size: clamp(1.9rem, 7.2vw, 2.55rem); line-height: 1.08; } .sf-hero .sf-hero-sub { max-width: 34ch; margin-bottom: 28px; font-size: .95rem; line-height: 1.6; } .sf-hero-text-fade.side-right .sf-hero-sub { max-width: 30ch; margin-left: auto; margin-bottom: 22px; font-size: clamp(.82rem, 3.45vw, .92rem); line-height: 1.5; } .sf-hero-text-fade.side-right .sf-cta-row { gap: 8px; } .sf-hero-text-fade.side-right .sf-cta-row a { min-height: 44px; padding: 11px 13px; font-size: .58rem; letter-spacing: .11em; } .sf-dots { bottom: 3%; } }
+@media (max-width: 760px) { .sf-hero { min-height: min(650px, 100svh); height: min(90svh, 820px); } .sf-hero-content { padding: 92px 22px 72px; justify-content: center; } .sf-hero-inner { max-width: min(100%, 470px); } .sf-hero-text-fade.side-right { width: min(100%, 340px); text-align: right; margin-left: auto; } .sf-hero-text-fade.side-right::before { inset: -24px -16px -30px -22px; background: radial-gradient(ellipse at 75% 50%, rgba(255,255,255,.88) 0%, rgba(255,255,255,.65) 48%, rgba(255,255,255,.22) 76%, transparent 100%); } .sf-hero-text-fade.side-right .sf-eyebrow, .sf-hero-text-fade.side-right .sf-cta-row { justify-content: flex-end; margin-left: auto; } .sf-hero-text-fade.side-right .sf-eyebrow { max-width: 100%; } .sf-hero-shade { background: linear-gradient(90deg, rgba(250,247,240,.9) 0%, rgba(250,247,240,.76) 58%, rgba(250,247,240,.28) 100%); } .sf-hero-shade.side-right { background: linear-gradient(270deg, rgba(250,247,240,.78) 0%, rgba(250,247,240,.54) 48%, rgba(250,247,240,.12) 100%); } .sf-hero h1 { max-width: 12ch; margin-bottom: 18px; font-size: clamp(2.45rem, 9.2vw, 3.45rem); line-height: 1.08; letter-spacing: -.035em; } .sf-hero-text-fade.side-right h1 { max-width: 10ch; margin-left: auto; font-size: clamp(1.9rem, 7.2vw, 2.55rem); line-height: 1.08; } .sf-hero .sf-hero-sub { max-width: 34ch; margin-bottom: 28px; font-size: .95rem; line-height: 1.6; } .sf-hero-text-fade.side-right .sf-hero-sub { max-width: 30ch; margin-left: auto; margin-bottom: 22px; font-size: clamp(.82rem, 3.45vw, .92rem); line-height: 1.5; } .sf-hero-text-fade.side-right .sf-cta-row { gap: 8px; } .sf-hero-text-fade.side-right .sf-cta-row a { min-height: 44px; padding: 11px 13px; font-size: .58rem; letter-spacing: .11em; } }
 @media (min-width: 761px) and (hover: none) { .sf-arrow { opacity: .88; } .sf-arrow.prev { left: 16px; } .sf-arrow.next { right: 16px; } }
 @media (prefers-reduced-motion: reduce) { .sf-hero-text-fade.arriving, .sf-mega-menu, .sf-mobile-nav, .sf-mega-promo img { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
@@ -689,16 +685,9 @@ body.storefront section[id] { scroll-margin-top: 70px; }
   .sf-header .sf-shop-btn, .sf-header .sf-burger,
   .sf-mobile-nav a, .sf-mobile-nav summary,
   .sf-hero :is(a, button), .sf-band a, .sf-section :is(a, button), .sf-footer a, .sf-nav a, .sf-menu-wrap a,
-  .sf-arrow, .sf-dots button { min-width: 44px; min-height: 44px; }
+  .sf-arrow { min-width: 44px; min-height: 44px; }
   .sf-arrow { display: flex; top: auto; bottom: 10px; width: 44px; height: 44px; opacity: .95; transform: none; }
   .sf-arrow:hover { transform: scale(1.05); }
   .sf-arrow.prev { left: 8px; }
   .sf-arrow.next { right: 8px; }
-  .sf-dots { display: grid; grid-template-columns: repeat(6, 44px); gap: 0; bottom: 8px; transform: translateX(-50%); }
-  .sf-dots button { width: 44px; height: 44px; }
-  .sf-dots button.active::before { width: 24px; }
-}
-
-@media (max-width: 360px) {
-  .sf-dots { grid-template-columns: repeat(4, 44px); }
 }
