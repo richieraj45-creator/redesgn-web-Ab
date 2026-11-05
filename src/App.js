@@ -16,7 +16,8 @@ import CultureEvents from "@/pages/CultureEvents";
 const ScrollManager = () => {
   const { pathname } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.history.scrollRestoration = "manual";
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [pathname]);
   return null;
 };

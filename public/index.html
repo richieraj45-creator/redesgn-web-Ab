@@ -585,6 +585,8 @@
             (function () {
                 var p = window.location.pathname;
                 if (p === "/" || p === "/index.html") {
+                    if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
+                    window.scrollTo(0, 0);
                     window.__STOREFRONT__ = true;
                     var t = document.getElementById("storefront-template");
                     document.body.innerHTML = "";

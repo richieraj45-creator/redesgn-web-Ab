@@ -204,6 +204,14 @@
     .interior-navbar-mobile-nav > a:last-child { color: #51453e; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
 }
 @media (max-width: 760px) {
+    .interior-navbar,
+    .interior-navbar.scrolled {
+        background: transparent;
+        border-bottom-color: transparent;
+        box-shadow: none;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
     .interior-navbar-in { height: 64px; gap: 8px; padding: 0 14px; }
     .interior-navbar-in.scrolled { height: 56px; }
     .interior-navbar-logo, .interior-navbar-logo img { height: 48px; }
