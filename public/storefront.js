@@ -146,6 +146,7 @@
   var titleEl = document.getElementById("hero-title");
   var subEl = document.getElementById("hero-sub");
   var textWrap = document.getElementById("hero-text");
+  var heroShade = document.querySelector(".sf-hero-shade");
   var current = 0;
   var timer = null;
 
@@ -164,7 +165,9 @@
     if (textWrap) {
       textWrap.classList.add("switching");
       window.setTimeout(function () {
-        textWrap.classList.toggle("side-right", SLIDES[current].side === "right");
+        var alignRight = SLIDES[current].side === "right";
+        textWrap.classList.toggle("side-right", alignRight);
+        if (heroShade) heroShade.classList.toggle("side-right", alignRight);
         eyebrowEl.textContent = SLIDES[current].eyebrow;
         titleEl.innerHTML = SLIDES[current].title;
         subEl.textContent = SLIDES[current].sub;
