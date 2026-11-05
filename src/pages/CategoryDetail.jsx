@@ -42,7 +42,7 @@ export default function CategoryDetail() {
   return (
     <main data-testid={`category-page-${category.slug}`}>
       <section className="group relative flex h-auto min-h-[360px] items-end overflow-hidden bg-brand-ink py-12 sm:min-h-[400px] lg:h-[52vh] lg:min-h-[380px]">
-        <img src={category.heroImage || category.image} alt={category.name} className="absolute inset-0 h-full w-full object-cover" />
+        <img src={category.heroImage || category.image} alt={category.name} loading="eager" decoding="async" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/85 via-brand-ink/30 to-brand-ink/10" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-10 sm:px-6 lg:px-12">
           <Reveal>
@@ -100,9 +100,9 @@ export default function CategoryDetail() {
             <Stagger className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {category.subs.map((sub, i) => (
                 <StaggerItem key={i}>
-                  <div className="group h-full border border-white/70 bg-white/60 shadow-lg backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl" data-testid={`sub-card-${category.slug}-${i}`}>
+                  <div className="group h-full border border-white/70 bg-white/60 shadow-lg backdrop-blur-xl transition-transform duration-200 hover:-translate-y-1 hover:shadow-2xl" data-testid={`sub-card-${category.slug}-${i}`}>
                     <div className="aspect-[4/3] overflow-hidden bg-brand-alt">
-                      <img src={sub.image} alt={sub.name} loading="lazy" className="h-full w-full bg-brand-alt object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" />
+                      <img src={sub.image} alt={sub.name} loading="lazy" decoding="async" className="h-full w-full bg-brand-alt object-cover transition-transform duration-200 ease-out group-hover:scale-[1.05]" />
                     </div>
                     <div className="p-6">
                       <p className="text-[10px] uppercase tracking-[0.26em] text-brand-muted">{sub.floor}</p>

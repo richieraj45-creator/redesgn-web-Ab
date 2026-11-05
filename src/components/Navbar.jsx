@@ -31,11 +31,18 @@ const MenuLinks = ({ items, onNavigate }) => items.map(([label, to]) => (
 export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [shopOpen, setShopOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(() => window.scrollY > 12);
+  const [scrolled, setScrolled] = useState(() => window.scrollY > 40);
   const closeMobile = () => setMobileOpen(false);
 
   useEffect(() => {
-    const updateScrollState = () => setScrolled(window.scrollY > 12);
+    const updateScrollState = () => {
+      const scrollY = window.scrollY;
+      setScrolled((current) => {
+        if (!current && scrollY > 40) return true;
+        if (current && scrollY < 10) return false;
+        return current;
+      });
+    };
     window.addEventListener("scroll", updateScrollState, { passive: true });
     return () => window.removeEventListener("scroll", updateScrollState);
   }, []);

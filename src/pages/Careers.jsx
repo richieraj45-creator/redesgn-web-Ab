@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Monitor, Store, Users, Calculator, Warehouse, ShoppingCart, Mail, Send } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 import { CONTACT } from "../data/siteData";
@@ -107,6 +108,7 @@ export default function Careers() {
           src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=2000"
           alt="Customers exploring a retail store"
           className="absolute inset-0 -z-20 h-full w-full object-cover opacity-35"
+          decoding="async"
           fetchPriority="high"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-ink via-brand-ink/85 to-brand-ink/45" />
@@ -120,9 +122,9 @@ export default function Careers() {
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
               Bring your perspective to a family retail business shaped by care, craft and generations of experience.
             </p>
-            <a href="#career-departments" className="mt-8 inline-flex items-center gap-2 bg-brand-red px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-brand-redDark">
+            <Link to="#career-departments" onClick={() => requestAnimationFrame(() => document.getElementById("career-departments")?.scrollIntoView({ behavior: "smooth" }))} className="mt-8 inline-flex items-center gap-2 bg-brand-red px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-brand-redDark">
               Explore opportunities <ArrowUpRight className="h-4 w-4" />
-            </a>
+            </Link>
           </Reveal>
         </div>
       </section>
@@ -149,9 +151,9 @@ export default function Careers() {
                   <ul className="space-y-1">
                     {roles.map((role) => (
                       <li key={role}>
-                        <a href="#career-application" onClick={() => setForm((current) => ({ ...current, role }))} className="group flex min-h-11 items-center justify-between gap-2 py-2 text-sm text-brand-ink transition-colors hover:text-brand-red" data-testid={`career-role-${role.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
+                        <Link to="#career-application" onClick={() => { setForm((current) => ({ ...current, role })); requestAnimationFrame(() => document.getElementById("career-application")?.scrollIntoView({ behavior: "smooth" })); }} className="group flex min-h-12 items-center justify-between gap-2 py-2 text-sm text-brand-ink transition-colors hover:text-brand-red" data-testid={`career-role-${role.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
                           <span>{role}</span><ArrowUpRight className="h-3.5 w-3.5 shrink-0 opacity-50 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" />
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>

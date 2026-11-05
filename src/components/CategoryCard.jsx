@@ -5,15 +5,16 @@ export const CategoryCard = ({ category, className = "", tall = false }) => (
   <Link
     to={`/collections/${category.slug}`}
     data-testid={`category-card-${category.slug}`}
-    className={`group relative block overflow-hidden rounded-2xl border border-white/70 bg-brand-alt shadow-[0_14px_34px_rgba(38,28,20,0.10)] transition-[box-shadow,transform] duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_22px_46px_rgba(38,28,20,0.18)] ${className}`}
+    className={`group relative block overflow-hidden rounded-2xl border border-white/70 bg-brand-alt shadow-[0_14px_34px_rgba(38,28,20,0.10)] transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_22px_46px_rgba(38,28,20,0.18)] ${className}`}
   >
     <img
       src={category.image}
       alt={category.name}
       loading="lazy"
-      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+      decoding="async"
+      className="absolute inset-0 h-full w-full object-cover transition-transform duration-200 ease-out group-hover:scale-[1.05]"
     />
-    <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/85 via-brand-ink/15 to-transparent transition-opacity duration-500 group-hover:from-brand-ink/90" />
+    <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/85 via-brand-ink/15 to-transparent transition-opacity duration-200 group-hover:from-brand-ink/90" />
     <div className="collection-card-caption absolute inset-x-0 bottom-0 p-5 md:p-7">
       <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-brand-gold">{category.tag}</p>
       <div className="mt-1.5 flex items-end justify-between gap-3">

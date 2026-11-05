@@ -34,6 +34,7 @@ export default function About() {
           src={MALL_EXTERIOR}
           alt="Askaran Binjraj shopping destination in Dhekiajuli"
           className="absolute inset-0 -z-20 h-full w-full object-cover opacity-45"
+          decoding="async"
           fetchPriority="high"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-ink via-brand-ink/80 to-brand-ink/35" />
@@ -129,7 +130,7 @@ export default function About() {
                     height={image.height}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-cover contrast-[1.04] saturate-[1.06] transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    className="h-full w-full object-cover contrast-[1.04] saturate-[1.06] transition-transform duration-200 ease-out group-hover:scale-[1.04]"
                   />
                 </div>
                 <figcaption className="px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-ink">{image.caption}</figcaption>
@@ -163,7 +164,7 @@ export default function About() {
                       height={image.height}
                       loading="lazy"
                       decoding="async"
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      className="h-full w-full object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
                     />
                   </div>
                   <figcaption className="px-3 py-2.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-white/80 sm:px-4 sm:text-[10px]">{image.caption}</figcaption>

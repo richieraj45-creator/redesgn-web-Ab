@@ -14,7 +14,7 @@ export default function CultureEvents() {
   return (
     <main className="bg-brand-paper" data-testid="culture-events-page">
       <section className="group relative isolate overflow-hidden bg-brand-ink text-white">
-        <img src="/assets/about/askaran-mall-exterior.webp" alt="" className="absolute inset-0 -z-10 h-full w-full object-cover opacity-55" />
+        <img src="/assets/about/askaran-mall-exterior.webp" alt="" decoding="async" fetchPriority="high" className="absolute inset-0 -z-10 h-full w-full object-cover opacity-55" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/70 via-black/35 to-black/10" />
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-12">
           <Reveal>
@@ -37,7 +37,7 @@ export default function CultureEvents() {
             <Reveal key={story.title} delay={index * 0.04}>
               <article className="group overflow-hidden border border-white/70 bg-white/60 backdrop-blur-xl">
                 <div className="overflow-hidden bg-brand-alt" style={{ aspectRatio: `${story.width} / ${story.height}` }}>
-                  <img src={story.image} alt={story.alt} loading="lazy" decoding="async" className="h-full w-full object-cover contrast-[1.05] saturate-[1.08] transition-transform duration-700 group-hover:scale-[1.04]" />
+                  <img src={story.image} alt={story.alt} loading="lazy" decoding="async" width={story.width} height={story.height} className="h-full w-full object-cover contrast-[1.05] saturate-[1.08] transition-transform duration-200 group-hover:scale-[1.04]" />
                 </div>
                 <div className="p-5">
                   <h3 className="font-serif text-xl text-brand-ink">{story.title}</h3>

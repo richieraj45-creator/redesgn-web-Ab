@@ -43,9 +43,9 @@
     html {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        scroll-behavior: smooth;
         text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
+        scroll-behavior: smooth;
     }
     img, video, canvas, svg { max-width: 100%; }
     img { height: auto; }
@@ -108,7 +108,7 @@
     .link-underline:hover::after {
         @apply w-full;
     }
-.link-underline { display: inline-flex; min-height: 44px; align-items: center; }
+.link-underline { display: inline-flex; min-height: 48px; min-width: 48px; align-items: center; }
     .img-frame {
         @apply border border-brand-border bg-brand-alt;
     }
@@ -132,8 +132,10 @@
 }
 
 .interior-navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 50;
     color: #1b1714;
     background: transparent;
@@ -161,11 +163,11 @@
     padding: 0 40px;
     transition: height .32s cubic-bezier(.16, 1, .3, 1), padding .32s cubic-bezier(.16, 1, .3, 1);
 }
-.interior-navbar-in.scrolled { height: 64px; }
+.interior-navbar-in.scrolled { height: 84px; }
 .interior-navbar-logo { display: inline-flex; flex-shrink: 0; align-items: center; justify-content: flex-start; height: 56px; }
 .interior-navbar-logo img { display: block; width: auto; height: 56px; object-fit: contain; transition: height .32s cubic-bezier(.16, 1, .3, 1); }
 .interior-navbar-in.scrolled .interior-navbar-logo,
-.interior-navbar-in.scrolled .interior-navbar-logo img { height: 46px; }
+.interior-navbar-in.scrolled .interior-navbar-logo img { height: 56px; }
 .interior-navbar-links { display: none; height: 100%; align-items: center; gap: 28px; }
 .interior-navbar-link,
 .interior-navbar-menu-trigger { display: flex; align-items: center; gap: 7px; height: 100%; color: rgba(27,23,20,.92); font-size: .88rem; font-weight: 500; letter-spacing: 0; text-transform: none; transition: color .25s, filter .25s; }
@@ -184,7 +186,7 @@
 .interior-navbar-actions { display: flex; flex-shrink: 0; align-items: center; gap: 12px; }
 .interior-navbar-shop-button { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; background: #c8251e; color: white; font-size: .68rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; transition: opacity .25s; }
 .interior-navbar-shop-button:hover { opacity: .8; }
-.interior-navbar-in.scrolled .interior-navbar-shop-button { padding-top: 11px; padding-bottom: 11px; font-size: .62rem; }
+.interior-navbar-in.scrolled .interior-navbar-shop-button { padding: 12px 18px; font-size: .68rem; }
 .interior-navbar-burger { display: flex; width: 40px; height: 40px; align-items: center; justify-content: center; color: #1b1714; border: 1px solid rgba(255,255,255,.6); background: rgba(255,255,255,.25); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 .interior-navbar-mobile-nav { display: none; }
 @media (min-width: 1024px) {
@@ -204,6 +206,7 @@
     .interior-navbar-mobile-nav > a:last-child { color: #51453e; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
 }
 @media (max-width: 760px) {
+    .App { padding-top: 64px; }
     .interior-navbar:not(.scrolled) {
         background: transparent;
         border-bottom-color: transparent;
@@ -212,13 +215,13 @@
         backdrop-filter: none;
     }
     .interior-navbar-in { height: 64px; gap: 8px; padding: 0 14px; }
-    .interior-navbar-in.scrolled { height: 56px; }
+    .interior-navbar-in.scrolled { height: 64px; }
     .interior-navbar-logo, .interior-navbar-logo img { height: 48px; }
     .interior-navbar-in.scrolled .interior-navbar-logo,
-    .interior-navbar-in.scrolled .interior-navbar-logo img { height: 42px; }
+    .interior-navbar-in.scrolled .interior-navbar-logo img { height: 48px; }
     .interior-navbar-links { display: none; }
     .interior-navbar-shop-button { padding: 10px 12px; font-size: .58rem; letter-spacing: .1em; }
-    .interior-navbar-in.scrolled .interior-navbar-shop-button { padding: 8px 10px; font-size: .54rem; }
+    .interior-navbar-in.scrolled .interior-navbar-shop-button { padding: 10px 12px; font-size: .58rem; }
     .interior-navbar-mobile-nav { position: absolute; top: 100%; left: 0; z-index: 50; display: block; width: min(88vw,380px); height: calc(100vh - 64px); height: calc(100dvh - 64px); overflow-y: auto; border-right: 1px solid rgba(255,255,255,.62); background: rgba(255,255,255,.9); padding: 16px 24px 28px; box-shadow: 16px 14px 30px rgba(0,0,0,.1); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); transition: transform .35s cubic-bezier(.16,1,.3,1), visibility .35s; }
     .interior-navbar-mobile-nav.closed { visibility: hidden; transform: translateX(-105%); pointer-events: none; }
     .interior-navbar-mobile-nav.open { visibility: visible; transform: translateX(0); }
@@ -232,7 +235,7 @@
 @media (max-width: 400px) {
     .interior-navbar-in { gap: 6px; padding: 0 10px; }
     .interior-navbar-logo img { height: 42px; }
-    .interior-navbar-in.scrolled .interior-navbar-logo img { height: 38px; }
+    .interior-navbar-in.scrolled .interior-navbar-logo img { height: 42px; }
     .interior-navbar-shop-button { min-height: 38px; gap: 5px; padding: 8px 7px; font-size: .5rem; letter-spacing: .06em; }
 }
 
@@ -248,6 +251,13 @@ body:not(.storefront) main :is(article, form, figure, [data-testid^="category-st
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     transition: box-shadow .4s cubic-bezier(.16, 1, .3, 1), background-color .3s ease, transform .4s cubic-bezier(.16, 1, .3, 1);
+}
+
+body:not(.storefront) .App main a,
+body:not(.storefront) .App main button,
+body:not(.storefront) .App footer a {
+    min-height: 48px;
+    min-width: 48px;
 }
 
 body:not(.storefront) main :is(article, figure):hover {

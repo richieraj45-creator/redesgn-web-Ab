@@ -10,7 +10,7 @@ export const Reveal = ({ children, delay = 0, y = 16, className = "", ...rest })
       initial={reduceMotion ? false : { opacity: 0, y }}
       whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: reduceMotion ? 0 : 0.78, delay: reduceMotion ? 0 : delay, ease: EASE }}
+      transition={{ duration: reduceMotion ? 0 : 0.18, delay: reduceMotion ? 0 : delay, ease: EASE }}
       {...rest}
     >
       {children}
@@ -26,7 +26,7 @@ export const MaskedLine = ({ children, delay = 0, className = "" }) => {
         className="block will-change-transform"
         initial={reduceMotion ? false : { y: "112%" }}
         animate={{ y: 0 }}
-        transition={{ duration: reduceMotion ? 0 : 1, delay: reduceMotion ? 0 : delay, ease: EASE }}
+        transition={{ duration: reduceMotion ? 0 : 0.2, delay: reduceMotion ? 0 : delay, ease: EASE }}
       >
         {children}
       </motion.span>
@@ -57,7 +57,7 @@ export const StaggerItem = ({ children, className = "" }) => {
       className={className}
       variants={reduceMotion ? undefined : {
         hidden: { opacity: 0, y: 16 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.72, ease: EASE } },
+        show: { opacity: 1, y: 0, transition: { duration: 0.18, ease: EASE } },
       }}
     >
       {children}

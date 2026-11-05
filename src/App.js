@@ -13,7 +13,7 @@ import Careers from "@/pages/Careers";
 import Contact from "@/pages/Contact";
 import CultureEvents from "@/pages/CultureEvents";
 
-const ScrollManager = () => {
+const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     window.history.scrollRestoration = "manual";
@@ -56,7 +56,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <ScrollManager />
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<HomeRedirect />} />

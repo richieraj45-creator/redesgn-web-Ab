@@ -131,7 +131,7 @@ export default function Contact() {
           <Reveal delay={0.15} className="lg:col-span-6">
             <p className="eyebrow">Our Location</p>
             <div className="group img-frame mt-4 h-[320px] overflow-hidden md:h-[400px]">
-              <img src={CONTACT_LOCATION_IMG} alt="Exterior view of Askaran Binjraj in Dhekiajuli" loading="lazy" className="h-full w-full object-cover" data-testid="contact-location-image" />
+              <img src={CONTACT_LOCATION_IMG} alt="Exterior view of Askaran Binjraj in Dhekiajuli" loading="lazy" decoding="async" className="h-full w-full object-cover" data-testid="contact-location-image" />
             </div>
             <div className="mt-6 overflow-hidden border border-brand-border" data-testid="contact-map">
               <iframe

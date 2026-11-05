@@ -8,7 +8,7 @@ export const Footer = () => (
       <div className="grid gap-12 md:grid-cols-12">
         <div className="md:col-span-4">
           <span className="footer-brand-glass inline-flex items-center rounded-xl border border-white/75 p-2.5 backdrop-blur-xl">
-            <img src="/assets/logo-horizontal-transparent.png" alt="Askaran Binjraj" className="h-11 w-auto" data-testid="footer-logo" />
+            <img src="/assets/logo-horizontal-transparent.png" alt="Askaran Binjraj" loading="lazy" decoding="async" className="h-11 w-auto" data-testid="footer-logo" />
           </span>
           <p className="mt-6 max-w-sm font-serif italic text-xl leading-relaxed text-white/70">
             Thoughtful style, heritage and everyday finds for every generation.
