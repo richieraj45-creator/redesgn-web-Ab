@@ -204,8 +204,7 @@
     .interior-navbar-mobile-nav > a:last-child { color: #51453e; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
 }
 @media (max-width: 760px) {
-    .interior-navbar,
-    .interior-navbar.scrolled {
+    .interior-navbar:not(.scrolled) {
         background: transparent;
         border-bottom-color: transparent;
         box-shadow: none;

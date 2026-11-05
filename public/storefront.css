@@ -637,6 +637,61 @@ body.storefront section[id] { scroll-margin-top: 70px; }
   .sf-hero-inner:not(.side-right) .sf-cta-row a { margin-inline: auto; }
 }
 
+/* Keep mobile hero copy compact and beside the image; restore the glass header after scrolling. */
+@media (max-width: 760px) {
+  .sf-header.scrolled {
+    background: rgba(255,255,255,.32);
+    border-bottom-color: rgba(255,255,255,.5);
+    box-shadow: 0 6px 24px rgba(0,0,0,.055);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+  .sf-hero-inner:not(.side-right) {
+    width: min(70%, 360px);
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
+  }
+  .sf-hero-inner.side-right { width: min(70%, 360px); }
+  .sf-hero-inner:not(.side-right) .sf-eyebrow,
+  .sf-hero-inner:not(.side-right) .sf-cta-row {
+    margin-left: 0;
+    margin-right: auto;
+    justify-content: flex-start;
+  }
+  .sf-hero-inner:not(.side-right) h1,
+  .sf-hero-inner:not(.side-right) .sf-hero-sub {
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
+  }
+  .sf-hero-inner:not(.side-right) h1,
+  .sf-hero-inner.side-right h1 {
+    max-width: 12ch;
+    font-size: clamp(1.65rem, 7vw, 2.25rem);
+    line-height: 1.08;
+    margin-bottom: 14px;
+  }
+  .sf-hero-inner:not(.side-right) .sf-hero-sub,
+  .sf-hero-inner.side-right .sf-hero-sub {
+    max-width: 30ch;
+    margin-bottom: 16px;
+    font-size: clamp(.76rem, 3.2vw, .88rem);
+    line-height: 1.45;
+  }
+  .sf-hero-inner:not(.side-right) .sf-cta-row { align-items: flex-start; gap: 7px; }
+  .sf-hero-inner:not(.side-right) .sf-cta-row a,
+  .sf-hero-inner.side-right .sf-cta-row a {
+    width: min(100%, 230px);
+    min-height: 44px;
+    padding: 10px 11px;
+    font-size: .54rem;
+    letter-spacing: .09em;
+  }
+  .sf-hero-inner:not(.side-right) .sf-cta-row a { margin-left: 0; margin-right: 0; }
+  .sf-hero-inner.side-right .sf-cta-row a { margin-left: auto; margin-right: 0; }
+}
+
 /* Product and department tiles prioritize seeing the complete image on phones. */
 @media (max-width: 1023px) {
   .sf-bento .sf-card-img img,
