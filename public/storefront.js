@@ -151,9 +151,18 @@
 
   function pad(n) { return (n < 9 ? "0" : "") + (n + 1); }
 
+  function fitMobileHeroImage() {
+    var hero = document.getElementById("hero");
+    var image = slides[current] && slides[current].querySelector("img");
+    if (!hero || !image || !image.naturalWidth || !image.naturalHeight) return;
+    /* A touch more vertical room makes the mobile banner feel closer to the desktop hero. */
+    hero.style.setProperty("--hero-image-ratio", ((image.naturalHeight / image.naturalWidth) * 1.08).toFixed(4));
+  }
+
   function render(i) {
     current = (i + slides.length) % slides.length;
     slides.forEach(function (s, idx) { s.classList.toggle("active", idx === current); });
+    fitMobileHeroImage();
     if (counterEl) counterEl.innerHTML = pad(current) + "<small>/ " + pad(slides.length - 1) + "</small>";
     if (textWrap) {
       textWrap.classList.add("switching");
@@ -180,6 +189,11 @@
   }
 
   if (slides.length) {
+    slides.forEach(function (slide) {
+      var image = slide.querySelector("img");
+      if (image) image.addEventListener("load", fitMobileHeroImage, { once: true });
+    });
+    fitMobileHeroImage();
     var prev = document.getElementById("hero-prev");
     var next = document.getElementById("hero-next");
     if (prev) prev.addEventListener("click", function () { render(current - 1); startAuto(); });
