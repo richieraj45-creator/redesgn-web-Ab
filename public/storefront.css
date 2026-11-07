@@ -722,7 +722,7 @@ body.storefront section[id] { scroll-margin-top: 70px; }
 /* Mobile hero: keep the banner image unobstructed, then give its copy a calm editorial panel. */
 @media (max-width: 760px) {
   #hero.sf-hero {
-    --mobile-hero-media-height: min(58svh, 500px);
+    --mobile-hero-media-height: calc(100vw * var(--hero-image-ratio, .5625));
     height: auto;
     min-height: 0;
     padding-top: var(--mobile-hero-media-height);
@@ -730,7 +730,8 @@ body.storefront section[id] { scroll-margin-top: 70px; }
     background: linear-gradient(180deg, #f7f1e8 0%, #fffdfa 100%);
   }
   #hero .sf-slide { inset: 0 0 auto; height: var(--mobile-hero-media-height); background: #eee5d8; }
-  #hero .sf-slide img { object-fit: cover; object-position: center; }
+  /* Show every banner edge on phones; keep the art centered in the media window. */
+  #hero .sf-slide img { object-fit: contain; object-position: center; transform: none; }
   #hero .sf-hero-shade {
     inset: 0 0 auto;
     height: var(--mobile-hero-media-height);
@@ -761,12 +762,13 @@ body.storefront section[id] { scroll-margin-top: 70px; }
   #hero .sf-hero-inner.side-right .sf-eyebrow,
   #hero .sf-hero-inner.side-right .sf-cta-row { margin-left: auto; margin-right: auto; justify-content: center; }
   #hero .sf-eyebrow { margin-bottom: 15px; border-color: rgba(143,37,30,.18); background: rgba(255,255,255,.58); box-shadow: 0 8px 24px rgba(75,45,25,.05); }
+  #hero .sf-eyebrow p { font-size: .58rem; }
   #hero .sf-hero h1,
   #hero .sf-hero-inner:not(.side-right) h1,
   #hero .sf-hero-inner.side-right h1 {
     max-width: 17ch;
     margin: 0 auto 13px;
-    font-size: clamp(1.85rem, 7.5vw, 2.55rem);
+    font-size: clamp(1.55rem, 6.4vw, 2.15rem);
     line-height: 1.08;
     text-align: center;
     text-shadow: none;
@@ -776,8 +778,8 @@ body.storefront section[id] { scroll-margin-top: 70px; }
   #hero .sf-hero-inner.side-right .sf-hero-sub {
     max-width: 38ch;
     margin: 0 auto 21px;
-    font-size: clamp(.9rem, 3.7vw, 1rem);
-    line-height: 1.62;
+    font-size: clamp(.82rem, 3.35vw, .94rem);
+    line-height: 1.55;
     text-align: center;
     text-shadow: none;
     color: rgba(33,24,19,.76);
