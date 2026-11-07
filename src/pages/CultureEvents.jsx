@@ -3,12 +3,6 @@ import { Breadcrumbs } from "../components/Breadcrumbs";
 import { MALL_EXTERIOR, STORE_PHOTOS } from "../data/siteData";
 
 const STORIES = [
-  <img 
-  src="https://res.cloudinary.com/fizwoooq/image/upload/v1794031136/ChatGPT_Image_Aug_18_2026_11_16_58_AM.webp" 
-  alt="Culture and events at Askaran Binjraj" 
-  className="w-full h-auto object-cover rounded-lg shadow-sm mb-6"
-  loading="lazy"
-/>
   { title: "A place to gather", caption: "A familiar landmark in the heart of Dhekiajuli.", image: MALL_EXTERIOR, alt: "Shopping centre exterior in Dhekiajuli", width: 1536, height: 1024 },
   { ...STORE_PHOTOS[0], title: "A view across the mall", caption: "Explore the floors, displays and spaces inside." },
   { ...STORE_PHOTOS[9], title: "Everyday family essentials", caption: "A look at the products and displays inside the store." },
