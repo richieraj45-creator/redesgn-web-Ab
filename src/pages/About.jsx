@@ -107,23 +107,52 @@ export default function About() {
         </Reveal>
       </section>
 
-      <section className="border-y border-brand-border bg-white" data-testid="about-leadership">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:py-20 lg:grid-cols-12 lg:px-12">
-          <Reveal className="lg:col-span-5">
-            <p className="eyebrow">Who we are</p>
-            <h2 className="mt-4 font-serif text-3xl font-medium leading-tight tracking-tight sm:text-4xl lg:text-5xl">A family name, carried <span className="italic text-brand-red">forward.</span></h2>
-            <p className="mt-5 text-base leading-relaxed text-brand-mid">Rooted in the Bothra family’s retail story in Dhekiajuli, Askaran Binjraj has grown from a local store into a destination for fashion, lifestyle and household needs across Sonitpur.</p>
+      <section className="relative isolate overflow-hidden bg-brand-ink text-brand-paper" data-testid="about-leadership">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_80%_10%,rgba(200,37,30,.24),transparent_42%),radial-gradient(ellipse_at_10%_90%,rgba(212,175,55,.14),transparent_38%)]" />
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:py-20 lg:grid-cols-12 lg:items-center lg:px-12">
+          <Reveal className="lg:col-span-4">
+            <p className="eyebrow-light">The people behind the name</p>
+            <h2 className="mt-4 font-serif text-4xl font-medium leading-tight tracking-tight sm:text-5xl">A family story, <span className="italic text-brand-gold">carried forward.</span></h2>
+            <p className="mt-5 text-base leading-relaxed text-white/75">Rooted in the Bothra family’s retail story in Dhekiajuli, Askaran Binjraj has grown into a destination for fashion, lifestyle and household needs across Sonitpur.</p>
+            <div className="mt-8 border-l border-brand-gold/70 pl-5">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-gold">Leadership through generations</p>
+              <p className="mt-3 font-serif text-lg leading-relaxed text-white/90">Chandan Mal (C. M.) Bothra continued the business after his father, Late K. C. Bothra, in the early 1980s. Vikram Bothra joined his father in 2013, beginning the next chapter of the family’s retail journey.</p>
+            </div>
+            <p className="mt-6 text-sm leading-relaxed text-white/65">The business also supports local shop owners through its wholesale division.</p>
           </Reveal>
-          <Reveal delay={0.08} className="space-y-6 lg:col-span-7">
-            <div className="border-l-2 border-brand-red pl-5">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-red">Leadership through generations</p>
-              <p className="mt-2 font-serif text-xl leading-relaxed text-brand-ink">Late K. C. Bothra’s son, Chandan Mal (C. M.) Bothra, led the business into a new chapter in the early 1980s. Vikram Bothra joined his father in 2013, continuing the family’s focus on service, quality and growth.</p>
-            </div>
-            <p className="text-sm leading-relaxed text-brand-mid">The business also serves local shop owners through its wholesale division, extending the family’s retail experience to the wider area.</p>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <article className="border border-brand-border bg-brand-paper p-5"><p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-red">Our mission</p><p className="mt-3 text-sm leading-relaxed text-brand-mid">Bring quality, genuine fashion and a comfortable shopping experience to families across Assam, with honesty at the heart of every visit.</p></article>
-              <article className="border border-brand-border bg-brand-paper p-5"><p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-red">Our vision</p><p className="mt-3 text-sm leading-relaxed text-brand-mid">Set a high standard for retail in the Northeast, showing how heritage and modern style can belong together.</p></article>
-            </div>
+
+          <Stagger className="grid gap-5 sm:grid-cols-2 lg:col-span-8">
+            <StaggerItem>
+              <article className="group overflow-hidden border border-white/15 bg-white/5 p-2 shadow-[0_22px_55px_rgba(0,0,0,.22)]">
+                <div className="relative aspect-[4/5] overflow-hidden bg-brand-alt">
+                  <img src="/assets/about/owners/chandan-mal-bothra.jpg" alt="Chandan Mal Bothra" className="h-full w-full object-cover object-center contrast-[1.04] saturate-[.9] transition-transform duration-700 group-hover:scale-[1.035]" loading="lazy" decoding="async" />
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 to-transparent" />
+                </div>
+                <div className="px-4 pb-4 pt-4 sm:px-5">
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-gold">Family leadership</p>
+                  <h3 className="mt-1 font-serif text-2xl text-white">Chandan Mal Bothra</h3>
+                  <p className="mt-2 text-xs leading-relaxed text-white/65">Carried the family retail business into a new era from the early 1980s.</p>
+                </div>
+              </article>
+            </StaggerItem>
+            <StaggerItem>
+              <article className="group overflow-hidden border border-white/15 bg-white/5 p-2 shadow-[0_22px_55px_rgba(0,0,0,.22)]">
+                <div className="relative aspect-[4/5] overflow-hidden bg-brand-alt">
+                  <img src="/assets/about/owners/vikram-bothra.jpg" alt="Vikram Bothra" className="h-full w-full object-cover object-center contrast-[1.04] saturate-[.9] transition-transform duration-700 group-hover:scale-[1.035]" loading="lazy" decoding="async" />
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 to-transparent" />
+                </div>
+                <div className="px-4 pb-4 pt-4 sm:px-5">
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-gold">The next generation</p>
+                  <h3 className="mt-1 font-serif text-2xl text-white">Vikram Bothra</h3>
+                  <p className="mt-2 text-xs leading-relaxed text-white/65">Joined his father in 2013, continuing the family’s focus on quality and service.</p>
+                </div>
+              </article>
+            </StaggerItem>
+          </Stagger>
+
+          <Reveal className="grid gap-4 border-t border-white/15 pt-6 sm:grid-cols-2 lg:col-span-12">
+            <article className="border border-white/10 bg-white/5 p-5"><p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-gold">Our mission</p><p className="mt-3 text-sm leading-relaxed text-white/75">Bring quality, genuine fashion and a comfortable shopping experience to families across Assam, with honesty at the heart of every visit.</p></article>
+            <article className="border border-white/10 bg-white/5 p-5"><p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-gold">Our vision</p><p className="mt-3 text-sm leading-relaxed text-white/75">Set a high standard for retail in the Northeast, showing how heritage and modern style can belong together.</p></article>
           </Reveal>
         </div>
       </section>
@@ -230,13 +259,68 @@ export default function About() {
 
       <section className="border-y border-brand-border bg-white" data-testid="about-testimonials">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-20 lg:px-12">
-          <Reveal className="mb-10 max-w-2xl">
+          <Reveal className="mb-10 grid gap-5 sm:grid-cols-[1fr_auto] sm:items-end">
+            <div>
             <p className="eyebrow">Customer stories</p>
-            <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">Made memorable by the people who visit.</h2>
-            <p className="mt-4 text-base leading-relaxed text-brand-mid">A few themes customers have shared: familiar service, a broad choice, quality for the price and helpful support for family shopping.</p>
+            <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">Good visits stay with you.</h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-brand-mid">Familiar service, thoughtful help and a wide choice are the details our customers remember.</p>
+            </div>
+            <Link to="/contact" className="inline-flex items-center gap-2 border-b border-brand-red pb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-red">Share your experience <ArrowUpRight className="h-3.5 w-3.5" /></Link>
           </Reveal>
-          <Stagger className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {TESTIMONIALS.map((review) => <StaggerItem key={review.name}><figure className="flex h-full flex-col border border-brand-border bg-brand-paper p-6"><div className="flex gap-1 text-brand-red" aria-label="Customer review"><Star className="h-3.5 w-3.5 fill-current" /><Star className="h-3.5 w-3.5 fill-current" /><Star className="h-3.5 w-3.5 fill-current" /><Star className="h-3.5 w-3.5 fill-current" /><Star className="h-3.5 w-3.5 fill-current" /></div><blockquote className="mt-4 flex-1 font-serif text-lg leading-relaxed text-brand-ink">{review.body}</blockquote><figcaption className="mt-6 border-t border-brand-border pt-4"><span className="block text-xs font-bold uppercase tracking-[0.14em]">{review.name}</span><span className="mt-1 block text-[10px] uppercase tracking-[0.12em] text-brand-muted">{review.note}</span></figcaption></figure></StaggerItem>)}
+          <Stagger className="grid gap-4 lg:grid-cols-12">
+            <StaggerItem className="lg:col-span-5">
+              <figure className="relative flex h-full min-h-[300px] flex-col justify-between overflow-hidden bg-brand-ink p-7 text-white sm:p-9">
+                <span aria-hidden="true" className="pointer-events-none absolute -right-1 top-0 font-serif text-[12rem] leading-none text-white/[0.055]">“</span>
+                <div className="relative">
+                  <div className="flex gap-1 text-brand-gold" aria-label="Five star customer review">{[0, 1, 2, 3, 4].map((star) => <Star key={star} className="h-3.5 w-3.5 fill-current" />)}</div>
+                  <blockquote className="mt-6 max-w-md font-serif text-2xl leading-relaxed sm:text-3xl">{TESTIMONIALS[0].body}</blockquote>
+                </div>
+                <figcaption className="relative mt-8 border-t border-white/20 pt-4"><span className="block text-xs font-bold uppercase tracking-[0.14em]">{TESTIMONIALS[0].name}</span><span className="mt-1 block text-[10px] uppercase tracking-[0.12em] text-white/55">{TESTIMONIALS[0].note}</span></figcaption>
+              </figure>
+            </StaggerItem>
+            <StaggerItem className="lg:col-span-7">
+              <div className="grid h-full gap-4 sm:grid-cols-2">
+                {TESTIMONIALS.slice(1).map((review) => <figure key={review.name} className="flex h-full min-h-[180px] flex-col border border-brand-border bg-brand-paper p-5 sm:p-6"><div className="flex gap-1 text-brand-red" aria-hidden="true">{[0, 1, 2, 3, 4].map((star) => <Star key={star} className="h-3 w-3 fill-current" />)}</div><blockquote className="mt-4 flex-1 font-serif text-lg leading-relaxed text-brand-ink">{review.body}</blockquote><figcaption className="mt-5 border-t border-brand-border pt-3"><span className="block text-[10px] font-bold uppercase tracking-[0.14em]">{review.name}</span><span className="mt-1 block text-[9px] uppercase tracking-[0.12em] text-brand-muted">{review.note}</span></figcaption></figure>)}
+              </div>
+            </StaggerItem>
+          </Stagger>
+        </div>
+      </section>
+
+      <section className="border-y border-brand-border bg-brand-alt" data-testid="about-recognition">
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-20 lg:px-12">
+          <Reveal className="mx-auto mb-10 max-w-2xl text-center">
+            <p className="eyebrow">Recognition &amp; heritage</p>
+            <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">Proud moments, kept close.</h2>
+            <p className="mt-4 text-sm leading-relaxed text-brand-mid">Two meaningful records from the Askaran Binjraj story, presented in their original form.</p>
+          </Reveal>
+          <Stagger className="grid items-stretch gap-5 md:grid-cols-2">
+            <StaggerItem>
+              <article className="flex h-full flex-col border border-brand-border bg-white p-4 shadow-[0_14px_45px_rgba(31,25,18,0.07)] sm:p-5">
+                <a href="/assets/about/owners/har-ghar-tiranga-appreciation.jpg" target="_blank" rel="noopener noreferrer" aria-label="View the full Har Ghar Tiranga certificate">
+                  <img src="/assets/about/owners/har-ghar-tiranga-appreciation.jpg" alt="Certificate of Appreciation presented to Askaran Binjraj by the Ministry of Culture for the Har Ghar Tiranga initiative" className="aspect-[4/3] w-full border border-brand-border bg-white object-contain p-2" loading="lazy" decoding="async" />
+                </a>
+                <div className="flex flex-1 flex-col px-2 pb-2 pt-5">
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-red">Ministry of Culture · Har Ghar Tiranga</p>
+                  <h3 className="mt-2 font-serif text-2xl">A moment of national pride</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-brand-mid">A Certificate of Appreciation for successfully pinning a flag as part of the Har Ghar Tiranga initiative.</p>
+                  <a href="/assets/about/owners/har-ghar-tiranga-appreciation.jpg" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-red">View certificate <ArrowUpRight className="h-3.5 w-3.5" /></a>
+                </div>
+              </article>
+            </StaggerItem>
+            <StaggerItem>
+              <article className="flex h-full flex-col border border-brand-border bg-white p-4 shadow-[0_14px_45px_rgba(31,25,18,0.07)] sm:p-5">
+                <a href="/assets/about/owners/trademark-annex-class-25.jpg" target="_blank" rel="noopener noreferrer" aria-label="View the full Class 25 trademark certificate annex">
+                  <img src="/assets/about/owners/trademark-annex-class-25.jpg" alt="Trademark certificate annex displaying the Askaran Binjraj mark and Class 25 goods" className="aspect-[4/3] w-full border border-brand-border bg-white object-contain p-2" loading="lazy" decoding="async" />
+                </a>
+                <div className="flex flex-1 flex-col px-2 pb-2 pt-5">
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-red">Trademark certificate annex · Class 25</p>
+                  <h3 className="mt-2 font-serif text-2xl">The mark behind the name</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-brand-mid">The submitted certificate annex records the Askaran Binjraj logo and its registered Class 25 goods.</p>
+                  <a href="/assets/about/owners/trademark-annex-class-25.jpg" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-red">View certificate annex <ArrowUpRight className="h-3.5 w-3.5" /></a>
+                </div>
+              </article>
+            </StaggerItem>
           </Stagger>
         </div>
       </section>
