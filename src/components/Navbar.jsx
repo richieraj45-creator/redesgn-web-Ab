@@ -32,7 +32,12 @@ export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [shopOpen, setShopOpen] = useState(false);
   const [scrolled, setScrolled] = useState(() => window.scrollY > 40);
-  const closeMobile = () => setMobileOpen(false);
+  const navigateFromMenu = () => {
+    setMobileOpen(false);
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
 
   useEffect(() => {
     const updateScrollState = () => {
@@ -74,11 +79,12 @@ export const Navbar = () => {
               </div>
             )}
           </div>
-          <NavLink to="/collections" className="interior-navbar-link">Collections</NavLink>
-          <NavLink to="/about" className="interior-navbar-link">About Us</NavLink>
-          <NavLink to="/careers" className="interior-navbar-link">Careers</NavLink>
-          <NavLink to="/cultures-events" className="interior-navbar-link">Culture & Events</NavLink>
-          <NavLink to="/contact" className="interior-navbar-link">Contact</NavLink>
+          <NavLink to="/collections" onClick={navigateFromMenu} className="interior-navbar-link">Collections</NavLink>
+          <NavLink to="/about" onClick={navigateFromMenu} className="interior-navbar-link">About Us</NavLink>
+          <NavLink to="/careers" onClick={navigateFromMenu} className="interior-navbar-link">Careers</NavLink>
+          <NavLink to="/cultures-events" onClick={navigateFromMenu} className="interior-navbar-link">Culture & Events</NavLink>
+          <NavLink to="/blogs" onClick={navigateFromMenu} className="interior-navbar-link">Blogs</NavLink>
+          <NavLink to="/contact" onClick={navigateFromMenu} className="interior-navbar-link">Contact</NavLink>
         </nav>
 
         <div className="interior-navbar-actions">
@@ -92,10 +98,10 @@ export const Navbar = () => {
       </div>
 
       <div className={`interior-navbar-mobile-nav mobile-nav-drawer ${mobileOpen ? "open" : "closed"}`} aria-hidden={!mobileOpen}>
-        <details className="border-b border-brand-border py-3"><summary className="cursor-pointer font-serif text-lg">Shop by Category</summary><div className="grid grid-cols-2 gap-x-4 py-3"><MenuLinks items={CATEGORIES} onNavigate={closeMobile} /></div></details>
-        <details className="border-b border-brand-border py-3"><summary className="cursor-pointer font-serif text-lg">Curated Edits</summary><div className="py-3"><MenuLinks items={EDITS} onNavigate={closeMobile} /></div></details>
+        <details className="border-b border-brand-border py-3"><summary className="cursor-pointer font-serif text-lg">Shop by Category</summary><div className="grid grid-cols-2 gap-x-4 py-3"><MenuLinks items={CATEGORIES} onNavigate={navigateFromMenu} /></div></details>
+        <details className="border-b border-brand-border py-3"><summary className="cursor-pointer font-serif text-lg">Curated Edits</summary><div className="py-3"><MenuLinks items={EDITS} onNavigate={navigateFromMenu} /></div></details>
         <div className="flex flex-col gap-5 py-5 font-serif text-xl">
-          <Link to="/collections" onClick={closeMobile}>Collections</Link><Link to="/about" onClick={closeMobile}>About Us</Link><Link to="/careers" onClick={closeMobile}>Careers</Link><Link to="/cultures-events" onClick={closeMobile}>Culture & Events</Link><Link to="/contact" onClick={closeMobile}>Contact</Link>
+          <Link to="/collections" onClick={navigateFromMenu}>Collections</Link><Link to="/about" onClick={navigateFromMenu}>About Us</Link><Link to="/careers" onClick={navigateFromMenu}>Careers</Link><Link to="/cultures-events" onClick={navigateFromMenu}>Culture & Events</Link><Link to="/blogs" onClick={navigateFromMenu}>Blogs</Link><Link to="/contact" onClick={navigateFromMenu}>Contact</Link>
         </div>
         <a href={CONTACT.phoneMobileHref} className="text-xs uppercase tracking-widest text-brand-mid">Call {CONTACT.phoneMobile}</a>
       </div>

@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import "@/App.css";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Lenis from "lenis";
 import { Toaster } from "sonner";
 import { Navbar } from "@/components/Navbar";
@@ -12,12 +12,35 @@ import About from "@/pages/About";
 import Careers from "@/pages/Careers";
 import Contact from "@/pages/Contact";
 import CultureEvents from "@/pages/CultureEvents";
+import Blogs, { BlogPostPage } from "@/pages/Blogs";
+import { BLOG_POSTS, getBlogPost } from "@/data/blogPosts";
+
+const BlogRoute = () => {
+  const { pathname } = useLocation();
+  const slug = pathname.split("/").filter(Boolean).pop();
+  const post = getBlogPost(slug);
+  useEffect(() => {
+    if (post) document.title = `${post.title} | Askaran Binjraj`;
+    return () => { document.title = "Askaran Binjraj | Quality. Variety. Trust."; };
+  }, [post]);
+  return post ? <BlogPostPage post={post} /> : <Navigate to="/blogs" replace />;
+};
+
+const BlogsPage = () => {
+  useEffect(() => {
+    document.title = "Blogs & Stories | Askaran Binjraj";
+    return () => { document.title = "Askaran Binjraj | Quality. Variety. Trust."; };
+  }, []);
+  return <Blogs />;
+};
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.history.scrollRestoration = "manual";
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, [pathname]);
   return null;
 };
@@ -62,6 +85,9 @@ function App() {
           <Route path="/" element={<HomeRedirect />} />
           <Route path="/collections" element={<Collections />} />
           <Route path="/collections/:slug" element={<CategoryDetail />} />
+          <Route path="/blogs" element={<BlogsPage />} />
+          <Route path="/blogs/:slug" element={<BlogRoute />} />
+          {BLOG_POSTS.map((post) => <Route key={post.legacySlug} path={`/${post.legacySlug}/`} element={<Navigate to={`/blogs/${post.slug}`} replace />} />)}
           <Route path="/about" element={<About />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/cultures-events" element={<CultureEvents />} />
