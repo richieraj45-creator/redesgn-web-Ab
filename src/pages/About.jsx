@@ -204,7 +204,7 @@ export default function About() {
           {STORE_IMAGES.map((image, index) => (
             <StaggerItem key={image.src} className="mx-auto w-full max-w-[300px] sm:max-w-none">
               <figure className="group overflow-hidden border border-white/70 bg-white/65 backdrop-blur-lg" data-testid={`about-gallery-image-${index}`}>
-                <div className="overflow-hidden bg-brand-alt" style={{ aspectRatio: `${image.width} / ${image.height}` }}>
+              <div className="aspect-[4/3] overflow-hidden bg-brand-alt">
                   <img
                     src={image.src}
                     alt={image.alt}
@@ -269,7 +269,7 @@ export default function About() {
           </Reveal>
           <Stagger className="grid gap-4 lg:grid-cols-12">
             <StaggerItem className="lg:col-span-5">
-              <figure className="relative flex h-full min-h-[300px] flex-col justify-between overflow-hidden bg-brand-ink p-7 text-white sm:p-9">
+              <figure className="relative flex h-full min-h-[300px] flex-col justify-between overflow-hidden !bg-brand-ink p-7 text-white sm:p-9">
                 <span aria-hidden="true" className="pointer-events-none absolute -right-1 top-0 font-serif text-[12rem] leading-none text-white/[0.055]">“</span>
                 <div className="relative">
                   <div className="flex gap-1 text-brand-gold" aria-label="Five star customer review">{[0, 1, 2, 3, 4].map((star) => <Star key={star} className="h-3.5 w-3.5 fill-current" />)}</div>

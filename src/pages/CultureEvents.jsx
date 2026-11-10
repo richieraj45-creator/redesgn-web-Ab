@@ -36,7 +36,7 @@ export default function CultureEvents() {
           {STORIES.map((story, index) => (
             <Reveal key={story.title} delay={index * 0.04}>
               <article className="group overflow-hidden border border-white/70 bg-white/60 backdrop-blur-xl">
-                <div className="overflow-hidden bg-brand-alt" style={{ aspectRatio: `${story.width} / ${story.height}` }}>
+                <div className="aspect-[4/3] overflow-hidden bg-brand-alt">
                   <img src={story.image} alt={story.alt} loading="lazy" decoding="async" width={story.width} height={story.height} className="h-full w-full object-cover contrast-[1.05] saturate-[1.08] transition-transform duration-200 group-hover:scale-[1.04]" />
                 </div>
                 <div className="p-5">
