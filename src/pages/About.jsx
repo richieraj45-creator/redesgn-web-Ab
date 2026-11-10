@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, BadgeCheck, Gem, HeartHandshake, Layers3, MapPin, Sparkles, Star, Utensils } from "lucide-react";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
-import { MALL_EXTERIOR, STORE_PHOTOS } from "../data/siteData";
+import { CONTACT, MALL_EXTERIOR, STORE_PHOTOS } from "../data/siteData";
 
 const STATS = [
   { value: "1880", label: "Family story begins in Dhekiajuli" },
@@ -265,7 +265,7 @@ export default function About() {
             <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">Good visits stay with you.</h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-brand-mid">Familiar service, thoughtful help and a wide choice are the details our customers remember.</p>
             </div>
-            <Link to="/contact" className="inline-flex items-center gap-2 border-b border-brand-red pb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-red">Share your experience <ArrowUpRight className="h-3.5 w-3.5" /></Link>
+            <a href={CONTACT.mapsReviewUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-b border-brand-red pb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-red">Share your experience <ArrowUpRight className="h-3.5 w-3.5" /></a>
           </Reveal>
           <Stagger className="grid gap-4 lg:grid-cols-12">
             <StaggerItem className="lg:col-span-5">

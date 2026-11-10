@@ -13,6 +13,7 @@ export const CONTACT = {
   hoursDaily: "Every day: 10:00 AM – 10:00 PM",
   mapsUrl: "https://maps.app.goo.gl/oYK6b4wPu7BUnzGb8",
   mapsUrlStore: "https://maps.app.goo.gl/RiaVfCSgBwTxFq1YA",
+  mapsReviewUrl: "https://www.google.com/maps/place/ASKARAN+BINJRAJ/@26.7035154,92.4828158,17z/data=!3m1!4b1!4m6!3m5!1s0x3744cb6b26fb8f29:0x984aa6ceeff5646!8m2!3d26.7035154!4d92.4828158!16s%2Fg%2F11b7k3fssp!9m1!1b1",
   mapsEmbed: "https://www.google.com/maps?q=NH-15%2C%20Ward%20No.%207%2C%20Dhekiajuli%2C%20Sonitpur%2C%20Assam%20784110&output=embed",
   shopUrl: "https://shop.askaranbinjraj.com",
   company: "Askaran Binjraj",

@@ -5,8 +5,8 @@ import { CONTACT } from "../data/siteData";
 export const Footer = () => (
   <footer className="border-t border-brand-border bg-brand-paper text-brand-ink" data-testid="site-footer">
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-16 lg:px-12">
-      <div className="interior-footer-grid grid gap-10 sm:grid-cols-2 lg:grid-cols-12">
-        <div className="sm:col-span-2">
+      <div className="interior-footer-grid grid gap-10">
+        <div>
           <Link to="/" aria-label="Askaran Binjraj home" className="inline-flex items-center rounded-lg border border-brand-border bg-white p-2.5 shadow-sm">
             <img src="/assets/logo-horizontal-transparent.png" alt="Askaran Binjraj" loading="lazy" decoding="async" className="h-10 w-auto" data-testid="footer-logo" />
           </Link>
@@ -49,7 +49,7 @@ export const Footer = () => (
             <li><Link className="link-underline transition-colors hover:text-brand-red" to="/about">Best Shopping Mall in Assam</Link></li>
           </ul>
         </div>
-        <div className="sm:col-span-2">
+        <div>
           <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-brand-muted">Find Us</p>
           <ul className="mt-5 space-y-4 text-sm text-brand-mid">
             <li className="flex gap-3">

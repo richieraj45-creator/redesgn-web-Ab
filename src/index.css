@@ -331,10 +331,11 @@ body:not(.storefront) .App footer .interior-footer-grid ul > li + li { margin-to
 }
 @media (min-width: 640px) and (max-width: 1199px) {
     .interior-footer-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 2.5rem; row-gap: 2.75rem; }
+    .interior-footer-grid > :first-child,
+    .interior-footer-grid > :last-child { grid-column: span 2; }
 }
 @media (max-width: 639px) {
     .interior-footer-grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
-    .interior-footer-grid > * { grid-column: auto !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
