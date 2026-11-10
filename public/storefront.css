@@ -152,7 +152,7 @@ body.storefront button { font-family: var(--sans); cursor: pointer; background: 
 .sf-hero-text-fade.side-right .sf-eyebrow, .sf-hero-text-fade.side-right .sf-cta-row { justify-content: flex-end; }
 .sf-hero-text-fade.side-right .sf-eyebrow { margin-left: auto; }
 .sf-hero-text-fade.side-right h1 { width: fit-content; max-width: 100%; margin-left: auto; text-align: right; }
-.sf-hero-text-fade.side-right .sf-hero-sub { width: min(100%, 560px); margin-left: auto; text-align: right; }
+.sf-hero-text-fade.side-right .sf-hero-sub { width: min(100%, 380px); max-width: 380px; margin-left: auto; text-align: right; }
 .sf-eyebrow { display: flex; width: fit-content; align-items: center; gap: 12px; margin-bottom: 24px; padding: 7px 12px; border: 1px solid rgba(255,255,255,.68); border-radius: 999px; background: rgba(255,255,255,.56); box-shadow: 0 5px 22px rgba(255,255,255,.3); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); animation: fade-in-up 0.65s ease both; }
 .sf-eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--red); }
 .sf-eyebrow p { margin: 0; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .28em; color: var(--red); text-shadow: 0 0 12px rgba(255,255,255,.95), 0 1px 2px rgba(255,255,255,.85); }
@@ -160,7 +160,7 @@ body.storefront button { font-family: var(--sans); cursor: pointer; background: 
 .sf-hero h1 { margin: 0 0 24px; font-family: var(--serif); font-size: clamp(3rem, 5.7vw, 5rem); font-weight: 400; line-height: 1.02; color: #211813; letter-spacing: -0.025em; animation: fade-in-up 0.8s var(--ease-out) 0.12s both; }
 .sf-hero h1 em { font-style: italic; }
 .sf-hero h1, .sf-hero .sf-hero-sub { text-shadow: 0 1px 20px rgba(255,255,255,.78), 0 1px 3px rgba(255,255,255,.42); }
-.sf-hero .sf-hero-sub { margin: 0 0 44px; font-size: clamp(1rem,1.25vw,1.15rem); line-height: 1.65; max-width: 560px; color: rgba(33,24,19,.78); animation: fade-in-up 0.8s ease 0.25s both; }
+.sf-hero .sf-hero-sub { margin: 0 0 44px; font-size: clamp(1rem,1.25vw,1.15rem); line-height: 1.65; max-width: 480px; color: rgba(33,24,19,.78); animation: fade-in-up 0.8s ease 0.25s both; }
 .sf-cta-row { display: flex; flex-wrap: wrap; gap: 16px; animation: fade-in-up 0.8s ease 0.35s both; }
 .sf-btn-red { display: inline-flex; align-items: center; gap: 8px; background: var(--red); color: #fff; padding: 14px 30px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; transition: transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease, background-color .28s ease; }
 .sf-btn-red:hover { transform: translateY(-3px); background-color: #a91f19; box-shadow: 0 10px 24px rgba(92,18,14,.24); }
