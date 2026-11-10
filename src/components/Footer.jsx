@@ -40,11 +40,13 @@ export const Footer = () => (
           </ul>
         </div>
         <div className="lg:col-span-2">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-brand-muted">Stories</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-brand-muted">Useful Links</p>
           <ul className="mt-5 space-y-3 text-sm text-brand-mid">
-            <li><Link className="link-underline transition-colors hover:text-brand-red" to="/blogs">Blogs & Stories</Link></li>
-            <li><Link className="link-underline transition-colors hover:text-brand-red" to="/blogs/winter-ethnic-wear-guide-askaran-binjraj">Winter ethnic wear</Link></li>
-            <li><Link className="link-underline transition-colors hover:text-brand-red" to="/blogs/why-askaran-binjraj-is-one-of-the-best-shopping-malls-in-assam">Shopping in Assam</Link></li>
+            <li><Link className="link-underline transition-colors hover:text-brand-red" to="/exchange-policy">Exchange Policies</Link></li>
+            <li><Link className="link-underline transition-colors hover:text-brand-red" to="/shipping-policy">Shipping Policy</Link></li>
+            <li><Link className="link-underline transition-colors hover:text-brand-red" to="/terms-conditions">Terms and Conditions</Link></li>
+            <li><Link className="link-underline transition-colors hover:text-brand-red" to="/disclaimer">Disclaimer</Link></li>
+            <li><Link className="link-underline transition-colors hover:text-brand-red" to="/about">Best Shopping Mall in Assam</Link></li>
           </ul>
         </div>
         <div className="sm:col-span-2 lg:col-span-4">

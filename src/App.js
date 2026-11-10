@@ -14,6 +14,7 @@ import Contact from "@/pages/Contact";
 import CultureEvents from "@/pages/CultureEvents";
 import Blogs, { BlogPostPage } from "@/pages/Blogs";
 import { BLOG_POSTS, getBlogPost } from "@/data/blogPosts";
+import PolicyPage from "@/pages/PolicyPage";
 
 const BlogRoute = () => {
   const { pathname } = useLocation();
@@ -88,6 +89,11 @@ function App() {
           <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/blogs/:slug" element={<BlogRoute />} />
           {BLOG_POSTS.map((post) => <Route key={post.legacySlug} path={`/${post.legacySlug}/`} element={<Navigate to={`/blogs/${post.slug}`} replace />} />)}
+          <Route path="/exchange-policy" element={<PolicyPage />} />
+          <Route path="/shipping-policy" element={<PolicyPage />} />
+          <Route path="/terms-conditions" element={<PolicyPage />} />
+          <Route path="/disclaimer" element={<PolicyPage />} />
+          <Route path="/best-shopping-mall-in-assam" element={<Navigate to="/about" replace />} />
           <Route path="/about" element={<About />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/cultures-events" element={<CultureEvents />} />
