@@ -5,8 +5,8 @@ import { CONTACT } from "../data/siteData";
 export const Footer = () => (
   <footer className="border-t border-brand-border bg-brand-paper text-brand-ink" data-testid="site-footer">
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-16 lg:px-12">
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12">
-        <div className="sm:col-span-2 lg:col-span-4">
+      <div className="interior-footer-grid grid gap-10 sm:grid-cols-2 lg:grid-cols-12">
+        <div className="sm:col-span-2">
           <Link to="/" aria-label="Askaran Binjraj home" className="inline-flex items-center rounded-lg border border-brand-border bg-white p-2.5 shadow-sm">
             <img src="/assets/logo-horizontal-transparent.png" alt="Askaran Binjraj" loading="lazy" decoding="async" className="h-10 w-auto" data-testid="footer-logo" />
           </Link>
@@ -24,7 +24,7 @@ export const Footer = () => (
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
-        <div className="lg:col-span-2">
+        <div>
           <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-brand-muted">Explore</p>
           <ul className="mt-5 space-y-3 text-sm text-brand-mid">
             <li><Link className="link-underline transition-colors hover:text-brand-red" to="/collections" data-testid="footer-link-collections">Collections</Link></li>
@@ -39,7 +39,7 @@ export const Footer = () => (
             </li>
           </ul>
         </div>
-        <div className="lg:col-span-2">
+        <div>
           <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-brand-muted">Useful Links</p>
           <ul className="mt-5 space-y-3 text-sm text-brand-mid">
             <li><Link className="link-underline transition-colors hover:text-brand-red" to="/exchange-policy">Exchange Policies</Link></li>
@@ -49,7 +49,7 @@ export const Footer = () => (
             <li><Link className="link-underline transition-colors hover:text-brand-red" to="/about">Best Shopping Mall in Assam</Link></li>
           </ul>
         </div>
-        <div className="sm:col-span-2 lg:col-span-4">
+        <div className="sm:col-span-2">
           <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-brand-muted">Find Us</p>
           <ul className="mt-5 space-y-4 text-sm text-brand-mid">
             <li className="flex gap-3">

@@ -187,7 +187,7 @@
 .interior-navbar-shop-button { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; background: #c8251e; color: white; font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; white-space: nowrap; transition: opacity .25s; }
 .interior-navbar-shop-button:hover { opacity: .8; }
 .interior-navbar-in.scrolled .interior-navbar-shop-button { padding: 12px 18px; font-size: .75rem; }
-.interior-navbar-burger { display: flex; width: 40px; height: 40px; align-items: center; justify-content: center; color: #1b1714; border: 1px solid rgba(255,255,255,.6); background: rgba(255,255,255,.25); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.interior-navbar-burger { display: flex; flex: 0 0 44px; width: 44px; height: 44px; align-self: center; align-items: center; justify-content: center; padding: 0; box-sizing: border-box; line-height: 0; color: #1b1714; border: 1px solid rgba(255,255,255,.6); background: rgba(255,255,255,.25); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 .interior-navbar-mobile-nav { display: none; }
 @media (min-width: 1200px) {
     .interior-navbar-links { display: flex; }
@@ -195,6 +195,8 @@
 }
 @media (min-width: 761px) and (max-width: 1199px) {
     .interior-navbar-in { gap: 12px; padding: 0 24px; }
+    .interior-navbar-actions { height: 100%; align-items: center; }
+    .interior-navbar-burger { flex: 0 0 44px; width: 44px; height: 44px; align-self: center; }
     .interior-navbar-mobile-nav { position: absolute; top: 100%; left: 0; z-index: 50; display: block; width: min(88vw,380px); height: calc(100vh - 84px); height: calc(100dvh - 84px); overflow-y: auto; border-right: 1px solid rgba(255,255,255,.62); background: rgba(255,255,255,.9); padding: 16px 24px 28px; box-shadow: 16px 14px 30px rgba(0,0,0,.1); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); transition: transform .35s cubic-bezier(.16,1,.3,1), visibility .35s; }
     .interior-navbar-mobile-nav.closed { visibility: hidden; transform: translateX(-105%); pointer-events: none; }
     .interior-navbar-mobile-nav.open { visibility: visible; transform: translateX(0); }
@@ -294,7 +296,8 @@ body:not(.storefront) main .group:focus-within img {
     .interior-navbar-in { min-width: 0; gap: 6px; padding-inline: 10px; }
     .interior-navbar-logo { min-width: 0; flex: 0 1 auto; }
     .interior-navbar-logo img { width: auto; max-width: 42vw; height: clamp(36px, 9vw, 44px); }
-    .interior-navbar-actions { flex-shrink: 0; gap: 4px; }
+    .interior-navbar-actions { height: 100%; flex-shrink: 0; align-items: center; gap: 4px; }
+    .interior-navbar-burger { flex: 0 0 44px; width: 44px; height: 44px; margin: 0; }
     .interior-navbar-shop-button { gap: 4px; padding: 8px 7px; font-size: .56rem; letter-spacing: .03em; white-space: nowrap; }
     body:not(.storefront) main h1 { max-width: 100%; font-size: clamp(1.8rem, 7vw, 2.6rem); overflow-wrap: anywhere; }
     body:not(.storefront) main h2 { font-size: clamp(1.5rem, 5.6vw, 2.2rem); overflow-wrap: anywhere; }
@@ -306,6 +309,32 @@ body:not(.storefront) main .group:focus-within img {
     .interior-navbar-menu-trigger, .interior-navbar-mobile-nav summary { min-height: 44px; }
     .interior-navbar-mobile-nav > .flex a { display: flex; min-height: 44px; align-items: center; }
     .interior-navbar-mobile-nav > a:last-child { display: inline-flex; align-items: center; }
+}
+
+/* Interior footers use the same measured, aligned rhythm as the storefront footer. */
+.interior-footer-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr) minmax(0, 1.15fr) minmax(0, 1.25fr);
+    align-items: start;
+}
+.interior-footer-grid > * { min-width: 0; }
+.interior-footer-grid ul { margin-top: 1.25rem; }
+.interior-footer-grid a { overflow-wrap: anywhere; }
+body:not(.storefront) .App footer .interior-footer-grid ul a {
+    min-width: 0;
+    min-height: 0;
+    align-items: center;
+    line-height: 1.5;
+}
+body:not(.storefront) .App footer .interior-footer-grid ul > li + li { margin-top: .55rem; }
+@media (max-width: 760px) {
+    body:not(.storefront) .App footer .interior-footer-grid ul a { min-height: 44px; }
+}
+@media (min-width: 640px) and (max-width: 1199px) {
+    .interior-footer-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 2.5rem; row-gap: 2.75rem; }
+}
+@media (max-width: 639px) {
+    .interior-footer-grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+    .interior-footer-grid > * { grid-column: auto !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {

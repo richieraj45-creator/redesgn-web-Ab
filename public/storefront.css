@@ -119,6 +119,7 @@ body.storefront button { font-family: var(--sans); cursor: pointer; background: 
 @media (min-width: 761px) and (max-width: 1199px) { .sf-header-in { padding: 0 24px; gap: 12px; } }
 @media (max-width: 760px) { .sf-header-in { height: 64px; padding: 0 14px; gap: 8px; } .sf-header { margin-bottom: -64px; } .sf-logo { height: 48px; } .sf-logo img { height: 48px; } .sf-header .sf-shop-btn { padding: 10px 12px; font-size: .6rem; letter-spacing: .08em; } .sf-header.scrolled { margin-bottom: -56px; } .sf-header.scrolled .sf-header-in { height: 56px; } .sf-header.scrolled .sf-logo { height: 42px; } .sf-header.scrolled .sf-logo img { height: 42px; } .sf-header.scrolled .sf-shop-btn { padding: 8px 10px; font-size: .58rem; } }
 @media (max-width: 400px) { .sf-header-in { padding: 0 10px; gap: 6px; } .sf-logo img { height: 42px; } .sf-header .sf-shop-btn { min-height: 38px; gap: 5px; padding: 8px 7px; font-size: .56rem; letter-spacing: .03em; } .sf-header.scrolled .sf-logo img { height: 38px; } }
+@media (min-width: 761px) and (max-width: 1199px) { .sf-header-actions { height: 100%; align-items: center; } .sf-burger { flex: 0 0 44px; width: 44px; height: 44px; align-self: center; justify-content: center; padding: 0; box-sizing: border-box; line-height: 0; } }
 .sf-mobile-nav { position: absolute; top: 100%; left: 0; width: min(88vw,380px); height: calc(100vh - 64px); height: calc(100dvh - 64px); overflow-y: auto; border-right: 1px solid rgba(255,255,255,.62); background: rgba(255,255,255,.76); padding: 16px 24px 28px; box-shadow: 16px 14px 30px rgba(0,0,0,.1); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); transform: translateX(-105%); visibility: hidden; transition: transform .35s var(--ease-out), visibility .35s; }
 .sf-mobile-nav.open { transform: translateX(0); visibility: visible; }
 .sf-mobile-nav a, .sf-mobile-nav summary { display: flex; min-height: 48px; align-items: center; padding: 10px 0; font-size: .94rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--navlink); border-bottom: 1px solid var(--border); cursor: pointer; }
@@ -819,11 +820,11 @@ body.storefront section[id] { scroll-margin-top: 70px; }
   .sf-header-in { min-width: 0; gap: 6px; padding-inline: 10px; }
   .sf-logo { min-width: 0; flex: 0 1 auto; }
   .sf-logo img { width: auto; max-width: min(42vw, 154px); height: clamp(36px, 9vw, 44px); }
-  .sf-header-actions { min-width: 0; flex-shrink: 0; gap: 4px; }
+  .sf-header-actions { min-width: 0; height: 100%; flex-shrink: 0; align-items: center; gap: 4px; }
   .sf-header .sf-shop-btn,
   .sf-header.scrolled .sf-shop-btn { min-height: 36px; gap: 4px; padding: 7px 7px; font-size: .56rem; letter-spacing: .03em; white-space: nowrap; }
   .sf-header .sf-shop-btn svg { width: 9px; height: 9px; flex: 0 0 9px; }
-  .sf-burger { flex-shrink: 0; padding: 6px; }
+  .sf-burger { display: flex; flex: 0 0 44px; width: 44px; height: 44px; align-self: center; align-items: center; justify-content: center; flex-shrink: 0; margin: 0; padding: 0; box-sizing: border-box; line-height: 0; }
   .sf-hero-content { padding-inline: 18px; }
   .sf-hero h1 { font-size: clamp(2.1rem, 8vw, 2.65rem); }
   .sf-hero .sf-hero-sub { width: 100%; overflow-wrap: anywhere; }
@@ -837,6 +838,27 @@ body.storefront section[id] { scroll-margin-top: 70px; }
   .sf-arrow:hover { transform: scale(1.05); }
   .sf-arrow.prev { left: 8px; }
   .sf-arrow.next { right: 8px; }
+}
+
+/* Keep the welcome ring as a quiet edge detail on smaller screens, clear of the copy. */
+@media (min-width: 761px) and (max-width: 1199px) {
+  #splash .sp-ring { top: 8%; right: -76px; left: auto; width: 190px; height: 190px; transform: none; opacity: .38; }
+}
+@media (max-width: 760px) {
+  #splash .sp-ring { top: 7%; right: -70px; left: auto; width: 150px; height: 150px; transform: none; opacity: .32; }
+  #splash .sp-center { max-width: 100%; padding-inline: 22px; }
+  #splash .sp-logo { width: min(250px, 62vw); margin-bottom: 22px; }
+  #splash .sp-tagline { max-width: 24ch; font-size: 1rem; }
+  #splash .sp-since { max-width: 32ch; font-size: .5rem; letter-spacing: .24em; line-height: 1.6; }
+  #splash .sp-cats { bottom: 54px; gap: 8px 14px; padding-inline: 18px; }
+  #splash .sp-cats span { font-size: .42rem; letter-spacing: .2em; }
+  #splash .sp-meta { top: 36px; font-size: .44rem; letter-spacing: .24em; }
+  #splash .sp-meta[style*="left"] { left: 24px !important; }
+  #splash .sp-meta[style*="right"] { right: 24px !important; }
+}
+@media (max-width: 380px) {
+  #splash .sp-meta { display: none; }
+  #splash .sp-ring { right: -84px; width: 138px; height: 138px; }
 }
 
 /* Our Story keeps the original mall view and shows the two new interior photos at full portrait ratio. */
