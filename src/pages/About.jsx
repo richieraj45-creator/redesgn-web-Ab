@@ -45,7 +45,26 @@ const FEATURED_BRANDS = [
   "Daggerfly", "Shree", "Rangriti", "Zola", "Duke", "Moda Elementi", "Lemon Mint", "Tiny Girl", "Alfa", "Deal", "Biba", "Red20Flame", "Rockstar", "Spykar", "Killer", "USPA", "Flying Machine", "Vogartino", "Arrow", "Stori", "Crimsoune Club", "Peter England", "Levis", "Octave", "Jockey",
 ];
 
-export default function About() {
+export default function About() {  const [isVikramBioOpen, setIsVikramBioOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isVikramBioOpen) return;
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setIsVikramBioOpen(false);
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [isVikramBioOpen]);
   return (
     <main data-testid="about-page" className="bg-brand-paper">
       <section className="group relative isolate overflow-hidden bg-brand-ink text-brand-paper">
@@ -142,15 +161,28 @@ export default function About() {
             </StaggerItem>
             <StaggerItem>
               <article className="group overflow-hidden border border-white/15 bg-white/5 p-2 shadow-[0_22px_55px_rgba(0,0,0,.22)]">
-                <div className="relative aspect-[4/5] overflow-hidden bg-brand-alt">
+                <button
+                   type="button"
+                   onClick={() => setIsVikramBioOpen(true)}
+                   aria-label="Read Vikram Bothra's biography"
+                   className="relative block w-full aspect-[4/5] overflow-hidden border-0 bg-brand-alt p-0 text-left"
+                >
                   <img src="/assets/about/owners/vikram-bothra.jpg" alt="Vikram Bothra"  className="h-full w-full object-cover object-[center_25%] contrast-[1.07] brightness-[1.02] saturate-[1.03] scale-[1.05] transition-transform duration-700 group-hover:scale-[1.09]"
                     loading="lazy"
                     decoding="async"/>
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 to-transparent" />
-                </div>
+                </button>
                 <div className="px-4 pb-4 pt-4 sm:px-5">
                   <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-gold">Managing Director/CEO</p>
-                  <h3 className="mt-1 font-serif text-2xl text-white">Vikram Bothra</h3>
+                  <h3 className="mt-1 font-serif text-2xl text-white">
+                  <button
+                    type="button"
+                    onClick={() => setIsVikramBioOpen(true)}
+                    className="text-left transition-colors duration-300 hover:text-brand-gold"
+                  >
+                   Vikram Bothra
+                 </button>
+               </h3>
                   <p className="mt-2 text-xs leading-relaxed text-white/65">Joined the Company in 2014, continuing the family’s focus on quality and service.</p>
                   <a href="https://www.linkedin.com/in/vikrambothra/"
                      target="_blank"
@@ -382,6 +414,91 @@ export default function About() {
           </Reveal>
         </div>
       </section>
+      
+      {/* Vikram Bothra Biography Popup */}
+      {isVikramBioOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+          onClick={() => setIsVikramBioOpen(false)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="vikram-bio-title"
+            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto border border-brand-gold/30 bg-brand-ink text-brand-paper shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={() => setIsVikramBioOpen(false)}
+              aria-label="Close biography"
+              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center border border-white/25 bg-black/40 text-2xl text-white transition-colors hover:bg-brand-red"
+            >
+              &times;
+            </button>
+
+            <div className="grid md:grid-cols-[0.85fr_1.15fr]">
+
+              {/* MD Photograph */}
+              <div className="relative min-h-[280px] bg-brand-alt">
+                <img
+                  src="/assets/about/owners/vikram-bothra.jpg"
+                  alt="Vikram Bothra, Managing Director and CEO"
+                  className="absolute inset-0 h-full w-full object-cover object-[center_25%]"
+                  loading="eager"
+                  decoding="async"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+              </div>
+
+              {/* Biography Content */}
+              <div className="flex flex-col justify-center p-6 sm:p-9 md:p-10">
+
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-gold">
+                  Leadership · Askaran Binjraj
+                </p>
+
+                <h2
+                  id="vikram-bio-title"
+                  className="mt-4 font-serif text-3xl leading-tight sm:text-4xl"
+                >
+                  Vikram Bothra
+                </h2>
+
+                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-gold">
+                  Managing Director / CEO
+                </p>
+
+                <div className="my-6 h-px w-16 bg-brand-gold/70" />
+
+                <p className="text-sm leading-relaxed text-white/75">
+                  Vikram Bothra joined the family business in 2014,
+                  continuing its legacy of quality, customer service
+                  and retail excellence.
+                </p>
+
+                {/* LinkedIn */}
+                <a
+                  href="https://www.linkedin.com/in/vikrambothra/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-7 inline-flex w-fit items-center gap-2 border border-brand-gold/50 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-brand-gold transition-colors hover:bg-brand-gold hover:text-brand-ink"
+                >
+                  <ArrowUpRight className="h-4 w-4" />
+                  Connect on LinkedIn
+                </a>
+
+                <p className="mt-6 text-[10px] uppercase tracking-[0.15em] text-white/40">
+                  Askaran Binjraj · Est. 1880
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
     </main>
   );
 }
