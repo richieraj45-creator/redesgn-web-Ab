@@ -125,7 +125,11 @@ export default function About() {
             <StaggerItem>
               <article className="group overflow-hidden border border-white/15 bg-white/5 p-2 shadow-[0_22px_55px_rgba(0,0,0,.22)]">
                 <div className="relative aspect-[4/5] overflow-hidden bg-brand-alt">
-                  <img src="/assets/about/owners/chandan-mal-bothra.jpg" alt="Chandan Mal Bothra" className="h-full w-full object-cover object-center contrast-[1.04] saturate-[.9] transition-transform duration-700 group-hover:scale-[1.035]" loading="lazy" decoding="async" />
+                  <img src="/assets/about/owners/chandan-mal-bothra.jpg"
+                       alt="Chandan Mal Bothra"
+                       className="h-full w-full object-cover object-[center_28%] contrast-[1.10] brightness-[1.02] saturate-[1.02] scale-[1.07] transition-transform duration-700 group-hover:scale-[1.10]"
+                       loading="lazy"
+                       decoding="async"/>
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 to-transparent" />
                 </div>
                 <div className="px-4 pb-4 pt-4 sm:px-5">
