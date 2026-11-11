@@ -151,6 +151,22 @@ export default function About() {
                   <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-gold">Managing Director/CEO</p>
                   <h3 className="mt-1 font-serif text-2xl text-white">Vikram Bothra</h3>
                   <p className="mt-2 text-xs leading-relaxed text-white/65">Joined the Company in 2014, continuing the family’s focus on quality and service.</p>
+                  <a href="https://www.linkedin.com/in/vikrambothra/"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     aria-label="Vikram Bothra on LinkedIn"
+                     className="mt-3 inline-flex items-center gap-2 text-xs font-medium text-brand-gold transition-colors duration-300 hover:text-white"
+                  >
+                  <svg
+                     viewBox="0 0 24 24"
+                     className="h-4 w-4"
+                     fill="currentColor"
+                     aria-hidden="true"
+                 >
+                  <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.35 18.34H4.67V9.72h2.68v8.62zM6.01 8.54a1.55 1.55 0 1 1 0-3.1 1.55 1.55 0 0 1 0 3.1zm12.33 9.8h-2.67v-4.2c0-1-.02-2.29-1.4-2.29-1.4 0-1.62 1.09-1.62 2.22v4.27H9.98V9.72h2.56v1.18h.04c.36-.68 1.23-1.4 2.53-1.4 2.7 0 3.23 1.77 3.23 4.08v4.76z"/>
+                </svg>
+                Connect on LinkedIn
+              </a>
                 </div>
               </article>
             </StaggerItem>
