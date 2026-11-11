@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, BadgeCheck, Gem, HeartHandshake, Layers3, MapPin, Sparkles, Star, Utensils } from "lucide-react";
 import { Breadcrumbs } from "../components/Breadcrumbs";
