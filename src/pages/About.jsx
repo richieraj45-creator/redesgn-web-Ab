@@ -129,7 +129,7 @@ export default function About() {
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 to-transparent" />
                 </div>
                 <div className="px-4 pb-4 pt-4 sm:px-5">
-                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-gold">Family leadership</p>
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-gold">Founder</p>
                   <h3 className="mt-1 font-serif text-2xl text-white">Chandan Mal Bothra</h3>
                   <p className="mt-2 text-xs leading-relaxed text-white/65">Carried the family retail business into a new era from the early 1980s.</p>
                 </div>
@@ -142,7 +142,7 @@ export default function About() {
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 to-transparent" />
                 </div>
                 <div className="px-4 pb-4 pt-4 sm:px-5">
-                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-gold">The next generation</p>
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-gold">Managing Director</p>
                   <h3 className="mt-1 font-serif text-2xl text-white">Vikram Bothra</h3>
                   <p className="mt-2 text-xs leading-relaxed text-white/65">Joined his father in 2013, continuing the family’s focus on quality and service.</p>
                 </div>
