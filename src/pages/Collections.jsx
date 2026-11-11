@@ -15,7 +15,7 @@ export default function Collections() {
               Find your next <span className="italic text-brand-red">favourite.</span>
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-brand-mid sm:mt-6">
-              Browse thoughtful edits for the whole family, from occasionwear and everyday style to home, travel and more.
+              Browse thoughtful edits for the whole Family, from Occasionwear and everyday Style to Home, Travel and More.
             </p>
           </Reveal>
         </div>
