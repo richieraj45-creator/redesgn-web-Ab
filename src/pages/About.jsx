@@ -470,40 +470,13 @@ export default function About() {  const [isVikramBioOpen, setIsVikramBioOpen] =
                   Managing Director / CEO
                 </p>
 
-                <div  className="space-y-4 text-sm leading-relaxed text-white/75">
-  <p>
-    Vikram Bothra is a 6th generation entrepreneur in Retailing and Wholesale of Fashion and Lifestyle products from Assam, India. Based in the small town of Dhekiajuli, near Tezpur, he comes from a family who have been providing state-of-the-art fashion and service to the people since the 1880s.
-  </p>
+              <div className="my-6 h-px w-16 bg-brand-gold/70" />
 
-  <p>
-    An Economics graduate from the University of Calcutta and an MBA from Narsee Monjee Institute of Management Studies (NMIMS), Mumbai, he carries rich experience and knowledge in shopping centre development and mall management. He has worked extensively in Knight Frank India Pvt Ltd and has closed some of the most coveted retail real estate transactions across India. He also has strong exposure in financial management, cash flow management, loan management, and experience building by virtue of working in Reliance Capital, Mumbai.
-  </p>
-
-  <p>
-    Vikram Bothra joined his family business in 2014 and since there has been no looking back. In 2016, he launched one of the biggest Lifestyle Departmental Stores in Northeast India by the name of “ASKARAN BINJRAJ”. This shopping mall completely changed the shopping habits and enhanced the experience of the customers residing in the region.
-  </p>
-
-  <p>
-    Spread across 50,000 sq. ft., “ASKARAN BINJRAJ” is a one-of-its-kind Lifestyle Departmental Store in Assam, where everything from Apparel to Footwear can be found easily. The mall also has a pure-vegetarian QSR (Quick Service Restaurant), where people enjoy lip-smacking foods while shopping. The mall also offers a very unique concept called “The House of Kids”, which is a kids' play and activity area for children aged between 2 years to 7 years. On the CSR front, the mall employs approximately 200 local people and also engages in various social activities for the betterment of the local society.
-  </p>
-
-  <p>
-    Vikram Bothra has completed his online dual “Certificates of Specialisation” from Harvard Business School in “Strategy” and “Leadership & Management” in 2023, by completing 6 courses namely Data Science for Business, Negotiation Mastery, Organisational Leadership, Economics for Managers, Disruptive Strategy, Strategy Execution.
-  </p>
-
-  <p>
-    Currently he is pursuing his Doctor in Business Administration (DBA) from Golden Gate University, San Francisco, USA.
-  </p>
-
-  <p>
-    Vikram Bothra is also the Chairman of Northeast Chapter of Retailers’ Association of India (RAI).
-  </p>
-
-  <p>
-    Equipped with such skills and rich experience in building retail strategies, product assortment planning, catchment analysis, mall development, operational efficiency, adopting new & emerging technologies, enhancing the consumer experience, developing organisational leadership and contributing immensely to the society, Vikram Bothra has been very instrumental in adding dynamism to the overall Economic landscape of Northeast India.
-  </p>
-</div>
-
+                <p className="text-sm leading-relaxed text-white/75">
+                  Vikram Bothra joined the family business in 2013,
+                  continuing its legacy of quality, customer service
+                  and retail excellence.
+                </p>
 
                 {/* LinkedIn */}
                 <a
