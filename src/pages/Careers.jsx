@@ -132,7 +132,7 @@ export default function Careers() {
       <section id="career-departments" className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-24 lg:px-12">
         <Reveal className="mb-10 max-w-2xl">
           <p className="eyebrow">Find your place</p>
-          <h2 className="mt-3 font-serif text-3xl font-medium tracking-tight text-brand-ink sm:text-4xl">Bring your strengths. Find your next step.</h2>
+          <h2 className="mt-3 font-serif text-3xl font-medium tracking-tight text-brand-ink sm:text-4xl">Bring your Strengths. Find your next SStep.</h2>
           <p className="mt-4 text-sm leading-relaxed text-brand-mid sm:text-base">Explore the teams and choose a role to begin your application.</p>
         </Reveal>
 
