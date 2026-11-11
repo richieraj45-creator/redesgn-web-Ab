@@ -65,10 +65,10 @@ export default function About() {
               <span className="italic text-brand-gold">A place for every generation.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
-              A family venture in Dhekiajuli has grown across six generations. The spirit of personal service lives on in a shopping destination bringing fashion, heritage and everyday needs together.
+              A family venture in Dhekiajuli has grown across six generations. The spirit of personal service lives on in a shopping destination bringing Fashion, Heritage and Everyday Needs together.
             </p>
             <Link to="/collections" className="mt-8 inline-flex items-center gap-2 bg-brand-red px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-brand-redDark" data-testid="about-hero-cta">
-              Explore the collections <ArrowUpRight className="h-4 w-4" />
+              Explore the Collections <ArrowUpRight className="h-4 w-4" />
             </Link>
           </Reveal>
         </div>
@@ -89,9 +89,9 @@ export default function About() {
 
       <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12 lg:px-12">
         <Reveal className="lg:col-span-5">
-          <p className="eyebrow">The journey</p>
+          <p className="eyebrow">The Journey</p>
           <h2 className="mt-4 font-serif text-3xl font-medium leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-            From a family venture to a <span className="italic text-brand-red">shared destination.</span>
+            From a family venture to a <span className="italic text-brand-red">shared Destination.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.1} className="space-y-5 lg:col-span-7">
@@ -116,7 +116,7 @@ export default function About() {
             <p className="mt-5 text-base leading-relaxed text-white/75">Rooted in the Bothra family’s retail story in Dhekiajuli, Askaran Binjraj has grown into a destination for fashion, lifestyle and household needs across Sonitpur.</p>
             <div className="mt-8 border-l border-brand-gold/70 pl-5">
               <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-gold">Leadership through generations</p>
-              <p className="mt-3 font-serif text-lg leading-relaxed text-white/90">Chandan Mal (C. M.) Bothra continued the business after his father, Late K. C. Bothra, in the early 1980s. Vikram Bothra joined his father in 2013, beginning the next chapter of the family’s retail journey.</p>
+              <p className="mt-3 font-serif text-lg leading-relaxed text-white/90">Chandan Mal Bothra continued the business after his father, Late K. C. Bothra, in the early 1980s. Vikram Bothra joined his father in 2013, beginning the next chapter of the family’s retail journey.</p>
             </div>
             <p className="mt-6 text-sm leading-relaxed text-white/65">The business also supports local shop owners through its wholesale division.</p>
           </Reveal>
@@ -129,7 +129,7 @@ export default function About() {
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 to-transparent" />
                 </div>
                 <div className="px-4 pb-4 pt-4 sm:px-5">
-                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-gold">Founder</p>
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-gold">Chairman</p>
                   <h3 className="mt-1 font-serif text-2xl text-white">Chandan Mal Bothra</h3>
                   <p className="mt-2 text-xs leading-relaxed text-white/65">Carried the family retail business into a new era from the early 1980s.</p>
                 </div>
@@ -142,9 +142,9 @@ export default function About() {
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 to-transparent" />
                 </div>
                 <div className="px-4 pb-4 pt-4 sm:px-5">
-                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-gold">Managing Director</p>
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-gold">Managing Director/CEO</p>
                   <h3 className="mt-1 font-serif text-2xl text-white">Vikram Bothra</h3>
-                  <p className="mt-2 text-xs leading-relaxed text-white/65">Joined his father in 2013, continuing the family’s focus on quality and service.</p>
+                  <p className="mt-2 text-xs leading-relaxed text-white/65">Joined the Company in 2013, continuing the family’s focus on quality and service.</p>
                 </div>
               </article>
             </StaggerItem>
@@ -231,7 +231,7 @@ export default function About() {
               Added in 2017, Chatar Patar is a 100% vegetarian quick-service restaurant inside the mall. Make room for a food break, enjoy familiar flavours and take a relaxed pause during your visit.
             </p>
             <p className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-gold">
-              <Utensils className="h-4 w-4" aria-hidden="true" /> Vegetarian dining · Dhekiajuli
+              <Utensils className="h-4 w-4" aria-hidden="true" /> Vegetarian Dining · Dhekiajuli
             </p>
           </Reveal>
           <Stagger className="grid grid-cols-2 gap-3 sm:gap-4 lg:col-span-7">
@@ -263,7 +263,7 @@ export default function About() {
             <div>
             <p className="eyebrow">Customer stories</p>
             <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">Good visits stay with you.</h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-brand-mid">Familiar service, thoughtful help and a wide choice are the details our customers remember.</p>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-brand-mid">Familiar Service, Thoughtful Help and a Wide Choice are the details our Customers remember.</p>
             </div>
             <a href={CONTACT.mapsReviewUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-b border-brand-red pb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-red">Share your experience <ArrowUpRight className="h-3.5 w-3.5" /></a>
           </Reveal>
@@ -291,7 +291,7 @@ export default function About() {
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-20 lg:px-12">
           <Reveal className="mx-auto mb-10 max-w-2xl text-center">
             <p className="eyebrow">Recognition &amp; heritage</p>
-            <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">Proud moments, kept close.</h2>
+            <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">Proud Moments, Kept Close.</h2>
             <p className="mt-4 text-sm leading-relaxed text-brand-mid">Two meaningful records from the Askaran Binjraj story, presented in their original form.</p>
           </Reveal>
           <Stagger className="grid items-stretch gap-5 md:grid-cols-2">
@@ -327,9 +327,9 @@ export default function About() {
 
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-20 lg:px-12" data-testid="about-brands">
         <Reveal className="mx-auto mb-8 max-w-2xl text-center">
-          <p className="eyebrow">Our popular brands</p>
-          <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">More than 100 labels to explore.</h2>
-          <p className="mt-4 text-sm leading-relaxed text-brand-mid">The previous About page highlighted a broad mix of fashion and lifestyle labels. Here are some of the names featured in that selection.</p>
+          <p className="eyebrow">Our Popular Brands</p>
+          <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">More than 100 Labels to Explore.</h2>
+          <p className="mt-4 text-sm leading-relaxed text-brand-mid">The previous About page highlighted a broad mix of Fashion and Lifestyle labels. Here are some of the names featured in that selection.</p>
         </Reveal>
         <Stagger className="flex flex-wrap justify-center gap-2.5">
           {FEATURED_BRANDS.map((brand) => <StaggerItem key={brand}><span className="inline-flex min-h-11 items-center border border-brand-border bg-white px-4 text-xs font-semibold tracking-wide text-brand-mid">{brand}</span></StaggerItem>)}
