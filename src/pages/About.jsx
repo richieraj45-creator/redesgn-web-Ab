@@ -142,13 +142,15 @@ export default function About() {
             <StaggerItem>
               <article className="group overflow-hidden border border-white/15 bg-white/5 p-2 shadow-[0_22px_55px_rgba(0,0,0,.22)]">
                 <div className="relative aspect-[4/5] overflow-hidden bg-brand-alt">
-                  <img src="/assets/about/owners/vikram-bothra.jpg" alt="Vikram Bothra" className="h-full w-full object-cover object-center contrast-[1.04] saturate-[.9] transition-transform duration-700 group-hover:scale-[1.035]" loading="lazy" decoding="async" />
+                  <img src="/assets/about/owners/vikram-bothra.jpg" alt="Vikram Bothra"  className="h-full w-full object-cover object-[center_25%] contrast-[1.07] brightness-[1.02] saturate-[1.03] scale-[1.05] transition-transform duration-700 group-hover:scale-[1.09]"
+                    loading="lazy"
+                    decoding="async"/>
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 to-transparent" />
                 </div>
                 <div className="px-4 pb-4 pt-4 sm:px-5">
                   <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-gold">Managing Director/CEO</p>
                   <h3 className="mt-1 font-serif text-2xl text-white">Vikram Bothra</h3>
-                  <p className="mt-2 text-xs leading-relaxed text-white/65">Joined the Company in 2013, continuing the family’s focus on quality and service.</p>
+                  <p className="mt-2 text-xs leading-relaxed text-white/65">Joined the Company in 2014, continuing the family’s focus on quality and service.</p>
                 </div>
               </article>
             </StaggerItem>
