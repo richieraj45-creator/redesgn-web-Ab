@@ -20,7 +20,7 @@ export default function CultureEvents() {
           <Reveal>
             <Breadcrumbs items={[{ label: "Culture & Events" }]} tone="light" className="mb-8" />
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/75">Life around the mall</p>
-            <h1 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">People, places &amp; moments</h1>
+            <h1 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">People, Places &amp; Moments</h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/85">A look inside the spaces, traditions and everyday moments that bring our community together.</p>
           </Reveal>
         </div>
