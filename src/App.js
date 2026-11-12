@@ -91,6 +91,10 @@ function AppRoutes() {
 
       <Routes>
         {/* Admin routes */}
+        <Route
+  path="/admin/reset-password"
+  element={<AdminResetPassword />}
+/>
         <Route path="/admin/login" element={<AdminLogin />} />
 
         <Route path="/admin" element={<AdminLayout />}>
