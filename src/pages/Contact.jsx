@@ -6,7 +6,7 @@ import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { CONTACT, CONTACT_LOCATION_IMG } from "../data/siteData";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const API = "/api";
 
 const INFO_CARDS = [
   {
