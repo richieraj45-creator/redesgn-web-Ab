@@ -1142,3 +1142,19 @@ body.storefront section[id] { scroll-margin-top: 70px; }
   }
 }
 
+
+/* SVG ring rotation — CSS animation */
+#splash .sp-ring-arc {
+  transform-box: view-box;
+  transform-origin: center;
+  animation: splash-ring-rotate 8s linear infinite;
+}
+
+@keyframes splash-ring-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
