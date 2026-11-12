@@ -124,7 +124,7 @@ export default function AdminDashboard() {
         </button>
       </header>
 
-      <main className="admin-dashboard-content">
+      <div className="admin-dashboard-content">
         <section className="admin-dashboard-welcome">
           <p>ADMINISTRATION</p>
           <h2>Welcome, {profile.name}</h2>
@@ -138,7 +138,7 @@ export default function AdminDashboard() {
             Enquiry management and team features will be added next.
           </p>
         </section>
-      </main>
+      </div>
     </div>
   );
 }
