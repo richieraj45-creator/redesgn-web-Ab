@@ -16,41 +16,38 @@ export default function AdminResetPassword() {
   const [success, setSuccess] = useState("");
 
   useEffect(() => {
-    let active = true;
     let supabase;
 
-    const checkRecoverySession = async () => {
-      try {
-        supabase = getSupabase();
+    try {
+      supabase = getSupabase();
 
-        const { data: { session }, error: sessionError } =
-          await supabase.auth.getSession();
-
-        if (sessionError) throw sessionError;
-
-        if (active) {
-          setAuthorized(Boolean(session));
+      const {
+        data: { subscription },
+      } = supabase.auth.onAuthStateChange((event, session) => {
+        if (event === "PASSWORD_RECOVERY" && session) {
+          setAuthorized(true);
+          setChecking(false);
         }
-      } catch (err) {
-        if (active) {
-          setError("The recovery link is invalid or expired. Request a new one.");
-        }
-      } finally {
-        if (active) setChecking(false);
-      }
-    };
+      });
 
-    checkRecoverySession();
-
-    return () => {
-      active = false;
-    };
+      return () => {
+        subscription.unsubscribe();
+      };
+    } catch (err) {
+      setError("Unable to initialize password recovery.");
+      setChecking(false);
+    }
   }, []);
 
   const handleReset = async (event) => {
     event.preventDefault();
     setError("");
     setSuccess("");
+
+    if (!authorized) {
+      setError("Your recovery session is invalid or expired.");
+      return;
+    }
 
     if (password.length < 8) {
       setError("Your password must contain at least 8 characters.");
@@ -71,15 +68,19 @@ export default function AdminResetPassword() {
         password,
       });
 
-      if (updateError) throw updateError;
+      if (updateError) {
+        throw updateError;
+      }
 
       setSuccess("Your password has been updated successfully.");
 
-      await supabase.auth.signOut();
+      const { error: signOutError } = await supabase.auth.signOut();
 
-      setTimeout(() => {
-        navigate("/admin/login", { replace: true });
-      }, 1800);
+      if (signOutError) {
+        throw signOutError;
+      }
+
+      navigate("/admin/login", { replace: true });
     } catch (err) {
       setError(err.message || "Unable to update your password.");
     } finally {
@@ -102,7 +103,10 @@ export default function AdminResetPassword() {
           <div className="admin-login-heading">
             <p className="admin-login-brand">ASKARAN BINJRAJ</p>
             <h1>Recovery link unavailable</h1>
-            <p>Your recovery link may have expired or already been used.</p>
+            <p>
+              Your recovery link may have expired or already been used.
+              Request a new recovery email.
+            </p>
           </div>
 
           <button
@@ -129,6 +133,7 @@ export default function AdminResetPassword() {
         <form onSubmit={handleReset} className="admin-login-form">
           <div className="admin-login-field">
             <label htmlFor="new-admin-password">New password</label>
+
             <input
               id="new-admin-password"
               type="password"
@@ -145,6 +150,7 @@ export default function AdminResetPassword() {
             <label htmlFor="confirm-admin-password">
               Confirm new password
             </label>
+
             <input
               id="confirm-admin-password"
               type="password"
