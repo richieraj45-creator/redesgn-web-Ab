@@ -1046,7 +1046,7 @@ body.storefront section[id] { scroll-margin-top: 70px; }
 /* Mobile: scale the same composition, not a separate design */
 @media (max-width: 760px) {
   #splash .sp-ring {
-    top: 50%;
+    top: calc(50% + 20px);
     left: 50%;
     right: auto;
     width: min(360px, 82vw, 68dvh);
