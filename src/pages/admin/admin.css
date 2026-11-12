@@ -143,4 +143,136 @@
   .admin-login-heading h1 {
     font-size: 25px;
   }
+
+  
+/* Admin dashboard — isolated styles */
+
+.admin-dashboard-shell {
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #f7f6f2;
+  color: #171717;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+.admin-dashboard-shell *,
+.admin-dashboard-shell *::before,
+.admin-dashboard-shell *::after {
+  box-sizing: border-box;
+}
+
+.admin-dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #e7e3dc;
+}
+
+.admin-dashboard-brand {
+  margin: 0 0 8px;
+  color: #a98b55;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+}
+
+.admin-dashboard-header h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.admin-dashboard-logout {
+  min-height: 44px;
+  padding: 10px 22px;
+  border: 1px solid #171717;
+  background: transparent;
+  color: #171717;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.admin-dashboard-logout:hover {
+  background: #171717;
+  color: #ffffff;
+}
+
+.admin-dashboard-content {
+  max-width: 1200px;
+  margin: 42px auto;
+}
+
+.admin-dashboard-welcome {
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #e7e3dc;
+}
+
+.admin-dashboard-welcome > p {
+  margin: 0 0 12px;
+  color: #a98b55;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.admin-dashboard-welcome h2 {
+  margin: 0 0 12px;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.admin-dashboard-welcome > span {
+  color: #777777;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+.admin-dashboard-placeholder {
+  margin-top: 24px;
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #e7e3dc;
+}
+
+.admin-dashboard-placeholder h2 {
+  margin: 0 0 12px;
+  font-size: 19px;
+}
+
+.admin-dashboard-placeholder p {
+  margin: 0;
+  color: #777777;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.admin-dashboard-error {
+  color: #b91c1c;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .admin-dashboard-shell {
+    padding: 24px 16px;
+  }
+
+  .admin-dashboard-header h1 {
+    font-size: 20px;
+  }
+
+  .admin-dashboard-welcome,
+  .admin-dashboard-placeholder {
+    padding: 22px;
+  }
+
+  .admin-dashboard-welcome h2 {
+    font-size: 21px;
+  }
+}
+
+
