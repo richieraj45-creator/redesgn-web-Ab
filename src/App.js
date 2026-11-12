@@ -26,6 +26,7 @@ import PolicyPage from "@/pages/PolicyPage";
 import AdminLogin from "@/pages/admin/AdminLogin";
 import AdminLayout from "@/pages/admin/AdminLayout";
 import AdminDashboard from "@/pages/admin/AdminDashboard";
+import AdminResetPassword from "@/pages/admin/AdminResetPassword";
 
 const BlogRoute = () => {
   const { pathname } = useLocation();
