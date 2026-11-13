@@ -152,9 +152,11 @@ export default function About() {
                   <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-brand-gold">
                     Our Mission
                   </span>
-                  <span className="font-serif text-5xl italic text-brand-gold/35">
-                    M
-                  </span>
+                  <img
+                    src="/assets/REPLACE-WITH-EXACT-LOGO-PATH"
+                    alt="Askaran Binjraj"
+                    className="h-10 w-auto max-w-[150px] object-contain"
+                  />
                 </div>
 
                 <div className="mb-6 h-px w-16 bg-brand-gold/70" />
@@ -179,9 +181,11 @@ export default function About() {
                   <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-brand-gold">
                     Our Vision
                   </span>
-                  <span className="font-serif text-5xl italic text-brand-gold/35">
-                    V
-                  </span>
+                  <img
+                    src="/assets/REPLACE-WITH-EXACT-LOGO-PATH"
+                    alt="Askaran Binjraj"
+                    className="h-10 w-auto max-w-[150px] object-contain"
+                  />
                 </div>
 
                 <div className="mb-6 h-px w-16 bg-brand-gold/70" />
