@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect } from "react";
 import "@/App.css";
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, useNavigationType, Navigate } from "react-router-dom";
 import Lenis from "lenis";
 import { Toaster } from "sonner";
 import { Navbar } from "@/components/Navbar";
@@ -37,15 +37,20 @@ const BlogsPage = () => {
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
+  const navigationType = useNavigationType();
+
   useLayoutEffect(() => {
-    window.history.scrollRestoration = "manual";
+    // Preserve the browser's saved scroll position when the visitor presses Back or Forward.
+    if (navigationType === "POP") return;
+
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  }, [pathname]);
+  }, [pathname, navigationType]);
+
   return null;
 };
 
+// The root homepage is rendered by the static storefront template in public/index.html.
+// Reloading once when React Router reaches "/" hands control back to that template.
 const HomeRedirect = () => {
   useEffect(() => {
     window.location.reload();
