@@ -500,7 +500,7 @@ export default function About() {
                 <a
                   href={
                     trademarkPage === 0
-                      ? "/assets/about/owners/trademark-registration-page-1.jpg"
+                      ? "/assets/about/owners/trademark-certificate-page-1.jpg"
                       : "/assets/about/owners/trademark-annex-class-25.jpg"
                   }
                   target="_blank"
@@ -511,7 +511,7 @@ export default function About() {
                   <img
                     src={
                       trademarkPage === 0
-                        ? "/assets/about/owners/trademark-registration-page-1.jpg"
+                        ? "/assets/about/owners/trademark-certificate-page-1.jpg"
                         : "/assets/about/owners/trademark-annex-class-25.jpg"
                     }
                     alt={
@@ -573,7 +573,7 @@ export default function About() {
                   <a
                     href={
                       trademarkPage === 0
-                        ? "/assets/about/owners/trademark-registration-page-1.jpg"
+                        ? "/assets/about/owners/trademark-certificate-page-1.jpg"
                         : "/assets/about/owners/trademark-annex-class-25.jpg"
                     }
                     target="_blank"
