@@ -309,7 +309,7 @@ export const CATEGORIES = [
     slug: "furnishing-decor",
     name: "Furnishing & Decor",
     tag: "Home",
-    image: "/assets/about/mall-interior-hd.webp",
+    image: "/assets/furnishing-decor-living-room.png",
     heroImage: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=80",
     studio: "1st Floor • Home Comforts • Furnishing & Decor Studio",
     title: "A softer way to live",
