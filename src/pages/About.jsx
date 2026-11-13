@@ -434,7 +434,7 @@ export default function About() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="leadership-bio-title"
-            className="relative flex max-h-[90dvh] w-full max-w-3xl flex-col overflow-hidden border border-brand-gold/30 bg-brand-ink text-brand-paper shadow-2xl"
+            className="relative flex h-[90dvh] max-h-[900px] w-full max-w-3xl flex-col overflow-hidden border border-brand-gold/30 bg-brand-ink text-brand-paper shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
             <button
@@ -446,7 +446,7 @@ export default function About() {
               &times;
             </button>
 
-            <div className="grid min-h-0 flex-1 overflow-hidden md:grid-cols-[0.85fr_1.15fr]">
+            <div className="grid min-h-0 flex-1 grid-rows-[240px_minmax(0,1fr)] overflow-hidden md:grid-cols-[0.85fr_1.15fr] md:grid-rows-1">
               <div className="relative h-[240px] shrink-0 bg-brand-alt md:h-full md:min-h-0">
                 <img
                   src={
