@@ -147,7 +147,7 @@ export default function About() {
 
           <div className="grid gap-6 lg:grid-cols-2">
             <Reveal>
-              <article className="relative flex h-full flex-col overflow-hidden border border-brand-gold/40 bg-brand-ink p-7 text-brand-paper shadow-[0_18px_45px_rgba(0,0,0,0.10)] sm:p-10">
+              <article className="relative flex h-full flex-col overflow-hidden border border-brand-gold/40 !bg-[#111111] p-7 !text-[#f8f5ef] shadow-[0_18px_45px_rgba(0,0,0,0.10)] sm:p-10">
                 <div className="mb-7 flex items-center justify-between">
                   <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-brand-gold">
                     Our Mission
@@ -159,7 +159,7 @@ export default function About() {
 
                 <div className="mb-6 h-px w-16 bg-brand-gold/70" />
 
-                <p className="font-serif text-xl leading-relaxed text-white sm:text-2xl">
+                <p className="font-serif text-xl leading-relaxed !text-[#f8f5ef] sm:text-2xl">
                   Our Mission is to redefine the retail Shopping experience by
                   offering high-quality products with focus on variety and
                   affordability. We aim to become the preferred shopping
@@ -174,7 +174,7 @@ export default function About() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <article className="relative flex h-full flex-col overflow-hidden border border-brand-gold/40 bg-brand-ink p-7 text-brand-paper shadow-[0_18px_45px_rgba(0,0,0,0.10)] sm:p-10">
+              <article className="relative flex h-full flex-col overflow-hidden border border-brand-gold/40 !bg-[#111111] p-7 !text-[#f8f5ef] shadow-[0_18px_45px_rgba(0,0,0,0.10)] sm:p-10">
                 <div className="mb-7 flex items-center justify-between">
                   <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-brand-gold">
                     Our Vision
@@ -186,7 +186,7 @@ export default function About() {
 
                 <div className="mb-6 h-px w-16 bg-brand-gold/70" />
 
-                <p className="font-serif text-xl leading-relaxed text-white sm:text-2xl">
+                <p className="font-serif text-xl leading-relaxed !text-[#f8f5ef] sm:text-2xl">
                   To empower our customers to live better lives by providing
                   exceptional fashion &amp; lifestyle products, outstanding
                   service, and memorable experiences. We strive to foster a
