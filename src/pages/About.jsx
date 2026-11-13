@@ -127,6 +127,80 @@ export default function About() {
           </p>
         </Reveal>
       </section>
+            
+      {/* Official Mission and Vision */}
+      <section
+        className="relative overflow-hidden border-y border-brand-border bg-brand-alt"
+        data-testid="about-mission-vision"
+      >
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-20 lg:px-12">
+          <Reveal className="mx-auto mb-12 max-w-2xl text-center">
+            <p className="eyebrow">Our Purpose &amp; Direction</p>
+            <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight text-brand-ink sm:text-4xl lg:text-5xl">
+              What Guides <span className="italic text-brand-red">Our Journey.</span>
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-brand-mid sm:text-base">
+              The principles that shape our commitment to customers, our people
+              and the communities we serve.
+            </p>
+          </Reveal>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            <Reveal>
+              <article className="relative flex h-full flex-col overflow-hidden border border-brand-gold/40 bg-brand-ink p-7 text-brand-paper shadow-[0_18px_45px_rgba(0,0,0,0.10)] sm:p-10">
+                <div className="mb-7 flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-brand-gold">
+                    Our Mission
+                  </span>
+                  <span className="font-serif text-5xl italic text-brand-gold/35">
+                    M
+                  </span>
+                </div>
+
+                <div className="mb-6 h-px w-16 bg-brand-gold/70" />
+
+                <p className="font-serif text-xl leading-relaxed text-white sm:text-2xl">
+                  Our Mission is to redefine the retail Shopping experience by
+                  offering high-quality products with focus on variety and
+                  affordability. We aim to become the preferred shopping
+                  destination for all our customers' lifestyle needs, setting
+                  new standards of excellence in retail industry by staying at
+                  the forefront of trends and innovation. Our goal is to foster
+                  a sense of belongingness and inclusivity by engaging &
+                  supporting local talent and promoting local culture, making
+                  our mall a place where everyone feels welcome and valued.
+                </p>
+              </article>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <article className="relative flex h-full flex-col overflow-hidden border border-brand-gold/40 bg-brand-ink p-7 text-brand-paper shadow-[0_18px_45px_rgba(0,0,0,0.10)] sm:p-10">
+                <div className="mb-7 flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-brand-gold">
+                    Our Vision
+                  </span>
+                  <span className="font-serif text-5xl italic text-brand-gold/35">
+                    V
+                  </span>
+                </div>
+
+                <div className="mb-6 h-px w-16 bg-brand-gold/70" />
+
+                <p className="font-serif text-xl leading-relaxed text-white sm:text-2xl">
+                  To empower our customers to live better lives by providing
+                  exceptional fashion &amp; lifestyle products, outstanding
+                  service, and memorable experiences. We strive to foster a
+                  culture of inclusivity, innovation, and integrity within our
+                  team, while also contributing positively to the communities
+                  we serve. Our aim is to set new bench marks within the
+                  industry, build lasting relationships, and make a meaningful
+                  impact every day.
+                </p>
+              </article>
+            </Reveal>
+          </div>
+        </div>
+      </section>
 
       <section className="relative isolate overflow-hidden bg-brand-ink text-brand-paper" data-testid="about-leadership">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_80%_10%,rgba(200,37,30,.24),transparent_42%),radial-gradient(ellipse_at_10%_90%,rgba(212,175,55,.14),transparent_38%)]" />
@@ -137,7 +211,7 @@ export default function About() {
             <p className="mt-5 text-base leading-relaxed text-white/75">Rooted in the Bothra family’s retail story in Dhekiajuli, Askaran Binjraj has grown into a destination for fashion, lifestyle and household needs across Sonitpur.</p>
             <div className="mt-8 border-l border-brand-gold/70 pl-5">
               <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-gold">Leadership through generations</p>
-              <p className="mt-3 font-serif text-lg leading-relaxed text-white/90">Chandan Mal Bothra continued the business after his father, Late K. C. Bothra, in the early 1980s. Vikram Bothra joined his father in 2013, beginning the next chapter of the family’s retail journey.</p>
+              <p className="mt-3 font-serif text-lg leading-relaxed text-white/90">Chandan Mal Bothra continued the business after his father, Late K. C. Bothra, in the early 1980s. Vikram Bothra joined his father in 2014, beginning the next chapter of the family’s retail journey.</p>
             </div>
             <p className="mt-6 text-sm leading-relaxed text-white/65">The business also supports local shop owners through its wholesale division.</p>
           </Reveal>
@@ -213,11 +287,6 @@ export default function About() {
               </article>
             </StaggerItem>
           </Stagger>
-
-          <Reveal className="grid gap-4 border-t border-white/15 pt-6 sm:grid-cols-2 lg:col-span-12">
-            <article className="border border-white/10 bg-white/5 p-5"><p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-gold">Our mission</p><p className="mt-3 text-sm leading-relaxed text-white/75">Bring quality, genuine fashion and a comfortable shopping experience to families across Assam, with honesty at the heart of every visit.</p></article>
-            <article className="border border-white/10 bg-white/5 p-5"><p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-gold">Our vision</p><p className="mt-3 text-sm leading-relaxed text-white/75">Set a high standard for retail in the Northeast, showing how heritage and modern style can belong together.</p></article>
-          </Reveal>
         </div>
       </section>
 
