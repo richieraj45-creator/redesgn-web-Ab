@@ -16,11 +16,32 @@ const STATUSES = [
 const statusLabel = (status) =>
   status.replace("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
+const formatDate = (value) =>
+  new Date(value).toLocaleString("en-IN");
+
+const describeActivity = (item) => {
+  const oldStatus = item.old_values?.status;
+  const newStatus = item.new_values?.status;
+  const oldAssigned = item.old_values?.assigned_to;
+  const newAssigned = item.new_values?.assigned_to;
+
+  if (oldStatus !== newStatus && newStatus) {
+    return `Status changed from ${statusLabel(oldStatus || "unknown")} to ${statusLabel(newStatus)}.`;
+  }
+
+  if (oldAssigned !== newAssigned) {
+    return "Enquiry assignment was updated.";
+  }
+
+  return "Enquiry information was updated.";
+};
+
 export default function AdminDashboard() {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState(null);
+  const [userId, setUserId] = useState(null);
   const [enquiries, setEnquiries] = useState([]);
   const [error, setError] = useState("");
   const [search, setSearch] = useState("");
@@ -28,80 +49,116 @@ export default function AdminDashboard() {
   const [selected, setSelected] = useState(null);
   const [updating, setUpdating] = useState(false);
 
+  const [notes, setNotes] = useState([]);
+  const [activities, setActivities] = useState([]);
+  const [noteText, setNoteText] = useState("");
+  const [loadingHistory, setLoadingHistory] = useState(false);
+  const [savingNote, setSavingNote] = useState(false);
+  const [historyError, setHistoryError] = useState("");
+
+  const loadDashboard = async () => {
+    const supabase = getSupabase();
+
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser();
+
+    if (authError || !user) {
+      navigate("/admin/login", { replace: true });
+      return;
+    }
+
+    const { data: membership, error: membershipError } =
+      await supabase
+        .from("team_memberships")
+        .select("role, is_active")
+        .eq("user_id", user.id)
+        .maybeSingle();
+
+    if (membershipError) throw membershipError;
+
+    if (
+      !membership?.is_active ||
+      !["super_admin", "admin", "agent"].includes(membership.role)
+    ) {
+      await supabase.auth.signOut();
+      navigate("/admin/login", { replace: true });
+      return;
+    }
+
+    const { data: userProfile, error: profileError } =
+      await supabase
+        .from("profiles")
+        .select("full_name, email")
+        .eq("id", user.id)
+        .maybeSingle();
+
+    if (profileError) throw profileError;
+
+    const { data, error: enquiryError } = await supabase
+      .from("enquiries")
+      .select(
+        "id, name, phone, email, message, status, assigned_to, created_at, updated_at"
+      )
+      .order("created_at", { ascending: false });
+
+    if (enquiryError) throw enquiryError;
+
+    setUserId(user.id);
+    setProfile({
+      name: userProfile?.full_name || user.email,
+      email: userProfile?.email || user.email,
+      role: membership.role,
+    });
+    setEnquiries(data || []);
+  };
+
   useEffect(() => {
     let active = true;
 
-    const loadDashboard = async () => {
+    const initialize = async () => {
       try {
-        const supabase = getSupabase();
-
-        const {
-          data: { user },
-          error: authError,
-        } = await supabase.auth.getUser();
-
-        if (authError || !user) {
-          navigate("/admin/login", { replace: true });
-          return;
-        }
-
-        const { data: membership, error: membershipError } =
-          await supabase
-            .from("team_memberships")
-            .select("role, is_active")
-            .eq("user_id", user.id)
-            .maybeSingle();
-
-        if (membershipError) throw membershipError;
-
-        if (
-          !membership?.is_active ||
-          !["super_admin", "admin", "agent"].includes(membership.role)
-        ) {
-          await supabase.auth.signOut();
-          navigate("/admin/login", { replace: true });
-          return;
-        }
-
-        const { data: userProfile, error: profileError } =
-          await supabase
-            .from("profiles")
-            .select("full_name, email")
-            .eq("id", user.id)
-            .maybeSingle();
-
-        if (profileError) throw profileError;
-
-        const { data, error: enquiryError } = await supabase
-          .from("enquiries")
-          .select(
-            "id, name, phone, email, message, status, assigned_to, created_at, updated_at"
-          )
-          .order("created_at", { ascending: false });
-
-        if (enquiryError) throw enquiryError;
-
-        if (active) {
-          setProfile({
-            name: userProfile?.full_name || user.email,
-            email: userProfile?.email || user.email,
-            role: membership.role,
-          });
-          setEnquiries(data || []);
-        }
+        await loadDashboard();
       } catch (err) {
-        if (active) setError(err.message || "Unable to load dashboard.");
+        if (active) {
+          setError(err.message || "Unable to load dashboard.");
+        }
       } finally {
         if (active) setLoading(false);
       }
     };
 
-    loadDashboard();
+    initialize();
 
     return () => {
       active = false;
     };
   }, [navigate]);
+
+  const refreshEnquiries = async () => {
+    setError("");
+
+    try {
+      const { data, error: enquiryError } = await getSupabase()
+        .from("enquiries")
+        .select(
+          "id, name, phone, email, message, status, assigned_to, created_at, updated_at"
+        )
+        .order("created_at", { ascending: false });
+
+      if (enquiryError) throw enquiryError;
+
+      setEnquiries(data || []);
+
+      if (selected) {
+        const updated = data?.find((item) => item.id === selected.id);
+        if (updated) setSelected(updated);
+      }
+    } catch (err) {
+      setError(err.message || "Unable to refresh enquiries.");
+    }
+  };
 
   const handleLogout = async () => {
     await getSupabase().auth.signOut();
@@ -135,12 +192,105 @@ export default function AdminDashboard() {
     }
   };
 
+  useEffect(() => {
+    if (!selected?.id) {
+      setNotes([]);
+      setActivities([]);
+      setNoteText("");
+      setHistoryError("");
+      return;
+    }
+
+    let active = true;
+
+    const loadHistory = async () => {
+      setLoadingHistory(true);
+      setHistoryError("");
+
+      try {
+        const supabase = getSupabase();
+
+        const [notesResult, activityResult] = await Promise.all([
+          supabase
+            .from("enquiry_notes")
+            .select("id, enquiry_id, created_by, note, created_at")
+            .eq("enquiry_id", selected.id)
+            .order("created_at", { ascending: false }),
+
+          supabase
+            .from("enquiry_activity")
+            .select(
+              "id, enquiry_id, actor_id, action, old_values, new_values, created_at"
+            )
+            .eq("enquiry_id", selected.id)
+            .order("created_at", { ascending: false })
+            .limit(50),
+        ]);
+
+        if (notesResult.error) throw notesResult.error;
+        if (activityResult.error) throw activityResult.error;
+
+        if (active) {
+          setNotes(notesResult.data || []);
+          setActivities(activityResult.data || []);
+        }
+      } catch (err) {
+        if (active) {
+          setHistoryError(
+            err.message || "Unable to load notes and activity history."
+          );
+        }
+      } finally {
+        if (active) setLoadingHistory(false);
+      }
+    };
+
+    loadHistory();
+
+    return () => {
+      active = false;
+    };
+  }, [selected?.id]);
+
+  const handleAddNote = async (event) => {
+    event.preventDefault();
+
+    const cleanNote = noteText.trim();
+
+    if (!cleanNote || !selected?.id || !userId) return;
+
+    setSavingNote(true);
+    setHistoryError("");
+
+    try {
+      const { data, error: insertError } = await getSupabase()
+        .from("enquiry_notes")
+        .insert({
+          enquiry_id: selected.id,
+          created_by: userId,
+          note: cleanNote,
+        })
+        .select("id, enquiry_id, created_by, note, created_at")
+        .single();
+
+      if (insertError) throw insertError;
+
+      setNotes((current) => [data, ...current]);
+      setNoteText("");
+    } catch (err) {
+      setHistoryError(err.message || "Unable to save internal note.");
+    } finally {
+      setSavingNote(false);
+    }
+  };
+
   const filteredEnquiries = useMemo(() => {
     return enquiries.filter((item) => {
       const matchesStatus =
         filter === "all" || item.status === filter;
 
       const term = search.trim().toLowerCase();
+
       const matchesSearch =
         !term ||
         [item.name, item.email, item.phone, item.message]
@@ -181,6 +331,7 @@ export default function AdminDashboard() {
           <p className="admin-dashboard-brand">ASKARAN BINJRAJ</p>
           <h1>Enquiry Management</h1>
         </div>
+
         <button
           type="button"
           className="admin-dashboard-logout"
@@ -198,7 +349,9 @@ export default function AdminDashboard() {
         </section>
 
         {error && (
-          <p className="admin-dashboard-error" role="alert">{error}</p>
+          <p className="admin-dashboard-error" role="alert">
+            {error}
+          </p>
         )}
 
         <section className="admin-enquiries">
@@ -207,10 +360,8 @@ export default function AdminDashboard() {
               <h2>Website enquiries</h2>
               <p>{enquiries.length} total enquiries</p>
             </div>
-            <button
-              type="button"
-              onClick={() => window.location.reload()}
-            >
+
+            <button type="button" onClick={refreshEnquiries}>
               Refresh
             </button>
           </div>
@@ -237,6 +388,7 @@ export default function AdminDashboard() {
               placeholder="Search name, email, phone or message..."
               aria-label="Search enquiries"
             />
+
             <select
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
@@ -261,6 +413,7 @@ export default function AdminDashboard() {
                   <th>Details</th>
                 </tr>
               </thead>
+
               <tbody>
                 {filteredEnquiries.map((item) => (
                   <tr key={item.id}>
@@ -269,9 +422,7 @@ export default function AdminDashboard() {
                       <span>{item.phone}</span>
                       <small>{item.email || "No email provided"}</small>
                     </td>
-                    <td>
-                      {new Date(item.created_at).toLocaleString("en-IN")}
-                    </td>
+                    <td>{formatDate(item.created_at)}</td>
                     <td>
                       <span className={`admin-status status-${item.status}`}>
                         {statusLabel(item.status)}
@@ -287,6 +438,7 @@ export default function AdminDashboard() {
                     </td>
                   </tr>
                 ))}
+
                 {filteredEnquiries.length === 0 && (
                   <tr>
                     <td colSpan="5">No enquiries found.</td>
@@ -312,6 +464,7 @@ export default function AdminDashboard() {
             >
               <div className="admin-enquiry-detail-heading">
                 <h2 id="enquiry-detail-title">Enquiry details</h2>
+
                 <button
                   type="button"
                   onClick={() => setSelected(null)}
@@ -322,13 +475,15 @@ export default function AdminDashboard() {
               </div>
 
               <h3>{selected.name}</h3>
+
               <p><strong>Phone:</strong> {selected.phone}</p>
               <p><strong>Email:</strong> {selected.email || "Not provided"}</p>
-              <p><strong>Received:</strong> {new Date(selected.created_at).toLocaleString("en-IN")}</p>
+              <p><strong>Received:</strong> {formatDate(selected.created_at)}</p>
               <p><strong>Message:</strong></p>
               <p className="admin-enquiry-message">{selected.message}</p>
 
               <label htmlFor="enquiry-status">Update status</label>
+
               <select
                 id="enquiry-status"
                 value={selected.status}
@@ -345,6 +500,82 @@ export default function AdminDashboard() {
               </select>
 
               {updating && <p>Updating status...</p>}
+
+              <div className="admin-history-section">
+                <h3>Internal notes</h3>
+                <p className="admin-history-description">
+                  Private notes visible only to authorized team members.
+                </p>
+
+                <form onSubmit={handleAddNote}>
+                  <textarea
+                    value={noteText}
+                    onChange={(e) => setNoteText(e.target.value)}
+                    placeholder="Write an internal note..."
+                    rows={4}
+                    maxLength={5000}
+                    required
+                  />
+
+                  <button
+                    type="submit"
+                    disabled={savingNote || !noteText.trim()}
+                  >
+                    {savingNote ? "Saving..." : "Add internal note"}
+                  </button>
+                </form>
+
+                {notes.length === 0 && !loadingHistory && (
+                  <p className="admin-history-empty">
+                    No internal notes yet.
+                  </p>
+                )}
+
+                {notes.map((note) => (
+                  <article className="admin-note-item" key={note.id}>
+                    <p>{note.note}</p>
+                    <small>
+                      {note.created_by === userId ? "You" : "Team member"}
+                      {" · "}
+                      {formatDate(note.created_at)}
+                    </small>
+                  </article>
+                ))}
+              </div>
+
+              <div className="admin-history-section">
+                <h3>Activity history</h3>
+                <p className="admin-history-description">
+                  Recorded changes to this enquiry.
+                </p>
+
+                {loadingHistory && (
+                  <p>Loading enquiry history...</p>
+                )}
+
+                {!loadingHistory && activities.length === 0 && (
+                  <p className="admin-history-empty">
+                    No activity recorded yet.
+                  </p>
+                )}
+
+                {activities.map((activity) => (
+                  <article className="admin-activity-item" key={activity.id}>
+                    <p>{describeActivity(activity)}</p>
+                    <small>
+                      {activity.actor_id === userId ? "You" : "Team member"}
+                      {" · "}
+                      {formatDate(activity.created_at)}
+                    </small>
+                  </article>
+                ))}
+              </div>
+
+              {historyError && (
+                <p className="admin-dashboard-error" role="alert">
+                  {historyError}
+                </p>
+              )}
             </section>
           </div>
         )}
