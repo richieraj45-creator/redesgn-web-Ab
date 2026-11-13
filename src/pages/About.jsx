@@ -153,9 +153,9 @@ export default function About() {
                     Our Mission
                   </span>
                   <img
-                    src="/assets/REPLACE-WITH-EXACT-LOGO-PATH"
+                    src="/assets/logo-horizontal-transparent.png"
                     alt="Askaran Binjraj"
-                    className="h-10 w-auto max-w-[150px] object-contain"
+                    className="h-9 w-auto max-w-[145px] object-contain"
                   />
                 </div>
 
@@ -182,9 +182,9 @@ export default function About() {
                     Our Vision
                   </span>
                   <img
-                    src="/assets/REPLACE-WITH-EXACT-LOGO-PATH"
+                    src="/assets/logo-horizontal-transparent.png"
                     alt="Askaran Binjraj"
-                    className="h-10 w-auto max-w-[150px] object-contain"
+                    className="h-9 w-auto max-w-[145px] object-contain"
                   />
                 </div>
 
