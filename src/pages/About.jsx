@@ -47,6 +47,7 @@ const FEATURED_BRANDS = [
 
 export default function About() {
   const [activeLeader, setActiveLeader] = useState(null);
+  const [trademarkPage, setTrademarkPage] = useState(0);
 
   useEffect(() => {
     if (!activeLeader) return;
@@ -428,43 +429,168 @@ export default function About() {
         </div>
       </section>
 
-      <section className="border-y border-brand-border bg-brand-alt" data-testid="about-recognition">
+      
+      <section
+        className="border-y border-brand-border bg-brand-alt"
+        data-testid="about-recognition"
+      >
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-20 lg:px-12">
           <Reveal className="mx-auto mb-10 max-w-2xl text-center">
             <p className="eyebrow">Recognition &amp; heritage</p>
-            <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">Proud Moments, Kept Close.</h2>
-            <p className="mt-4 text-sm leading-relaxed text-brand-mid">Two meaningful records from the Askaran Binjraj story, presented in their original form.</p>
+            <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">
+              Proud Moments, Kept Close.
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-brand-mid">
+              Two meaningful records from the Askaran Binjraj story, presented
+              in their original form.
+            </p>
           </Reveal>
+
           <Stagger className="grid items-stretch gap-5 md:grid-cols-2">
+
+            {/* Har Ghar Tiranga Certificate — unchanged */}
             <StaggerItem>
               <article className="flex h-full flex-col border border-brand-border bg-white p-4 shadow-[0_14px_45px_rgba(31,25,18,0.07)] sm:p-5">
-                <a href="/assets/about/owners/har-ghar-tiranga-appreciation.jpg" target="_blank" rel="noopener noreferrer" aria-label="View the full Har Ghar Tiranga certificate">
-                  <img src="/assets/about/owners/har-ghar-tiranga-appreciation.jpg" alt="Certificate of Appreciation presented to Askaran Binjraj by the Ministry of Culture for the Har Ghar Tiranga initiative" className="aspect-[4/3] w-full border border-brand-border bg-white object-contain p-2" loading="lazy" decoding="async" />
+                <a
+                  href="/assets/about/owners/har-ghar-tiranga-appreciation.jpg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View the full Har Ghar Tiranga certificate"
+                >
+                  <img
+                    src="/assets/about/owners/har-ghar-tiranga-appreciation.jpg"
+                    alt="Certificate of Appreciation presented to Askaran Binjraj by the Ministry of Culture for the Har Ghar Tiranga initiative"
+                    className="aspect-[4/3] w-full border border-brand-border bg-white object-contain p-2"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </a>
+
                 <div className="flex flex-1 flex-col px-2 pb-2 pt-5">
-                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-red">Ministry of Culture · Har Ghar Tiranga</p>
-                  <h3 className="mt-2 font-serif text-2xl">A moment of national pride</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-brand-mid">A Certificate of Appreciation for successfully pinning a flag as part of the Har Ghar Tiranga initiative.</p>
-                  <a href="/assets/about/owners/har-ghar-tiranga-appreciation.jpg" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-red">View certificate <ArrowUpRight className="h-3.5 w-3.5" /></a>
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-red">
+                    Ministry of Culture · Har Ghar Tiranga
+                  </p>
+
+                  <h3 className="mt-2 font-serif text-2xl">
+                    A moment of national pride
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-relaxed text-brand-mid">
+                    A Certificate of Appreciation for successfully pinning a
+                    flag as part of the Har Ghar Tiranga initiative.
+                  </p>
+
+                  <a
+                    href="/assets/about/owners/har-ghar-tiranga-appreciation.jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-red"
+                  >
+                    View certificate
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
                 </div>
               </article>
             </StaggerItem>
+
+            {/* Trademark Certificate — two-page navigation */}
             <StaggerItem>
               <article className="flex h-full flex-col border border-brand-border bg-white p-4 shadow-[0_14px_45px_rgba(31,25,18,0.07)] sm:p-5">
-                <a href="/assets/about/owners/trademark-annex-class-25.jpg" target="_blank" rel="noopener noreferrer" aria-label="View the full Class 25 trademark certificate annex">
-                  <img src="/assets/about/owners/trademark-annex-class-25.jpg" alt="Trademark certificate annex displaying the Askaran Binjraj mark and Class 25 goods" className="aspect-[4/3] w-full border border-brand-border bg-white object-contain p-2" loading="lazy" decoding="async" />
+
+                <a
+                  href={
+                    trademarkPage === 0
+                      ? "/assets/about/owners/trademark-registration-page-1.jpg"
+                      : "/assets/about/owners/trademark-annex-class-25.jpg"
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open the full-size trademark document"
+                  className="block"
+                >
+                  <img
+                    src={
+                      trademarkPage === 0
+                        ? "/assets/about/owners/trademark-registration-page-1.jpg"
+                        : "/assets/about/owners/trademark-annex-class-25.jpg"
+                    }
+                    alt={
+                      trademarkPage === 0
+                        ? "Askaran Binjraj trademark registration certificate, page 1"
+                        : "Askaran Binjraj trademark registration annexure showing the registered logo and Class 25 goods, page 2"
+                    }
+                    className="aspect-[4/3] w-full border border-brand-border bg-white object-contain p-2"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </a>
+
+                {/* Certificate navigation */}
+                <div className="mt-4 flex items-center justify-between gap-2 border-y border-brand-border py-3">
+                  <button
+                    type="button"
+                    onClick={() => setTrademarkPage(0)}
+                    disabled={trademarkPage === 0}
+                    className="inline-flex items-center gap-1 px-2 py-2 text-[10px] font-bold uppercase tracking-wider text-brand-red transition hover:bg-brand-alt disabled:cursor-not-allowed disabled:opacity-30 sm:px-3"
+                  >
+                    <span aria-hidden="true">←</span>
+                    Previous
+                  </button>
+
+                  <span
+                    className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-mid"
+                    aria-live="polite"
+                  >
+                    Page {trademarkPage + 1} of 2
+                  </span>
+
+                  <button
+                    type="button"
+                    onClick={() => setTrademarkPage(1)}
+                    disabled={trademarkPage === 1}
+                    className="inline-flex items-center gap-1 px-2 py-2 text-[10px] font-bold uppercase tracking-wider text-brand-red transition hover:bg-brand-alt disabled:cursor-not-allowed disabled:opacity-30 sm:px-3"
+                  >
+                    Next
+                    <span aria-hidden="true">→</span>
+                  </button>
+                </div>
+
                 <div className="flex flex-1 flex-col px-2 pb-2 pt-5">
-                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-red">Trademark certificate annex · Class 25</p>
-                  <h3 className="mt-2 font-serif text-2xl">The mark behind the name</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-brand-mid">The submitted certificate annex records the Askaran Binjraj logo and its registered Class 25 goods.</p>
-                  <a href="/assets/about/owners/trademark-annex-class-25.jpg" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-red">View certificate annex <ArrowUpRight className="h-3.5 w-3.5" /></a>
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-red">
+                    Trademark Registration · Class 25
+                  </p>
+
+                  <h3 className="mt-2 font-serif text-2xl">
+                    The mark behind the name
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-relaxed text-brand-mid">
+                    The official trademark registration certificate and its
+                    annexure document the Askaran Binjraj logo and its
+                    registered Class 25 goods.
+                  </p>
+
+                  <a
+                    href={
+                      trademarkPage === 0
+                        ? "/assets/about/owners/trademark-registration-page-1.jpg"
+                        : "/assets/about/owners/trademark-annex-class-25.jpg"
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-red"
+                  >
+                    View full certificate
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
                 </div>
               </article>
             </StaggerItem>
+
           </Stagger>
         </div>
       </section>
+
 
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-20 lg:px-12" data-testid="about-brands">
         <Reveal className="mx-auto mb-8 max-w-2xl text-center">
