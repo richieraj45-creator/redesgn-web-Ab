@@ -441,7 +441,7 @@ export default function About() {
               type="button"
               onClick={() => setActiveLeader(null)}
               aria-label="Close biography"
-              className="absolute right-4 top-4 z-30 flex h-10 w-10 shrink-0 items-center justify-center border border-white/25 bg-black/60 text-2xl text-white hover:bg-brand-red"
+              className="absolute right-4 top-4 z-30 flex h-10 w-10 shrink-0 items-center justify-center border border-white/30 bg-brand-ink text-2xl text-white shadow-lg hover:bg-brand-red"
             >
               &times;
             </button>
