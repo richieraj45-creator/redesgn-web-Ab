@@ -128,6 +128,7 @@ export default function About() {
         </Reveal>
       </section>
             
+     
       {/* Official Mission and Vision */}
       <section
         className="relative overflow-hidden border-y border-brand-border bg-brand-alt"
@@ -146,22 +147,23 @@ export default function About() {
           </Reveal>
 
           <div className="grid gap-6 lg:grid-cols-2">
+            {/* Mission Card */}
             <Reveal>
-              <article className="relative flex h-full flex-col overflow-hidden border border-brand-gold/40 !bg-[#111111] p-7 !text-[#f8f5ef] shadow-[0_18px_45px_rgba(0,0,0,0.10)] sm:p-10">
-                <div className="mb-7 flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-brand-gold">
+              <article className="relative flex h-full flex-col overflow-hidden border border-[#E5DAD2] !bg-[#F7F2ED] p-7 !text-[#171717] shadow-[0_18px_45px_rgba(0,0,0,0.06)] sm:p-10">
+                <div className="mb-7 flex items-center justify-between gap-4">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-brand-red">
                     Our Mission
                   </span>
                   <img
                     src="/assets/logo-horizontal-transparent.png"
                     alt="Askaran Binjraj"
-                    className="h-9 w-auto max-w-[145px] object-contain"
+                    className="h-9 w-auto max-w-[145px] shrink-0 object-contain"
                   />
                 </div>
 
-                <div className="mb-6 h-px w-16 bg-brand-gold/70" />
+                <div className="mb-6 h-px w-16 bg-brand-red/60" />
 
-                <p className="font-serif text-xl leading-relaxed !text-[#f8f5ef] sm:text-2xl">
+                <p className="font-serif text-xl leading-relaxed !text-[#171717] sm:text-2xl">
                   Our Mission is to redefine the retail Shopping experience by
                   offering high-quality products with focus on variety and
                   affordability. We aim to become the preferred shopping
@@ -175,22 +177,23 @@ export default function About() {
               </article>
             </Reveal>
 
+            {/* Vision Card */}
             <Reveal delay={0.1}>
-              <article className="relative flex h-full flex-col overflow-hidden border border-brand-gold/40 !bg-[#111111] p-7 !text-[#f8f5ef] shadow-[0_18px_45px_rgba(0,0,0,0.10)] sm:p-10">
-                <div className="mb-7 flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-brand-gold">
+              <article className="relative flex h-full flex-col overflow-hidden border border-[#E5DAD2] !bg-[#F7F2ED] p-7 !text-[#171717] shadow-[0_18px_45px_rgba(0,0,0,0.06)] sm:p-10">
+                <div className="mb-7 flex items-center justify-between gap-4">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-brand-red">
                     Our Vision
                   </span>
                   <img
                     src="/assets/logo-horizontal-transparent.png"
                     alt="Askaran Binjraj"
-                    className="h-9 w-auto max-w-[145px] object-contain"
+                    className="h-9 w-auto max-w-[145px] shrink-0 object-contain"
                   />
                 </div>
 
-                <div className="mb-6 h-px w-16 bg-brand-gold/70" />
+                <div className="mb-6 h-px w-16 bg-brand-red/60" />
 
-                <p className="font-serif text-xl leading-relaxed !text-[#f8f5ef] sm:text-2xl">
+                <p className="font-serif text-xl leading-relaxed !text-[#171717] sm:text-2xl">
                   To empower our customers to live better lives by providing
                   exceptional fashion &amp; lifestyle products, outstanding
                   service, and memorable experiences. We strive to foster a
@@ -205,6 +208,7 @@ export default function About() {
           </div>
         </div>
       </section>
+
 
       <section className="relative isolate overflow-hidden bg-brand-ink text-brand-paper" data-testid="about-leadership">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_80%_10%,rgba(200,37,30,.24),transparent_42%),radial-gradient(ellipse_at_10%_90%,rgba(212,175,55,.14),transparent_38%)]" />
