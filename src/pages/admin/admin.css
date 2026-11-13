@@ -274,6 +274,350 @@
   .admin-dashboard-welcome h2 {
     font-size: 21px;
   }
+
+  
+/* =========================================
+   ENQUIRY MANAGEMENT INTERFACE
+   ========================================= */
+
+.admin-enquiries {
+  margin-top: 28px;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #e7e3dc;
 }
+
+.admin-enquiries-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.admin-enquiries-heading h2 {
+  margin: 0 0 7px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.admin-enquiries-heading p {
+  margin: 0;
+  color: #777;
+  font-size: 13px;
+}
+
+.admin-enquiries button,
+.admin-enquiry-detail button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.admin-enquiries-heading > button {
+  padding: 11px 20px;
+  border: 1px solid #171717;
+  background: #171717;
+  color: #fff;
+  font-size: 13px;
+}
+
+.admin-enquiries-heading > button:hover {
+  background: #a98b55;
+  border-color: #a98b55;
+}
+
+.admin-enquiries-stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.admin-enquiries-stats button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  padding: 17px;
+  border: 1px solid #e7e3dc;
+  background: #faf9f6;
+  color: #555;
+  text-align: left;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.admin-enquiries-stats button:hover,
+.admin-enquiries-stats button.active {
+  border-color: #a98b55;
+  background: #f7f3eb;
+}
+
+.admin-enquiries-stats button span {
+  font-size: 12px;
+}
+
+.admin-enquiries-stats button strong {
+  color: #171717;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.admin-enquiries-toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.admin-enquiries-toolbar input,
+.admin-enquiries-toolbar select,
+.admin-enquiry-detail select {
+  min-height: 45px;
+  padding: 10px 13px;
+  border: 1px solid #dedbd4;
+  border-radius: 0;
+  background: #fff;
+  color: #171717;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.admin-enquiries-toolbar input {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-enquiries-toolbar input:focus,
+.admin-enquiries-toolbar select:focus,
+.admin-enquiry-detail select:focus {
+  border-color: #a98b55;
+}
+
+.admin-enquiries-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.admin-enquiries-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+
+.admin-enquiries-table th {
+  padding: 15px 13px;
+  background: #f7f6f2;
+  color: #777;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.admin-enquiries-table td {
+  padding: 17px 13px;
+  border-bottom: 1px solid #eeeae3;
+  color: #333;
+  vertical-align: middle;
+}
+
+.admin-enquiries-table tbody tr:hover {
+  background: #fcfbf9;
+}
+
+.admin-enquiries-table td small {
+  display: block;
+  margin-top: 5px;
+  color: #888;
+  font-size: 11px;
+}
+
+.admin-enquiries-table td button {
+  padding: 8px 15px;
+  border: 1px solid #a98b55;
+  background: transparent;
+  color: #806638;
+  font-size: 12px;
+}
+
+.admin-enquiries-table td button:hover {
+  background: #a98b55;
+  color: #fff;
+}
+
+.admin-status {
+  display: inline-block;
+  padding: 6px 10px;
+  background: #f2f0eb;
+  color: #555;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.admin-status.status-new {
+  background: #edf3ff;
+  color: #315c9b;
+}
+
+.admin-status.status-in_progress {
+  background: #fff4df;
+  color: #946515;
+}
+
+.admin-status.status-follow_up {
+  background: #f2eaff;
+  color: #7046a0;
+}
+
+.admin-status.status-resolved {
+  background: #e8f5ed;
+  color: #287348;
+}
+
+.admin-status.status-spam {
+  background: #fcebea;
+  color: #a33c35;
+}
+
+/* Enquiry detail modal */
+
+.admin-enquiry-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.admin-enquiry-detail {
+  width: 100%;
+  max-width: 560px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #e7e3dc;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+.admin-enquiry-detail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e7e3dc;
+}
+
+.admin-enquiry-detail-heading h2 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.admin-enquiry-detail-heading button {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ddd;
+  background: #fff;
+  font-size: 23px;
+}
+
+.admin-enquiry-detail h3 {
+  margin: 0 0 20px;
+  font-size: 20px;
+}
+
+.admin-enquiry-detail > p {
+  margin: 12px 0;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.admin-enquiry-detail > p strong {
+  color: #171717;
+}
+
+.admin-enquiry-detail .admin-enquiry-message {
+  padding: 16px;
+  background: #f7f6f2;
+  color: #333;
+  white-space: pre-wrap;
+}
+
+.admin-enquiry-detail > label {
+  display: block;
+  margin: 24px 0 9px;
+  color: #333;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-enquiry-detail select {
+  width: 100%;
+}
+
+.admin-enquiry-detail select:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* Responsive layout */
+
+@media (max-width: 900px) {
+  .admin-enquiries-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-enquiries {
+    padding: 18px 14px;
+  }
+
+  .admin-enquiries-heading {
+    align-items: flex-start;
+  }
+
+  .admin-enquiries-heading h2 {
+    font-size: 19px;
+  }
+
+  .admin-enquiries-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .admin-enquiries-stats button {
+    padding: 13px;
+  }
+
+  .admin-enquiries-toolbar {
+    flex-direction: column;
+  }
+
+  .admin-enquiries-toolbar input,
+  .admin-enquiries-toolbar select {
+    width: 100%;
+  }
+
+  .admin-enquiries-table {
+    min-width: 680px;
+  }
+
+  .admin-enquiry-detail {
+    padding: 22px 18px;
+  }
+}
+
 
 
