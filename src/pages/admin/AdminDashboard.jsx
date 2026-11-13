@@ -550,7 +550,7 @@ export default function AdminDashboard() {
                       {formatDate(note.created_at)}
                     </small>
                   </article>
-                )}
+                ))}
               </div>
 
               <div className="admin-history-section">
