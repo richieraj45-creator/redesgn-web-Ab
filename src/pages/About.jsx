@@ -193,25 +193,22 @@ export default function About() {
                  </button>
                </h3>
                   <p className="mt-2 text-xs leading-relaxed text-white/65">Joined the Company in 2014, continuing the family’s focus on quality and service.</p>
-                  <button type="button" onClick={() => setActiveLeader("vikram")} className="mt-3 inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-gold transition-colors hover:text-white">
-                    Read More <ArrowUpRight className="h-3 w-3" />
-                  </button>
-                  <a href="https://www.linkedin.com/in/vikrambothra/"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     aria-label="Vikram Bothra on LinkedIn"
-                     className="mt-3 inline-flex items-center gap-2 text-xs font-medium text-brand-gold transition-colors duration-300 hover:text-white"
-                  >
-                  <svg
-                     viewBox="0 0 24 24"
-                     className="h-4 w-4"
-                     fill="currentColor"
-                     aria-hidden="true"
-                 >
-                  <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.35 18.34H4.67V9.72h2.68v8.62zM6.01 8.54a1.55 1.55 0 1 1 0-3.1 1.55 1.55 0 0 1 0 3.1zm12.33 9.8h-2.67v-4.2c0-1-.02-2.29-1.4-2.29-1.4 0-1.62 1.09-1.62 2.22v4.27H9.98V9.72h2.56v1.18h.04c.36-.68 1.23-1.4 2.53-1.4 2.7 0 3.23 1.77 3.23 4.08v4.76z"/>
-                </svg>
-                Connect on LinkedIn
-              </a>
+                  <div className="mt-3 flex flex-col items-start gap-3">
+                    <button type="button" onClick={() => setActiveLeader("vikram")} className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-gold transition-colors hover:text-white">
+                      Read More <ArrowUpRight className="h-3 w-3" />
+                    </button>
+                    <a href="https://www.linkedin.com/in/vikrambothra/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Vikram Bothra on LinkedIn"
+                       className="inline-flex items-center gap-2 text-xs font-medium text-brand-gold transition-colors duration-300 hover:text-white"
+                    >
+                      <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
+                        <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.35 18.34H4.67V9.72h2.68v8.62zM6.01 8.54a1.55 1.55 0 1 1 0-3.1 1.55 1.55 0 0 1 0 3.1zm12.33 9.8h-2.67v-4.2c0-1-.02-2.29-1.4-2.29-1.4 0-1.62 1.09-1.62 2.22v4.27H9.98V9.72h2.56v1.18h.04c.36-.68 1.23-1.4 2.53-1.4 2.7 0 3.23 1.77 3.23 4.08v4.76z"/>
+                      </svg>
+                      Connect on LinkedIn
+                    </a>
+                  </div>
                 </div>
               </article>
             </StaggerItem>
@@ -437,7 +434,7 @@ export default function About() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="leadership-bio-title"
-            className="relative max-h-[90vh] w-full max-w-3xl overflow-hidden border border-brand-gold/30 bg-brand-ink text-brand-paper shadow-2xl"
+            className="relative h-[min(90vh,560px)] max-h-[90vh] w-full max-w-3xl overflow-hidden border border-brand-gold/30 bg-brand-ink text-brand-paper shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
             <button
@@ -449,8 +446,8 @@ export default function About() {
               &times;
             </button>
 
-            <div className="grid md:grid-cols-[0.85fr_1.15fr] md:h-[min(70vh,560px)]">
-              <div className="relative h-[280px] bg-brand-alt md:h-[min(70vh,560px)] md:min-h-[480px]">
+            <div className="grid h-full min-h-0 grid-rows-[280px_minmax(0,1fr)] md:grid-cols-[0.85fr_1.15fr] md:grid-rows-1">
+              <div className="relative min-h-0 bg-brand-alt">
                 <img
                   src={activeLeader === "vikram" ? "/assets/about/owners/vikram-bothra.jpg" : "/assets/about/owners/chandan-mal-bothra.jpg"}
                   alt={activeLeader === "vikram" ? "Vikram Bothra, Managing Director and CEO" : "Chandan Mal Bothra, Chairman"}
@@ -461,7 +458,7 @@ export default function About() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
               </div>
 
-              <div className="max-h-[calc(90vh-280px)] overflow-y-auto overscroll-contain p-6 sm:p-9 md:max-h-[min(70vh,560px)] md:p-10">
+              <div className="h-full min-h-0 overflow-y-auto overscroll-contain p-6 sm:p-9 md:p-10">
                 <p className="pr-12 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-gold">
                   Leadership · Askaran Binjraj
                 </p>
