@@ -424,7 +424,7 @@ export default function About() {
         </div>
       </section>
       
-      {/* Shared leadership biography popup */}
+            {/* Shared leadership biography popup */}
       {activeLeader && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
@@ -434,40 +434,65 @@ export default function About() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="leadership-bio-title"
-            className="relative h-[min(90vh,560px)] max-h-[90vh] w-full max-w-3xl overflow-hidden border border-brand-gold/30 bg-brand-ink text-brand-paper shadow-2xl"
+            className="relative flex max-h-[90dvh] w-full max-w-3xl flex-col overflow-hidden border border-brand-gold/30 bg-brand-ink text-brand-paper shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
             <button
               type="button"
               onClick={() => setActiveLeader(null)}
               aria-label="Close biography"
-              className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center border border-white/25 bg-black/60 text-2xl text-white transition-colors hover:bg-brand-red"
+              className="absolute right-4 top-4 z-30 flex h-10 w-10 shrink-0 items-center justify-center border border-white/25 bg-black/60 text-2xl text-white hover:bg-brand-red"
             >
               &times;
             </button>
 
-            <div className="grid h-full min-h-0 grid-rows-[280px_minmax(0,1fr)] md:grid-cols-[0.85fr_1.15fr] md:grid-rows-1">
-              <div className="relative min-h-0 bg-brand-alt">
+            <div className="grid min-h-0 flex-1 overflow-hidden md:grid-cols-[0.85fr_1.15fr]">
+              <div className="relative h-[240px] shrink-0 bg-brand-alt md:h-full md:min-h-0">
                 <img
-                  src={activeLeader === "vikram" ? "/assets/about/owners/vikram-bothra.jpg" : "/assets/about/owners/chandan-mal-bothra.jpg"}
-                  alt={activeLeader === "vikram" ? "Vikram Bothra, Managing Director and CEO" : "Chandan Mal Bothra, Chairman"}
-                  className={activeLeader === "vikram" ? "absolute inset-0 h-full w-full object-cover object-[center_25%]" : "absolute inset-0 h-full w-full object-cover object-[center_28%]"}
+                  src={
+                    activeLeader === "vikram"
+                      ? "/assets/about/owners/vikram-bothra.jpg"
+                      : "/assets/about/owners/chandan-mal-bothra.jpg"
+                  }
+                  alt={
+                    activeLeader === "vikram"
+                      ? "Vikram Bothra, Managing Director and CEO"
+                      : "Chandan Mal Bothra, Chairman"
+                  }
+                  className={
+                    activeLeader === "vikram"
+                      ? "absolute inset-0 h-full w-full object-cover object-[center_25%]"
+                      : "absolute inset-0 h-full w-full object-cover object-[center_28%]"
+                  }
                   loading="eager"
                   decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
               </div>
 
-              <div className="h-full min-h-0 overflow-y-auto overscroll-contain p-6 sm:p-9 md:p-10">
+              <div
+                className="min-h-0 overflow-y-auto overscroll-y-contain p-6 pb-10 sm:p-9 md:p-10"
+                style={{ WebkitOverflowScrolling: "touch" }}
+              >
                 <p className="pr-12 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-gold">
                   Leadership · Askaran Binjraj
                 </p>
-                <h2 id="leadership-bio-title" className="mt-4 pr-12 font-serif text-3xl leading-tight sm:text-4xl">
-                  {activeLeader === "vikram" ? "Vikram Bothra" : "Chandan Mal Bothra"}
+
+                <h2
+                  id="leadership-bio-title"
+                  className="mt-4 pr-12 font-serif text-3xl leading-tight sm:text-4xl"
+                >
+                  {activeLeader === "vikram"
+                    ? "Vikram Bothra"
+                    : "Chandan Mal Bothra"}
                 </h2>
+
                 <p className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-gold">
-                  {activeLeader === "vikram" ? "Managing Director / CEO" : "Chairman"}
+                  {activeLeader === "vikram"
+                    ? "Managing Director / CEO"
+                    : "Chairman"}
                 </p>
+
                 <div className="my-6 h-px w-16 bg-brand-gold/70" />
 
                 {activeLeader === "vikram" ? (
@@ -497,12 +522,13 @@ export default function About() {
                     href="https://www.linkedin.com/in/vikrambothra/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-7 inline-flex w-fit items-center gap-2 border border-brand-gold/50 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-brand-gold transition-colors hover:bg-brand-gold hover:text-brand-ink"
+                    className="mt-7 inline-flex w-fit items-center gap-2 border border-brand-gold/50 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-brand-gold hover:bg-brand-gold hover:text-brand-ink"
                   >
                     <ArrowUpRight className="h-4 w-4" />
                     Connect on LinkedIn
                   </a>
                 )}
+
                 <p className="mt-6 text-[10px] uppercase tracking-[0.15em] text-white/40">
                   Askaran Binjraj · Est. 1880
                 </p>
