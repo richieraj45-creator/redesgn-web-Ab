@@ -45,14 +45,15 @@ const FEATURED_BRANDS = [
   "Daggerfly", "Shree", "Rangriti", "Zola", "Duke", "Moda Elementi", "Lemon Mint", "Tiny Girl", "Alfa", "Deal", "Biba", "Red20Flame", "Rockstar", "Spykar", "Killer", "USPA", "Flying Machine", "Vogartino", "Arrow", "Stori", "Crimsoune Club", "Peter England", "Levis", "Octave", "Jockey",
 ];
 
-export default function About() {  const [isVikramBioOpen, setIsVikramBioOpen] = useState(false);
+export default function About() {
+  const [activeLeader, setActiveLeader] = useState(null);
 
   useEffect(() => {
-    if (!isVikramBioOpen) return;
+    if (!activeLeader) return;
 
     const handleEscape = (event) => {
       if (event.key === "Escape") {
-        setIsVikramBioOpen(false);
+        setActiveLeader(null);
       }
     };
 
@@ -64,7 +65,7 @@ export default function About() {  const [isVikramBioOpen, setIsVikramBioOpen] =
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleEscape);
     };
-  }, [isVikramBioOpen]);
+  }, [activeLeader]);
   return (
     <main data-testid="about-page" className="bg-brand-paper">
       <section className="group relative isolate overflow-hidden bg-brand-ink text-brand-paper">
@@ -144,18 +145,26 @@ export default function About() {  const [isVikramBioOpen, setIsVikramBioOpen] =
           <Stagger className="grid gap-5 sm:grid-cols-2 lg:col-span-8">
             <StaggerItem>
               <article className="group overflow-hidden border border-white/15 bg-white/5 p-2 shadow-[0_22px_55px_rgba(0,0,0,.22)]">
-                <div className="relative aspect-[4/5] overflow-hidden bg-brand-alt">
+                <button
+                  type="button"
+                  onClick={() => setActiveLeader("chandan")}
+                  aria-label="Read Chandan Mal Bothra's biography"
+                  className="relative block w-full aspect-[4/5] overflow-hidden border-0 bg-brand-alt p-0 text-left"
+                >
                   <img src="/assets/about/owners/chandan-mal-bothra.jpg"
                        alt="Chandan Mal Bothra"
                        className="h-full w-full object-cover object-[center_28%] contrast-[1.10] brightness-[1.02] saturate-[1.02] scale-[1.07] transition-transform duration-700 group-hover:scale-[1.10]"
                        loading="lazy"
                        decoding="async"/>
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 to-transparent" />
-                </div>
+                </button>
                 <div className="px-4 pb-4 pt-4 sm:px-5">
                   <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-gold">Chairman</p>
                   <h3 className="mt-1 font-serif text-2xl text-white">Chandan Mal Bothra</h3>
                   <p className="mt-2 text-xs leading-relaxed text-white/65">Carried the family retail business into a new era from the early 1980s.</p>
+                  <button type="button" onClick={() => setActiveLeader("chandan")} className="mt-3 inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-gold transition-colors hover:text-white">
+                    Read More <ArrowUpRight className="h-3 w-3" />
+                  </button>
                 </div>
               </article>
             </StaggerItem>
@@ -163,7 +172,7 @@ export default function About() {  const [isVikramBioOpen, setIsVikramBioOpen] =
               <article className="group overflow-hidden border border-white/15 bg-white/5 p-2 shadow-[0_22px_55px_rgba(0,0,0,.22)]">
                 <button
                    type="button"
-                   onClick={() => setIsVikramBioOpen(true)}
+                   onClick={() => setActiveLeader("vikram")}
                    aria-label="Read Vikram Bothra's biography"
                    className="relative block w-full aspect-[4/5] overflow-hidden border-0 bg-brand-alt p-0 text-left"
                 >
@@ -177,13 +186,16 @@ export default function About() {  const [isVikramBioOpen, setIsVikramBioOpen] =
                   <h3 className="mt-1 font-serif text-2xl text-white">
                   <button
                     type="button"
-                    onClick={() => setIsVikramBioOpen(true)}
+                    onClick={() => setActiveLeader("vikram")}
                     className="text-left transition-colors duration-300 hover:text-brand-gold"
                   >
                    Vikram Bothra
                  </button>
                </h3>
                   <p className="mt-2 text-xs leading-relaxed text-white/65">Joined the Company in 2014, continuing the family’s focus on quality and service.</p>
+                  <button type="button" onClick={() => setActiveLeader("vikram")} className="mt-3 inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-gold transition-colors hover:text-white">
+                    Read More <ArrowUpRight className="h-3 w-3" />
+                  </button>
                   <a href="https://www.linkedin.com/in/vikrambothra/"
                      target="_blank"
                      rel="noopener noreferrer"
@@ -415,84 +427,88 @@ export default function About() {  const [isVikramBioOpen, setIsVikramBioOpen] =
         </div>
       </section>
       
-      {/* Vikram Bothra Biography Popup */}
-      {isVikramBioOpen && (
+      {/* Shared leadership biography popup */}
+      {activeLeader && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
-          onClick={() => setIsVikramBioOpen(false)}
+          onClick={() => setActiveLeader(null)}
         >
           <div
             role="dialog"
             aria-modal="true"
-            aria-labelledby="vikram-bio-title"
-            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto border border-brand-gold/30 bg-brand-ink text-brand-paper shadow-2xl"
+            aria-labelledby="leadership-bio-title"
+            className="relative max-h-[90vh] w-full max-w-3xl overflow-hidden border border-brand-gold/30 bg-brand-ink text-brand-paper shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
-            {/* Close Button */}
             <button
               type="button"
-              onClick={() => setIsVikramBioOpen(false)}
+              onClick={() => setActiveLeader(null)}
               aria-label="Close biography"
-              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center border border-white/25 bg-black/40 text-2xl text-white transition-colors hover:bg-brand-red"
+              className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center border border-white/25 bg-black/60 text-2xl text-white transition-colors hover:bg-brand-red"
             >
               &times;
             </button>
 
-            <div className="grid md:grid-cols-[0.85fr_1.15fr]">
-
-              {/* MD Photograph */}
-              <div className="relative min-h-[280px] bg-brand-alt">
+            <div className="grid md:grid-cols-[0.85fr_1.15fr] md:h-[min(70vh,560px)]">
+              <div className="relative h-[280px] bg-brand-alt md:h-[min(70vh,560px)] md:min-h-[480px]">
                 <img
-                  src="/assets/about/owners/vikram-bothra.jpg"
-                  alt="Vikram Bothra, Managing Director and CEO"
-                  className="absolute inset-0 h-full w-full object-cover object-[center_25%]"
+                  src={activeLeader === "vikram" ? "/assets/about/owners/vikram-bothra.jpg" : "/assets/about/owners/chandan-mal-bothra.jpg"}
+                  alt={activeLeader === "vikram" ? "Vikram Bothra, Managing Director and CEO" : "Chandan Mal Bothra, Chairman"}
+                  className={activeLeader === "vikram" ? "absolute inset-0 h-full w-full object-cover object-[center_25%]" : "absolute inset-0 h-full w-full object-cover object-[center_28%]"}
                   loading="eager"
                   decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
               </div>
 
-              {/* Biography Content */}
-              <div className="flex flex-col justify-center p-6 sm:p-9 md:p-10">
-
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-gold">
+              <div className="max-h-[calc(90vh-280px)] overflow-y-auto overscroll-contain p-6 sm:p-9 md:max-h-[min(70vh,560px)] md:p-10">
+                <p className="pr-12 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-gold">
                   Leadership · Askaran Binjraj
                 </p>
-
-                <h2
-                  id="vikram-bio-title"
-                  className="mt-4 font-serif text-3xl leading-tight sm:text-4xl"
-                >
-                  Vikram Bothra
+                <h2 id="leadership-bio-title" className="mt-4 pr-12 font-serif text-3xl leading-tight sm:text-4xl">
+                  {activeLeader === "vikram" ? "Vikram Bothra" : "Chandan Mal Bothra"}
                 </h2>
-
                 <p className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-gold">
-                  Managing Director / CEO
+                  {activeLeader === "vikram" ? "Managing Director / CEO" : "Chairman"}
                 </p>
+                <div className="my-6 h-px w-16 bg-brand-gold/70" />
 
-              <div className="my-6 h-px w-16 bg-brand-gold/70" />
+                {activeLeader === "vikram" ? (
+                  <div className="space-y-4 text-sm leading-relaxed text-white/75">
+                    <p>Vikram Bothra is a sixth-generation entrepreneur in the retailing and wholesale of fashion and lifestyle products from Assam, India. Based in Dhekiajuli, near Tezpur, he comes from a family that has been serving people with fashion and personal service since the 1880s.</p>
+                    <p>An Economics graduate from the University of Calcutta and an MBA from Narsee Monjee Institute of Management Studies (NMIMS), Mumbai, he brings experience in shopping-centre development and mall management. He worked extensively with Knight Frank India Pvt. Ltd., closing retail real-estate transactions across India. He also gained experience in financial management, cash-flow management and loan management at Reliance Capital, Mumbai.</p>
+                    <p>Vikram joined the family business in 2014. In 2016, he launched ASKARAN BINJRAJ, a 50,000-square-foot lifestyle departmental store serving the region. The destination brings apparel, footwear and lifestyle shopping together with a vegetarian quick-service restaurant and The House of Kids, a play and activity area for children aged 2 to 7.</p>
+                    <p>The business employs approximately 200 local people and participates in social initiatives supporting the local community.</p>
+                    <p>In 2023, he completed online Certificates of Specialisation from Harvard Business School in Strategy and Leadership & Management, comprising six courses: Data Science for Business, Negotiation Mastery, Organisational Leadership, Economics for Managers, Disruptive Strategy and Strategy Execution.</p>
+                    <p>He is currently pursuing a Doctor of Business Administration (DBA) at Golden Gate University, San Francisco, USA, and serves as Chairman of the Northeast Chapter of the Retailers’ Association of India (RAI).</p>
+                    <p>His work spans retail strategy, product assortment planning, catchment analysis, mall development, operational efficiency, emerging technologies, customer experience and organisational leadership, contributing to the economic landscape of Northeast India.</p>
+                  </div>
+                ) : (
+                  <div className="space-y-4 text-sm leading-relaxed text-white/75">
+                    <p>Chandan Mal Bothra represents the fifth generation of the Bothra family’s retail business. Born in 1959, he completed his B.Com (Honours) from Darrang College in 1978. After briefly pursuing Law, he left his studies to join his father’s shop, entering the business in 1980 and formally taking charge in 1981 at the age of 22.</p>
+                    <p>At the time, the business was a small shop with around four to five employees and ranked near the bottom of local sales. He gradually transformed its direction, moving away from miscellaneous merchandise and focusing on textiles and readymade garments.</p>
+                    <p>He personally travelled across India to understand customer preferences, suitable price ranges and sourcing opportunities. By studying what local customers needed and ensuring that the right products were available, he steadily grew the business and its customer base.</p>
+                    <p>A defining part of his philosophy was to offer good-quality merchandise at reasonable prices, with a strict fixed-rate policy. Customers came to recognise the shop for transparent pricing, dependable quality, wide availability and service without bargaining.</p>
+                    <p>Under his leadership, the business grew from a small team of four or five employees into a regional enterprise employing more than 300 people. The sixth generation joined the business in 2014, continuing the family’s retail journey.</p>
+                    <p>Several local social organisations have recognised his contribution with letters of appreciation, known as <em>Abhinandan Patra</em>.</p>
+                    <p>His journey reflects the values he consistently emphasised in his interview: customer trust, quality, reasonable pricing, product availability and steady progress.</p>
+                  </div>
+                )}
 
-                <p className="text-sm leading-relaxed text-white/75">
-                  Vikram Bothra joined the family business in 2013,
-                  continuing its legacy of quality, customer service
-                  and retail excellence.
-                </p>
-
-                {/* LinkedIn */}
-                <a
-                  href="https://www.linkedin.com/in/vikrambothra/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-7 inline-flex w-fit items-center gap-2 border border-brand-gold/50 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-brand-gold transition-colors hover:bg-brand-gold hover:text-brand-ink"
-                >
-                  <ArrowUpRight className="h-4 w-4" />
-                  Connect on LinkedIn
-                </a>
-
+                {activeLeader === "vikram" && (
+                  <a
+                    href="https://www.linkedin.com/in/vikrambothra/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-7 inline-flex w-fit items-center gap-2 border border-brand-gold/50 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-brand-gold transition-colors hover:bg-brand-gold hover:text-brand-ink"
+                  >
+                    <ArrowUpRight className="h-4 w-4" />
+                    Connect on LinkedIn
+                  </a>
+                )}
                 <p className="mt-6 text-[10px] uppercase tracking-[0.15em] text-white/40">
                   Askaran Binjraj · Est. 1880
                 </p>
-
               </div>
             </div>
           </div>
