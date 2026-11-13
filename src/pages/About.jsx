@@ -446,7 +446,7 @@ export default function About() {
               &times;
             </button>
 
-            <div className="grid min-h-0 flex-1 grid-rows-[240px_minmax(0,1fr)] overflow-hidden md:grid-cols-[0.85fr_1.15fr] md:grid-rows-1">
+            <div className="grid h-full min-h-0 flex-1 grid-rows-[240px_minmax(0,1fr)] overflow-hidden md:grid-cols-[0.85fr_1.15fr] md:grid-rows-1">
               <div className="relative h-[240px] shrink-0 bg-brand-alt md:h-full md:min-h-0">
                 <img
                   src={
@@ -470,10 +470,13 @@ export default function About() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
               </div>
 
-              <div
-                className="min-h-0 overflow-y-auto overscroll-y-contain p-6 pb-10 sm:p-9 md:p-10"
-                style={{ WebkitOverflowScrolling: "touch" }}
-              >
+               <div
+                 className="h-full min-h-0 max-h-full overflow-y-scroll overscroll-y-contain p-6 pb-10 sm:p-9 md:p-10"
+                 style={{
+                   WebkitOverflowScrolling: "touch",
+                   scrollbarWidth: "thin",
+                 }}
+               >
                 <p className="pr-12 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-gold">
                   Leadership · Askaran Binjraj
                 </p>
