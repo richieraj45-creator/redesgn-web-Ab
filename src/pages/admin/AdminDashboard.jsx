@@ -1,5 +1,5 @@
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getSupabase } from "@/lib/supabase";
 import "./admin.css";
@@ -16,8 +16,7 @@ const STATUSES = [
 const statusLabel = (status) =>
   status.replace("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
-const formatDate = (value) =>
-  new Date(value).toLocaleString("en-IN");
+const formatDate = (value) => new Date(value).toLocaleString("en-IN");
 
 const describeActivity = (item) => {
   const oldStatus = item.old_values?.status;
@@ -56,7 +55,7 @@ export default function AdminDashboard() {
   const [savingNote, setSavingNote] = useState(false);
   const [historyError, setHistoryError] = useState("");
 
-  const loadDashboard = async () => {
+  const loadDashboard = useCallback(async () => {
     const supabase = getSupabase();
 
     const {
@@ -69,12 +68,11 @@ export default function AdminDashboard() {
       return;
     }
 
-    const { data: membership, error: membershipError } =
-      await supabase
-        .from("team_memberships")
-        .select("role, is_active")
-        .eq("user_id", user.id)
-        .maybeSingle();
+    const { data: membership, error: membershipError } = await supabase
+      .from("team_memberships")
+      .select("role, is_active")
+      .eq("user_id", user.id)
+      .maybeSingle();
 
     if (membershipError) throw membershipError;
 
@@ -87,12 +85,11 @@ export default function AdminDashboard() {
       return;
     }
 
-    const { data: userProfile, error: profileError } =
-      await supabase
-        .from("profiles")
-        .select("full_name, email")
-        .eq("id", user.id)
-        .maybeSingle();
+    const { data: userProfile, error: profileError } = await supabase
+      .from("profiles")
+      .select("full_name, email")
+      .eq("id", user.id)
+      .maybeSingle();
 
     if (profileError) throw profileError;
 
@@ -112,7 +109,7 @@ export default function AdminDashboard() {
       role: membership.role,
     });
     setEnquiries(data || []);
-  };
+  }, [navigate]);
 
   useEffect(() => {
     let active = true;
@@ -134,7 +131,7 @@ export default function AdminDashboard() {
     return () => {
       active = false;
     };
-  }, [navigate]);
+  }, [loadDashboard]);
 
   const refreshEnquiries = async () => {
     setError("");
@@ -161,8 +158,12 @@ export default function AdminDashboard() {
   };
 
   const handleLogout = async () => {
-    await getSupabase().auth.signOut();
-    navigate("/admin/login", { replace: true });
+    try {
+      await getSupabase().auth.signOut();
+      navigate("/admin/login", { replace: true });
+    } catch {
+      setError("Unable to sign out. Please try again.");
+    }
   };
 
   const handleStatusChange = async (id, status) => {
@@ -198,7 +199,7 @@ export default function AdminDashboard() {
       setActivities([]);
       setNoteText("");
       setHistoryError("");
-      return;
+      return undefined;
     }
 
     let active = true;
@@ -286,15 +287,14 @@ export default function AdminDashboard() {
 
   const filteredEnquiries = useMemo(() => {
     return enquiries.filter((item) => {
-      const matchesStatus =
-        filter === "all" || item.status === filter;
-
+      const matchesStatus = filter === "all" || item.status === filter;
       const term = search.trim().toLowerCase();
 
       const matchesSearch =
         !term ||
-        [item.name, item.email, item.phone, item.message]
-          .some((value) => value?.toLowerCase().includes(term));
+        [item.name, item.email, item.phone, item.message].some((value) =>
+          value?.toLowerCase().includes(term)
+        );
 
       return matchesStatus && matchesSearch;
     });
@@ -319,7 +319,9 @@ export default function AdminDashboard() {
         <p className="admin-dashboard-error" role="alert">
           {error || "Administrator profile unavailable."}
         </p>
-        <button onClick={handleLogout}>Return to login</button>
+        <button type="button" onClick={handleLogout}>
+          Return to login
+        </button>
       </div>
     );
   }
@@ -367,7 +369,7 @@ export default function AdminDashboard() {
           </div>
 
           <div className="admin-enquiries-stats">
-            {STATUSES.filter((s) => s !== "all").map((status) => (
+            {STATUSES.filter((status) => status !== "all").map((status) => (
               <button
                 type="button"
                 key={status}
@@ -384,14 +386,14 @@ export default function AdminDashboard() {
             <input
               type="search"
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(event) => setSearch(event.target.value)}
               placeholder="Search name, email, phone or message..."
               aria-label="Search enquiries"
             />
 
             <select
               value={filter}
-              onChange={(e) => setFilter(e.target.value)}
+              onChange={(event) => setFilter(event.target.value)}
               aria-label="Filter enquiries by status"
             >
               {STATUSES.map((status) => (
@@ -452,8 +454,10 @@ export default function AdminDashboard() {
         {selected && (
           <div
             className="admin-enquiry-overlay"
-            onMouseDown={(e) => {
-              if (e.target === e.currentTarget) setSelected(null);
+            onMouseDown={(event) => {
+              if (event.target === event.currentTarget) {
+                setSelected(null);
+              }
             }}
           >
             <section
@@ -477,8 +481,12 @@ export default function AdminDashboard() {
               <h3>{selected.name}</h3>
 
               <p><strong>Phone:</strong> {selected.phone}</p>
-              <p><strong>Email:</strong> {selected.email || "Not provided"}</p>
-              <p><strong>Received:</strong> {formatDate(selected.created_at)}</p>
+              <p>
+                <strong>Email:</strong> {selected.email || "Not provided"}
+              </p>
+              <p>
+                <strong>Received:</strong> {formatDate(selected.created_at)}
+              </p>
               <p><strong>Message:</strong></p>
               <p className="admin-enquiry-message">{selected.message}</p>
 
@@ -488,11 +496,11 @@ export default function AdminDashboard() {
                 id="enquiry-status"
                 value={selected.status}
                 disabled={updating}
-                onChange={(e) =>
-                  handleStatusChange(selected.id, e.target.value)
+                onChange={(event) =>
+                  handleStatusChange(selected.id, event.target.value)
                 }
               >
-                {STATUSES.filter((s) => s !== "all").map((status) => (
+                {STATUSES.filter((status) => status !== "all").map((status) => (
                   <option key={status} value={status}>
                     {statusLabel(status)}
                   </option>
@@ -510,7 +518,7 @@ export default function AdminDashboard() {
                 <form onSubmit={handleAddNote}>
                   <textarea
                     value={noteText}
-                    onChange={(e) => setNoteText(e.target.value)}
+                    onChange={(event) => setNoteText(event.target.value)}
                     placeholder="Write an internal note..."
                     rows={4}
                     maxLength={5000}
@@ -525,7 +533,9 @@ export default function AdminDashboard() {
                   </button>
                 </form>
 
-                {notes.length === 0 && !loadingHistory && (
+                {loadingHistory && <p>Loading internal notes...</p>}
+
+                {!loadingHistory && notes.length === 0 && (
                   <p className="admin-history-empty">
                     No internal notes yet.
                   </p>
@@ -540,7 +550,7 @@ export default function AdminDashboard() {
                       {formatDate(note.created_at)}
                     </small>
                   </article>
-                ))}
+                )}
               </div>
 
               <div className="admin-history-section">
@@ -549,9 +559,7 @@ export default function AdminDashboard() {
                   Recorded changes to this enquiry.
                 </p>
 
-                {loadingHistory && (
-                  <p>Loading enquiry history...</p>
-                )}
+                {loadingHistory && <p>Loading enquiry history...</p>}
 
                 {!loadingHistory && activities.length === 0 && (
                   <p className="admin-history-empty">
