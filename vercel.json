@@ -2,7 +2,7 @@
 {
   "rewrites": [
     {
-      "source": "/((?!old-page(?:/|$)).*)",
+      "source": "/((?!old-page).*)",
       "destination": "/index.html"
     }
   ]
