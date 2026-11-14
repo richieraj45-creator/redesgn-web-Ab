@@ -1,8 +1,122 @@
-
 {
   "routes": [
     {
       "handle": "filesystem"
+    },
+    {
+      "src": "^/product-category/womens/?$",
+      "headers": { "Location": "/collections/womens" },
+      "status": 301
+    },
+    {
+      "src": "^/product-category/mens/?$",
+      "headers": { "Location": "/collections/mens" },
+      "status": 301
+    },
+    {
+      "src": "^/product-category/kids/?$",
+      "headers": { "Location": "/collections" },
+      "status": 301
+    },
+    {
+      "src": "^/sarees/?$",
+      "headers": { "Location": "/collections/sarees" },
+      "status": 301
+    },
+    {
+      "src": "^/mens-clothing-store-dhekiajuli/?$",
+      "headers": { "Location": "/collections/mens" },
+      "status": 301
+    },
+    {
+      "src": "^/mens/?$",
+      "headers": { "Location": "/collections/mens" },
+      "status": 301
+    },
+    {
+      "src": "^/girls/?$",
+      "headers": { "Location": "/collections/girls" },
+      "status": 301
+    },
+    {
+      "src": "^/boys/?$",
+      "headers": { "Location": "/collections/boys" },
+      "status": 301
+    },
+    {
+      "src": "^/toys-school/?$",
+      "headers": { "Location": "/collections/toys-school" },
+      "status": 301
+    },
+    {
+      "src": "^/toy-shop-in-dhekiajuli/?$",
+      "headers": { "Location": "/collections/toys-school" },
+      "status": 301
+    },
+    {
+      "src": "^/footwear/?$",
+      "headers": { "Location": "/collections/footwear" },
+      "status": 301
+    },
+    {
+      "src": "^/home-improvements/?$",
+      "headers": { "Location": "/collections/home-improvements" },
+      "status": 301
+    },
+    {
+      "src": "^/infants/?$",
+      "headers": { "Location": "/collections/infants" },
+      "status": 301
+    },
+    {
+      "src": "^/travel-gear/?$",
+      "headers": { "Location": "/collections/travel-gear" },
+      "status": 301
+    },
+    {
+      "src": "^/traditional-wear-in-dhekiajuli/?$",
+      "headers": { "Location": "/collections/traditional-wear" },
+      "status": 301
+    },
+    {
+      "src": "^/products/?$",
+      "headers": { "Location": "/collections" },
+      "status": 301
+    },
+    {
+      "src": "^/blog/?$",
+      "headers": { "Location": "/blogs" },
+      "status": 301
+    },
+    {
+      "src": "^/product/mens-jeans-4/?$",
+      "headers": { "Location": "/collections/mens" },
+      "status": 301
+    },
+    {
+      "src": "^/product/boys-t-shirt-sleeveless/?$",
+      "headers": { "Location": "/collections/boys" },
+      "status": 301
+    },
+    {
+      "src": "^/product/mens-t-shirt-polo-9/?$",
+      "headers": { "Location": "/collections/mens" },
+      "status": 301
+    },
+    {
+      "src": "^/product/mens-t-shirt-polo-8/?$",
+      "headers": { "Location": "/collections/mens" },
+      "status": 301
+    },
+    {
+      "src": "^/product/womens-salwarsuit/?$",
+      "headers": { "Location": "/collections/traditional-wear" },
+      "status": 301
+    },
+    {
+      "src": "^/product/boys-half-pant/?$",
+      "headers": { "Location": "/collections/boys" },
+      "status": 301
     },
     {
       "src": "/old-page/?$",
