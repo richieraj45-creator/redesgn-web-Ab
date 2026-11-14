@@ -452,13 +452,13 @@ export default function About() {
             <StaggerItem>
               <article className="flex h-full flex-col border border-brand-border bg-white p-4 shadow-[0_14px_45px_rgba(31,25,18,0.07)] sm:p-5">
                 <a
-                  href="/assets/about/owners/har-ghar-tiranga-appreciation.jpg"
+                  href="/assets/about/owners/har-ghar-tiranga-appreciation.webp"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="View the full Har Ghar Tiranga certificate"
                 >
                   <img
-                    src="/assets/about/owners/har-ghar-tiranga-appreciation.jpg"
+                    src="/assets/about/owners/har-ghar-tiranga-appreciation.webp"
                     alt="Certificate of Appreciation presented to Askaran Binjraj by the Ministry of Culture for the Har Ghar Tiranga initiative"
                     className="aspect-[4/3] w-full border border-brand-border bg-white object-contain p-2"
                     loading="lazy"
@@ -481,7 +481,7 @@ export default function About() {
                   </p>
 
                   <a
-                    href="/assets/about/owners/har-ghar-tiranga-appreciation.jpg"
+                    href="/assets/about/owners/har-ghar-tiranga-appreciation.webp"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-5 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-red"
@@ -500,8 +500,8 @@ export default function About() {
                 <a
                   href={
                     trademarkPage === 0
-                      ? "/assets/about/owners/trademark-certificate-page-1.jpg"
-                      : "/assets/about/owners/trademark-annex-class-25.jpg"
+                      ? "/assets/about/owners/trademark-certificate-page-1.webp"
+                      : "/assets/about/owners/trademark-annex-class-25.webp"
                   }
                   target="_blank"
                   rel="noopener noreferrer"
@@ -511,8 +511,8 @@ export default function About() {
                   <img
                     src={
                       trademarkPage === 0
-                        ? "/assets/about/owners/trademark-certificate-page-1.jpg"
-                        : "/assets/about/owners/trademark-annex-class-25.jpg"
+                        ? "/assets/about/owners/trademark-certificate-page-1.webp"
+                        : "/assets/about/owners/trademark-annex-class-25.webp"
                     }
                     alt={
                       trademarkPage === 0
@@ -573,8 +573,8 @@ export default function About() {
                   <a
                     href={
                       trademarkPage === 0
-                        ? "/assets/about/owners/trademark-certificate-page-1.jpg"
-                        : "/assets/about/owners/trademark-annex-class-25.jpg"
+                        ? "/assets/about/owners/trademark-certificate-page-1.webp"
+                        : "/assets/about/owners/trademark-annex-class-25.webp"
                     }
                     target="_blank"
                     rel="noopener noreferrer"
