@@ -2,30 +2,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Main pages -->
-  <url>
-    <loc>https://askaranbinjraj.com/</loc>
-  </url>
-  <url>
-    <loc>https://askaranbinjraj.com/collections</loc>
-  </url>
-  <url>
-    <loc>https://askaranbinjraj.com/about</loc>
-  </url>
-  <url>
-    <loc>https://askaranbinjraj.com/careers</loc>
-  </url>
-  <url>
-    <loc>https://askaranbinjraj.com/cultures-events</loc>
-  </url>
-  <url>
-    <loc>https://askaranbinjraj.com/contact</loc>
-  </url>
-  <url>
-    <loc>https://askaranbinjraj.com/blogs</loc>
-  </url>
+  <url><loc>https://askaranbinjraj.com/</loc></url>
+  <url><loc>https://askaranbinjraj.com/collections</loc></url>
 
-  <!-- Collection pages -->
   <url><loc>https://askaranbinjraj.com/collections/sarees</loc></url>
   <url><loc>https://askaranbinjraj.com/collections/womens</loc></url>
   <url><loc>https://askaranbinjraj.com/collections/mens</loc></url>
@@ -41,18 +20,16 @@
   <url><loc>https://askaranbinjraj.com/collections/toys-school</loc></url>
   <url><loc>https://askaranbinjraj.com/collections/jewellery-lifestyle</loc></url>
 
-  <!-- Published blog articles -->
-  <url>
-    <loc>https://askaranbinjraj.com/blogs/winter-ethnic-wear-guide-askaran-binjraj</loc>
-  </url>
-  <url>
-    <loc>https://askaranbinjraj.com/blogs/why-askaran-binjraj-is-one-of-the-best-shopping-malls-in-assam</loc>
-  </url>
-  <url>
-    <loc>https://askaranbinjraj.com/blogs/why-askaran-binjraj-is-dhekiajulis-favourite-family-shopping-destination</loc>
-  </url>
+  <url><loc>https://askaranbinjraj.com/about</loc></url>
+  <url><loc>https://askaranbinjraj.com/careers</loc></url>
+  <url><loc>https://askaranbinjraj.com/cultures-events</loc></url>
+  <url><loc>https://askaranbinjraj.com/contact</loc></url>
 
-  <!-- Policy pages -->
+  <url><loc>https://askaranbinjraj.com/blogs</loc></url>
+  <url><loc>https://askaranbinjraj.com/blogs/winter-ethnic-wear-guide-askaran-binjraj</loc></url>
+  <url><loc>https://askaranbinjraj.com/blogs/why-askaran-binjraj-is-one-of-the-best-shopping-malls-in-assam</loc></url>
+  <url><loc>https://askaranbinjraj.com/blogs/why-askaran-binjraj-is-dhekiajulis-favourite-family-shopping-destination</loc></url>
+
   <url><loc>https://askaranbinjraj.com/exchange-policy</loc></url>
   <url><loc>https://askaranbinjraj.com/shipping-policy</loc></url>
   <url><loc>https://askaranbinjraj.com/terms-conditions</loc></url>
