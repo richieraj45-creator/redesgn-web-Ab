@@ -1,9 +1,16 @@
 
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/((?!old-page).*)",
-      "destination": "/index.html"
+      "handle": "filesystem"
+    },
+    {
+      "src": "/old-page/?$",
+      "status": 404
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
