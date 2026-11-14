@@ -348,3 +348,54 @@ body:not(.storefront) .App footer .interior-footer-grid ul > li + li { margin-to
     }
 }
 
+
+/* =========================================================
+   ACTIVE NAVIGATION STATE
+   Desktop: brand-red text with a subtle underline
+   Tablet/Mobile: brand-red text with semibold weight
+   ========================================================= */
+
+/* Desktop active link */
+@media (min-width: 1200px) {
+    .interior-navbar-links .interior-navbar-link.is-active {
+        color: #c8251e;
+        font-weight: 600;
+        position: relative;
+    }
+
+    .interior-navbar-links .interior-navbar-link.is-active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 18px;
+        height: 2px;
+        background-color: #c8251e;
+        border-radius: 2px;
+        pointer-events: none;
+    }
+
+    .interior-navbar-links .interior-navbar-link.is-active:hover,
+    .interior-navbar-links .interior-navbar-link.is-active:focus-visible {
+        color: #c8251e;
+    }
+}
+
+/* Tablet and mobile active links */
+.interior-navbar-mobile-nav > .flex a[aria-current="page"] {
+    color: #c8251e !important;
+    font-weight: 600;
+}
+
+/* Smooth active-state transition */
+.interior-navbar-mobile-nav > .flex a {
+    transition: color .25s ease, font-weight .25s ease;
+}
+
+/* Keep the active link clearly visible on keyboard focus */
+.interior-navbar-link.is-active:focus-visible,
+.interior-navbar-mobile-nav a[aria-current="page"]:focus-visible {
+    outline: 2px solid #c8251e;
+    outline-offset: 5px;
+}
+
