@@ -79,13 +79,69 @@ export const Navbar = () => {
               </div>
             )}
           </div>
-          <NavLink to="/collections" onClick={navigateFromMenu} className="interior-navbar-link">Collections</NavLink>
-          <NavLink to="/about" onClick={navigateFromMenu} className="interior-navbar-link">About Us</NavLink>
-          <NavLink to="/careers" onClick={navigateFromMenu} className="interior-navbar-link">Careers</NavLink>
-          <NavLink to="/cultures-events" onClick={navigateFromMenu} className="interior-navbar-link">Culture & Events</NavLink>
-          <NavLink to="/blogs" onClick={navigateFromMenu} className="interior-navbar-link">Blogs</NavLink>
-          <NavLink to="/contact" onClick={navigateFromMenu} className="interior-navbar-link">Contact</NavLink>
-        </nav>
+          
+         <NavLink
+           to="/collections"
+           end
+           onClick={navigateFromMenu}
+           className={({ isActive }) =>
+            `interior-navbar-link ${isActive ? "is-active" : ""}`
+           }
+         >
+           Collections
+         </NavLink>
+
+         <NavLink
+           to="/about"
+           onClick={navigateFromMenu}
+           className={({ isActive }) =>
+            `interior-navbar-link ${isActive ? "is-active" : ""}`
+           }
+         >
+           About Us
+         </NavLink>
+
+         <NavLink
+           to="/careers"
+           onClick={navigateFromMenu}
+           className={({ isActive }) =>
+            `interior-navbar-link ${isActive ? "is-active" : ""}`
+           }
+         >
+           Careers
+         </NavLink>
+
+         <NavLink
+           to="/cultures-events"
+           onClick={navigateFromMenu}
+           className={({ isActive }) =>
+            `interior-navbar-link ${isActive ? "is-active" : ""}`
+           }
+         >
+           Culture & Events
+         </NavLink>
+
+        <NavLink
+           to="/blogs"
+           onClick={navigateFromMenu}
+           className={({ isActive }) =>
+            `interior-navbar-link ${isActive ? "is-active" : ""}`
+           }
+         >
+            Blogs
+         </NavLink>
+
+         <NavLink
+           to="/contact"
+           onClick={navigateFromMenu}
+           className={({ isActive }) =>
+             `interior-navbar-link ${isActive ? "is-active" : ""}`
+           }
+         >
+            Contact
+         </NavLink>
+
+       </nav>
 
         <div className="interior-navbar-actions">
           <a href={CONTACT.shopUrl} target="_blank" rel="noopener noreferrer" className="interior-navbar-shop-button">
@@ -100,9 +156,70 @@ export const Navbar = () => {
       <div className={`interior-navbar-mobile-nav mobile-nav-drawer ${mobileOpen ? "open" : "closed"}`} aria-hidden={!mobileOpen}>
         <details className="border-b border-brand-border py-3"><summary className="cursor-pointer font-serif text-lg">Shop by Category</summary><div className="grid grid-cols-2 gap-x-4 py-3"><MenuLinks items={CATEGORIES} onNavigate={navigateFromMenu} /></div></details>
         <details className="border-b border-brand-border py-3"><summary className="cursor-pointer font-serif text-lg">Curated Edits</summary><div className="py-3"><MenuLinks items={EDITS} onNavigate={navigateFromMenu} /></div></details>
-        <div className="flex flex-col gap-5 py-5 font-serif text-xl">
-          <Link to="/collections" onClick={navigateFromMenu}>Collections</Link><Link to="/about" onClick={navigateFromMenu}>About Us</Link><Link to="/careers" onClick={navigateFromMenu}>Careers</Link><Link to="/cultures-events" onClick={navigateFromMenu}>Culture & Events</Link><Link to="/blogs" onClick={navigateFromMenu}>Blogs</Link><Link to="/contact" onClick={navigateFromMenu}>Contact</Link>
-        </div>
+        
+<div className="flex flex-col gap-5 py-5 font-serif text-xl">
+  <NavLink
+    to="/collections"
+    end
+    onClick={navigateFromMenu}
+    className={({ isActive }) =>
+      isActive ? "text-brand-red font-semibold" : "text-brand-ink"
+    }
+  >
+    Collections
+  </NavLink>
+
+  <NavLink
+    to="/about"
+    onClick={navigateFromMenu}
+    className={({ isActive }) =>
+      isActive ? "text-brand-red font-semibold" : "text-brand-ink"
+    }
+  >
+    About Us
+  </NavLink>
+
+  <NavLink
+    to="/careers"
+    onClick={navigateFromMenu}
+    className={({ isActive }) =>
+      isActive ? "text-brand-red font-semibold" : "text-brand-ink"
+    }
+  >
+    Careers
+  </NavLink>
+
+  <NavLink
+    to="/cultures-events"
+    onClick={navigateFromMenu}
+    className={({ isActive }) =>
+      isActive ? "text-brand-red font-semibold" : "text-brand-ink"
+    }
+  >
+    Culture & Events
+  </NavLink>
+
+  <NavLink
+    to="/blogs"
+    onClick={navigateFromMenu}
+    className={({ isActive }) =>
+      isActive ? "text-brand-red font-semibold" : "text-brand-ink"
+    }
+  >
+    Blogs
+  </NavLink>
+
+  <NavLink
+    to="/contact"
+    onClick={navigateFromMenu}
+    className={({ isActive }) =>
+      isActive ? "text-brand-red font-semibold" : "text-brand-ink"
+    }
+  >
+    Contact
+  </NavLink>
+</div>
+
         <a href={CONTACT.phoneMobileHref} className="text-xs uppercase tracking-widest text-brand-mid">Call {CONTACT.phoneMobile}</a>
       </div>
     </header>
