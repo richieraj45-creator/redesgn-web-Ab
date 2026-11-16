@@ -1159,10 +1159,47 @@ body.storefront section[id] { scroll-margin-top: 70px; }
   }
 }
 
-/* Tablet portrait: show the complete hero artwork instead of cropping the sides. */
+/* Tablet portrait: keep the hero frame close to the banner's landscape ratio.
+   This prevents object-fit: contain from leaving large empty bands above and below. */
 @media (orientation: portrait) and (min-width: 761px) and (max-width: 1100px) {
+  .sf-hero {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    max-height: none;
+  }
+
+  .sf-slide {
+    inset: 0;
+    height: 100%;
+    background: #f5eee4;
+  }
+
+  .sf-slide picture,
+  .sf-slide img {
+    width: 100%;
+    height: 100%;
+  }
+
   .sf-slide img {
     object-fit: contain;
     object-position: center center;
+    transform: none;
+  }
+
+  .sf-slide.active img,
+  .sf-slide:hover img {
+    transform: none;
+  }
+
+  /* Keep the slide number inside the hero, away from the top-left logo. */
+  .sf-counter {
+    display: block;
+    position: absolute;
+    top: auto;
+    right: clamp(16px, 3vw, 32px);
+    bottom: 18px;
+    left: auto;
+    z-index: 35;
   }
 }
