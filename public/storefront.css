@@ -1158,3 +1158,11 @@ body.storefront section[id] { scroll-margin-top: 70px; }
     transform: rotate(360deg);
   }
 }
+
+/* Tablet portrait: show the complete hero artwork instead of cropping the sides. */
+@media (orientation: portrait) and (min-width: 761px) and (max-width: 1100px) {
+  .sf-slide img {
+    object-fit: contain;
+    object-position: center center;
+  }
+}
