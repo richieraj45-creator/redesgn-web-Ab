@@ -1203,3 +1203,66 @@ body.storefront section[id] { scroll-margin-top: 70px; }
     z-index: 35;
   }
 }
+
+
+/* Mobile portrait: retain a taller, readable hero while matching the tablet's
+   complete-image treatment. This override is limited to phone-sized viewports. */
+@media (max-width: 760px) and (orientation: portrait) {
+  #hero.sf-hero {
+    --mobile-hero-media-height: clamp(270px, 82vw, 360px);
+    height: auto;
+    min-height: 0;
+    padding-top: var(--mobile-hero-media-height);
+    overflow: hidden;
+  }
+
+  #hero .sf-slide {
+    inset: 0 0 auto;
+    height: var(--mobile-hero-media-height);
+    background: #f5eee4;
+  }
+
+  #hero .sf-slide picture,
+  #hero .sf-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #hero .sf-slide img,
+  #hero .sf-slide.active img,
+  #hero .sf-slide:hover img {
+    object-fit: contain;
+    object-position: center center;
+    transform: none;
+  }
+
+  #hero .sf-hero-shade {
+    inset: 0 0 auto;
+    height: var(--mobile-hero-media-height);
+  }
+
+  #hero .sf-hero-content {
+    padding: 24px 18px 64px;
+  }
+
+  #hero .sf-counter {
+    display: block;
+    position: absolute;
+    top: auto;
+    right: 14px;
+    bottom: 12px;
+    left: auto;
+    z-index: 35;
+  }
+
+  #hero .sf-counter span {
+    color: rgba(33,24,19,.78);
+    text-shadow: 0 1px 8px rgba(255,255,255,.65);
+    font-size: 1.45rem;
+  }
+
+  #hero .sf-counter span small {
+    color: rgba(33,24,19,.58);
+  }
+}
