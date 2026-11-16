@@ -1,3 +1,4 @@
+
 /* Askaran Binjraj — Storefront (plain JS: splash, slider, reveals, nav) */
 (function () {
   "use strict";
@@ -156,7 +157,7 @@
     var image = slides[current] && slides[current].querySelector("img");
     if (!hero || !image || !image.naturalWidth || !image.naturalHeight) return;
     /* A touch more vertical room makes the mobile banner feel closer to the desktop hero. */
-    hero.style.setProperty("--hero-image-ratio", ((image.naturalHeight / image.naturalWidth) * 1.08).toFixed(4));
+    hero.style.setProperty("--hero-image-ratio", (image.naturalHeight / image.naturalWidth).toFixed(4));
   }
 
   function render(i) {
@@ -194,6 +195,7 @@
       if (image) image.addEventListener("load", fitMobileHeroImage, { once: true });
     });
     fitMobileHeroImage();
+    window.addEventListener("resize", fitMobileHeroImage, { passive: true });
     var prev = document.getElementById("hero-prev");
     var next = document.getElementById("hero-next");
     if (prev) prev.addEventListener("click", function () { render(current - 1); startAuto(); });
@@ -264,3 +266,7 @@
     });
   }
 })();
+
+
+
+
