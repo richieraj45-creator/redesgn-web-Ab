@@ -1865,3 +1865,85 @@ body.storefront section[id] { scroll-margin-top: 70px; }
     font-size: .47rem;
   }
 }
+
+
+/* Mobile typography refinement: scale copy to the banner and reduce unused panel space. */
+@media (max-width: 760px) and (orientation: portrait) {
+  #hero.sf-hero {
+    --mobile-copy-panel-height: 218px;
+  }
+
+  #hero .sf-hero-content {
+    padding: 34px 20px 30px;
+  }
+
+  #hero .sf-hero-inner,
+  #hero .sf-hero-inner.side-right {
+    max-width: 430px;
+  }
+
+  #hero .sf-hero-inner .sf-eyebrow {
+    font-size: .56rem;
+    letter-spacing: .19em;
+    padding: 6px 10px;
+    margin-bottom: 9px;
+  }
+
+  #hero .sf-hero h1,
+  #hero .sf-hero-inner.side-right h1 {
+    font-size: clamp(1.62rem, 6.3vw, 2.05rem);
+    line-height: 1.04;
+    margin-bottom: 8px;
+  }
+
+  #hero .sf-hero .sf-hero-sub,
+  #hero .sf-hero-inner.side-right .sf-hero-sub {
+    font-size: clamp(.72rem, 2.9vw, .82rem);
+    line-height: 1.4;
+    margin-bottom: 12px;
+    max-width: 40ch;
+  }
+
+  #hero .sf-cta-row,
+  #hero .sf-hero-inner.side-right .sf-cta-row {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 7px;
+  }
+
+  #hero .sf-cta-row a {
+    flex: 0 1 auto;
+    min-width: 0;
+    min-height: 36px;
+    padding: 8px 10px;
+    font-size: .46rem;
+    letter-spacing: .055em;
+  }
+}
+
+/* Small phones: preserve readable type while keeping the two actions compact. */
+@media (max-width: 380px) and (orientation: portrait) {
+  #hero.sf-hero {
+    --mobile-copy-panel-height: 224px;
+  }
+
+  #hero .sf-hero-content {
+    padding: 30px 16px 28px;
+  }
+
+  #hero .sf-hero h1,
+  #hero .sf-hero-inner.side-right h1 {
+    font-size: clamp(1.52rem, 6.5vw, 1.8rem);
+  }
+
+  #hero .sf-hero .sf-hero-sub,
+  #hero .sf-hero-inner.side-right .sf-hero-sub {
+    font-size: .71rem;
+  }
+
+  #hero .sf-cta-row a {
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: .43rem;
+  }
+}
