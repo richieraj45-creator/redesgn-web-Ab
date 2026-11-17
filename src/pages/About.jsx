@@ -234,7 +234,7 @@ export default function About() {
                   aria-label="Read Chandan Mal Bothra's biography"
                   className="relative block w-full aspect-[4/5] overflow-hidden border-0 bg-brand-alt p-0 text-left"
                 >
-                  <img src="/assets/about/owners/chandan-mal-bothra.jpg"
+                  <img src="/assets/about/owners/chandan-mal-bothra.webp"
                        alt="Chandan Mal Bothra"
                        className="h-full w-full object-cover object-[center_28%] contrast-[1.10] brightness-[1.02] saturate-[1.02] scale-[1.07] transition-transform duration-700 group-hover:scale-[1.10]"
                        loading="lazy"
@@ -259,7 +259,7 @@ export default function About() {
                    aria-label="Read Vikram Bothra's biography"
                    className="relative block w-full aspect-[4/5] overflow-hidden border-0 bg-brand-alt p-0 text-left"
                 >
-                  <img src="/assets/about/owners/vikram-bothra.jpg" alt="Vikram Bothra"  className="h-full w-full object-cover object-[center_25%] contrast-[1.07] brightness-[1.02] saturate-[1.03] scale-[1.05] transition-transform duration-700 group-hover:scale-[1.09]"
+                  <img src="/assets/about/owners/vikram-bothra.webp" alt="Vikram Bothra"  className="h-full w-full object-cover object-[center_25%] contrast-[1.07] brightness-[1.02] saturate-[1.03] scale-[1.05] transition-transform duration-700 group-hover:scale-[1.09]"
                     loading="lazy"
                     decoding="async"/>
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 to-transparent" />
@@ -654,8 +654,8 @@ export default function About() {
                 <img
                   src={
                     activeLeader === "vikram"
-                      ? "/assets/about/owners/vikram-bothra.jpg"
-                      : "/assets/about/owners/chandan-mal-bothra.jpg"
+                      ? "/assets/about/owners/vikram-bothra.webp"
+                      : "/assets/about/owners/chandan-mal-bothra.webp"
                   }
                   alt={
                     activeLeader === "vikram"
