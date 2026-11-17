@@ -67,11 +67,62 @@ const ScrollToTop = () => {
   const navigationType = useNavigationType();
 
   useLayoutEffect(() => {
-    // Preserve saved scroll position when using browser Back or Forward.
     if (navigationType === "POP") return;
 
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [pathname, navigationType]);
+
+  return null;
+};
+
+// Initialize Lenis only on public website routes.
+const LenisController = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (pathname.startsWith("/admin")) {
+      return undefined;
+    }
+
+    let lenis = null;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const supportsDesktopSmoothScroll = window.matchMedia(
+      "(min-width: 768px)"
+    ).matches;
+
+    if (prefersReducedMotion || !supportsDesktopSmoothScroll) {
+      return undefined;
+    }
+
+    let rafId;
+
+    try {
+      lenis = new Lenis({ lerp: 0.065, wheelMultiplier: 0.88 });
+
+      const raf = (time) => {
+        lenis.raf(time);
+        rafId = requestAnimationFrame(raf);
+      };
+
+      rafId = requestAnimationFrame(raf);
+    } catch (error) {
+      lenis = null;
+    }
+
+    return () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+
+      if (lenis) {
+        lenis.destroy();
+      }
+    };
+  }, [pathname]);
 
   return null;
 };
@@ -159,44 +210,9 @@ function AppRoutes() {
 }
 
 function App() {
-  useEffect(() => {
-    let lenis = null;
-
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    const supportsDesktopSmoothScroll = window.matchMedia(
-      "(min-width: 768px)"
-    ).matches;
-
-    if (prefersReducedMotion || !supportsDesktopSmoothScroll) {
-      return undefined;
-    }
-
-    try {
-      lenis = new Lenis({ lerp: 0.065, wheelMultiplier: 0.88 });
-
-      const raf = (time) => {
-        lenis.raf(time);
-        lenis._id = requestAnimationFrame(raf);
-      };
-
-      lenis._id = requestAnimationFrame(raf);
-    } catch (e) {
-      lenis = null;
-    }
-
-    return () => {
-      if (lenis) {
-        cancelAnimationFrame(lenis._id);
-        lenis.destroy();
-      }
-    };
-  }, []);
-
   return (
     <BrowserRouter>
+      <LenisController />
       <AppRoutes />
 
       <Toaster
