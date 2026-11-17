@@ -1,12 +1,13 @@
+
 import { useState } from "react";
-import axios from "axios";
 import { toast } from "sonner";
 import { MapPin, Phone, Mail, Clock, ArrowUpRight, Send } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { CONTACT, CONTACT_LOCATION_IMG } from "../data/siteData";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const SUPABASE_URL = process.env.REACT_APP_SUPABASE_URL;
+const SUPABASE_KEY = process.env.REACT_APP_SUPABASE_PUBLISHABLE_KEY;
 
 const INFO_CARDS = [
   {
@@ -38,12 +39,40 @@ export default function Contact() {
 
   const submit = async (e) => {
     e.preventDefault();
+
+    if (sending) return;
+
     setSending(true);
+
     try {
-      await axios.post(`${API}/enquiries`, form);
+      if (!SUPABASE_URL || !SUPABASE_KEY) {
+        throw new Error("Supabase configuration is missing.");
+      }
+
+      const response = await fetch(
+        `${SUPABASE_URL}/functions/v1/submit-enquiry`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "apikey": SUPABASE_KEY,
+            "Authorization": `Bearer ${SUPABASE_KEY}`,
+          },
+          body: JSON.stringify(form),
+        }
+      );
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Enquiry submission failed.");
+      }
+
       toast.success("Thank you! Our team will reach out during shopping hours.");
+
       setForm({ name: "", phone: "", email: "", message: "" });
-    } catch {
+    } catch (error) {
+      console.error("Enquiry submission error:", error);
       toast.error("Could not send your enquiry. Please call us directly.");
     } finally {
       setSending(false);
