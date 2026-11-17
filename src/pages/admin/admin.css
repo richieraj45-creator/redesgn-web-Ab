@@ -733,20 +733,25 @@
   }
 }
 
-/* Fix enquiry details modal scrolling */
+/* Enquiry modal: force internal scrolling */
 .admin-enquiry-overlay {
-  align-items: flex-start !important;
+  position: fixed !important;
+  inset: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   overflow-y: auto !important;
+  padding: 20px !important;
 }
 
 .admin-enquiry-detail {
-  height: auto !important;
-  max-height: calc(100vh - 40px) !important;
+  height: calc(100vh - 40px) !important;
+  height: calc(100dvh - 40px) !important;
   max-height: calc(100dvh - 40px) !important;
-  overflow-y: auto !important;
   min-height: 0 !important;
-  margin: auto 0 !important;
-  overscroll-behavior: contain;
+  overflow-y: scroll !important;
+  overscroll-behavior-y: contain;
+  flex: 0 1 auto !important;
 }
 
 
