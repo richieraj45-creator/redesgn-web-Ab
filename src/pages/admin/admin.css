@@ -485,27 +485,32 @@
 
 /* Enquiry detail modal */
 
+
 .admin-enquiry-overlay {
   position: fixed;
   inset: 0;
   z-index: 9999;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 20px;
+  overflow-y: auto;
   background: rgba(0, 0, 0, 0.55);
 }
 
 .admin-enquiry-detail {
   width: 100%;
   max-width: 560px;
-  max-height: 85vh;
-  overflow-y: auto;
+  max-height: none;
+  overflow: visible;
+  flex: 0 0 auto;
+  margin: auto 0;
   padding: 30px;
   background: #fff;
   border: 1px solid #e7e3dc;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
 }
+
 
 .admin-enquiry-detail-heading {
   display: flex;
