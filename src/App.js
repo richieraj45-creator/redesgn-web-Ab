@@ -98,8 +98,15 @@ function AppRoutes() {
         <Route path="/admin/login" element={<AdminLogin />} />
 
         <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<AdminDashboard />} />
-        </Route>
+  <Route
+    index
+    element={<Navigate to="enquiries" replace />}
+  />
+  <Route
+    path="enquiries"
+    element={<AdminDashboard />}
+  />
+</Route>
 
         {/* Existing public routes */}
         <Route path="/" element={<HomeRedirect />} />
