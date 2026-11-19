@@ -24,6 +24,7 @@ import Contact from "@/pages/Contact";
 import CultureEvents from "@/pages/CultureEvents";
 import Blogs, { BlogPostPage } from "@/pages/Blogs";
 import { BLOG_POSTS, getBlogPost } from "@/data/blogPosts";
+import { CATEGORIES } from "@/data/siteData";
 import PolicyPage from "@/pages/PolicyPage";
 
 // Admin components
@@ -37,29 +38,117 @@ const BlogRoute = () => {
   const slug = pathname.split("/").filter(Boolean).pop();
   const post = getBlogPost(slug);
 
-  useEffect(() => {
-    if (post) {
-      document.title = `${post.title} | Askaran Binjraj`;
-    }
-
-    return () => {
-      document.title = "Askaran Binjraj | Quality. Variety. Trust.";
-    };
-  }, [post]);
-
   return post ? <BlogPostPage post={post} /> : <Navigate to="/blogs" replace />;
 };
 
-const BlogsPage = () => {
+const BlogsPage = () => <Blogs />;
+
+const SITE_ORIGIN = "https://askaranbinjraj.com";
+
+const setMetaContent = (attribute, name, content) => {
+  let element = document.head.querySelector("meta[" + attribute + "=\"" + name + "\"]");
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute(attribute, name);
+    document.head.appendChild(element);
+  }
+  element.setAttribute("content", content);
+};
+
+const setCanonicalUrl = (url) => {
+  let element = document.head.querySelector("link[rel=\"canonical\"]");
+  if (!element) {
+    element = document.createElement("link");
+    element.setAttribute("rel", "canonical");
+    document.head.appendChild(element);
+  }
+  element.setAttribute("href", url);
+};
+
+const removeCanonicalUrl = () => {
+  document.head.querySelector("link[rel=\"canonical\"]")?.remove();
+};
+
+const makeDescription = (value) => {
+  const clean = value.replace(/\s+/g, " ").trim();
+  if (clean.length <= 155) return clean;
+  return clean.slice(0, 152).replace(/\s+\S*$/, "") + "...";
+};
+
+const getPageSEO = (pathname) => {
+  const path = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
+  if (path === "/") {
+    return { title: "Shopping Mall in Dhekiajuli, Assam | Askaran Binjraj", description: "Explore fashion, Assam silk, sarees, footwear, beauty, travel and home essentials at Askaran Binjraj in Dhekiajuli, Assam. Visit us or shop online." };
+  }
+  if (path === "/collections") {
+    return { title: "Clothing, Travel & Home Collections | Askaran Binjraj", description: "Browse clothing, traditional wear, footwear, travel, home and family essentials at Askaran Binjraj in Dhekiajuli, Assam. Find your next favourite in store or online." };
+  }
+  if (path.startsWith("/collections/")) {
+    const slug = path.slice("/collections/".length);
+    const category = CATEGORIES.find((item) => item.slug === slug);
+    if (!category) return null;
+    const categoryName = category.slug === "womens" ? "Women’s Fashion" : category.slug === "mens" ? "Men’s Clothing" : category.name;
+    const description = makeDescription((category.intro?.[0] || "Explore the " + categoryName + " collection.") + " Visit Askaran Binjraj in Dhekiajuli, Assam.");
+    return { title: categoryName + " in Dhekiajuli, Assam | Askaran Binjraj", description };
+  }
+  if (path === "/about") {
+    return { title: "Our Story | Askaran Binjraj, Dhekiajuli", description: "Discover Askaran Binjraj’s family retail story since 1880, six generations, and a shopping destination for fashion, heritage and everyday needs in Dhekiajuli, Assam." };
+  }
+  if (path === "/careers") {
+    return { title: "Careers | Askaran Binjraj, Dhekiajuli", description: "Explore retail, digital, people, finance, inventory and buying career opportunities at Askaran Binjraj in Dhekiajuli, Assam." };
+  }
+  if (path === "/contact") {
+    return { title: "Visit & Contact | Askaran Binjraj, Dhekiajuli", description: "Plan a visit to Askaran Binjraj Shopping Mall at NH-15, Ward No. 7, Dhekiajuli, Sonitpur, Assam. Open daily from 10:00 AM to 10:00 PM." };
+  }
+  if (path === "/cultures-events") {
+    return { title: "Culture & Events | Askaran Binjraj, Assam", description: "Discover culture, celebrations and community events at Askaran Binjraj in Dhekiajuli, Assam." };
+  }
+  if (path === "/blogs") {
+    return { title: "Style Guides & Stories | Askaran Binjraj", description: "Read style guides, heritage stories and family shopping inspiration from Askaran Binjraj in Dhekiajuli, Assam." };
+  }
+  if (path.startsWith("/blogs/")) {
+    const post = getBlogPost(path.slice("/blogs/".length));
+    return post ? { title: post.title + " | Askaran Binjraj", description: post.excerpt } : null;
+  }
+  const policies = {
+    "/exchange-policy": { title: "Exchange Policy | Askaran Binjraj", description: "Review the exchange policy for products purchased at Askaran Binjraj Shopping Mall in Dhekiajuli, Assam." },
+    "/shipping-policy": { title: "Shipping Policy | Askaran Binjraj", description: "Review the shipping policy and delivery information for Askaran Binjraj online orders." },
+    "/terms-conditions": { title: "Terms & Conditions | Askaran Binjraj", description: "Read the terms and conditions for using the Askaran Binjraj website and online services." },
+    "/disclaimer": { title: "Disclaimer | Askaran Binjraj", description: "Read the website and product information disclaimer for Askaran Binjraj." },
+  };
+  return policies[path] || null;
+};
+
+const PageSEO = () => {
+  const { pathname } = useLocation();
+
   useEffect(() => {
-    document.title = "Blogs & Stories | Askaran Binjraj";
+    const path = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
+    const isAdmin = path.startsWith("/admin");
+    const page = isAdmin ? null : getPageSEO(path);
 
-    return () => {
-      document.title = "Askaran Binjraj | Quality. Variety. Trust.";
-    };
-  }, []);
+    if (!page) {
+      setMetaContent("name", "robots", "noindex, nofollow");
+      removeCanonicalUrl();
+      return;
+    }
 
-  return <Blogs />;
+    const canonicalUrl = SITE_ORIGIN + (path === "/" ? "/" : path);
+    document.title = page.title;
+    setMetaContent("name", "description", page.description);
+    setMetaContent("name", "robots", "index, follow");
+    setMetaContent("property", "og:type", "website");
+    setMetaContent("property", "og:site_name", "Askaran Binjraj");
+    setMetaContent("property", "og:title", page.title);
+    setMetaContent("property", "og:description", page.description);
+    setMetaContent("property", "og:url", canonicalUrl);
+    setMetaContent("name", "twitter:card", "summary");
+    setMetaContent("name", "twitter:title", page.title);
+    setMetaContent("name", "twitter:description", page.description);
+    setCanonicalUrl(canonicalUrl);
+  }, [pathname]);
+
+  return null;
 };
 
 const ScrollToTop = () => {
@@ -143,6 +232,7 @@ function AppRoutes() {
   return (
     <div className={isAdminRoute ? "admin-route-root" : "App"}>
       <ScrollToTop />
+      <PageSEO />
 
       {!isAdminRoute && <Navbar />}
 
