@@ -4,6 +4,16 @@
       "handle": "filesystem"
     },
     {
+      "src": "^/about-us/?$",
+      "headers": { "Location": "/about" },
+      "status": 301
+    },
+    {
+      "src": "^/best-shopping-mall-in-assam/?$",
+      "headers": { "Location": "/about" },
+      "status": 301
+    },
+    {
       "src": "^/product-category/womens/?$",
       "headers": { "Location": "/collections/womens" },
       "status": 301
