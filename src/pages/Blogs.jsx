@@ -1,65 +1,71 @@
-import { Link, useParams } from "react-router-dom";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowUpRight, Clock3 } from "lucide-react";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { Reveal } from "../components/Reveal";
 import { BLOG_POSTS } from "../data/blogPosts";
 
 export default function Blogs() {
-  const { slug } = useParams();
-  const post = BLOG_POSTS.find((item) => item.slug === slug);
-
-  if (slug && !post) return (
-    <main className="mx-auto max-w-7xl px-5 py-24 text-brand-ink" data-testid="blog-not-found">
-      <h1 className="font-serif text-4xl">Story not found</h1>
-      <Link className="mt-5 inline-flex items-center gap-2 text-brand-red" to="/blogs">Back to all stories <ArrowRight size={16} /></Link>
-    </main>
-  );
-
   return (
-    <main className="bg-brand-paper" data-testid={post ? "blog-post" : "blogs-page"}>
-      <section className="border-b border-brand-border" id="latest">
-        <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 md:py-16 lg:px-12">
-          <Breadcrumbs items={post ? [{ label: "Stories", to: "/blogs" }, { label: post.title }] : [{ label: "Stories" }]} className="mb-7" />
-          {post ? (
-            <article className="mx-auto max-w-4xl">
-              <p className="eyebrow">{post.category}</p>
-              <h2 className="mt-4 font-serif text-3xl font-medium leading-tight sm:text-5xl">{post.title}</h2>
-              <div className="mt-8 aspect-[16/8] overflow-hidden bg-brand-alt"><img src={post.image} alt="" className="h-full w-full object-cover" fetchPriority="high" /></div>
-              <div className="mt-8 grid gap-8 lg:grid-cols-12">
-                <div className="space-y-5 lg:col-span-8">{post.paragraphs.map((paragraph) => <p key={paragraph} className="text-base leading-relaxed text-brand-mid">{paragraph}</p>)}</div>
-                <aside className="h-fit border-l-2 border-brand-red pl-5 lg:col-span-4">
-                  <h2 className="font-serif text-xl">Keep exploring</h2>
-                  <ul className="mt-4 space-y-3">{post.links.map((link) => <li key={link.to}><Link className="inline-flex items-center gap-2 text-sm text-brand-red hover:underline" to={link.to}>{link.label}<ArrowUpRight size={14} /></Link></li>)}</ul>
-                </aside>
-              </div>
-              <nav className="mt-12 border-t border-brand-border pt-6" aria-label="More stories">
-                <h2 className="font-serif text-xl">More stories</h2>
-                <div className="mt-4 flex flex-wrap gap-x-6 gap-y-3">{BLOG_POSTS.filter((item) => item.slug !== post.slug).map((item) => <Link key={item.slug} className="text-sm text-brand-red hover:underline" to={`/blogs/${item.slug}`}>{item.title}</Link>)}</div>
-              </nav>
-            </article>
-          ) : (
-            <>
-              <div data-page-heading="true">
-                <p className="eyebrow">Stories · Ideas · Inspiration</p>
-                <h2 className="mt-4 max-w-3xl font-serif text-3xl font-medium leading-tight sm:text-5xl">The Askaran Binjraj journal</h2>
-                <p className="mt-5 max-w-2xl text-base leading-relaxed text-brand-mid">Discover stories about our family legacy, heritage, style and a day at the mall.</p>
-              </div>
-              <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {BLOG_POSTS.map((item) => (
-                  <Reveal key={item.slug}>
-                    <article className="h-full overflow-hidden border border-brand-border bg-white/70">
-                      <Link to={`/blogs/${item.slug}`} className="group block">
-                        <div className="aspect-[16/10] overflow-hidden bg-brand-alt"><img src={item.image} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" /></div>
-                        <div className="p-5 sm:p-6"><p className="text-[10px] uppercase tracking-[0.2em] text-brand-red">{item.category}</p><h3 className="mt-3 font-serif text-xl leading-snug text-brand-ink">{item.title}</h3><p className="mt-3 text-sm leading-relaxed text-brand-mid">{item.excerpt}</p><span className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-brand-ink">Read story <ArrowRight size={14} /></span></div>
-                      </Link>
-                    </article>
-                  </Reveal>
-                ))}
-              </div>
-            </>
-          )}
+    <main className="bg-brand-paper" data-testid="blogs-page">
+      <section className="relative isolate overflow-hidden bg-[#e9dfd2]">
+        <img src="/assets/blogs/best-shopping-mall-assam.webp" alt="Askaran Binjraj in Dhekiajuli, Assam" className="absolute inset-0 -z-20 h-full w-full object-cover object-center opacity-25" fetchPriority="high" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-paper via-brand-paper/90 to-brand-paper/45" />
+        <div className="mx-auto flex min-h-[360px] max-w-7xl flex-col justify-center px-5 py-16 sm:px-8 md:min-h-[420px] lg:px-12">
+          <Reveal className="max-w-3xl">
+            <Breadcrumbs items={[{ label: "Blogs & Stories" }]} className="mb-7" />
+            <p className="eyebrow">Stories · Ideas · Inspiration</p>
+            <h1 className="mt-4 font-serif text-5xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">Stories from <span className="italic text-brand-red">Askaran Binjraj.</span></h1>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-brand-mid sm:text-lg">Explore seasonal style, family shopping and the people and place behind our Dhekiajuli store.</p>
+          </Reveal>
         </div>
       </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8 md:py-20 lg:px-12" aria-labelledby="latest-stories">
+        <div className="mb-8 flex items-end justify-between gap-4 border-b border-brand-border pb-5 sm:mb-10">
+          <div><p className="eyebrow">From the journal</p><h2 id="latest-stories" className="mt-2 font-serif text-3xl sm:text-4xl">The latest stories</h2></div>
+          <span className="pb-1 text-xs uppercase tracking-[0.16em] text-brand-muted">{BLOG_POSTS.length} stories</span>
+        </div>
+        <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+          {BLOG_POSTS.map((post, index) => (
+            <Reveal key={post.slug} className="group flex flex-col overflow-hidden border border-brand-border bg-white shadow-[0_14px_45px_rgba(31,25,18,0.06)]" style={{ transitionDelay: `${index * 80}ms` }}>
+              <Link to={`/blogs/${post.slug}`} className="relative block aspect-[4/3] overflow-hidden bg-brand-alt" aria-label={`Read ${post.title}`}>
+                <img src={post.image} alt={post.imageAlt} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+              </Link>
+              <div className="flex flex-1 flex-col p-5 sm:p-6">
+                <div className="flex items-center justify-between gap-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-red"><span>{post.category}</span><span className="text-brand-muted">{post.date}</span></div>
+                <h2 className="mt-4 font-serif text-2xl leading-snug"><Link to={`/blogs/${post.slug}`} className="transition-colors hover:text-brand-red">{post.title}</Link></h2>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-brand-mid">{post.excerpt}</p>
+                <Link to={`/blogs/${post.slug}`} className="mt-6 inline-flex items-center gap-2 border-t border-brand-border pt-4 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-ink transition-colors hover:text-brand-red">Read story <ArrowUpRight className="h-3.5 w-3.5" /></Link>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
+
+export function BlogPostPage({ post }) {
+  return (
+    <main className="bg-brand-paper" data-testid="blog-post-page">
+      <header className="mx-auto max-w-7xl px-5 pb-10 pt-8 sm:px-8 md:pb-14 lg:px-12">
+        <Breadcrumbs items={[{ label: "Blogs & Stories", to: "/blogs" }, { label: post.title }]} className="mb-8" />
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="eyebrow">{post.category} · {post.date}</p>
+          <h1 className="mt-4 font-serif text-4xl leading-tight tracking-tight sm:text-5xl lg:text-6xl">{post.title}</h1>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-brand-mid sm:text-lg">{post.excerpt}</p>
+          <span className="mt-5 inline-flex items-center gap-2 text-xs text-brand-muted"><Clock3 className="h-3.5 w-3.5" /> 4 min read</span>
+        </div>
+      </header>
+      <figure className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12"><img src={post.image} alt={post.imageAlt} className="aspect-[16/8] max-h-[600px] w-full object-cover" fetchPriority="high" /></figure>
+      <article className="mx-auto max-w-3xl px-5 py-12 sm:px-8 md:py-16">
+        <p className="font-serif text-xl leading-relaxed text-brand-ink sm:text-2xl">{post.intro}</p>
+        <div className="mt-10 space-y-8">
+          {post.sections.map((section) => <section key={section.heading}><h2 className="font-serif text-2xl sm:text-3xl">{section.heading}</h2><p className="mt-3 text-base leading-8 text-brand-mid">{section.body}</p></section>)}
+        </div>
+        <div className="mt-12 border-y border-brand-border py-8"><p className="font-serif text-xl italic leading-relaxed">{post.cta}</p><div className="mt-5 flex flex-wrap gap-x-6 gap-y-3">{post.links.map((link) => <Link key={link.to} to={link.to} className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.13em] text-brand-red hover:text-brand-redDark">{link.label}<ArrowUpRight className="h-3 w-3" /></Link>)}</div></div>
+        <Link to="/blogs" className="mt-8 inline-block text-sm text-brand-mid underline underline-offset-4 hover:text-brand-red">← Back to all stories</Link>
+      </article>
     </main>
   );
 }

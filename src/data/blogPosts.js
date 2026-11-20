@@ -1,65 +1,61 @@
 export const BLOG_POSTS = [
   {
-    slug: "a-family-shopping-destination-in-assam",
-    title: "A Family Shopping Destination in Assam",
-    category: "The Askaran Binjraj Story",
-    excerpt: "Discover what makes a welcoming, all-under-one-roof shopping visit for families in Dhekiajuli.",
-    image: "/assets/about/central-retail-floor.webp",
-    paragraphs: [
-      "For generations, families have come to Askaran Binjraj in Dhekiajuli to find clothing, occasion wear and everyday essentials together. The experience is shaped by variety, personal service and a comfortable place to take your time.",
-      "From fashion for women, men and children to footwear, jewellery, travel gear, home furnishings, kitchen essentials, toys and school needs, the mall brings a wide range of choices under one roof.",
-      "Plan a visit, explore the collections and ask our team for help finding what you need. Askaran Binjraj is located in Dhekiajuli, Sonitpur, Assam."
-    ],
-    links: [{ label: "Explore the collections", to: "/collections" }, { label: "Read our story", to: "/about" }],
-  },
-  {
-    slug: "assam-silk-and-heritage-weaves",
-    title: "Assam Silk and Heritage Weaves",
-    category: "Style & Heritage",
-    excerpt: "A closer look at traditional weaves and occasion styles represented in the mall’s collection.",
-    image: "/assets/assam-silk-mekhela.jpg",
-    paragraphs: [
-      "Traditional Assamese and Indian weaves carry stories through their texture, colour and craft. At Askaran Binjraj, visitors can explore Assam silk, handloom styles, Banarasi sarees and occasion wear alongside contemporary fashion.",
-      "Whether you are preparing for a celebration or looking for a piece to wear every day, take time to compare fabrics, patterns and finishing. Our team can help you explore the styles available in store.",
-      "Visit our saree collection page to discover more about heritage and occasion wear."
-    ],
-    links: [{ label: "Explore sarees and traditional wear", to: "/collections/sarees" }, { label: "Plan your visit", to: "/contact" }],
-  },
-  {
-    slug: "a-food-break-while-you-shop",
-    title: "A Food Break While You Shop",
-    category: "Inside the Mall",
-    excerpt: "Make time for a vegetarian dining break at Chatar Patar during your visit.",
-    image: "/assets/about/chatar-patar-interior.webp",
-    paragraphs: [
-      "A day of browsing is even better with time to pause. Chatar Patar offers pure vegetarian dining inside the mall, giving visitors a place to take a food break during their shopping visit.",
-      "Explore the mall, enjoy a relaxed break and continue your visit when you are ready. For current offerings and availability, please contact the store directly."
-    ],
-    links: [{ label: "About Askaran Binjraj", to: "/about" }, { label: "Get in touch", to: "/contact" }],
-  },
-  {
-    slug: "finding-your-occasion-wear",
-    title: "Finding Occasion Wear for Every Generation",
-    category: "Style & Heritage",
-    excerpt: "Explore celebration-ready styles, from sarees and lehengas to contemporary family fashion.",
-    image: "/assets/hero-bridal.png",
-    paragraphs: [
-      "Celebrations bring families together, and choosing what to wear is part of the occasion. Askaran Binjraj brings together traditional and contemporary options, including sarees, lehengas and clothing for the whole family.",
-      "Explore the range in person to compare colours, fabrics and details. Our collections are shaped for everyday style as well as meaningful celebrations."
-    ],
-    links: [{ label: "Browse collections", to: "/collections" }, { label: "Discover the family story", to: "/about" }],
-  },
-  {
     slug: "winter-ethnic-wear-guide-askaran-binjraj",
-    title: "A Guide to Winter Ethnic Wear",
+    legacySlug: "winter-ethnic-wear-guide-askaran-binjraj",
+    title: "Embrace the Festive Chills: Your Ultimate Guide to Winter Ethnic Wear",
     category: "Style & Heritage",
-    excerpt: "Layer rich fabrics, shawls and festive styles for cooler days and winter celebrations.",
-    image: "/assets/hero-bridal.png",
-    paragraphs: [
-      "Cooler days and winter celebrations are a chance to bring warmth and colour together. Velvet, woven shawls and richer silk fabrics can add texture to a festive outfit, while a light ethnic jacket can make a simple kurti feel more occasion-ready.",
-      "For family gatherings, weddings or seasonal celebrations, choose pieces that feel comfortable as well as special. Explore traditional and contemporary options for women, men and children at Askaran Binjraj.",
-      "Visit the mall in Dhekiajuli to browse available styles and ask the team for help finding the right fit for your occasion."
+    date: "November 2026",
+    image: "/assets/blogs/winter-ethnic-wear.webp",
+    imageAlt: "Festive winter ethnic wear in rich seasonal colours",
+    excerpt: "Bring warmth and festive elegance together with velvet, thoughtful layers, statement shawls and rich silks.",
+    intro: "As the festive season gives way to Dhekiajuli’s cooler winter months, the change in weather is a chance to bring warmth and traditional style together. Wedding celebrations and winter gatherings call for thoughtful layers, rich textures and colours that feel special.",
+    sections: [
+      { heading: "The richness of velvet", body: "Velvet brings a soft, warm feel and a naturally festive look. Deep maroon, emerald and midnight blue work beautifully for evening gatherings. For a wedding, embroidered velvet can make a striking centrepiece for an occasion outfit." },
+      { heading: "Layer with an ethnic jacket", body: "An embroidered jacket or embellished koti adds warmth while letting a kurti or salwar suit remain the focus. Choose a long silk layer for a flowing silhouette or a shorter jacket for a lighter, easy-to-style finish." },
+      { heading: "Make a shawl part of the look", body: "A woven pashmina, an embroidered shawl or a silk drape can take the place of a regular dupatta on a cool day. Styled over a saree or Anarkali, it adds texture and a little extra comfort." },
+      { heading: "Choose silk for festive days", body: "Assam silk, Banarasi and Chanderi bring a beautiful sheen to daytime events and winter celebrations. Their rich texture makes them timeless choices for family gatherings and special occasions." },
     ],
-    links: [{ label: "Explore sarees and traditional wear", to: "/collections/sarees" }, { label: "Browse all collections", to: "/collections" }, { label: "Plan a visit", to: "/contact" }],
+    cta: "Explore sarees and occasion wear for the whole family at Askaran Binjraj in Dhekiajuli.",
+    links: [{ label: "Explore sarees", to: "/collections/sarees" }, { label: "Browse collections", to: "/collections" }],
+  },
+  {
+    slug: "why-askaran-binjraj-is-one-of-the-best-shopping-malls-in-assam",
+    legacySlug: "why-askaran-binjraj-is-one-of-the-best-shopping-malls-in-assam",
+    title: "Why Askaran Binjraj is One of the Best Shopping Malls in Assam",
+    category: "Our Store",
+    date: "September 2026",
+    image: "/assets/blogs/best-shopping-mall-assam.webp",
+    imageAlt: "Askaran Binjraj shopping destination in Dhekiajuli, Assam",
+    excerpt: "A family shopping destination in Dhekiajuli, bringing fashion, traditional wear and everyday finds together in one place.",
+    intro: "Shopping is about finding variety, quality and comfort in one visit. Askaran Binjraj in Dhekiajuli brings together clothing, traditional wear and lifestyle categories for shoppers from the town and nearby communities.",
+    sections: [
+      { heading: "Fashion for women", body: "Explore sarees, kurtis, festive lehengas and contemporary outfits for everyday dressing and special occasions. The range brings traditional choices and current styles together, so shoppers can find something that suits their own taste." },
+      { heading: "A place for the whole family", body: "Women’s, men’s, kids’ and infant collections sit alongside footwear and fashion accessories. Having different needs under one roof makes it easier for families to plan a single, comfortable shopping visit." },
+      { heading: "Traditional and contemporary choices", body: "From ethnic styles for festivals and weddings to relaxed pieces for daily wear, the collections bring heritage influences and modern fashion together through the seasons." },
+      { heading: "More to discover", body: "Alongside fashion, visitors can explore jewellery, travel gear, home furnishings, kitchen and household essentials, toys and school needs. A vegetarian food break at Chatar Patar adds another reason to enjoy time at the mall." },
+    ],
+    cta: "Visit Askaran Binjraj at NH-15, Ward No. 7, Dhekiajuli, Sonitpur, Assam.",
+    links: [{ label: "Meet the store", to: "/about" }, { label: "Plan your visit", to: "/contact" }, { label: "Explore collections", to: "/collections" }],
+  },
+  {
+    slug: "why-askaran-binjraj-is-dhekiajulis-favourite-family-shopping-destination",
+    legacySlug: "why-askaran-binjraj-is-dhekiajulis-favourite-family-shopping-destination",
+    title: "Why Askaran Binjraj is Dhekiajuli’s Favourite Family Shopping Destination",
+    category: "People & Place",
+    date: "November 2025",
+    image: "/assets/blogs/family-shopping-destination.avif",
+    imageAlt: "A family shopping together at Askaran Binjraj",
+    excerpt: "A welcoming local destination shaped by generations of family retail, personal service and a range for all ages.",
+    intro: "Shopping can be more than choosing what to wear. It is time spent together, finding what each person needs and making memories along the way. Askaran Binjraj has grown into a family shopping destination in Dhekiajuli, shaped by a long-running commitment to service and choice.",
+    sections: [
+      { heading: "A family legacy", body: "The old website describes a retail legacy carried forward by C. M. Bothra and his son Vikram Bothra. Their focus on customer care and a broad choice of products continues to shape the family shopping experience at Askaran Binjraj." },
+      { heading: "Collections for every generation", body: "From infant and children’s essentials to clothing and accessories for adults, families can browse options for different ages in one place. Everyday styles, school needs and festive outfits make it easier to shop for the whole household." },
+      { heading: "Personal attention and easy choices", body: "A helpful team can guide shoppers as they consider fits, styles and fabrics. The aim is to make a visit feel comfortable and useful, whether someone is looking for an everyday favourite or an outfit for a celebration." },
+      { heading: "A food break under one roof", body: "After shopping, visitors can stop at Chatar Patar, the 100% vegetarian quick-service restaurant inside the mall, for a relaxed food break." },
+    ],
+    cta: "Discover family collections and plan a visit to the Dhekiajuli store.",
+    links: [{ label: "Browse collections", to: "/collections" }, { label: "Read our story", to: "/about" }, { label: "Get in touch", to: "/contact" }],
   },
 ];
+
+export const getBlogPost = (slug) => BLOG_POSTS.find((post) => post.slug === slug || post.legacySlug === slug);
