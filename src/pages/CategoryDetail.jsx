@@ -41,7 +41,7 @@ export default function CategoryDetail() {
 
   return (
     <main data-testid={`category-page-${category.slug}`}>
-      <section className="group relative flex h-auto min-h-[360px] items-end overflow-hidden bg-brand-ink py-12 sm:min-h-[400px] lg:h-[52vh] lg:min-h-[380px]">
+      <section data-page-hero="true" className="group relative flex h-auto min-h-[360px] items-end overflow-hidden bg-brand-ink py-12 sm:min-h-[400px] lg:h-[52vh] lg:min-h-[380px]">
         <img src={category.heroImage || category.image} alt={category.name} loading="eager" decoding="async" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/85 via-brand-ink/30 to-brand-ink/10" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-10 sm:px-6 lg:px-12">
@@ -55,7 +55,7 @@ export default function CategoryDetail() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-12">
+      <section id="collection-details" className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-12">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
             {category.tagline && (

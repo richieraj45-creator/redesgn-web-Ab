@@ -102,6 +102,16 @@ export const Navbar = () => {
           className="interior-navbar-links"
           aria-label="Main navigation"
         >
+          <NavLink
+            to="/"
+            onClick={navigateFromMenu}
+            className={({ isActive }) =>
+              `interior-navbar-link ${isActive ? "is-active" : ""}`
+            }
+          >
+            Home
+          </NavLink>
+
           <div
             className="interior-navbar-shop-menu"
             onMouseEnter={() => setShopOpen(true)}
@@ -291,6 +301,17 @@ export const Navbar = () => {
         </details>
 
         <div className="flex flex-col gap-5 py-5 font-serif text-xl">
+          <NavLink
+            to="/"
+            end
+            onClick={navigateFromMenu}
+            className={({ isActive }) =>
+              isActive ? "text-brand-red font-semibold" : "text-brand-ink"
+            }
+          >
+            Home
+          </NavLink>
+
           <NavLink
             to="/collections"
             onClick={navigateFromMenu}

@@ -15,6 +15,12 @@
         <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+        <script>
+            if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+            if (location.pathname === "/" || location.pathname === "/index.html") {
+                window.addEventListener("pageshow", function () { window.scrollTo(0, 0); });
+            }
+        </script>
         <meta name="theme-color" content="#FAFAF8" />
                 <meta name="description" content="Explore fashion, Assam silk, sarees, footwear, beauty, travel and home essentials at Askaran Binjraj in Dhekiajuli, Assam. Visit us or shop online." />
         <link rel="canonical" href="https://askaranbinjraj.com/" />
@@ -148,6 +154,7 @@
                 <div class="sf-header-in">
                     <a href="/" class="sf-logo" data-testid="nav-logo"><img alt="Askaran Binjraj" src="%PUBLIC_URL%/assets/logo-horizontal-transparent.png"></a>
                     <nav class="sf-nav" aria-label="Main navigation">
+                        <a href="/" aria-current="page">Home</a>
                         <div class="sf-menu-wrap" id="sf-shop-menu">
                             <button class="sf-menu-trigger" type="button" aria-expanded="false" aria-controls="sf-mega-menu">Shop <span aria-hidden="true">⌄</span></button>
                             <div class="sf-mega-menu" id="sf-mega-menu">
@@ -169,6 +176,7 @@
                     </div>
                 </div>
                 <nav class="sf-mobile-nav" id="mobile-nav" data-testid="mobile-nav" aria-label="Mobile navigation">
+                    <a href="/" aria-current="page">Home</a>
                     <details><summary>Shop by Category</summary><a href="/collections/womens">Women</a><a href="/collections/mens">Men</a><a href="/collections/girls">Kids</a><a href="/collections/traditional-wear">Ethnic Wear</a><a href="/collections/sarees">Banarasi Sarees</a><a href="/collections/sarees">Assam Silk</a><a href="/collections/travel-gear">Travel Gear</a><a href="/collections/furnishing-decor">Home Furnishing &amp; Decor</a><a href="/collections/home-improvements">Home Improvements · 4th Floor</a><a href="#cosmetics">Cosmetics</a><a href="/collections/jewellery-lifestyle">Fine Jewellery</a></details>
                     <details><summary>Curated Edits</summary><a href="/collections/lehengas">The Wedding Studio</a><a href="/collections/traditional-wear">Festive Ready</a><a href="/collections/womens">Workwear Essentials</a><a href="/collections/travel-gear">Vacation Edit</a></details>
                     <a href="/collections">Collections</a><a href="/about">About Us</a><a href="/careers">Careers</a><a href="/cultures-events">Culture &amp; Events</a><a href="/blogs">Blogs</a><a href="/contact">Contact</a><a href="https://shop.askaranbinjraj.com" target="_blank" rel="noopener noreferrer">Shop Online ↗</a>
@@ -664,6 +672,15 @@
                     window.scrollTo(0, 0);
                     window.__STOREFRONT__ = true;
                     var t = document.getElementById("storefront-template");
+                    var introAlreadyShown = false;
+                    try {
+                        introAlreadyShown = window.sessionStorage.getItem("ab-storefront-intro-shown") === "1";
+                        if (!introAlreadyShown) window.sessionStorage.setItem("ab-storefront-intro-shown", "1");
+                    } catch (e) {}
+                    if (introAlreadyShown && t) {
+                        var returningSplash = t.content.querySelector("#splash");
+                        if (returningSplash) returningSplash.remove();
+                    }
                     document.body.innerHTML = "";
                     document.body.appendChild(t.content.cloneNode(true));
                     document.body.classList.add("storefront");
