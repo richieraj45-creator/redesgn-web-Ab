@@ -6,7 +6,7 @@ import { CATEGORIES } from "../data/siteData";
 export default function Collections() {
   return (
     <main data-testid="collections-page">
-      <section className="border-b border-brand-border">
+      <section data-page-hero="true" className="border-b border-brand-border">
         <div className="mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 md:pt-24 md:pb-16 lg:px-12">
           <Reveal>
             <Breadcrumbs items={[{ label: "Collections" }]} className="mb-8" />

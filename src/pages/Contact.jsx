@@ -54,7 +54,7 @@ export default function Contact() {
 
   return (
     <main data-testid="contact-page">
-      <section className="border-b border-brand-border">
+      <section data-page-hero="true" className="border-b border-brand-border">
         <div className="mx-auto max-w-7xl px-4 pt-16 pb-14 sm:px-6 md:pt-24 lg:px-12">
           <Reveal>
             <Breadcrumbs items={[{ label: "Contact" }]} className="mb-8" />
@@ -69,7 +69,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-12">
+      <section id="contact-details" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-12">
         <Stagger className="grid gap-px border border-brand-border bg-brand-border md:grid-cols-3">
           {INFO_CARDS.map((c) => {
             const Icon = c.icon;

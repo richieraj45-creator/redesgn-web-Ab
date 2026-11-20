@@ -103,7 +103,7 @@ export default function Careers() {
 
   return (
     <main className="min-h-screen bg-brand-paper" data-testid="careers-page">
-      <section className="group relative isolate overflow-hidden bg-brand-ink text-brand-paper">
+      <section data-page-hero="true" className="group relative isolate overflow-hidden bg-brand-ink text-brand-paper">
         <img
           src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=2000"
           alt="Customers exploring a retail store"

@@ -55,6 +55,7 @@ export const Navbar = () => {
         </Link>
 
         <nav className="interior-navbar-links" aria-label="Main navigation">
+          <NavLink to="/" end className="interior-navbar-link">Home</NavLink>
           <div className="interior-navbar-shop-menu" onMouseEnter={() => setShopOpen(true)} onMouseLeave={() => setShopOpen(false)}>
             <button type="button" aria-expanded={shopOpen} onClick={() => setShopOpen((open) => !open)} className="interior-navbar-menu-trigger">
               Shop <ChevronDown className={`h-3.5 w-3.5 transition-transform ${shopOpen ? "rotate-180" : ""}`} />
@@ -78,6 +79,7 @@ export const Navbar = () => {
           <NavLink to="/about" className="interior-navbar-link">About Us</NavLink>
           <NavLink to="/careers" className="interior-navbar-link">Careers</NavLink>
           <NavLink to="/cultures-events" className="interior-navbar-link">Culture & Events</NavLink>
+          <NavLink to="/blogs" className="interior-navbar-link">Blogs</NavLink>
           <NavLink to="/contact" className="interior-navbar-link">Contact</NavLink>
         </nav>
 
@@ -95,7 +97,7 @@ export const Navbar = () => {
         <details className="border-b border-brand-border py-3"><summary className="cursor-pointer font-serif text-lg">Shop by Category</summary><div className="grid grid-cols-2 gap-x-4 py-3"><MenuLinks items={CATEGORIES} onNavigate={closeMobile} /></div></details>
         <details className="border-b border-brand-border py-3"><summary className="cursor-pointer font-serif text-lg">Curated Edits</summary><div className="py-3"><MenuLinks items={EDITS} onNavigate={closeMobile} /></div></details>
         <div className="flex flex-col gap-5 py-5 font-serif text-xl">
-          <Link to="/collections" onClick={closeMobile}>Collections</Link><Link to="/about" onClick={closeMobile}>About Us</Link><Link to="/careers" onClick={closeMobile}>Careers</Link><Link to="/cultures-events" onClick={closeMobile}>Culture & Events</Link><Link to="/contact" onClick={closeMobile}>Contact</Link>
+          <Link to="/" onClick={closeMobile}>Home</Link><Link to="/collections" onClick={closeMobile}>Collections</Link><Link to="/about" onClick={closeMobile}>About Us</Link><Link to="/careers" onClick={closeMobile}>Careers</Link><Link to="/cultures-events" onClick={closeMobile}>Culture & Events</Link><Link to="/blogs" onClick={closeMobile}>Blogs</Link><Link to="/contact" onClick={closeMobile}>Contact</Link>
         </div>
         <a href={CONTACT.phoneMobileHref} className="text-xs uppercase tracking-widest text-brand-mid">Call {CONTACT.phoneMobile}</a>
       </div>

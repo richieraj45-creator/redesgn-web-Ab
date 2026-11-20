@@ -1,1 +1,15 @@
-{ "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
+{
+  "redirects": [
+    { "source": "/about-us", "destination": "/about", "permanent": true },
+    { "source": "/about-us/", "destination": "/about", "permanent": true },
+    { "source": "/blog", "destination": "/blogs", "permanent": true },
+    { "source": "/blog/", "destination": "/blogs", "permanent": true },
+    { "source": "/why-askaran-binjraj-is-one-of-the-best-shopping-malls-in-assam", "destination": "/best-shopping-mall-in-assam/", "permanent": true },
+    { "source": "/why-askaran-binjraj-is-one-of-the-best-shopping-malls-in-assam/", "destination": "/best-shopping-mall-in-assam/", "permanent": true },
+    { "source": "/why-askaran-binjraj-is-dhekiajulis-favourite-family-shopping-destination", "destination": "/blogs/a-family-shopping-destination-in-assam", "permanent": true },
+    { "source": "/why-askaran-binjraj-is-dhekiajulis-favourite-family-shopping-destination/", "destination": "/blogs/a-family-shopping-destination-in-assam", "permanent": true },
+    { "source": "/winter-ethnic-wear-guide-askaran-binjraj", "destination": "/blogs/winter-ethnic-wear-guide-askaran-binjraj", "permanent": true },
+    { "source": "/winter-ethnic-wear-guide-askaran-binjraj/", "destination": "/blogs/winter-ethnic-wear-guide-askaran-binjraj", "permanent": true }
+  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}

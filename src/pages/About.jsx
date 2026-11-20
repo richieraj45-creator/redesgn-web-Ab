@@ -29,7 +29,7 @@ const DEPARTMENTS = [
 export default function About() {
   return (
     <main data-testid="about-page" className="bg-brand-paper">
-      <section className="group relative isolate overflow-hidden bg-brand-ink text-brand-paper">
+      <section data-page-hero="true" className="group relative isolate overflow-hidden bg-brand-ink text-brand-paper">
         <img
           src={MALL_EXTERIOR}
           alt="Askaran Binjraj shopping destination in Dhekiajuli"
@@ -69,7 +69,7 @@ export default function About() {
         </Stagger>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12 lg:px-12">
+      <section id="journey" className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12 lg:px-12">
         <Reveal className="lg:col-span-5">
           <p className="eyebrow">The journey</p>
           <h2 className="mt-4 font-serif text-3xl font-medium leading-tight tracking-tight sm:text-4xl lg:text-5xl">
@@ -87,6 +87,27 @@ export default function About() {
             More to love. All under one roof.
           </p>
         </Reveal>
+      </section>
+
+      <section className="border-y border-brand-border bg-brand-alt" data-testid="about-testimonials">
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-20 lg:px-12">
+          <Reveal className="mb-9 max-w-2xl"><p className="eyebrow">From our customers</p><h2 className="mt-4 font-serif text-3xl font-medium sm:text-4xl">A familiar place, remembered.</h2><p className="mt-4 text-sm leading-relaxed text-brand-mid">These customer comments are carried over from the legacy About Us page.</p></Reveal>
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              { quote: "Been going to this store since it was smaller, back before the mall came up. Good to see them grow but the service is still the same — they remember regular customers, which you don’t get in the bigger city malls.", name: "Ranjit Das" },
+              { quote: "Great quality at reasonable prices. Their men’s collection is stylish and comfortable. Highly recommend Askaran Binjraj for anyone looking for fashionable and durable clothing.", name: "Jagat Kumar" },
+              { quote: "Bought my daughter’s Bihu outfit here last month, and honestly the quality surprised me at that price. The lady at the counter also helped me pick sizes without any pushiness. Will be back for Durga Puja shopping.", name: "Priya Baruah" },
+            ].map((review) => <blockquote key={review.name} className="flex h-full flex-col border border-brand-border bg-white/70 p-6 sm:p-7"><span className="font-serif text-3xl text-brand-red" aria-hidden="true">“</span><p className="flex-1 text-sm leading-relaxed text-brand-mid">{review.quote}</p><footer className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-brand-ink">{review.name}</footer></blockquote>)}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3"><Link to="/blogs" className="inline-flex items-center gap-2 bg-brand-red px-5 py-3 text-xs font-bold uppercase tracking-wider text-white">Read our stories <ArrowUpRight size={15} /></Link><Link to="/contact" className="inline-flex items-center gap-2 border border-brand-ink px-5 py-3 text-xs font-bold uppercase tracking-wider text-brand-ink">Plan your visit <ArrowRight size={15} /></Link></div>
+        </div>
+      </section>
+
+      <section className="border-y border-brand-border bg-brand-paper" aria-label="Shopping destination in Assam">
+        <div className="mx-auto grid max-w-7xl gap-6 px-5 py-12 sm:px-8 md:grid-cols-12 md:items-center md:py-16 lg:px-12">
+          <div className="md:col-span-8"><p className="eyebrow">A destination for Assam</p><h2 className="mt-4 font-serif text-3xl font-medium sm:text-4xl">A favourite place to shop in Sonitpur.</h2><p className="mt-4 max-w-3xl text-sm leading-relaxed text-brand-mid">Families from Dhekiajuli, Sonitpur and nearby communities visit Askaran Binjraj for quality, variety and a comfortable shopping experience. Fashion, traditional and occasion wear, home essentials and more come together in one welcoming destination.</p></div>
+          <div className="flex flex-wrap gap-3 md:col-span-4 md:justify-end"><Link to="/best-shopping-mall-in-assam/" className="inline-flex items-center gap-2 border border-brand-ink px-5 py-3 text-xs font-bold uppercase tracking-wider">Shopping in Assam <ArrowRight size={14} /></Link><Link to="/collections" className="inline-flex items-center gap-2 bg-brand-red px-5 py-3 text-xs font-bold uppercase tracking-wider text-white">Explore collections <ArrowRight size={14} /></Link></div>
+        </div>
       </section>
 
       <section className="border-y border-brand-border bg-white">
@@ -146,10 +167,10 @@ export default function About() {
             <p className="eyebrow-light">A tasty pause in your visit</p>
             <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">Chatar Patar <span className="italic text-brand-gold">by AB Foods.</span></h2>
             <p className="mt-5 text-sm leading-relaxed text-white/75 sm:text-base">
-              Make room for a food break while you shop. Chatar Patar is a vegetarian quick-service restaurant in the mall, offering visitors a relaxed place to pause.
+              Enjoy pure vegetarian dining and food-break offerings inside the mall at Chatar Patar.
             </p>
             <p className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-gold">
-              <Utensils className="h-4 w-4" aria-hidden="true" /> Vegetarian dining · Dhekiajuli
+              <Utensils className="h-4 w-4" aria-hidden="true" /> Pure vegetarian dining · Dhekiajuli
             </p>
           </Reveal>
           <Stagger className="grid grid-cols-2 gap-3 sm:gap-4 lg:col-span-7">
@@ -172,6 +193,12 @@ export default function About() {
               </StaggerItem>
             ))}
           </Stagger>
+        </div>
+      </section>
+
+      <section className="border-t border-brand-border bg-white" aria-label="Image sources">
+        <div className="mx-auto max-w-7xl px-5 py-6 sm:px-8 lg:px-12">
+          <details className="text-xs text-brand-muted"><summary className="cursor-pointer">Image sources</summary><p className="mt-3 max-w-4xl leading-relaxed">Assam Muga Silk Mekhela Chador by Chiring Chandan, licensed under <a className="underline" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>, resized from the <a className="underline" href="https://commons.wikimedia.org/wiki/File:Assam_Muga_Silk_Mekhela_Chador.jpg" target="_blank" rel="noopener noreferrer">original photograph</a>. Banarasi sari pallu photograph by Ashish Bhatnagar, released into the public domain; see the <a className="underline" href="https://commons.wikimedia.org/wiki/File:Banarasi_sari_pallu_by_ashish4.JPG" target="_blank" rel="noopener noreferrer">source</a>.</p></details>
         </div>
       </section>
 

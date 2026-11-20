@@ -12,6 +12,11 @@ import About from "@/pages/About";
 import Careers from "@/pages/Careers";
 import Contact from "@/pages/Contact";
 import CultureEvents from "@/pages/CultureEvents";
+import Blogs from "@/pages/Blogs";
+import ResourcePage from "@/pages/ResourcePage";
+import BestMall from "@/pages/BestMall";
+import PageSlider from "@/components/PageSlider";
+import PageMetadata from "@/components/PageMetadata";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -57,7 +62,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <ScrollToTop />
+        <PageMetadata />
         <Navbar />
+        <PageSlider />
         <Routes>
           <Route path="/" element={<HomeRedirect />} />
           <Route path="/collections" element={<Collections />} />
@@ -66,6 +73,12 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/cultures-events" element={<CultureEvents />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs/:slug" element={<Blogs />} />
+          <Route path="/faq" element={<ResourcePage type="faq" />} />
+          <Route path="/shipping-policy" element={<ResourcePage type="shipping" />} />
+          <Route path="/exchange-policy" element={<ResourcePage type="exchange" />} />
+          <Route path="/best-shopping-mall-in-assam" element={<BestMall />} />
         </Routes>
         <Footer />
         <WhatsAppFloat />
