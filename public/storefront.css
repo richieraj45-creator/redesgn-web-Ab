@@ -117,6 +117,15 @@ body.storefront button { font-family: var(--sans); cursor: pointer; background: 
 .sf-burger { display: flex; flex-direction: column; gap: 5px; padding: 8px; }
 .sf-burger span { display: block; width: 22px; height: 2px; background: #1b1714; transition: transform 0.3s, opacity 0.3s; }
 @media (min-width: 1024px) { .sf-nav { display: flex; } .sf-burger { display: none; } }
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .sf-header-in { gap: 12px; padding-inline: 24px; }
+  .sf-logo img { max-width: 172px; }
+  .sf-nav { flex-shrink: 0; gap: 13px; white-space: nowrap; }
+  .sf-nav a, .sf-menu-trigger { font-size: .86rem; white-space: nowrap; }
+  .sf-header-actions { gap: 8px; }
+  .sf-header .sf-shop-btn,
+  .sf-header.scrolled .sf-shop-btn { padding: 10px 12px; font-size: .66rem; letter-spacing: .12em; white-space: nowrap; }
+}
 @media (min-width: 761px) and (max-width: 1023px) { .sf-header-in { padding: 0 24px; gap: 12px; } }
 @media (max-width: 760px) { .sf-header-in { height: 64px; padding: 0 14px; gap: 8px; } .sf-header { margin-bottom: -64px; } .sf-logo { height: 48px; } .sf-logo img { height: 48px; } .sf-header .sf-shop-btn { padding: 10px 12px; font-size: .64rem; letter-spacing: .1em; } .sf-header.scrolled { margin-bottom: -56px; } .sf-header.scrolled .sf-header-in { height: 56px; } .sf-header.scrolled .sf-logo { height: 42px; } .sf-header.scrolled .sf-logo img { height: 42px; } .sf-header.scrolled .sf-shop-btn { padding: 8px 10px; font-size: .6rem; } }
 @media (max-width: 400px) { .sf-header-in { padding: 0 10px; gap: 6px; } .sf-logo img { height: 42px; } .sf-header .sf-shop-btn { min-height: 38px; gap: 5px; padding: 8px 7px; font-size: .56rem; letter-spacing: .06em; } .sf-header.scrolled .sf-logo img { height: 38px; } }
